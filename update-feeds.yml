@@ -1,0 +1,43 @@
+# =============================================================================
+# GitHub Actions workflow — the "robot" that keeps the dashboard live.
+# GitHub runs this file automatically. Plain-English translation:
+#   "Every 6 hours (and whenever I click Run manually), start a fresh Linux
+#    machine, install Python + feedparser, run our fetch script, and if
+#    data/events.json changed, commit the new version to the repo."
+# GitHub Pages then serves the updated JSON to everyone viewing the site.
+# =============================================================================
+name: Update event feeds
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # minute 0 of every 6th hour, UTC
+  workflow_dispatch:          # adds a manual "Run workflow" button in the UI
+
+permissions:
+  contents: write             # the robot needs permission to commit
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install feedparser
+
+      - name: Run the fetch script
+        run: python scripts/fetch_feeds.py
+
+      - name: Commit updated data (only if it changed)
+        run: |
+          git config user.name "watchstander-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/events.json
+          git diff --cached --quiet || git commit -m "data: scheduled feed refresh"
+          git push

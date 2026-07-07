@@ -1,0 +1,116 @@
+{
+  "generated_at": "2026-07-07T00:00:00Z",
+  "note": "SAMPLE DATA — all events below are fictional placeholders. This file is overwritten by scripts/fetch_feeds.py once GitHub Actions is enabled.",
+  "events": [
+    {
+      "id": "EV-001", "date": "2026-07-07", "region": "Middle East",
+      "location": "Red Sea / Bab el-Mandeb", "lat": 12.6, "lon": 43.3,
+      "category": "Maritime", "event_type": "Shipping advisory",
+      "source_name": "Sample Maritime Bulletin (fictional)", "source_url": "#",
+      "summary": "Sample event: shipping industry advisory notes elevated transit risk in the southern Red Sea corridor.",
+      "why_it_matters": "Chokepoint disruptions raise insurance and rerouting costs and can pull naval escorts into the region.",
+      "confidence": "Medium", "risk_score": 7,
+      "tags": ["chokepoint", "shipping", "escort-demand"]
+    },
+    {
+      "id": "EV-002", "date": "2026-07-07", "region": "Indo-Pacific",
+      "location": "Taiwan Strait", "lat": 24.5, "lon": 119.5,
+      "category": "Military", "event_type": "Exercise activity",
+      "source_name": "Sample Defense Wire (fictional)", "source_url": "#",
+      "summary": "Sample event: publicly announced military exercise reported near the median line, above seasonal baseline.",
+      "why_it_matters": "Exercise tempo above baseline is a classic open-source indicator; the signal is the deviation from normal.",
+      "confidence": "High", "risk_score": 6,
+      "tags": ["exercise", "baseline-deviation"]
+    },
+    {
+      "id": "EV-003", "date": "2026-07-06", "region": "Europe / Russia-Ukraine",
+      "location": "Black Sea", "lat": 44.0, "lon": 32.0,
+      "category": "Maritime", "event_type": "Port / grain corridor",
+      "source_name": "Sample News Agency (fictional)", "source_url": "#",
+      "summary": "Sample event: public reporting of disruption at a grain-export terminal affecting corridor throughput.",
+      "why_it_matters": "Black Sea export capacity links the war directly to global food prices.",
+      "confidence": "Medium", "risk_score": 5,
+      "tags": ["grain", "ports"]
+    },
+    {
+      "id": "EV-004", "date": "2026-07-06", "region": "Cyber",
+      "location": "Global", "lat": 20.0, "lon": -30.0,
+      "category": "Cyber", "event_type": "Critical-infrastructure incident",
+      "source_name": "Sample CERT Advisory (fictional)", "source_url": "#",
+      "summary": "Sample event: national CERT publishes advisory on intrusion activity affecting utility-sector vendors.",
+      "why_it_matters": "Vendor-level compromises are supply-chain risk: one intrusion cascades to many downstream operators.",
+      "confidence": "High", "risk_score": 6,
+      "tags": ["ICS", "supply-chain"]
+    },
+    {
+      "id": "EV-005", "date": "2026-07-05", "region": "Middle East",
+      "location": "Strait of Hormuz", "lat": 26.6, "lon": 56.3,
+      "category": "Energy", "event_type": "Tanker traffic indicator",
+      "source_name": "Sample Energy Tracker (fictional)", "source_url": "#",
+      "summary": "Sample event: public tanker-tracking data shows a week-over-week dip in Hormuz transits.",
+      "why_it_matters": "Roughly a fifth of global oil transits Hormuz; verified flow changes move markets.",
+      "confidence": "Low", "risk_score": 4,
+      "tags": ["oil", "AIS-data"]
+    },
+    {
+      "id": "EV-006", "date": "2026-07-05", "region": "United States",
+      "location": "Norfolk, VA", "lat": 36.9, "lon": -76.3,
+      "category": "Military", "event_type": "Deployment announcement",
+      "source_name": "Sample Service Release (fictional)", "source_url": "#",
+      "summary": "Sample event: publicly announced carrier strike group deployment with stated theater assignment.",
+      "why_it_matters": "Publicly announced posture changes are deliberate signals; tracking them is core open-source order-of-battle work.",
+      "confidence": "High", "risk_score": 3,
+      "tags": ["posture", "CSG"]
+    },
+    {
+      "id": "EV-007", "date": "2026-07-04", "region": "Indo-Pacific",
+      "location": "South China Sea", "lat": 12.0, "lon": 115.0,
+      "category": "Maritime", "event_type": "Coast guard interaction",
+      "source_name": "Sample Regional Outlet (fictional)", "source_url": "#",
+      "summary": "Sample event: reported close-quarters interaction between coast guard vessels near a disputed feature.",
+      "why_it_matters": "Gray-zone friction below the conflict threshold is where miscalculation risk lives.",
+      "confidence": "Medium", "risk_score": 5,
+      "tags": ["gray-zone", "escalation-risk"]
+    },
+    {
+      "id": "EV-008", "date": "2026-07-04", "region": "Europe / Russia-Ukraine",
+      "location": "Ukraine (energy grid)", "lat": 49.0, "lon": 31.5,
+      "category": "Energy", "event_type": "Infrastructure strike reporting",
+      "source_name": "Sample News Agency (fictional)", "source_url": "#",
+      "summary": "Sample event: public reporting of strikes affecting power-generation capacity ahead of peak demand season.",
+      "why_it_matters": "Energy infrastructure is a recurring campaign target; capacity trends support humanitarian and economic forecasting.",
+      "confidence": "Medium", "risk_score": 6,
+      "tags": ["infrastructure", "grid"]
+    },
+    {
+      "id": "EV-009", "date": "2026-07-03", "region": "Middle East",
+      "location": "Lebanon border area", "lat": 33.3, "lon": 35.5,
+      "category": "Military", "event_type": "Cross-border incident reporting",
+      "source_name": "Sample News Agency (fictional)", "source_url": "#",
+      "summary": "Sample event: public reporting of cross-border fire; details unconfirmed by second source at time of entry.",
+      "why_it_matters": "Single-source kinetic reports are where confidence labeling earns its keep — logged, flagged, watched for corroboration.",
+      "confidence": "Low", "risk_score": 6,
+      "tags": ["single-source", "corroboration-pending"]
+    },
+    {
+      "id": "EV-010", "date": "2026-07-02", "region": "Indo-Pacific",
+      "location": "Semiconductor supply chain", "lat": 23.7, "lon": 120.9,
+      "category": "Economic", "event_type": "Export-control development",
+      "source_name": "Sample Trade Journal (fictional)", "source_url": "#",
+      "summary": "Sample event: reported expansion of export-control rules covering advanced chipmaking tools.",
+      "why_it_matters": "Export controls are the economic front of great-power competition; they shift capability trajectories more than most kinetic events.",
+      "confidence": "High", "risk_score": 4,
+      "tags": ["export-controls", "semiconductors"]
+    },
+    {
+      "id": "EV-011", "date": "2026-07-02", "region": "United States",
+      "location": "Defense industrial base", "lat": 38.9, "lon": -77.0,
+      "category": "Cyber", "event_type": "Sector advisory",
+      "source_name": "Sample CERT Advisory (fictional)", "source_url": "#",
+      "summary": "Sample event: advisory warns of credential-phishing campaign targeting defense-sector suppliers.",
+      "why_it_matters": "The defense industrial base is a persistent espionage target; supplier-tier security is a known weak link.",
+      "confidence": "High", "risk_score": 5,
+      "tags": ["phishing", "DIB"]
+    }
+  ]
+}

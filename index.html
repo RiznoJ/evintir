@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  WATCHSTANDER v2 — Public-Source Strategic Monitor
+  ============================================================================
+  WHAT CHANGED FROM v1 (this is your changelog to learn from):
+    1. Data moved OUT of this file into data/events.json. The dashboard now
+       fetch()es it. Separating data from display is the single biggest
+       architectural upgrade a project can make.
+    2. World map added (Leaflet — a free, open-source mapping library) with
+       one dot per event, colored by risk band.
+    3. A fallback: if events.json can't be loaded (e.g. you double-clicked
+       this file instead of serving it), a small embedded sample renders so
+       the page never appears broken.
+
+  HOW TO RUN LOCALLY:
+    Browsers block fetch() on double-clicked files (a security rule called
+    CORS). Run a tiny local server instead — from the project folder:
+        python -m http.server
+    then open http://localhost:8000 in your browser.
+    On GitHub Pages this problem doesn't exist; it just works.
+
+  TEARDOWN ORDER: script (bottom) -> body skeleton -> CSS.
+  ============================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WATCHSTANDER — Public-Source Strategic Monitor</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Leaflet: open-source map library. CSS + JS from a public CDN. -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <style>
+    :root {
+      --bg: #0E151D; --panel: #151F2A; --panel-2: #1B2836; --line: #26364A;
+      --ink: #D9E2EA; --muted: #7E8FA0; --brass: #C9A44C;
+      --risk-high: #D65A5A; --risk-med: #E0A93E; --risk-low: #55A97A;
+      --unclass: #1D7A3E;
+      --mono: "IBM Plex Mono", monospace;
+      --sans: "IBM Plex Sans", sans-serif;
+      --disp: "Barlow Condensed", sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.5; }
+
+    .banner { background: var(--unclass); color: #fff; font-family: var(--mono); font-size: 12px; font-weight: 600;
+      letter-spacing: .14em; text-align: center; padding: 5px 10px; text-transform: uppercase; }
+
+    header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;
+      padding: 20px 28px 12px; border-bottom: 1px solid var(--line); }
+    .wordmark { font-family: var(--disp); font-weight: 700; font-size: 34px; letter-spacing: .22em; }
+    .wordmark span { color: var(--brass); }
+    .subtitle, .asof { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: .05em; }
+    .asof { color: var(--brass); }
+
+    main { padding: 18px 28px 32px; max-width: 1440px; margin: 0 auto; }
+    .eyebrow { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--brass); margin: 20px 0 10px; }
+
+    /* MAP: Leaflet fills this box. Filtered dimly so tiles match our palette. */
+    #map { height: 380px; border: 1px solid var(--line); background: #0a1017; }
+    .leaflet-container { font-family: var(--mono); }
+    .leaflet-popup-content-wrapper, .leaflet-popup-tip { background: var(--panel); color: var(--ink); }
+    .leaflet-popup-content { font-family: var(--sans); font-size: 13px; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(185px, 1fr)); gap: 12px; }
+    .card { background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--muted); padding: 12px 14px; }
+    .card .region { font-family: var(--disp); font-weight: 600; font-size: 17px; letter-spacing: .06em; text-transform: uppercase; }
+    .card .level { font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: .1em; margin-top: 2px; }
+    .card .meta { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-top: 8px; }
+    .r-high { color: var(--risk-high); } .r-med { color: var(--risk-med); } .r-low { color: var(--risk-low); }
+    .b-high { border-left-color: var(--risk-high) !important; }
+    .b-med  { border-left-color: var(--risk-med)  !important; }
+    .b-low  { border-left-color: var(--risk-low)  !important; }
+
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { font-family: var(--mono); font-size: 12px; letter-spacing: .05em; color: var(--muted);
+      background: transparent; border: 1px solid var(--line); padding: 5px 12px; cursor: pointer; }
+    .chip:hover { color: var(--ink); border-color: var(--muted); }
+    .chip.active { color: var(--bg); background: var(--brass); border-color: var(--brass); font-weight: 600; }
+    .chip:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+
+    .columns { display: grid; grid-template-columns: 1fr 340px; gap: 20px; align-items: start; }
+    table { width: 100%; border-collapse: collapse; font-family: var(--mono); font-size: 13px; }
+    thead th { text-align: left; font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--muted); border-bottom: 1px solid var(--line); padding: 8px 10px; }
+    tbody tr.row { border-bottom: 1px solid var(--line); cursor: pointer; }
+    tbody tr.row:hover { background: var(--panel-2); }
+    tbody td { padding: 10px; vertical-align: top; }
+    .pm { color: var(--muted); } .score { font-weight: 600; } .conf { font-size: 11px; letter-spacing: .06em; }
+    tr.detail { display: none; background: var(--panel); }
+    tr.detail.open { display: table-row; }
+    tr.detail td { font-family: var(--sans); font-size: 13.5px; border-bottom: 1px solid var(--line); padding: 12px 14px 16px; }
+    .detail-label { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--brass); margin: 10px 0 2px; }
+    .detail .src { color: var(--muted); font-family: var(--mono); font-size: 12px; word-break: break-all; }
+    .detail a { color: var(--brass); }
+    .tag { display: inline-block; font-family: var(--mono); font-size: 11px; color: var(--muted);
+      border: 1px solid var(--line); padding: 1px 8px; margin: 10px 6px 0 0; }
+
+    .brief { background: var(--panel); border: 1px solid var(--line); border-top: 3px solid var(--brass);
+      padding: 16px 18px 20px; position: sticky; top: 16px; }
+    .brief h2 { font-family: var(--disp); font-size: 20px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+    .brief .stamp { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-bottom: 12px; }
+    .brief h3 { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--brass); margin: 16px 0 6px; }
+    .brief p, .brief li { font-size: 13.5px; }
+    .brief ul { list-style: none; }
+    .brief li { padding: 4px 0 4px 14px; position: relative; }
+    .brief li::before { content: "▸"; position: absolute; left: 0; color: var(--brass); }
+    .brief .limits { color: var(--muted); font-size: 12.5px; }
+
+    .credits { text-align: center; font-family: var(--mono); font-size: 11px; color: var(--muted); padding: 24px 10px 10px; }
+
+    @media (max-width: 900px) {
+      .columns { grid-template-columns: 1fr; }
+      .brief { position: static; }
+      header { padding: 16px; } main { padding: 12px 16px 28px; }
+      #map { height: 280px; }
+      .hide-sm { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  </style>
+</head>
+
+<body>
+  <div class="banner">Unclassified&nbsp;//&nbsp;Public Sources Only</div>
+
+  <header>
+    <div>
+      <div class="wordmark"><span>W</span>ATCHSTANDER</div>
+      <div class="subtitle">Public-source strategic monitor · personal learning &amp; portfolio project</div>
+    </div>
+    <div class="asof" id="asof">LOADING…</div>
+  </header>
+
+  <main>
+    <div class="eyebrow">Situation Map — one marker per event, colored by risk band</div>
+    <div id="map" role="img" aria-label="World map of tracked events"></div>
+
+    <div class="eyebrow">Regional Risk Posture — computed from event data</div>
+    <div class="cards" id="cards"></div>
+
+    <div class="eyebrow">Filters</div>
+    <div class="filters" id="filters" role="toolbar" aria-label="Event filters"></div>
+
+    <div class="columns">
+      <section>
+        <div class="eyebrow">Event Feed <span id="count" style="color:var(--muted)"></span></div>
+        <table aria-label="Event feed">
+          <thead><tr>
+            <th>Date</th><th>Region</th><th class="hide-sm">Category</th>
+            <th>Event</th><th>Risk</th><th class="hide-sm">Conf</th>
+          </tr></thead>
+          <tbody id="feed"></tbody>
+        </table>
+      </section>
+      <aside class="brief" id="brief" aria-label="Analyst brief"></aside>
+    </div>
+
+    <div class="credits">
+      Personal learning &amp; portfolio project · public, unclassified sources only ·
+      auto-ingested items are marked Unverified until reviewed ·
+      inspired by open-source world-monitor dashboards (see README credits)
+    </div>
+  </main>
+
+  <div class="banner">Unclassified&nbsp;//&nbsp;Public Sources Only</div>
+
+  <script>
+    /* ========================================================================
+       PART 1 — DATA LOADING
+       fetch() asks the server for data/events.json (the file our Python
+       pipeline writes). If that fails — e.g. you double-clicked this file —
+       we fall back to a tiny embedded sample so the page still demonstrates.
+       ===================================================================== */
+    const FALLBACK = {
+      generated_at: "sample",
+      events: [
+        { id:"S1", date:"2026-07-07", region:"Middle East", location:"Red Sea", lat:12.6, lon:43.3,
+          category:"Maritime", event_type:"Sample", source_name:"Fallback sample (fictional)", source_url:"#",
+          summary:"Fallback sample: run `python -m http.server` (or view on GitHub Pages) to load live data.",
+          why_it_matters:"You are seeing embedded fallback data because data/events.json could not be fetched.",
+          confidence:"Sample", risk_score:5, tags:["fallback"] },
+        { id:"S2", date:"2026-07-07", region:"Indo-Pacific", location:"Taiwan Strait", lat:24.5, lon:119.5,
+          category:"Military", event_type:"Sample", source_name:"Fallback sample (fictional)", source_url:"#",
+          summary:"Fallback sample: second demo event so the map and cards render.",
+          why_it_matters:"Demo only.", confidence:"Sample", risk_score:3, tags:["fallback"] }
+      ]
+    };
+
+    const state = { region: "All", category: "All", openId: null };
+    let DATA = null;   // filled by loadData()
+    let map, markerLayer;
+
+    function riskBand(s) {
+      if (s >= 7) return { cls: "high", label: "HIGH",    color: "#D65A5A" };
+      if (s >= 4) return { cls: "med",  label: "ELEVATED", color: "#E0A93E" };
+      return { cls: "low", label: "GUARDED", color: "#55A97A" };
+    }
+    const filtered = () => DATA.events.filter(e =>
+      (state.region === "All" || e.region === state.region) &&
+      (state.category === "All" || e.category === state.category));
+
+    /* ========================================================================
+       PART 2 — MAP (Leaflet)
+       initMap runs once; renderMap redraws markers whenever filters change.
+       Tiles come from CARTO's free dark basemap (attribution is required
+       and included — using free services correctly is part of the skill).
+       ===================================================================== */
+    function initMap() {
+      map = L.map("map", { worldCopyJump: true, zoomControl: true })
+             .setView([25, 30], 2);
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+        attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+        maxZoom: 8, minZoom: 2
+      }).addTo(map);
+      markerLayer = L.layerGroup().addTo(map);
+    }
+
+    function renderMap() {
+      markerLayer.clearLayers();
+      filtered().forEach(e => {
+        const band = riskBand(e.risk_score);
+        L.circleMarker([e.lat, e.lon], {
+          radius: 4 + e.risk_score * 0.7,      // bigger dot = higher risk
+          color: band.color, fillColor: band.color,
+          fillOpacity: 0.55, weight: 1
+        })
+        .bindPopup(`<b>${e.region}</b> · ${e.category} · risk ${e.risk_score}/10<br>${e.summary}`)
+        .addTo(markerLayer);
+      });
+    }
+
+    /* ========================================================================
+       PART 3 — RENDER FUNCTIONS (same pattern as v1: data -> HTML)
+       ===================================================================== */
+    function renderCards() {
+      const regions = [...new Set(DATA.events.map(e => e.region))];
+      document.getElementById("cards").innerHTML = regions.map(r => {
+        const evts = DATA.events.filter(e => e.region === r);
+        const maxRisk = Math.max(...evts.map(e => e.risk_score));
+        const band = riskBand(maxRisk);
+        return `<div class="card b-${band.cls}">
+            <div class="region">${r}</div>
+            <div class="level r-${band.cls}">${band.label} · ${maxRisk}/10</div>
+            <div class="meta">${evts.length} tracked events</div>
+          </div>`;
+      }).join("");
+    }
+
+    function renderFilters() {
+      const regions = ["All", ...new Set(DATA.events.map(e => e.region))];
+      const cats = ["All", ...new Set(DATA.events.map(e => e.category))];
+      const chip = (v, k, a) =>
+        `<button class="chip ${a ? "active" : ""}" data-kind="${k}" data-val="${v}">${v}</button>`;
+      document.getElementById("filters").innerHTML =
+        regions.map(r => chip(r, "region", state.region === r)).join("") +
+        `<span style="width:14px"></span>` +
+        cats.map(c => chip(c, "category", state.category === c)).join("");
+    }
+
+    function renderTable() {
+      const evts = filtered();
+      document.getElementById("count").textContent = `· ${evts.length} shown`;
+      document.getElementById("feed").innerHTML = evts.map(e => {
+        const band = riskBand(e.risk_score);
+        const open = state.openId === e.id ? "open" : "";
+        const link = e.source_url && e.source_url !== "#"
+          ? `<a href="${e.source_url}" target="_blank" rel="noopener">source link</a> · ` : "";
+        return `
+          <tr class="row" data-id="${e.id}" tabindex="0" aria-expanded="${open ? "true" : "false"}">
+            <td>${e.date.slice(5)}</td><td>${e.region}</td>
+            <td class="hide-sm">${e.category}</td>
+            <td><span class="pm">(U)</span> ${e.summary}</td>
+            <td class="score r-${band.cls}">${e.risk_score}</td>
+            <td class="conf hide-sm">${(e.confidence || "").toUpperCase()}</td>
+          </tr>
+          <tr class="detail ${open}"><td colspan="6">
+            <div class="detail-label">Why it matters</div><div>${e.why_it_matters}</div>
+            <div class="detail-label">Source &amp; confidence</div>
+            <div class="src">${link}${e.source_name} · confidence: ${e.confidence} · ${e.location} · ${e.event_type}</div>
+            <div>${(e.tags || []).map(t => `<span class="tag">${t}</span>`).join("")}</div>
+          </td></tr>`;
+      }).join("");
+    }
+
+    function renderBrief() {
+      const evts = filtered().slice().sort((a, b) => b.risk_score - a.risk_score);
+      const top = evts.slice(0, 3);
+      const scope = state.region === "All" ? "all regions" : state.region;
+      const unverified = evts.filter(e => e.confidence === "Unverified").length;
+      document.getElementById("brief").innerHTML = `
+        <h2>Analyst Brief</h2>
+        <div class="stamp">(U) Scope: ${scope} · ${evts.length} events · data generated ${DATA.generated_at}</div>
+        <h3>Executive summary</h3>
+        <p>(U) Tracked activity spans ${new Set(evts.map(e => e.category)).size} categories.
+           Highest-risk items concentrate in ${top[0] ? top[0].region : "—"}.
+           ${unverified} of ${evts.length} items are machine-ingested and not yet human-reviewed.</p>
+        <h3>Key developments</h3>
+        <ul>${top.map(e => `<li>${e.summary}
+            <span class="conf r-${riskBand(e.risk_score).cls}">[${e.risk_score}/10]</span></li>`).join("")}</ul>
+        <h3>What to watch</h3>
+        <ul><li>Corroboration of unverified items</li>
+            <li>Deviation from activity baselines, not single events</li>
+            <li>Chokepoint indicators with economic transmission</li></ul>
+        <h3>Limitations</h3>
+        <p class="limits">(U) Auto-classification uses keyword rules and mislabels some items.
+           Risk scores are a placeholder rubric, not a validated model.
+           Map positions are region centroids, not precise event locations.
+           Public sources only; no claim of completeness.</p>`;
+    }
+
+    function renderAll() { renderCards(); renderFilters(); renderTable(); renderBrief(); renderMap(); }
+
+    /* ========================================================================
+       PART 4 — WIRING (user input -> state change -> re-render)
+       ===================================================================== */
+    document.getElementById("filters").addEventListener("click", ev => {
+      const btn = ev.target.closest(".chip");
+      if (!btn) return;
+      state[btn.dataset.kind] = btn.dataset.val;
+      state.openId = null;
+      renderAll();
+    });
+    function toggleRow(ev) {
+      const row = ev.target.closest("tr.row");
+      if (!row || ev.target.closest("a")) return;
+      if (ev.type === "keydown" && ev.key !== "Enter") return;
+      state.openId = state.openId === row.dataset.id ? null : row.dataset.id;
+      renderTable();
+    }
+    document.getElementById("feed").addEventListener("click", toggleRow);
+    document.getElementById("feed").addEventListener("keydown", toggleRow);
+
+    /* ========================================================================
+       PART 5 — BOOT: try real data, fall back gracefully, then render.
+       ===================================================================== */
+    async function boot() {
+      initMap();
+      try {
+        const res = await fetch("data/events.json", { cache: "no-store" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        DATA = await res.json();
+      } catch (err) {
+        console.warn("Could not load data/events.json — using fallback.", err);
+        DATA = FALLBACK;
+      }
+      document.getElementById("asof").textContent =
+        "AS OF " + (DATA.generated_at || "sample data");
+      renderAll();
+    }
+    boot();
+  </script>
+</body>
+</html>

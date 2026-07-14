@@ -36,6 +36,17 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
+  <!-- Leaflet.markercluster: groups overlapping markers into one bubble with a count,
+       so events that share a region centroid (many do — see events.json note) don't
+       just stack invisibly on top of each other. -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+  <!-- Shared country table (COUNTRIES) + helpers. Single source of truth,
+       also used by analyst.html. Loads before the inline script at page bottom. -->
+  <script src="countries.js"></script>
+
   <style>
     :root {
       --bg: #0E151D; --panel: #151F2A; --panel-2: #1B2836; --line: #26364A;
@@ -59,15 +70,84 @@
     .subtitle, .asof { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: .05em; }
     .asof { color: var(--brass); }
 
+    nav.tabs { display: flex; gap: 2px; padding: 0 28px; border-bottom: 1px solid var(--line); background: var(--panel); }
+    nav.tabs a { font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none; padding: 12px 18px; border-bottom: 2px solid transparent; }
+    nav.tabs a:hover { color: var(--ink); }
+    nav.tabs a.active { color: var(--brass); border-bottom-color: var(--brass); }
+    @media (max-width: 900px) { nav.tabs { padding: 0 16px; } }
+
     main { padding: 18px 28px 32px; max-width: 1440px; margin: 0 auto; }
     .eyebrow { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .18em;
       text-transform: uppercase; color: var(--brass); margin: 20px 0 10px; }
 
     /* MAP: Leaflet fills this box. Filtered dimly so tiles match our palette. */
-    #map { height: 380px; border: 1px solid var(--line); background: #0a1017; }
-    .leaflet-container { font-family: var(--mono); }
+    #map { height: 380px; border: 1px solid var(--line); background: #0a1017; position: relative; }
+    .leaflet-container { font-family: var(--mono); background: #0a1017; }
     .leaflet-popup-content-wrapper, .leaflet-popup-tip { background: var(--panel); color: var(--ink); }
     .leaflet-popup-content { font-family: var(--sans); font-size: 13px; }
+    .leaflet-tooltip { background: var(--panel); color: var(--ink); border: 1px solid var(--line);
+      font-family: var(--mono); font-size: 11px; padding: 4px 8px; }
+    .leaflet-tooltip-top:before { border-top-color: var(--line); }
+
+    /* Cluster bubbles — recolored from the plugin's default blue/green/orange
+       to match our palette. Number = how many events are stacked at that point. */
+    .marker-cluster-small, .marker-cluster-medium, .marker-cluster-large {
+      background: rgba(201, 164, 76, 0.25);
+    }
+    .marker-cluster-small div, .marker-cluster-medium div, .marker-cluster-large div {
+      background: var(--brass); color: var(--bg); font-family: var(--mono); font-weight: 600;
+    }
+
+    /* Legend: fixed box in the map's bottom-left corner. */
+    .map-legend { position: absolute; left: 8px; bottom: 8px; z-index: 500;
+      background: rgba(21, 31, 42, 0.92); border: 1px solid var(--line); padding: 8px 10px;
+      font-family: var(--mono); font-size: 10.5px; color: var(--muted); line-height: 1.9; }
+    .map-legend .row { display: flex; align-items: center; gap: 6px; }
+    .map-legend .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+    .map-legend .dia { width: 8px; height: 8px; background: var(--brass); transform: rotate(45deg);
+      display: inline-block; flex-shrink: 0; }
+    .map-legend hr { border: none; border-top: 1px solid var(--line); margin: 4px 0; }
+
+    /* Pulse ring: an animated CSS halo dropped on top of HIGH-risk markers only,
+       so the most important events visually stand out from the rest of the map. */
+    .pulse-icon { position: relative; width: 1px; height: 1px; }
+    .pulse-icon::before { content: ""; position: absolute; top: 50%; left: 50%; width: 16px; height: 16px;
+      margin: -8px 0 0 -8px; border-radius: 50%; background: var(--risk-high);
+      opacity: 0.65; animation: pulse-ring 1.8s ease-out infinite; }
+    @keyframes pulse-ring {
+      0%   { transform: scale(0.5); opacity: 0.6; }
+      100% { transform: scale(2.6); opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) { .pulse-icon::before { animation: none; } }
+
+    /* Country badge markers (Task 6): a coat-of-arms inside a double ring,
+       colored by the risk band of that country's matched events. Rendered as
+       its own layer, only for countries that have at least one analyst note. */
+    .cmark { width: 38px; height: 38px; border-radius: 50%; background: var(--panel);
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+      border: 2px solid var(--muted); box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--muted); }
+    .cmark img { width: 72%; height: 72%; object-fit: contain; }
+    .cmark.noimg::after { content: attr(data-ini); font-family: var(--mono); font-weight: 600;
+      font-size: 14px; color: var(--ink); }
+
+    /* Two-tab popup (News / Analyst) shown when a country badge is clicked. */
+    .country-popup { min-width: 210px; }
+    .cp-head { font-family: var(--disp); font-weight: 600; font-size: 18px; letter-spacing: .05em;
+      color: var(--ink); margin-bottom: 6px; }
+    .cp-tabs { display: flex; gap: 2px; border-bottom: 1px solid var(--line); margin-bottom: 8px; }
+    .cp-tab { font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; background: transparent; color: var(--muted); border: none;
+      border-bottom: 2px solid transparent; padding: 5px 10px; cursor: pointer; }
+    .cp-tab.active { color: var(--brass); border-bottom-color: var(--brass); }
+    .cp-panel { display: none; }
+    .cp-panel.active { display: block; }
+    .cp-item { font-size: 12.5px; padding: 5px 0; border-bottom: 1px solid var(--line); }
+    .cp-item:last-child { border-bottom: none; }
+    .cp-date { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-right: 4px; }
+    .cp-item a { color: var(--brass); text-decoration: none; }
+    .cp-item a:hover { text-decoration: underline; }
+    .cp-empty { font-size: 12px; color: var(--muted); font-style: italic; padding: 6px 0; }
 
     .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(185px, 1fr)); gap: 12px; }
     .card { background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--muted); padding: 12px 14px; }
@@ -140,9 +220,25 @@
     <div class="asof" id="asof">LOADING…</div>
   </header>
 
+  <nav class="tabs">
+    <a href="index.html" class="active">Situation Map</a>
+    <a href="analyst.html">Analyst</a>
+  </nav>
+
   <main>
     <div class="eyebrow">Situation Map — one marker per event, colored by risk band</div>
-    <div id="map" role="img" aria-label="World map of tracked events"></div>
+    <div id="map" role="img" aria-label="World map of tracked events">
+      <div class="map-legend">
+        <div class="row"><span class="dot" style="background:var(--risk-high)"></span> High risk (7–10)</div>
+        <div class="row"><span class="dot" style="background:var(--risk-med)"></span> Elevated (4–6)</div>
+        <div class="row"><span class="dot" style="background:var(--risk-low)"></span> Guarded (0–3)</div>
+        <div>Dot size = risk score</div>
+        <hr>
+        <div class="row"><span class="dia"></span> Maritime chokepoint</div>
+        <div>Numbered circles = clustered events</div>
+        <div>Coat-of-arms = country with analyst notes</div>
+      </div>
+    </div>
 
     <div class="eyebrow">Regional Risk Posture — computed from event data</div>
     <div class="cards" id="cards"></div>
@@ -197,7 +293,8 @@
 
     const state = { region: "All", category: "All", openId: null };
     let DATA = null;   // filled by loadData()
-    let map, markerLayer;
+    let NOTES = [];    // analyst posts from data/notes.json (drives country badges)
+    let map, markerLayer, countryLayer, territoryLayer;
 
     function riskBand(s) {
       if (s >= 7) return { cls: "high", label: "HIGH",    color: "#D65A5A" };
@@ -214,6 +311,17 @@
        Tiles come from CARTO's free dark basemap (attribution is required
        and included — using free services correctly is part of the skill).
        ===================================================================== */
+    // Fixed reference points — these don't come from events.json, they're always
+    // on the map so you have geographic anchors for chokepoint-related events.
+    const CHOKEPOINTS = [
+      { name: "Strait of Hormuz",  lat: 26.6, lon: 56.3 },
+      { name: "Bab el-Mandeb",     lat: 12.6, lon: 43.4 },
+      { name: "Suez Canal",        lat: 30.6, lon: 32.3 },
+      { name: "Bosphorus",         lat: 41.1, lon: 29.0 },
+      { name: "Strait of Malacca", lat: 2.5,  lon: 101.4 },
+      { name: "Taiwan Strait",     lat: 24.0, lon: 119.5 }
+    ];
+
     function initMap() {
       map = L.map("map", { worldCopyJump: true, zoomControl: true })
              .setView([25, 30], 2);
@@ -221,20 +329,129 @@
         attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
         maxZoom: 8, minZoom: 2
       }).addTo(map);
-      markerLayer = L.layerGroup().addTo(map);
+
+      // markerClusterGroup replaces the old plain layerGroup: overlapping markers
+      // (many events share a region centroid) collapse into one numbered bubble
+      // until you zoom in far enough to separate them.
+      markerLayer = L.markerClusterGroup({
+        maxClusterRadius: 40,
+        spiderfyOnMaxZoom: true,
+        showCoverageOnHover: false
+      }).addTo(map);
+
+      const chokeLayer = L.layerGroup().addTo(map);
+      CHOKEPOINTS.forEach(c => {
+        L.marker([c.lat, c.lon], {
+          icon: L.divIcon({ className: "", html: '<div style="width:9px;height:9px;background:#C9A44C;transform:rotate(45deg);"></div>',
+                             iconSize: [9, 9] })
+        }).bindTooltip(c.name, { direction: "top" }).addTo(chokeLayer);
+      });
+
+      // territoryLayer added BEFORE the badge layer so the low-opacity circles
+      // sit visually beneath the coat-of-arms badges. Both are populated once
+      // notes.json loads (see renderCountryLayer). Separate from markerLayer
+      // (event dots) and chokeLayer (diamonds), as required.
+      territoryLayer = L.layerGroup().addTo(map);
+      countryLayer   = L.layerGroup().addTo(map);
     }
+
+    /* ========================================================================
+       COUNTRY BADGES ON THE MAP (Task 6)
+       One badge per country that has at least one analyst note, placed at the
+       country's lat/lon, with a large faint "territory" circle behind it and a
+       two-tab (News / Analyst) popup. Ring/circle color = risk band of that
+       country's matched events.
+       ===================================================================== */
+    function renderCountryLayer() {
+      territoryLayer.clearLayers();
+      countryLayer.clearLayers();
+
+      activeCountries(NOTES).forEach(name => {
+        const c = COUNTRIES[name];
+        const band = countryBand(countryMaxRisk(name, DATA.events));
+
+        // Faint territory blob — suggests area without real border geometry.
+        L.circle([c.lat, c.lon], {
+          radius: 500000, color: band.color, weight: 1, opacity: 0.35,
+          fillColor: band.color, fillOpacity: 0.08, interactive: false
+        }).addTo(territoryLayer);
+
+        // Coat-of-arms badge. onerror swaps the <img> for two-letter initials
+        // so a blocked/offline image still shows something sensible.
+        const ini = countryInitials(name);
+        const html =
+          `<div class="cmark" style="border-color:${band.color};box-shadow:0 0 0 2px var(--bg),0 0 0 4px ${band.color};">
+             <img src="${c.coatOfArms}" alt="${name}"
+                  onerror="this.style.display='none';this.parentNode.classList.add('noimg');this.parentNode.setAttribute('data-ini','${ini}');">
+           </div>`;
+        L.marker([c.lat, c.lon], {
+          icon: L.divIcon({ className: "cmark-wrap", html, iconSize: [38, 38], iconAnchor: [19, 19], popupAnchor: [0, -18] })
+        })
+        .bindTooltip(`${name} · ${band.label}`, { direction: "top" })
+        .bindPopup(countryPopupHtml(name), { className: "country-popup-wrap", maxWidth: 280 })
+        .addTo(countryLayer);
+      });
+    }
+
+    // Popup body: News tab (up to 3 matched events) + Analyst tab (linked notes).
+    function countryPopupHtml(name) {
+      const c = COUNTRIES[name];
+      const esc = s => String(s).replace(/[&<>"]/g, ch =>
+        ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
+
+      const news = DATA.events.filter(e => e.region === c.matchRegion).slice(0, 3);
+      const newsHtml = news.length
+        ? news.map(e => `<div class="cp-item"><span class="cp-date">${esc(e.date)}</span>${esc(e.summary)}</div>`).join("")
+        : `<div class="cp-empty">No events tagged “${esc(c.matchRegion)}” in the current feed.</div>`;
+
+      const posts = NOTES.filter(p => p.country === name);
+      const postHtml = posts.length
+        ? posts.map(p => `<div class="cp-item"><a href="analyst.html#post-${esc(p.id)}">${esc(p.title)}</a></div>`).join("")
+        : `<div class="cp-empty">No analyst notes for ${esc(name)} yet.</div>`;
+
+      return `<div class="country-popup">
+          <div class="cp-head">${esc(name)}</div>
+          <div class="cp-tabs">
+            <button class="cp-tab active" onclick="cpTab(this,'news')">News</button>
+            <button class="cp-tab" onclick="cpTab(this,'analyst')">Analyst</button>
+          </div>
+          <div class="cp-panel cp-news active">${newsHtml}</div>
+          <div class="cp-panel cp-analyst">${postHtml}</div>
+        </div>`;
+    }
+
+    // Global so the popup's inline onclick can reach it. Toggles tabs within
+    // the one popup that was clicked (scoped via closest()).
+    window.cpTab = function (btn, which) {
+      const root = btn.closest(".country-popup");
+      root.querySelectorAll(".cp-tab").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      root.querySelector(".cp-news").classList.toggle("active", which === "news");
+      root.querySelector(".cp-analyst").classList.toggle("active", which === "analyst");
+    };
 
     function renderMap() {
       markerLayer.clearLayers();
       filtered().forEach(e => {
         const band = riskBand(e.risk_score);
-        L.circleMarker([e.lat, e.lon], {
+        const marker = L.circleMarker([e.lat, e.lon], {
           radius: 4 + e.risk_score * 0.7,      // bigger dot = higher risk
           color: band.color, fillColor: band.color,
           fillOpacity: 0.55, weight: 1
         })
-        .bindPopup(`<b>${e.region}</b> · ${e.category} · risk ${e.risk_score}/10<br>${e.summary}`)
-        .addTo(markerLayer);
+        .bindTooltip(`${e.region} · risk ${e.risk_score}/10`, { direction: "top", sticky: true })
+        .bindPopup(`<b>${e.region}</b> · ${e.category} · risk ${e.risk_score}/10<br>${e.summary}`);
+        markerLayer.addLayer(marker);
+
+        // High-risk events additionally get a pulsing halo marker layered on top,
+        // purely visual — a divIcon with no interaction of its own.
+        if (band.cls === "high") {
+          const pulse = L.marker([e.lat, e.lon], {
+            icon: L.divIcon({ className: "pulse-icon", html: "", iconSize: [1, 1] }),
+            interactive: false
+          });
+          markerLayer.addLayer(pulse);
+        }
       });
     }
 
@@ -342,6 +559,9 @@
     /* ========================================================================
        PART 5 — BOOT: try real data, fall back gracefully, then render.
        ===================================================================== */
+    // Minimal offline sample so the country layer still demos when double-clicked.
+    const NOTES_FALLBACK = [{ id: "p1", country: "Iran", title: "Placeholder: Why chokepoint disruptions rarely stay regional" }];
+
     async function boot() {
       initMap();
       try {
@@ -352,9 +572,21 @@
         console.warn("Could not load data/events.json — using fallback.", err);
         DATA = FALLBACK;
       }
+      // Notes drive the country badges. Failure here is non-fatal: the rest of
+      // the dashboard still works, we just fall back to the embedded sample.
+      try {
+        const res = await fetch("data/notes.json", { cache: "no-store" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const j = await res.json();
+        NOTES = Array.isArray(j) ? j : (j.posts || []);
+      } catch (err) {
+        console.warn("Could not load data/notes.json — using fallback.", err);
+        NOTES = NOTES_FALLBACK;
+      }
       document.getElementById("asof").textContent =
         "AS OF " + (DATA.generated_at || "sample data");
       renderAll();
+      renderCountryLayer();   // country badges are independent of the event filters
     }
     boot();
   </script>

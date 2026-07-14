@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  ANALYST NOTES — personal, human-written assessments
+  ============================================================================
+  WHAT THIS PAGE IS:
+    The dashboard (index.html) shows auto-ingested RSS events — machine-picked,
+    unverified until reviewed. This page is the opposite: things YOU actually
+    wrote, thought through, and are willing to put your name on.
+
+  WRITING STANDARD (see project instructions — this is the whole point of the
+  page for a Navy/CWO portfolio):
+    Every post should be able to separate three things:
+      1. SOURCED REPORTING — what public sources actually say (cite them).
+      2. ASSESSMENT — your own read, always with a stated confidence level
+         (High / Medium / Low). This is analysis, not certainty.
+      3. OPEN QUESTION — something you're genuinely unsure about and are
+         flagging for the reader to think about too.
+    No policy advocacy. Non-partisan tone. If a post doesn't cleanly split
+    into some mix of those three, it's not ready to publish yet.
+
+  HOW POSTS ARE STORED RIGHT NOW:
+    Hardcoded in the POSTS array below, on purpose — this is a first draft so
+    Evin can see the shape of the page and react before we lock in a format
+    (Markdown files? JSON? separate HTML pages?). Don't over-build this yet.
+
+  TEARDOWN ORDER: script (bottom) -> body skeleton -> CSS.
+  ============================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analyst Notes — Evintir</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0E151D; --panel: #151F2A; --panel-2: #1B2836; --line: #26364A;
+      --ink: #D9E2EA; --muted: #7E8FA0; --brass: #C9A44C;
+      --conf-high: #55A97A; --conf-med: #E0A93E; --conf-low: #D65A5A;
+      /* Risk-band colors — same hexes as the confidence colors above, but named
+         to match index.html's --risk-* so the country badge rings read as one
+         shared scale across both pages. */
+      --risk-high: #D65A5A; --risk-med: #E0A93E; --risk-low: #55A97A;
+      --unclass: #1D7A3E;
+      --mono: "IBM Plex Mono", monospace;
+      --sans: "IBM Plex Sans", sans-serif;
+      --disp: "Barlow Condensed", sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.5; }
+
+    .banner { background: var(--unclass); color: #fff; font-family: var(--mono); font-size: 12px; font-weight: 600;
+      letter-spacing: .14em; text-align: center; padding: 5px 10px; text-transform: uppercase; }
+
+    header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;
+      padding: 20px 28px 12px; border-bottom: 1px solid var(--line); }
+    .wordmark { font-family: var(--disp); font-weight: 700; font-size: 34px; letter-spacing: .22em; }
+    .wordmark span { color: var(--brass); }
+    .subtitle { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: .05em; }
+
+    nav.tabs { display: flex; gap: 2px; padding: 0 28px; border-bottom: 1px solid var(--line); background: var(--panel); }
+    nav.tabs a { font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none; padding: 12px 18px; border-bottom: 2px solid transparent; }
+    nav.tabs a:hover { color: var(--ink); }
+    nav.tabs a.active { color: var(--brass); border-bottom-color: var(--brass); }
+    @media (max-width: 900px) { nav.tabs { padding: 0 16px; } }
+
+    main { padding: 24px 28px 40px; max-width: 820px; margin: 0 auto; }
+    .intro { font-family: var(--sans); font-size: 13.5px; color: var(--muted); border-left: 3px solid var(--brass);
+      padding: 4px 0 4px 14px; margin-bottom: 28px; }
+
+    .post { background: var(--panel); border: 1px solid var(--line); margin-bottom: 22px; }
+    .post-head { padding: 16px 20px 12px; border-bottom: 1px solid var(--line); }
+    .post-title { font-family: var(--disp); font-size: 22px; font-weight: 600; letter-spacing: .04em; }
+    .post-meta { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: .06em; margin-top: 4px; }
+    .post-body { padding: 16px 20px 20px; }
+
+    .block { margin-bottom: 16px; }
+    .block:last-child { margin-bottom: 0; }
+    .block-label { font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--brass); margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+    .conf-tag { font-size: 10px; padding: 1px 7px; border: 1px solid var(--line); letter-spacing: .08em; }
+    .conf-High { color: var(--conf-high); border-color: var(--conf-high); }
+    .conf-Medium { color: var(--conf-med); border-color: var(--conf-med); }
+    .conf-Low { color: var(--conf-low); border-color: var(--conf-low); }
+    .block p { font-size: 14px; }
+    .block ul { list-style: none; }
+    .block li { padding: 3px 0 3px 14px; position: relative; font-size: 14px; }
+    .block li::before { content: "▸"; position: absolute; left: 0; color: var(--muted); }
+    .sources { font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
+    .sources a { color: var(--brass); }
+
+    /* ---- Country badges (Task 4/5) --------------------------------------
+       A row of coat-of-arms badges above the feed. Only countries that have
+       at least one post are ever rendered (see activeCountries()). Clicking a
+       badge filters the feed; "All notes" clears it. Ring color = risk band
+       of that country's matched events. */
+    .country-strip { margin-bottom: 26px; }
+    .country-strip .cs-label { font-family: var(--mono); font-size: 10.5px; font-weight: 600;
+      letter-spacing: .16em; text-transform: uppercase; color: var(--brass); margin-bottom: 10px; }
+    .country-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-start; }
+    .cbadge { background: transparent; border: none; cursor: pointer; padding: 4px 2px;
+      display: flex; flex-direction: column; align-items: center; gap: 7px; width: 78px; }
+    .cbadge .ring { width: 52px; height: 52px; border-radius: 50%; background: var(--panel-2);
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+      /* double ring: solid border + a gap (bg color) + an outer ring via box-shadow */
+      border: 2px solid var(--muted); box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--muted);
+      transition: transform .12s ease; }
+    .cbadge:hover .ring { transform: scale(1.06); }
+    .cbadge .ring img { width: 70%; height: 70%; object-fit: contain; }
+    .cbadge .ring .ini { font-family: var(--mono); font-weight: 600; font-size: 16px; color: var(--ink); }
+    .cbadge.ring-high .ring { border-color: var(--risk-high); box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--risk-high); }
+    .cbadge.ring-med  .ring { border-color: var(--risk-med);  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--risk-med); }
+    .cbadge.ring-low  .ring { border-color: var(--risk-low);  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--risk-low); }
+    .cbadge .cname { font-family: var(--sans); font-variant: small-caps; font-weight: 600;
+      font-size: 13px; letter-spacing: .04em; color: var(--muted); text-align: center; line-height: 1.15; }
+    .cbadge:hover .cname { color: var(--ink); }
+    .cbadge.sel .cname { color: var(--brass); }
+    .cbadge.sel .ring { outline: 2px solid var(--brass); outline-offset: 3px; }
+    /* "All notes" clear-filter badge — neutral, no coat of arms */
+    .cbadge.all .ring { border-style: dashed; }
+
+    /* KEY DEVELOPMENT-style tag (Task 4): solid brass, black bold uppercase. */
+    .keytag { display: inline-block; font-family: var(--mono); font-size: 9.5px; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase; background: var(--brass); color: #0E151D;
+      padding: 2px 8px; margin-bottom: 7px; }
+    /* Highlight the single most important phrase inside a headline in brass. */
+    .post-title .key { color: var(--brass); }
+
+    .no-posts { font-family: var(--mono); font-size: 12.5px; color: var(--muted); padding: 20px 0; }
+
+    .credits { text-align: center; font-family: var(--mono); font-size: 11px; color: var(--muted); padding: 24px 10px 10px; }
+  </style>
+</head>
+
+<body>
+  <div class="banner">Unclassified&nbsp;//&nbsp;Public Sources Only</div>
+
+  <header>
+    <div>
+      <div class="wordmark"><span>E</span>vintir</div>
+      <div class="subtitle">Analyst Notes · personal assessments, not auto-ingested headlines</div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <a href="index.html">Situation Map</a>
+    <a href="analyst.html" class="active">Analyst</a>
+  </nav>
+
+  <main>
+    <div class="intro">
+      (U) Everything on this page is written by me, not scraped from RSS feeds. Each entry
+      separates what sources report, what I assess (with a confidence level), and open
+      questions I don't have an answer to yet. That structure is deliberate — it's the same
+      discipline the dashboard's auto-generated brief tries to approximate, done properly.
+    </div>
+
+    <!-- Country badges (rendered only for countries that actually have posts).
+         Hidden until at least one badge exists, so an empty row never shows. -->
+    <div class="country-strip" id="countryStrip" hidden>
+      <div class="cs-label">Filter by country</div>
+      <div class="country-row" id="countryRow"></div>
+    </div>
+
+    <div id="posts"></div>
+
+    <div class="credits">
+      Personal learning &amp; portfolio project · public, unclassified sources only ·
+      analysis reflects my own reading, not an official position of any organization
+    </div>
+  </main>
+
+  <div class="banner">Unclassified&nbsp;//&nbsp;Public Sources Only</div>
+
+  <!-- Shared country table (COUNTRIES) + helpers. Single source of truth,
+       also used by index.html. Must load before the inline script below. -->
+  <script src="countries.js"></script>
+
+  <script>
+    /* ========================================================================
+       DATA — posts now live in data/notes.json (moved out of this file so the
+       feed and its shape stay separate from display, same idea as events.json).
+       We also load data/events.json, but only to color each country badge's
+       ring by the risk of that country's matched events.
+
+       FALLBACK: if a fetch fails — e.g. you double-clicked this file instead of
+       serving it, which browsers block via CORS — a tiny embedded sample keeps
+       the page from looking broken. Run `python -m http.server` for real data.
+       ===================================================================== */
+    const POSTS_FALLBACK = [
+      {
+        id: "p1", country: "Iran",
+        title: "Placeholder: Why chokepoint disruptions rarely stay regional",
+        titleKeyPhrase: "rarely stay regional", tag: "KEY DEVELOPMENT",
+        date: "2026-07-14",
+        reporting: "Fallback sample — serve this page (python -m http.server) to load data/notes.json.",
+        assessment: "Rerouting around a disrupted chokepoint tends to show up in global shipping indices within weeks, not months.",
+        confidence: "Medium",
+        openQuestion: "How much of the current rerouting is precautionary versus a direct response to a specific incident?",
+        sources: [{ label: "gCaptain — maritime industry news", url: "https://gcaptain.com/" }]
+      }
+    ];
+
+    const state = { country: "All" };   // active country filter
+    let POSTS = [];                       // from notes.json
+    let EVENTS = [];                      // from events.json (for ring colors only)
+
+    // Escape user-authored text before dropping it into innerHTML.
+    const esc = s => String(s).replace(/[&<>"]/g, c =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+    // Wrap the single most important phrase in a brass span; rest stays as-is.
+    function renderTitle(title, phrase) {
+      const t = esc(title);
+      if (!phrase) return t;
+      const p = esc(phrase);
+      const i = t.indexOf(p);
+      return i === -1 ? t : t.slice(0, i) + `<span class="key">${p}</span>` + t.slice(i + p.length);
+    }
+
+    const visiblePosts = () =>
+      state.country === "All" ? POSTS : POSTS.filter(p => p.country === state.country);
+
+    /* ---- Country badges (Task 5) ------------------------------------------
+       One badge per country that has posts, plus an "All notes" clear button. */
+    function renderCountryStrip() {
+      const names = activeCountries(POSTS);
+      const strip = document.getElementById("countryStrip");
+      if (!names.length) { strip.hidden = true; return; }   // no badges => hide row
+      strip.hidden = false;
+
+      const badge = (name) => {
+        const band = countryBand(countryMaxRisk(name, EVENTS));
+        const c = COUNTRIES[name];
+        const sel = state.country === name ? "sel" : "";
+        return `<button class="cbadge ring-${band.cls} ${sel}" data-country="${esc(name)}"
+                    title="${esc(name)} — ${band.label}">
+            <span class="ring">
+              <img src="${c.coatOfArms}" alt="${esc(name)} coat of arms"
+                   onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'ini',textContent:'${countryInitials(name)}'}))">
+            </span>
+            <span class="cname">${esc(name)}</span>
+          </button>`;
+      };
+
+      const allSel = state.country === "All" ? "sel" : "";
+      const allBadge = `<button class="cbadge all ${allSel}" data-country="All" title="Show all notes">
+          <span class="ring"><span class="ini">ALL</span></span>
+          <span class="cname">All notes</span>
+        </button>`;
+
+      document.getElementById("countryRow").innerHTML = allBadge + names.map(badge).join("");
+    }
+
+    /* ---- Post feed --------------------------------------------------------- */
+    function renderPosts() {
+      const posts = visiblePosts();
+      const host = document.getElementById("posts");
+      if (!posts.length) {
+        host.innerHTML = `<div class="no-posts">No analyst notes for ${esc(state.country)} yet.</div>`;
+        return;
+      }
+      host.innerHTML = posts.map(p => `
+        <article class="post" id="post-${esc(p.id)}">
+          <div class="post-head">
+            <div class="keytag">${esc(p.tag || "KEY DEVELOPMENT")}</div>
+            <div class="post-title">${renderTitle(p.title, p.titleKeyPhrase)}</div>
+            <div class="post-meta">(U) ${esc(p.date)}${p.country ? " · " + esc(p.country) : ""}</div>
+          </div>
+          <div class="post-body">
+            <div class="block">
+              <div class="block-label">Sourced reporting</div>
+              <p>${esc(p.reporting)}</p>
+            </div>
+            <div class="block">
+              <div class="block-label">Assessment <span class="conf-tag conf-${esc(p.confidence)}">${esc(p.confidence)} confidence</span></div>
+              <p>${esc(p.assessment)}</p>
+            </div>
+            <div class="block">
+              <div class="block-label">Open question</div>
+              <p>${esc(p.openQuestion)}</p>
+            </div>
+            <div class="block sources">
+              Sources: ${(p.sources || []).map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a>`).join(" · ")}
+            </div>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function render() { renderCountryStrip(); renderPosts(); }
+
+    /* ---- Wiring: click a badge -> filter feed ------------------------------ */
+    document.getElementById("countryRow").addEventListener("click", ev => {
+      const btn = ev.target.closest(".cbadge");
+      if (!btn) return;
+      state.country = btn.dataset.country;
+      render();
+    });
+
+    /* ---- Scroll to a linked post (analyst.html#post-<id>) once rendered ---- */
+    function scrollToHash() {
+      if (!location.hash.startsWith("#post-")) return;
+      const el = document.querySelector(location.hash);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    async function boot() {
+      const [notesRes, eventsRes] = await Promise.allSettled([
+        fetch("data/notes.json",  { cache: "no-store" }).then(r => { if (!r.ok) throw 0; return r.json(); }),
+        fetch("data/events.json", { cache: "no-store" }).then(r => { if (!r.ok) throw 0; return r.json(); })
+      ]);
+
+      if (notesRes.status === "fulfilled") {
+        const j = notesRes.value;
+        POSTS = Array.isArray(j) ? j : (j.posts || []);
+      } else {
+        console.warn("Could not load data/notes.json — using fallback sample.");
+        POSTS = POSTS_FALLBACK;
+      }
+      EVENTS = eventsRes.status === "fulfilled" ? (eventsRes.value.events || []) : [];
+
+      render();
+      scrollToHash();
+    }
+    boot();
+  </script>
+</body>
+</html>

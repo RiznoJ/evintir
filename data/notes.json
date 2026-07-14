@@ -1,0 +1,64 @@
+{
+  "note": "Hand-written analyst assessments — NOT auto-ingested from RSS. Every post here was authored and reviewed by a person (contrast with events.json, which is machine-picked). Each post's 'country' MUST exactly match a key in countries.js COUNTRIES. Optional presentation fields: 'tag' (small label above the headline, defaults to KEY DEVELOPMENT) and 'titleKeyPhrase' (a substring of the title to highlight).",
+  "posts": [
+    {
+      "id": "p1",
+      "country": "Iran",
+      "title": "Placeholder: Why chokepoint disruptions rarely stay regional",
+      "titleKeyPhrase": "rarely stay regional",
+      "tag": "KEY DEVELOPMENT",
+      "date": "2026-07-14",
+      "reporting": "Public reporting this month has tracked repeated incidents near the Bab el-Mandeb and Strait of Hormuz, alongside separate commentary on shipping insurance rates rising in affected corridors.",
+      "assessment": "Rerouting around a disrupted chokepoint tends to add transit time and cost that shows up in global shipping indices within weeks, not months — the effect is usually faster and broader than initial headlines suggest.",
+      "confidence": "Medium",
+      "openQuestion": "How much of the current rerouting is precautionary versus a direct response to a specific incident? Public data doesn't cleanly separate the two, and that distinction matters for how long the effect on shipping costs is likely to last.",
+      "sources": [
+        { "label": "gCaptain — maritime industry news", "url": "https://gcaptain.com/" }
+      ]
+    },
+    {
+      "id": "p2",
+      "country": "Russia",
+      "title": "Russia Isn't Cracking — It's Hardening",
+      "date": "2026-07-14",
+      "reporting": "South Korean intelligence estimated roughly 11,000 North Korean troops stationed in Russia's Kursk Oblast as of early 2026 supporting Moscow's war effort, with heavy losses reported. Separately, Ukraine is now facing its most acute vulnerability of the war — one estimate put actual AWOL/absent soldiers at roughly 150,000, prompting emergency contract reforms in June 2026. Multiple European security institutes have also documented a sustained Russian hybrid campaign — weaponized migration through Belarus into the Baltics and Poland, and deepening ties to organized crime networks used for sabotage — tracked across more than 150 incidents in Europe since 2022.",
+      "assessment": "Russia's public strategy leans on reframing the war as an existential \"Patriotic War\" in the tradition of 1812 and 1941, using external pressure (sanctions, fuel shortages) as evidence of NATO aggression rather than proof the war isn't worth it. That framing, combined with tightening domestic control, points toward Russia hardening rather than collapsing under economic strain — this isn't a Western European country that folds under sanctions pressure. Given Ukraine's manpower crisis is arguably worse than Russia's economic one right now, Ukraine may be the side that reaches a breaking point first, potentially pushing toward a frozen line with a long-term Western troop presence rather than a negotiated resolution.",
+      "confidence": "Medium",
+      "openQuestion": "Would NATO countries actually accept semi-permanent troop deployment at current front lines as a de facto resolution, or is that politically unworkable in Western capitals regardless of battlefield reality?",
+      "sources": [
+        { "label": "Kyiv Independent — North Korean troop deployment", "url": "https://kyivindependent.com/" },
+        { "label": "Carnegie Endowment — Ukraine manpower", "url": "https://carnegieendowment.org/" },
+        { "label": "GLOBSEC — Russian hybrid warfare tracking", "url": "https://www.globsec.org/" }
+      ]
+    },
+    {
+      "id": "p3",
+      "country": "China",
+      "title": "China's Patience Isn't Loyalty",
+      "date": "2026-07-14",
+      "reporting": "Analysts at Brookings describe deep mistrust beneath the China-Russia \"no limits\" partnership, with bilateral trade actually falling in 2025 after four years of growth. Separately, multiple defense analyses document China closely studying the Ukraine war as a live laboratory — assessing how Chinese-supplied components perform in combat, gathering intelligence on Western weapons systems, and even reportedly using state-backed hacking groups to extract Russian battlefield data. This isn't a one-off: China used the same playbook during the May 2025 India-Pakistan skirmish, where Pakistan's use of Chinese-made jets and missiles gave Beijing a live data set.",
+      "assessment": "China doesn't need Russia to win — it benefits more from Russia staying just destabilizing enough to keep Western attention and resources tied up in Europe, while Beijing extracts weapons performance data and strategic lessons at minimal cost and zero direct exposure. China wants to be the dominant power in this relationship, not a co-equal partner, and the declining trade numbers suggest Beijing is managing the relationship on its own terms rather than deepening it out of solidarity.",
+      "confidence": "Medium",
+      "openQuestion": "Does China have a floor on how weak it wants Russia to get? A Russia that destabilizes Europe is useful to Beijing — a Russia that actually collapses removes a counterweight to the US and could trigger unpredictable regional instability on China's own border.",
+      "sources": [
+        { "label": "Brookings — No limits? Testing the China-Russia relationship", "url": "https://www.brookings.edu/articles/no-limits-testing-the-china-russia-relationship/" },
+        { "label": "The National Interest — For China, the Ukraine War Is a Laboratory", "url": "https://nationalinterest.org/feature/for-china-the-ukraine-war-is-a-laboratory" }
+      ]
+    },
+    {
+      "id": "p4",
+      "country": "United States",
+      "title": "Hormuz Was Never Really About the Oil — It Was About Being Watched",
+      "date": "2026-07-14",
+      "reporting": "In March 2026, Trump said the US did not need the oil that passed through the Strait of Hormuz, questioning aloud whether the US should even maintain a presence there. During the same conflict he separately claimed US satellites could identify individuals — down to reading their badges — entering Iranian nuclear facilities from space. The June 2025 B-2 strikes on Iran's nuclear sites (Operation Midnight Hammer) went completely undetected by Iranian air defenses, repeated again in March 2026. And after a downed US pilot survived two days hiding in Iranian mountains, the CIA and Trump credited a device reportedly called \"Ghost Murmur\" — a quantum sensor said to detect a human heartbeat from tens of miles away, with some of its underlying sensor research reportedly tracing back to Israeli labs — with helping locate him. Multiple physicists quoted by Scientific American pushed back hard, calling the story \"almost certainly not true\" given known physical limits. Separately, Trump's shifting ultimatums and deadlines throughout the Iran conflict have been widely described by foreign policy analysts as a modern application of \"madman theory\" — deliberately cultivated unpredictability as a negotiating tool. Former UN Ambassador Nikki Haley has written that Trump directly told her, ahead of talks with North Korean officials, to \"make them think I'm crazy.\"",
+      "assessment": "Taken individually, each of these — the badge comment, the undetected strikes, the contested heartbeat sensor, the shifting deadlines — could be dismissed as noise, showmanship, or genuine capability. Taken together, they form a pattern that fits a known playbook: deliberately manufactured unpredictability and confusion, mixing real capability with unverifiable claims, so that adversaries and the public alike can never be fully certain what's real. That's consistent with the documented \"madman theory\" precedent, but applied here with an added layer — physicists publicly disputing a story the administration itself let circulate suggests the ambiguity may be the point, not a communications failure. This echoes how the US used ambiguity and selective shows of force to keep borderline states like Thailand and Indonesia from aligning with communist blocs in the 1960s and 70s, without needing a decisive military win to do it.",
+      "confidence": "Medium",
+      "openQuestion": "If some of this is deliberate strategic ambiguity, how much of what gets publicly reported as \"leaked\" or \"disputed\" US capability is itself part of the messaging — and is there a way to actually tell the difference from the outside?",
+      "sources": [
+        { "label": "PBS NewsHour — Operation Midnight Hammer", "url": "https://www.pbs.org/newshour/world/how-u-s-stealth-bombers-struck-irans-nuclear-sites-without-detection" },
+        { "label": "Ynet News — Ghost Murmur", "url": "https://www.ynetnews.com/tech-and-digital/article/bywkzwhh11e" },
+        { "label": "Newsweek — Trump's madman theory", "url": "https://www.newsweek.com/donald-trump-iran-war-madman-theory-deadline-11792468" }
+      ]
+    }
+  ]
+}

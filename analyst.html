@@ -87,7 +87,12 @@
     .conf-High { color: var(--conf-high); border-color: var(--conf-high); }
     .conf-Medium { color: var(--conf-med); border-color: var(--conf-med); }
     .conf-Low { color: var(--conf-low); border-color: var(--conf-low); }
+    /* Hyphenated confidence values (e.g. "Medium-Low") — amber, treated as the
+       nearest existing bucket so the tag stays color-coded, not left neutral. */
+    .conf-Medium-Low { color: var(--conf-med); border-color: var(--conf-med); }
     .block p { font-size: 14px; }
+    /* Long-form "analysis" body renders as multiple paragraphs; space them out. */
+    .block.analysis p + p { margin-top: 11px; }
     .block ul { list-style: none; }
     .block li { padding: 3px 0 3px 14px; position: relative; font-size: 14px; }
     .block li::before { content: "▸"; position: absolute; left: 0; color: var(--muted); }
@@ -99,9 +104,21 @@
        at least one post are ever rendered (see activeCountries()). Clicking a
        badge filters the feed; "All notes" clears it. Ring color = risk band
        of that country's matched events. */
-    .country-strip { margin-bottom: 26px; }
+    .country-strip { margin-bottom: 20px; }
     .country-strip .cs-label { font-family: var(--mono); font-size: 10.5px; font-weight: 600;
       letter-spacing: .16em; text-transform: uppercase; color: var(--brass); margin-bottom: 10px; }
+
+    /* Sort toggle — segmented control, brass = active, matching the palette. */
+    .feed-controls { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-bottom: 22px; }
+    .feed-controls .fc-label { font-family: var(--mono); font-size: 10.5px; font-weight: 600;
+      letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+    .sort-toggle { display: inline-flex; border: 1px solid var(--line); }
+    .sort-btn { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; color: var(--muted);
+      background: transparent; border: none; padding: 6px 12px; cursor: pointer; }
+    .sort-btn + .sort-btn { border-left: 1px solid var(--line); }
+    .sort-btn:hover { color: var(--ink); }
+    .sort-btn.active { color: var(--bg); background: var(--brass); font-weight: 600; }
+    .sort-btn:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
     .country-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-start; }
     .cbadge { background: transparent; border: none; cursor: pointer; padding: 4px 2px;
       display: flex; flex-direction: column; align-items: center; gap: 7px; width: 78px; }
@@ -167,6 +184,15 @@
       <div class="country-row" id="countryRow"></div>
     </div>
 
+    <!-- Sort toggle. Sorts within the active country filter; never changes it. -->
+    <div class="feed-controls" id="feedControls" hidden>
+      <span class="fc-label">Sort</span>
+      <div class="sort-toggle" id="sortToggle" role="group" aria-label="Sort posts by date">
+        <button type="button" class="sort-btn active" data-sort="newest" aria-pressed="true">Newest first</button>
+        <button type="button" class="sort-btn" data-sort="oldest" aria-pressed="false">Oldest first</button>
+      </div>
+    </div>
+
     <div id="posts"></div>
 
     <div class="credits">
@@ -206,7 +232,7 @@
       }
     ];
 
-    const state = { country: "All" };   // active country filter
+    const state = { country: "All", sort: "newest" };   // active country filter + sort order
     let POSTS = [];                       // from notes.json
     let EVENTS = [];                      // from events.json (for ring colors only)
 
@@ -223,8 +249,17 @@
       return i === -1 ? t : t.slice(0, i) + `<span class="key">${p}</span>` + t.slice(i + p.length);
     }
 
-    const visiblePosts = () =>
-      state.country === "All" ? POSTS : POSTS.filter(p => p.country === state.country);
+    // Filter by the active country FIRST, then sort the result by date. The two
+    // are independent: sorting never touches state.country, so "Russia + Oldest"
+    // stays Russia-only. Dates are ISO "YYYY-MM-DD" strings, so a plain string
+    // compare is chronological; .slice() avoids mutating POSTS, and the sort is
+    // stable so same-date posts keep their notes.json order.
+    function visiblePosts() {
+      const list = state.country === "All"
+        ? POSTS : POSTS.filter(p => p.country === state.country);
+      const dir = state.sort === "oldest" ? 1 : -1;   // default: newest first
+      return list.slice().sort((a, b) => dir * String(a.date).localeCompare(String(b.date)));
+    }
 
     /* ---- Country badges (Task 5) ------------------------------------------
        One badge per country that has posts, plus an "All notes" clear button. */
@@ -265,7 +300,28 @@
         host.innerHTML = `<div class="no-posts">No analyst notes for ${esc(state.country)} yet.</div>`;
         return;
       }
-      host.innerHTML = posts.map(p => `
+      host.innerHTML = posts.map(p => {
+        const confTag = p.confidence
+          ? `<span class="conf-tag conf-${esc(p.confidence)}">${esc(p.confidence)} confidence</span>` : "";
+
+        // Assessment — the short-form posts (p1–p4). Confidence tag on its label.
+        const assessmentBlock = p.assessment ? `
+            <div class="block">
+              <div class="block-label">Assessment ${confTag}</div>
+              <p>${esc(p.assessment)}</p>
+            </div>` : "";
+
+        // Analysis — newer long-form body. Split on blank lines into paragraphs.
+        // If the post has no separate Assessment, the confidence tag rides here
+        // so every post still shows its confidence exactly once.
+        const analysisBlock = p.analysis ? `
+            <div class="block analysis">
+              <div class="block-label">Analysis ${p.assessment ? "" : confTag}</div>
+              ${String(p.analysis).split(/\n+/).map(par => par.trim()).filter(Boolean)
+                 .map(par => `<p>${esc(par)}</p>`).join("")}
+            </div>` : "";
+
+        return `
         <article class="post" id="post-${esc(p.id)}">
           <div class="post-head">
             <div class="keytag">${esc(p.tag || "KEY DEVELOPMENT")}</div>
@@ -276,11 +332,7 @@
             <div class="block">
               <div class="block-label">Sourced reporting</div>
               <p>${esc(p.reporting)}</p>
-            </div>
-            <div class="block">
-              <div class="block-label">Assessment <span class="conf-tag conf-${esc(p.confidence)}">${esc(p.confidence)} confidence</span></div>
-              <p>${esc(p.assessment)}</p>
-            </div>
+            </div>${assessmentBlock}${analysisBlock}
             <div class="block">
               <div class="block-label">Open question</div>
               <p>${esc(p.openQuestion)}</p>
@@ -289,17 +341,36 @@
               Sources: ${(p.sources || []).map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a>`).join(" · ")}
             </div>
           </div>
-        </article>
-      `).join("");
+        </article>`;
+      }).join("");
     }
 
-    function render() { renderCountryStrip(); renderPosts(); }
+    // Reflect state.sort in the toggle (active class + aria-pressed); hide the
+    // whole control when there are no posts to sort.
+    function renderSortUI() {
+      document.getElementById("feedControls").hidden = POSTS.length === 0;
+      document.querySelectorAll("#sortToggle .sort-btn").forEach(b => {
+        const on = b.dataset.sort === state.sort;
+        b.classList.toggle("active", on);
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+    }
+
+    function render() { renderCountryStrip(); renderSortUI(); renderPosts(); }
 
     /* ---- Wiring: click a badge -> filter feed ------------------------------ */
     document.getElementById("countryRow").addEventListener("click", ev => {
       const btn = ev.target.closest(".cbadge");
       if (!btn) return;
-      state.country = btn.dataset.country;
+      state.country = btn.dataset.country;   // sort order is left untouched
+      render();
+    });
+
+    /* ---- Wiring: click a sort button -> reorder within current filter ------ */
+    document.getElementById("sortToggle").addEventListener("click", ev => {
+      const btn = ev.target.closest(".sort-btn");
+      if (!btn) return;
+      state.sort = btn.dataset.sort;         // country filter is left untouched
       render();
     });
 

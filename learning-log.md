@@ -35,3 +35,57 @@
   myself just by editing one JSON file, no code changes needed. Local
   preview + git push is a much faster loop than the GitHub web editor.
 - Commit(s): https://github.com/RiznoJ/evintir/commits/main
+## August 3 — Long-form analyst posts, two new countries, date sorting
+
+- What I did: Wrote three new Analyst posts (Russia, Ukraine, Israel) and lit up the
+  Ukraine and Israel country badges. Extended the post schema with a longer free-form
+  "analysis" body field, updated the render layer to display it, and added
+  date-based sorting (default newest-first) with a newest/oldest toggle that composes
+  with the existing country filter.
+
+- Technical notes:
+  - Schema change (data/notes.json): appended posts p5-p7 to the posts array,
+    preserving all existing entries including the Iran placeholder (p1). Added a new
+    optional "analysis" field alongside the existing reporting / assessment /
+    confidence / openQuestion fields. Paragraph breaks inside analysis are stored as
+    escaped \n in the JSON string. Validated the file parses cleanly after edit —
+    a single trailing comma or unescaped quote in those long fields breaks the whole
+    load, so JSON validity was the key check.
+  - Render layer (analyst.html): the analysis field only appears if it renders it,
+    so I had it read the field and inject a paragraph block between the assessment
+    and confidence sections, splitting on \n so each paragraph is its own element.
+    This is the data-vs-presentation split in practice — adding the field to the data
+    does nothing until the code that reads the data is updated to handle it.
+  - Country badges (countries.js): confirmed Ukraine and Israel keys resolve to the
+    Wikimedia Special:FilePath redirect (Coat_of_Arms_of_Ukraine.svg,
+    Emblem_of_Israel.svg) — the redirect pattern avoids needing the file's MD5 hash.
+    Badges are generated dynamically from which countries have posts, so no separate
+    list needed updating — writing the post is what creates the badge.
+  - Sort feature (analyst.html): the non-trivial part. Sort has to act on the
+    already-filtered set, so country filter and sort toggle both read/write the same
+    view state instead of overwriting each other. Sorted on the date field
+    (descending by default); toggle flips the comparator without touching the active
+    country filter.
+  - Local verification: ran the local Python server, checked badge generation, post
+    rendering, the analysis field display, and the filter+sort combination
+    (e.g. "Russia + oldest first" shows only Russia, reordered) before pushing.
+
+- What I learned (technical): The recurring lesson is the separation between data and
+  the code that presents it — the analysis field and the sort both required touching
+  the render layer, not just the JSON. The sort was a small lesson in shared state:
+  two independent controls (filter, sort) have to operate on one view model or they
+  fight each other.
+
+- What I learned (analytical): High-level analysis comes from anticipating a sharp
+  reader's objections and handling them inside the post, then labeling what can't be
+  resolved. Strongest posts turn the argument on themselves (the Russia post ends by
+  asking whether external pressure strengthens the regime rather than cracking it).
+  Built Russia and Ukraine as a linked pair, each pointing at the other's central
+  uncertainty. Kept the public-sources-only rule strict — raised
+  intelligence/surveillance questions as open questions grounded in public facts
+  rather than asserting classified capability.
+
+- Site state: 7 posts across 6 countries (US, China, Russia x2, Ukraine, Israel) plus
+  the Iran placeholder. Next: convert the Iran placeholder into a real post.
+
+- Commit(s): https://github.com/RiznoJ/evintir/commits/main

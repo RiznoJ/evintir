@@ -1,195 +1,149 @@
-# WATCHSTANDER PLAYBOOK — your master roadmap
+# EVINTIR — PROJECT ROADMAP
 
-This is the high-level map. You work ONE milestone at a time, in order.
-Every milestone tells you: what you're doing, WHERE you do it, what to paste
-into Claude (Opus) if you want click-by-click babysitting, what "done" looks
-like, and what PROOF it leaves behind.
+A staged execution plan for building a public-source strategic monitoring
+platform, structured as a sequence of milestones with defined scope,
+deliverables, and proof of completion. Built and executed independently,
+with AI tooling used selectively for research, debugging, and technical
+review — consistent with the project's stated methodology.
 
-**The three rules:**
-1. One milestone at a time. Never skip ahead.
-2. Every work session ends with a commit and a learning-log entry (even two sentences).
-3. Stuck more than 20 minutes? Copy the exact error message into Opus. Reading
-   errors and asking precise questions IS the skill.
-
----
-
-## THE TOOL MAP (read once, refer back forever)
-
-| Tool | What it is | Where | When you need it |
-|---|---|---|---|
-| GitHub (website) | Stores + publishes your project | Browser | Milestone 1, forever |
-| GitHub Pages | Free hosting — makes the repo a live site | Browser (a settings switch) | Milestone 1 |
-| GitHub Actions | Free robot that runs your Python script every 6h | Browser (a settings switch) | Milestone 1 |
-| GitHub web editor | Edit files right on the website | Browser | Milestones 2–3 |
-| Python | Runs the data pipeline (fetch_feeds.py) | Your computer (later) | Milestone 4 |
-| git (command line) | Professional way to save/upload changes | Your computer | Milestone 5 |
-| VS Code | A text editor (optional but nice) | Your computer | Milestone 5+ |
-| Claude Code | AI assistant in your terminal | Your computer | Milestone 6+ |
-
-Download nothing until Milestone 4. Milestones 1–3 are 100% browser.
+**Operating principles:**
+1. Sequential execution — one milestone completed before the next begins.
+2. Every work session concludes with a commit and a corresponding
+   learning-log entry documenting what was built and what was learned.
+3. Technical blockers are treated as debugging exercises: isolate the
+   error, research it, and resolve it — escalating to AI assistance only
+   after independent troubleshooting.
 
 ---
 
-## MILESTONE 0 — Look at what you have (15 min, today)
+## TOOLCHAIN
 
-**Where:** your computer, no accounts needed.
-**Do:** unzip `watchstander-v2.zip`. Open `index.html` by double-clicking —
-you'll see the map with 2 fallback events (that's expected; the full data
-needs a server — explained in the file's comments). Skim the comments at the
-top of `index.html` and `scripts/fetch_feeds.py`. Don't try to understand
-everything.
-**Done when:** you can answer, in your own words, in one sentence each:
-(a) what does `data/events.json` do, and (b) why does double-clicking show
-only 2 events?
-**Proof:** write both answers down — they become your first learning-log entry.
+| Tool | Role | Environment |
+|---|---|---|
+| GitHub | Repository hosting and version history | Browser |
+| GitHub Pages | Static site hosting for the live dashboard | Browser (config) |
+| GitHub Actions | Scheduled automation for the RSS data pipeline | Browser (config) |
+| Python | Data ingestion and classification pipeline | Local |
+| Git (CLI) | Version control, local-to-remote workflow | Local |
+| VS Code | Development environment | Local |
+| Claude Code | AI-assisted development support | Local |
 
-## MILESTONE 1 — Get it live on GitHub (~30–40 min)
-
-**Where:** browser only.
-**Do:** follow `docs/SETUP_GUIDE.md` steps 1–6 exactly. End state: a live URL
-and a working data robot.
-**Paste into Opus if stuck:**
-> "I'm following a setup guide to put a dashboard project on GitHub. I'm on
-> the step where [describe step]. Here's what I see on my screen: [describe
-> or screenshot]. Walk me through just this step, one click at a time."
-**Done when:** your live URL shows the dashboard, and the Actions tab shows a
-green check that committed real headlines into `data/events.json`.
-**Proof:** the live URL + a commit history with your first commits.
-
-## MILESTONE 2 — Start the learning log (~20 min)
-
-**Where:** browser (GitHub web editor) — this milestone secretly teaches you
-how to create and commit a file.
-**Do:** in your repo: Add file → Create new file → name it
-`docs/learning-log.md` → paste the template below → commit with message
-`docs: start learning log`.
-
-```markdown
-# Learning Log
-
-## 2026-07-XX — Project went live
-- What I did:
-- What broke / confused me:
-- What I learned (plain English):
-- Commit(s): [paste link to the commit]
-```
-
-**Every session from now on adds one entry.** This file is your proof of
-learning AND your Obsidian-style notes, kept where interviewers can see them.
-**Done when:** the file exists with your Milestone 0 + 1 entries in it.
-
-## MILESTONE 3 — Make it yours (the ad-lib milestone) (~1–2 hrs, can split)
-
-**Where:** browser (GitHub web editor). Each change = its OWN commit with a
-clear message. Small commits are professional; giant ones are amateur.
-
-Pick from this menu — do at least four:
-
-- [ ] **Rename it.** WATCHSTANDER is a placeholder. Pick your name — change it
-      in `index.html` (the wordmark + title), `README.md`, and the repo name
-      (Settings → General → Rename).
-      Commit: `feat: rename project to ____`
-- [ ] **Recolor it.** In `index.html`, find `:root` in the CSS. Change
-      `--brass: #C9A44C;` to any hex color (Google "color picker"). One line
-      changes the whole accent scheme — that's design tokens at work.
-      Commit: `style: change accent color`
-- [ ] **Add a news feed.** In `scripts/fetch_feeds.py`, copy one FEEDS entry
-      and point it at another public RSS feed you care about. Ask Opus:
-      "Find me a reliable public RSS feed for [topic] and check the URL
-      works." Commit: `feat: add ____ RSS feed`
-- [ ] **Tune the regions.** Edit REGION_RULES keywords to match your focus
-      (e.g., add more Israel-related terms). Commit: `feat: tune region rules`
-- [ ] **Rewrite the README intro** in your own voice. Commit: `docs: rewrite intro`
-- [ ] **Change the banner text** if you want different wording.
-
-**Done when:** ≥4 commits, each one thing, each with a message that says what
-and why. **Proof:** your commit history now shows iteration — exactly what
-reviewers look for.
-
-## MILESTONE 4 — Run it on your own machine (~1 hr)
-
-**Where:** your computer. First download: Python (python.org — check "Add to
-PATH" when installing).
-**Do:** SETUP_GUIDE step 7 (local server), then run the pipeline yourself:
-`pip install -r requirements.txt` → `python scripts/fetch_feeds.py` → watch
-it print each feed → refresh your local page and see the data change.
-**Paste into Opus:** "Walk me through installing Python on [Windows/Mac] and
-running a local web server for my project, step by step. I've never used a
-terminal."
-**Done when:** you ran the script yourself and understand the print output.
-**Proof:** learning-log entry + screenshot saved to `docs/`.
-
-## MILESTONE 5 — Learn real git (~1–2 hrs)
-
-**Where:** your computer. Downloads: git (git-scm.com), VS Code (optional).
-**Do:** clone your repo, change one small thing in VS Code, then
-`git add` → `git commit` → `git push`. One full cycle, done by hand.
-**Paste into Opus:** "Teach me to clone my GitHub repo, make one change, and
-push it back, explaining every command before I run it. I'm on [OS]."
-**Done when:** a commit in your history was made from your machine, not the
-web editor. From here on, prefer the command line.
-
-## MILESTONE 6 — The teardown sessions (ongoing, 8 short sessions)
-
-**Where:** Claude (Opus is fine — one concept per chat keeps it cheap).
-This is your backwards-learning phase, done properly. One session each:
-
-1. The event schema — why every field exists
-2. HTML vs CSS vs JavaScript — the three languages in index.html
-3. State → render: what happens when you click a filter
-4. fetch() and JSON: how the dashboard loads data
-5. The Python pipeline: feedparser, classify(), and the "reports/port" bug
-6. GitHub Actions: read update-feeds.yml line by line
-7. Leaflet: how the map and markers work
-8. The risk rubric and confidence labels — and their limitations
-
-**Session format (paste into Opus):**
-> "Open my project file [name]. Teach me concept #N from my playbook using MY
-> actual code. Quiz me at the end with 3 questions. Don't move on until I can
-> explain it back in my own words."
-
-**Proof:** after each session, write the concept in your own words in the
-learning log. Those 8 entries ARE your Obsidian vault, public and timestamped.
-
-## MILESTONE 7 — The analyst layer (your actual edge) (~ongoing, weekly)
-
-**Where:** browser or VS Code. This is where your analytics background shows.
-**Do — weekly watch routine (30 min):**
-1. Open your live dashboard. Pick the 3–5 highest-risk auto-ingested events.
-2. Verify each against a second public source.
-3. Edit `data/events.json` manually is NOT the way (the robot overwrites it) —
-   instead keep `docs/weekly-brief-YYYY-MM-DD.md`: executive summary, key
-   developments, why it matters, confidence, what to watch. Your dashboard
-   collects; YOU analyze. Commit each brief.
-4. Later upgrade (ask Fable when ready): a reviewed-events file the robot
-   merges instead of overwriting, and a documented risk rubric to replace the
-   keyword placeholder.
-**Proof:** a growing folder of dated analyst briefs — the single most
-Navy/CWO-relevant artifact in the whole project.
-
-## MILESTONE 8 — Polish + the fun stuff (~2–3 hrs)
-
-- [ ] Screenshot of the live site in the README
-- [ ] Write "What I learned" in README — your own words, reviewed by Opus for
-      accuracy, not written by it
-- [ ] Finalize the resume bullet (you have a draft in your project brief)
-- [ ] **The radar sweep** 🎯 — the cosmetic you asked about. Ask Fable:
-      "Add a subtle radar-sweep animation to my dashboard map, and explain
-      how the CSS animation works." It's ~20 lines. You earned it by now.
-- [ ] Optional: "What changed today" delta panel (ask Fable)
+Development began entirely in-browser; local tooling was introduced once
+foundational structure was in place, deliberately sequencing complexity.
 
 ---
 
-## WHICH CLAUDE FOR WHAT
+## MILESTONE 0 — Baseline review
 
-- **Opus (default — save your credits):** click-by-click walkthroughs, error
-  messages, teardown sessions, explaining commands, reviewing your log
-  entries, finding RSS feeds, git lessons.
-- **Fable (rare — heavy builds only):** new features touching multiple files
-  (reviewed-events merge, delta panel, radar sweep, big refactors).
-- Same Project, same files — just switch the model dropdown.
+**Objective:** Understand the starting architecture before modifying it.
+**Deliverable:** A working understanding of the event schema and why a
+static file preview shows placeholder data absent a live server.
+**Proof:** Documented in the first learning-log entry.
 
-## IF YOU GET LOST
+## MILESTONE 1 — Initial deployment
 
-Come back to this file. Find your current milestone. Do the next unchecked
-box. That's it — the whole project is never bigger than the next checkbox.
+**Objective:** Establish a live, publicly accessible instance with an
+automated data-refresh pipeline.
+**Deliverable:** Live URL; GitHub Actions successfully committing fetched
+data on a recurring schedule.
+**Proof:** Live site + initial commit history.
+
+## MILESTONE 2 — Documentation infrastructure
+
+**Objective:** Establish a running technical log as both a development
+record and a public artifact of process.
+**Deliverable:** `learning-log.md` initialized and versioned.
+**Proof:** File present with entries for Milestones 0–1.
+
+## MILESTONE 3 — Customization and ownership
+
+**Objective:** Move the project from template to original work — naming,
+visual identity, data sources, and copy — via a series of discrete,
+well-documented commits.
+**Scope (minimum four):**
+- Rebrand: naming, visual identity, repository name
+- Design tokens: establish accent color scheme via CSS variables
+- Data sources: add and validate an additional public RSS feed
+- Classification: tune region/category matching rules
+- Copy: rewrite README framing in project voice
+**Proof:** Commit history demonstrating iterative, single-purpose changes —
+the standard expected of professional version control practice.
+
+## MILESTONE 4 — Local execution environment
+
+**Objective:** Run the full data pipeline independently, outside the
+GitHub-hosted automation.
+**Deliverable:** Local server operational; pipeline script executed
+manually with observed output.
+**Proof:** Learning-log entry with supporting screenshot.
+
+## MILESTONE 5 — Version control fluency
+
+**Objective:** Transition from browser-based editing to a full local
+git workflow — clone, edit, stage, commit, push.
+**Deliverable:** A commit originating from local git, not the GitHub web
+editor.
+**Proof:** Commit history reflecting the workflow change.
+
+## MILESTONE 6 — Technical deep dives
+
+**Objective:** Systematically build fluency in the project's underlying
+technical concepts through structured, self-directed sessions:
+
+1. Event schema design and field rationale
+2. HTML/CSS/JavaScript separation of concerns
+3. State-to-render flow (filter interactions)
+4. Asynchronous data loading via fetch() and JSON
+5. The Python ingestion pipeline (feedparser, classification logic)
+6. CI/CD automation via GitHub Actions
+7. Geospatial rendering with Leaflet
+8. Risk scoring methodology and its limitations
+
+**Method:** Each session targets one concept, using the project's actual
+codebase as the working example, concluding with the concept restated
+independently.
+**Proof:** One learning-log entry per concept — a running technical
+record, public and timestamped.
+
+## MILESTONE 7 — Analytical layer (primary differentiator)
+
+**Objective:** Apply an analyst's discipline on top of automated
+collection — the component that distinguishes this project from a
+standard news aggregator.
+**Recurring process:**
+1. Review the highest-risk auto-ingested events from the live dashboard.
+2. Cross-verify against a second independent public source.
+3. Author dated analyst briefs — executive summary, key developments,
+   significance, confidence level, open questions — as a distinct,
+   version-controlled artifact separate from the automated feed.
+4. Iterate the underlying methodology over time: move from a keyword-based
+   placeholder toward a documented, defensible risk rubric.
+**Proof:** A growing, dated body of analyst work — the artifact most
+directly relevant to demonstrating independent judgment and tradecraft.
+
+## MILESTONE 8 — Finalization
+
+- Live-site documentation (screenshots, README) for portfolio presentation
+- README retrospective, written independently and reviewed for accuracy
+- Resume framing finalized
+- Optional refinements: map animation, "what changed" delta view
+
+---
+
+## USE OF AI ASSISTANCE
+
+AI tools are used selectively: as a research aid for troubleshooting,
+as a technical reviewer for code and writing, and as a sounding board for
+design decisions — never as the source of the project's analytical
+judgment or strategic direction. Model selection is matched to task
+complexity: lighter-weight assistance for routine debugging and research,
+heavier-weight assistance reserved for multi-file changes or substantial
+new features. This division of labor is documented transparently
+throughout the project's commit history and learning log.
+
+---
+
+## STATUS TRACKING
+
+Progress is tracked against the milestone sequence above. Current status
+and next steps are maintained in `learning-log.md`.

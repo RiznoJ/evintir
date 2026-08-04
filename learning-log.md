@@ -89,3 +89,9 @@
   the Iran placeholder. Next: convert the Iran placeholder into a real post.
 
 - Commit(s): https://github.com/RiznoJ/evintir/commits/main
+## August 4 — UK and France briefs, workflow fix
+- Added UK and France to the 22-country system, one analyst brief each.
+- Workflow fix: realized I'd never run /clear in Claude Code, so every run was re-scanning months of context and burning usage. New split — desktop app for drafting/reasoning, Claude Code for mechanical execution only, /clear before each batch. Draft everything in the app, then paste one consolidated payload into a clean Code session.
+- Model split: higher-reasoning model for analyst writing (confidence calibration, catching advocacy-vs-analysis), faster model for mechanical edits and git. Match model to task, not habit.
+- Briefs: UK — the specialization/integration bet (Palantir, Defence Investment Plan, offshore-balancer history) vs. its historic instinct to stand apart. France — Gaullist autonomy carried by the nuclear deterrent (Île Longue forward deterrence) vs. an eroding economic base. Structurally mirrored, each stands alone in its own section.
+- Next: Iran post, About page, instructions-doc update.

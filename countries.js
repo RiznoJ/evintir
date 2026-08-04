@@ -20,7 +20,7 @@ const COUNTRIES = {
   "Ukraine":        { coatOfArms: "https://commons.wikimedia.org/wiki/Special:FilePath/File:Lesser_Coat_of_Arms_of_Ukraine.svg", lat: 48.4, lon: 31.2, matchRegion: "Europe / Russia-Ukraine" },
   "China":          { coatOfArms: "https://commons.wikimedia.org/wiki/Special:FilePath/File:National_Emblem_of_the_People's_Republic_of_China.svg", lat: 35.9, lon: 104.2, matchRegion: "Global" },
   "India":          { coatOfArms: "https://commons.wikimedia.org/wiki/Special:FilePath/File:Emblem_of_India.svg", lat: 22.0, lon: 79.0, matchRegion: "Global" },
-  "United Kingdom": { coatOfArms: "https://commons.wikimedia.org/wiki/Special:FilePath/File:Royal_Coat_of_Arms_of_the_United_Kingdom_(St._Edward's_Crown).svg", lat: 55.4, lon: -3.4, matchRegion: "Global" },
+  "United Kingdom": { coatOfArms: "https://commons.wikimedia.org/wiki/Special:FilePath/File:Royal_Coat_of_Arms_of_the_United_Kingdom_(HM_Government)_(St_Edwards_Crown).svg", lat: 55.4, lon: -3.4, matchRegion: "Global" },
   "France":         { coatOfArms: "https://commons.wikimedia.org/wiki/Special:FilePath/File:Emblem_of_the_French_Republic.svg", lat: 46.6, lon: 2.2, matchRegion: "Global" },
   "Germany":        { coatOfArms: "https://commons.wikimedia.org/wiki/Special:FilePath/File:Coat_of_arms_of_Germany.svg", lat: 51.2, lon: 10.4, matchRegion: "Global" },
   "Israel":         { coatOfArms: "https://commons.wikimedia.org/wiki/Special:FilePath/File:Emblem_of_Israel.svg", lat: 31.0, lon: 34.8, matchRegion: "Middle East" },

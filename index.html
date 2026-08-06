@@ -348,6 +348,7 @@
     let NOTES = [];    // analyst posts from data/notes.json (drives country badges)
     let HISTORY = [];  // per-run country risk scores from data/risk_history.json (drives sparkline)
     let map, markerLayer, countryLayer, territoryLayer;
+    let countryMarkers = {};  // country name -> its L.marker, so the deep-link feature can find it
 
     // Shared escaper — feed-derived text (event summaries, source names, etc.)
     // comes from uncontrolled external RSS sources and must never be inserted
@@ -430,6 +431,7 @@
     function renderCountryLayer() {
       territoryLayer.clearLayers();
       countryLayer.clearLayers();
+      countryMarkers = {};
 
       activeCountries(NOTES).forEach(name => {
         const c = COUNTRIES[name];
@@ -449,12 +451,13 @@
              <img src="${c.coatOfArms}" alt="${name}"
                   onerror="this.style.display='none';this.parentNode.classList.add('noimg');this.parentNode.setAttribute('data-ini','${ini}');">
            </div>`;
-        L.marker([c.lat, c.lon], {
+        const marker = L.marker([c.lat, c.lon], {
           icon: L.divIcon({ className: "cmark-wrap", html, iconSize: [38, 38], iconAnchor: [19, 19], popupAnchor: [0, -18] })
         })
         .bindTooltip(`${name} · ${band.label}`, { direction: "top" })
         .bindPopup(countryPopupHtml(name), { className: "country-popup-wrap", maxWidth: 280 })
         .addTo(countryLayer);
+        countryMarkers[name] = marker;
       });
     }
 
@@ -513,8 +516,8 @@
           <div class="cp-head">${esc(name)}</div>
           ${trendHtml}
           <div class="cp-tabs">
-            <button class="cp-tab active" onclick="cpTab(this,'news')">News</button>
-            <button class="cp-tab" onclick="cpTab(this,'analyst')">Analyst</button>
+            <button class="cp-tab active" data-tab="news" onclick="cpTab(this,'news')">News</button>
+            <button class="cp-tab" data-tab="analyst" onclick="cpTab(this,'analyst')">Analyst</button>
           </div>
           <div class="cp-panel cp-news active">${newsHtml}</div>
           <div class="cp-panel cp-analyst">${postHtml}</div>
@@ -530,6 +533,41 @@
       root.querySelector(".cp-news").classList.toggle("active", which === "news");
       root.querySelector(".cp-analyst").classList.toggle("active", which === "analyst");
     };
+
+    /* ========================================================================
+       SHAREABLE DEEP LINK — ?country=<name>&tab=<news|analyst|analysis>
+       Programmatically triggers the same marker-click flow a real click
+       would (pan the map, open that country's popup, optionally switch to
+       the Analyst tab). The country param is validated against the
+       COUNTRIES table — an EXACT key match, not a substring/prefix check —
+       before it's allowed to drive any DOM/state change. Anything not in
+       that allowlist is logged and ignored; it never reaches the map,
+       Leaflet, or the DOM.
+       ===================================================================== */
+    function applyDeepLink() {
+      const params = new URLSearchParams(location.search);
+      const countryParam = params.get("country");
+      if (!countryParam) return;
+
+      if (!Object.prototype.hasOwnProperty.call(COUNTRIES, countryParam)) {
+        console.warn(`Deep link ?country=${countryParam} is not in the COUNTRIES allowlist — ignored.`);
+        return;
+      }
+      const marker = countryMarkers[countryParam];
+      if (!marker) return;  // valid country, but it has no badge on the current map (no notes yet)
+
+      const c = COUNTRIES[countryParam];
+      map.setView([c.lat, c.lon], 4);
+      marker.openPopup();
+
+      const tabParam = params.get("tab");
+      if (tabParam === "analyst" || tabParam === "analysis") {
+        map.once("popupopen", ev => {
+          const btn = ev.popup.getElement() && ev.popup.getElement().querySelector('.cp-tab[data-tab="analyst"]');
+          if (btn) btn.click();
+        });
+      }
+    }
 
     function renderMap() {
       markerLayer.clearLayers();
@@ -796,6 +834,7 @@
         "AS OF " + (DATA.generated_at || "sample data");
       renderAll();
       renderCountryLayer();   // country badges are independent of the event filters
+      applyDeepLink();        // needs countryMarkers, which renderCountryLayer just populated
     }
     boot();
   </script>

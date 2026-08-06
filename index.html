@@ -108,6 +108,8 @@
     .map-legend .dia { width: 8px; height: 8px; background: var(--brass); transform: rotate(45deg);
       display: inline-block; flex-shrink: 0; }
     .map-legend hr { border: none; border-top: 1px solid var(--line); margin: 4px 0; }
+    .map-legend label { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+    .map-legend .lane-swatch { width: 14px; height: 2px; display: inline-block; flex-shrink: 0; }
 
     /* Pulse ring: an animated CSS halo dropped on top of HIGH-risk markers only,
        so the most important events visually stand out from the rest of the map. */
@@ -278,6 +280,9 @@
         <div class="row"><span class="dia"></span> Maritime chokepoint</div>
         <div>Numbered circles = clustered events</div>
         <div>Coat-of-arms = country with analyst notes</div>
+        <hr>
+        <label><input type="checkbox" id="laneToggle"> <span class="lane-swatch" style="background:var(--brass)"></span> Reference shipping corridors</label>
+        <div style="max-width:150px;">Static 2012 CIA cartographic source — NOT live AIS/vessel-traffic data</div>
       </div>
     </div>
 
@@ -347,7 +352,7 @@
     let DATA = null;   // filled by loadData()
     let NOTES = [];    // analyst posts from data/notes.json (drives country badges)
     let HISTORY = [];  // per-run country risk scores from data/risk_history.json (drives sparkline)
-    let map, markerLayer, countryLayer, territoryLayer;
+    let map, markerLayer, countryLayer, territoryLayer, laneLayer;
     let countryMarkers = {};  // country name -> its L.marker, so the deep-link feature can find it
 
     // Shared escaper — feed-derived text (event summaries, source names, etc.)
@@ -413,6 +418,13 @@
         }).bindTooltip(c.name, { direction: "top" }).addTo(chokeLayer);
       });
 
+      // Shipping lanes: NOT added to the map by default — off until the user
+      // opts in via the legend checkbox. Populated once data/shipping_lanes.geojson
+      // loads (see renderLanes()). Just 3 features (Major/Middle/Minor, each one
+      // big MultiLineString), so toggling it on/off is cheap either way; the
+      // opt-in is about visual clutter, not performance.
+      laneLayer = L.layerGroup();
+
       // territoryLayer added BEFORE the badge layer so the low-opacity circles
       // sit visually beneath the coat-of-arms badges. Both are populated once
       // notes.json loads (see renderCountryLayer). Separate from markerLayer
@@ -459,6 +471,31 @@
         .addTo(countryLayer);
         countryMarkers[name] = marker;
       });
+    }
+
+    /* ========================================================================
+       REFERENCE SHIPPING CORRIDORS (data/shipping_lanes.geojson)
+       Georeferenced from the CIA's declassified "Map of the World's Oceans"
+       (2012) via the newzealandpaul/Shipping-Lanes dataset (CC BY 4.0 — see
+       NOTICE.md). Three features (Major/Middle/Minor MultiLineStrings), so
+       this renders once and is cheap to leave toggled on — the opt-in
+       checkbox exists for visual clutter, not for performance.
+       These are STATIC reference corridors from a 2012 source, not live
+       AIS/vessel-traffic data — every place this layer is labeled says so,
+       since implying otherwise would be exactly the kind of unsupported
+       claim this project's methodology explicitly avoids.
+       ===================================================================== */
+    const LANE_STYLE = {
+      Major:  { weight: 2.2, color: "#C9A44C", opacity: 0.85 },
+      Middle: { weight: 1.4, color: "#C9A44C", opacity: 0.5 },
+      Minor:  { weight: 0.8, color: "#C9A44C", opacity: 0.28 },
+    };
+    function renderLanes(geojson) {
+      L.geoJSON(geojson, {
+        style: feature => LANE_STYLE[feature.properties.Type] || LANE_STYLE.Minor,
+        onEachFeature: (feature, layer) =>
+          layer.bindTooltip(`${esc(feature.properties.Type)} shipping corridor — reference only, 2012 CIA source, not live AIS data`, { sticky: true }),
+      }).addTo(laneLayer);
     }
 
     // Inline SVG sparkline for a numeric series. Coordinates only — no user
@@ -791,6 +828,9 @@
     document.getElementById("feed").addEventListener("keydown", toggleRow);
     document.getElementById("cmpA").addEventListener("change", renderCompare);
     document.getElementById("cmpB").addEventListener("change", renderCompare);
+    document.getElementById("laneToggle").addEventListener("change", ev => {
+      if (ev.target.checked) map.addLayer(laneLayer); else map.removeLayer(laneLayer);
+    });
 
     /* ========================================================================
        PART 5 — BOOT: try real data, fall back gracefully, then render.
@@ -829,6 +869,16 @@
       } catch (err) {
         console.warn("Could not load data/risk_history.json — trend sparkline will be empty.", err);
         HISTORY = [];
+      }
+      // Shipping lanes are a static reference overlay, off by default (see
+      // laneToggle). Failure here just leaves the checkbox with nothing to
+      // show — everything else on the page is unaffected.
+      try {
+        const res = await fetch("data/shipping_lanes.geojson", { cache: "no-store" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        renderLanes(await res.json());
+      } catch (err) {
+        console.warn("Could not load data/shipping_lanes.geojson — lane overlay unavailable.", err);
       }
       document.getElementById("asof").textContent =
         "AS OF " + (DATA.generated_at || "sample data");

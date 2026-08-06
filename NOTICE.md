@@ -67,16 +67,30 @@ original publisher.
 | Al Jazeera (RSS) | Publisher-provided public RSS feed; headline + link only |
 | gCaptain (maritime, RSS) | Publisher-provided public RSS feed; headline + link only |
 
-## Planned, not yet integrated
+## Geospatial overlays
 
-- **Marine Regions EEZ boundaries** (Flanders Marine Institute / UNESCO) —
-  citable DOI dataset, free GeoJSON/Shapefile. Not yet pulled into the repo.
-- **Shipping lane reference corridors** —
-  [newzealandpaul/Shipping-Lanes](https://github.com/newzealandpaul/Shipping-Lanes)
-  (CC BY 4.0), georeferenced from a declassified CIA "Map of the World's
-  Oceans" (2012). Requires attribution per CC BY 4.0 when integrated. Must
-  be labeled as a static 2012 reference source — explicitly not live
-  AIS/vessel-traffic data.
+| Dataset | Source | License | Used as |
+|---|---|---|---|
+| Reference shipping corridors (`data/shipping_lanes.geojson`) | [newzealandpaul/Shipping-Lanes](https://github.com/newzealandpaul/Shipping-Lanes), data/Shipping_Lanes_v1.geojson, georeferenced from the CIA's declassified "Map of the World's Oceans" (Oct 2012) | CC BY 4.0 (excluding Statista) — author P. Benden / Central Intelligence Agency; cite: Benden, P. (2022). *Global Shipping Lanes* [Data set]. Zenodo. https://doi.org/10.5281/zenodo.6361763 | Toggleable Leaflet overlay on the Situation Map, labeled everywhere it appears (legend + tooltip) as a static 2012 reference source — explicitly **not** live AIS/vessel-traffic data |
 
-This section moves to the tables above once either dataset is actually
-added to the repo.
+## Investigated, not integrated
+
+- **Marine Regions EEZ boundaries** (Flanders Marine Institute / UNESCO,
+  public WFS at `geo.vliz.be`, layer `MarineRegions:eez`) — the standard
+  global EEZ boundary dataset, citable DOI. Investigated this session:
+  even after scoping the request down to only the 22 tracked countries plus
+  the 7 chokepoint-adjacent territories (Djibouti, Yemen, Egypt, Malaysia,
+  Singapore, Oman, Taiwan) — well short of the full 285-territory global
+  set — full-resolution polygons for just 6 of those (Russia, US,
+  Australia, Indonesia, UK, China) totaled ~44MB, with Russia's and
+  Indonesia's requests alone taking 25+ seconds to return. This confirms
+  the original plan's own "100+ MB" concern rather than resolving it.
+  **Not added** — would need geometry simplification (e.g. mapshaper or a
+  Python GIS library) before it's a reasonable static-site asset, which is
+  a new-dependency decision this project's "don't add dependencies unless
+  there's no reasonable way around it" standard says shouldn't be made in
+  passing. Left for a dedicated future session per the original plan's own
+  contingency for this stage.
+
+This section's entries move up to the tables above once actually pulled
+into the repo.

@@ -107,6 +107,9 @@ material. No API keys or secrets in the repository (`.env` is gitignored; see
 `.env.example`). Analysis is labeled with confidence levels and limitations;
 the tone aims to be analytical and balanced, not partisan.
 
+See [NOTICE.md](NOTICE.md) for the full external data/asset source and
+license catalogue (country emblem files, RSS feed providers).
+
 ## Credits & inspiration
 
 Inspired by public open-source world-monitor dashboards, especially

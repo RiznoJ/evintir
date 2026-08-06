@@ -198,6 +198,9 @@
     .brief li { padding: 4px 0 4px 14px; position: relative; }
     .brief li::before { content: "▸"; position: absolute; left: 0; color: var(--brass); }
     .brief .limits { color: var(--muted); font-size: 12.5px; }
+    .print-btn { font-family: var(--mono); font-size: 11px; letter-spacing: .05em; color: var(--muted);
+      background: transparent; border: 1px solid var(--line); padding: 4px 10px; cursor: pointer; margin-top: 6px; }
+    .print-btn:hover { color: var(--ink); border-color: var(--muted); }
 
     .sources { display: flex; flex-wrap: wrap; gap: 8px; }
     .source-item { display: flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 11.5px;
@@ -227,6 +230,23 @@
       .hide-sm { display: none; }
     }
     @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+    /* Printable Analyst Brief: browser print-to-PDF is enough, no PDF lib
+       needed. Collapses the page down to just the brief in a clean
+       single-column layout — everything interactive (map, filters, tables,
+       compare controls) is noise on paper. The UNCLASSIFIED banner and the
+       brief's own source/confidence notes stay visible, since those are the
+       parts that still matter once this is printed or handed off. */
+    @media print {
+      nav.tabs, #map, .cards, .filters, .sources, .compare-controls, .compare,
+      .eyebrow, .columns > section, .credits, .print-btn { display: none !important; }
+      body { background: #fff; color: #000; }
+      main { padding: 0; max-width: 100%; }
+      .columns { display: block; }
+      .brief { position: static; background: #fff; border: none; padding: 0; }
+      .brief h2, .brief h3 { color: #000; }
+      .brief .stamp, .brief .limits { color: #333; }
+    }
   </style>
 </head>
 
@@ -597,6 +617,7 @@
       const unverified = evts.filter(e => e.confidence === "Unverified").length;
       document.getElementById("brief").innerHTML = `
         <h2>Analyst Brief</h2>
+        <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
         <div class="stamp">(U) Scope: ${scope} · ${evts.length} events · data generated ${DATA.generated_at}</div>
         <h3>Executive summary</h3>
         <p>(U) Tracked activity spans ${new Set(evts.map(e => e.category)).size} categories.

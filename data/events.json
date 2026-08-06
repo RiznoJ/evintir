@@ -1,6 +1,38 @@
 {
-  "generated_at": "2026-08-06T19:15:51+00:00",
+  "generated_at": "2026-08-06T19:36:03+00:00",
   "note": "Auto-generated from public RSS feeds. Confidence 'Unverified' means no human review yet. Coordinates are region centroids.",
+  "sources": [
+    {
+      "source": "CISA Advisories",
+      "ok": true,
+      "entries_this_run": 8,
+      "last_success": "2026-08-06T19:36:01+00:00"
+    },
+    {
+      "source": "BBC World",
+      "ok": true,
+      "entries_this_run": 25,
+      "last_success": "2026-08-06T19:36:01+00:00"
+    },
+    {
+      "source": "Al Jazeera",
+      "ok": true,
+      "entries_this_run": 25,
+      "last_success": "2026-08-06T19:36:01+00:00"
+    },
+    {
+      "source": "gCaptain (maritime)",
+      "ok": true,
+      "entries_this_run": 12,
+      "last_success": "2026-08-06T19:36:01+00:00"
+    },
+    {
+      "source": "U.S. DoD Releases",
+      "ok": true,
+      "entries_this_run": 14,
+      "last_success": "2026-08-06T19:36:01+00:00"
+    }
+  ],
   "events": [
     {
       "id": "RSS-925d5e2d67",
@@ -114,6 +146,29 @@
       "country_tags": []
     },
     {
+      "id": "RSS-5bff321180",
+      "date": "2026-08-06",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/8/6/israeli-attacks-wound-eight-in-lebanon-despite-rome-talks?traffic_source=rss",
+      "summary": "Israeli attacks wound eight in Lebanon despite Rome talks",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 6,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Israel"
+      ]
+    },
+    {
       "id": "RSS-ce5db17212",
       "date": "2026-08-06",
       "region": "Middle East",
@@ -169,27 +224,6 @@
       "source_name": "Al Jazeera",
       "source_url": "https://www.aljazeera.com/news/2026/8/6/unicef-says-one-child-killed-per-day-in-gaza-since-ceasefire-2?traffic_source=rss",
       "summary": "UNICEF says one child killed per day in Gaza since \u2018ceasefire\u2019",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 6,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-f027835a70",
-      "date": "2026-08-06",
-      "region": "Middle East",
-      "location": "Middle East",
-      "lat": 29.0,
-      "lon": 45.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/8/6/houthis-claim-to-have-killed-45-in-attacks-on-yemeni-government-forces?traffic_source=rss",
-      "summary": "Houthi attacks on Yemeni government forces kill at least 30",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 6,
@@ -699,6 +733,92 @@
       "country_tags": []
     },
     {
+      "id": "RSS-63f1997da6",
+      "date": "2026-08-06",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/sports/2026/8/6/vinicius-jr-extends-real-madrid-deal-to-2032-ending-transfer-speculation?traffic_source=rss",
+      "summary": "Vinicius Jr extends Real Madrid deal to 2032, ending transfer speculation",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-28de1d8f6b",
+      "date": "2026-08-06",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/8/6/sudan-war-threatens-ancient-meroe-pyramids?traffic_source=rss",
+      "summary": "Sudan war threatens ancient Meroe pyramids",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-d9e91a114f",
+      "date": "2026-08-06",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/8/6/aje-onl-nf_-final-dnrexp-260805-withrowe-chatbotact-060826?traffic_source=rss",
+      "summary": "The biggest AI bill for parents yet?",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-e5a22d3474",
+      "date": "2026-08-06",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/8/6/cdc-says-us-salmonella-outbreak-tied-to-jalapeno-peppers-from-mexico?traffic_source=rss",
+      "summary": "CDC says US salmonella outbreak tied to jalapeno peppers from Mexico",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Mexico"
+      ]
+    },
+    {
       "id": "RSS-2177dd8f94",
       "date": "2026-08-06",
       "region": "Global",
@@ -1069,92 +1189,6 @@
         "auto-ingested"
       ],
       "country_tags": []
-    },
-    {
-      "id": "RSS-9e28b6b466",
-      "date": "2026-08-06",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/by-the-numbers-3/2026/8/6/what-does-the-world-pay-for-a-childs-education?traffic_source=rss",
-      "summary": "What does the world pay for a child\u2019s education?",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-a3fc58ddb7",
-      "date": "2026-08-06",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/8/6/when-atrocities-return-the-cost-of-failed-accountability-in-tigray?traffic_source=rss",
-      "summary": "When atrocities return: The cost of failed accountability in Tigray",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-49e8244788",
-      "date": "2026-08-06",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/sports/2026/8/6/ufc-331-van-pantoja-rematch-tsarukyan-returns-and-full-fight-card?traffic_source=rss",
-      "summary": "UFC 331: Van-Pantoja rematch, Tsarukyan returns and full fight card",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-0b7d3bd5d9",
-      "date": "2026-08-06",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/8/6/indian-court-sentences-high-profile-journalist-to-10-years-for-rape?traffic_source=rss",
-      "summary": "Indian court sentences high-profile journalist to 10 years for rape",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "India"
-      ]
     },
     {
       "id": "RSS-25ae70374f",

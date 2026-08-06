@@ -196,6 +196,12 @@
     .brief li::before { content: "▸"; position: absolute; left: 0; color: var(--brass); }
     .brief .limits { color: var(--muted); font-size: 12.5px; }
 
+    .sources { display: flex; flex-wrap: wrap; gap: 8px; }
+    .source-item { display: flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 11.5px;
+      color: var(--muted); border: 1px solid var(--line); padding: 4px 10px; }
+    .source-item .sdot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+    .source-item .sname { color: var(--ink); }
+
     .credits { text-align: center; font-family: var(--mono); font-size: 11px; color: var(--muted); padding: 24px 10px 10px; }
 
     @media (max-width: 900px) {
@@ -245,6 +251,9 @@
 
     <div class="eyebrow">Filters</div>
     <div class="filters" id="filters" role="toolbar" aria-label="Event filters"></div>
+
+    <div class="eyebrow">Source Freshness — last successful pull per feed</div>
+    <div class="sources" id="sources"></div>
 
     <div class="columns">
       <section>
@@ -553,7 +562,40 @@
            Public sources only; no claim of completeness.</p>`;
     }
 
-    function renderAll() { renderCards(); renderFilters(); renderTable(); renderBrief(); renderMap(); }
+    // "3h ago" style relative time. Feeds refresh roughly every 6h (the GitHub
+    // Actions cron), so freshness bands are calibrated to that cadence:
+    // fresh = within one cycle, stale = 1-2 cycles behind, dead = further
+    // behind or never successfully pulled.
+    function relTime(iso) {
+      if (!iso) return "never";
+      const ms = Date.now() - new Date(iso).getTime();
+      const hrs = ms / 36e5;
+      if (hrs < 1) return "<1h ago";
+      if (hrs < 48) return `${Math.round(hrs)}h ago`;
+      return `${Math.round(hrs / 24)}d ago`;
+    }
+    function freshnessDot(iso) {
+      if (!iso) return "#7E8FA0";                                  // never pulled — muted
+      const hrs = (Date.now() - new Date(iso).getTime()) / 36e5;
+      if (hrs <= 6)  return "#55A97A";                              // within one cron cycle
+      if (hrs <= 12) return "#E0A93E";                              // one cycle behind
+      return "#D65A5A";                                             // stale
+    }
+    function renderSources() {
+      const el = document.getElementById("sources");
+      const sources = DATA.sources;
+      if (!Array.isArray(sources) || !sources.length) {
+        el.innerHTML = `<div class="cp-empty">No source-freshness data in the current feed file.</div>`;
+        return;
+      }
+      el.innerHTML = sources.map(s => `
+        <div class="source-item">
+          <span class="sdot" style="background:${freshnessDot(s.last_success)}"></span>
+          <span class="sname">${esc(s.source)}</span> · updated ${esc(relTime(s.last_success))}
+        </div>`).join("");
+    }
+
+    function renderAll() { renderCards(); renderFilters(); renderTable(); renderBrief(); renderMap(); renderSources(); }
 
     /* ========================================================================
        PART 4 — WIRING (user input -> state change -> re-render)

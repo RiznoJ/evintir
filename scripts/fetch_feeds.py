@@ -224,32 +224,69 @@ def entry_to_event(entry, feed_cfg):
     }
 
 
-def fetch_all():
-    events, seen = [], set()
+def fetch_all(prev_sources):
+    """Fetch every feed, returning (events, source_status).
+
+    source_status is one entry per FEEDS config, carrying a last_success
+    timestamp forward from prev_sources (the previous run's output) when a
+    feed fails this run — otherwise a feed going briefly offline would make
+    the UI say "no data," when what's actually true is "this feed hasn't
+    successfully pulled since <the last time it worked>." A feed that has
+    never once succeeded gets last_success: null.
+    """
+    events, seen, source_status = [], set(), []
+    now = datetime.now(timezone.utc).isoformat(timespec="seconds")
     for feed_cfg in FEEDS:
+        prev = prev_sources.get(feed_cfg["source"], {})
         try:
             parsed = feedparser.parse(feed_cfg["url"])
+            # feedparser does NOT raise for a dead/unreachable URL — it just
+            # returns an empty result with bozo=1 (malformed/unfetchable) and
+            # no entries. Treat that the same as an exception: a well-formed
+            # feed with zero entries (bozo=0) is the only case we still call
+            # a success with nothing new to add.
+            if parsed.get("bozo") and not parsed.entries:
+                raise parsed.get("bozo_exception") or Exception("empty/unreachable feed")
+            n = 0
             for entry in parsed.entries[:25]:
                 ev = entry_to_event(entry, feed_cfg)
                 if ev and ev["id"] not in seen:
                     seen.add(ev["id"])
                     events.append(ev)
+                    n += 1
             print(f"OK   {feed_cfg['source']}: {len(parsed.entries)} entries")
+            source_status.append({
+                "source": feed_cfg["source"], "ok": True,
+                "entries_this_run": n, "last_success": now,
+            })
         except Exception as exc:  # one broken feed must not kill the run
             print(f"SKIP {feed_cfg['source']}: {exc}")
+            source_status.append({
+                "source": feed_cfg["source"], "ok": False,
+                "entries_this_run": 0, "last_success": prev.get("last_success"),
+            })
     events.sort(key=lambda e: (e["date"], e["risk_score"]), reverse=True)
-    return events[:MAX_EVENTS]
+    return events[:MAX_EVENTS], source_status
 
 
 def main():
-    events = fetch_all()
+    path = Path(__file__).resolve().parent.parent / "data" / "events.json"
+    prev_sources = {}
+    if path.exists():
+        try:
+            prev = json.loads(path.read_text(encoding="utf-8"))
+            prev_sources = {s["source"]: s for s in prev.get("sources", [])}
+        except Exception:
+            pass  # no usable previous run — every source just starts fresh
+
+    events, source_status = fetch_all(prev_sources)
     out = {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "note": "Auto-generated from public RSS feeds. Confidence 'Unverified' "
                 "means no human review yet. Coordinates are region centroids.",
+        "sources": source_status,
         "events": events,
     }
-    path = Path(__file__).resolve().parent.parent / "data" / "events.json"
     path.write_text(json.dumps(out, indent=2), encoding="utf-8")
     print(f"Wrote {len(events)} events -> {path}")
 

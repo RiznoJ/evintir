@@ -148,6 +148,9 @@
     .cp-item a { color: var(--brass); text-decoration: none; }
     .cp-item a:hover { text-decoration: underline; }
     .cp-empty { font-size: 12px; color: var(--muted); font-style: italic; padding: 6px 0; }
+    .cp-trend { margin-bottom: 8px; }
+    .cp-trend .spark { display: block; }
+    .cp-trend-label { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: .03em; }
 
     .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(185px, 1fr)); gap: 12px; }
     .card { background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--muted); padding: 12px 14px; }
@@ -303,6 +306,7 @@
     const state = { region: "All", category: "All", openId: null };
     let DATA = null;   // filled by loadData()
     let NOTES = [];    // analyst posts from data/notes.json (drives country badges)
+    let HISTORY = [];  // per-run country risk scores from data/risk_history.json (drives sparkline)
     let map, markerLayer, countryLayer, territoryLayer;
 
     // Shared escaper — feed-derived text (event summaries, source names, etc.)
@@ -414,9 +418,38 @@
       });
     }
 
-    // Popup body: News tab (up to 3 matched events) + Analyst tab (linked notes).
+    // Inline SVG sparkline for a numeric series. Coordinates only — no user
+    // or feed text ever flows into this, so it's safe to build as a string.
+    // A flat series (incl. a single point) still draws a flat mid-height
+    // line rather than dividing by zero.
+    function sparklineSvg(values, w, h) {
+      if (!values.length) return "";
+      const min = Math.min(...values), max = Math.max(...values);
+      const range = max - min || 1;
+      const step = values.length > 1 ? w / (values.length - 1) : 0;
+      const pts = values.map((v, i) =>
+        `${(i * step).toFixed(1)},${(h - ((v - min) / range) * h).toFixed(1)}`).join(" ");
+      return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" class="spark">
+          <polyline points="${pts}" fill="none" stroke="var(--brass)" stroke-width="1.5"/>
+        </svg>`;
+    }
+
+    // Popup body: risk trend sparkline + News tab (up to 3 matched events) +
+    // Analyst tab (linked notes).
     function countryPopupHtml(name) {
       const c = COUNTRIES[name];
+
+      // Risk trend: one pipeline run's weighted score per history entry (see
+      // fetch_feeds.py compute_country_scores / CATEGORY_SEVERITY for the
+      // documented formula). A run where this country had zero tagged events
+      // plots as 0, not a gap — it genuinely had no scored activity that run.
+      const trendVals = (HISTORY || []).map(h => (h.scores && h.scores[name]) || 0);
+      const trendHtml = trendVals.length
+        ? `<div class="cp-trend">
+             ${sparklineSvg(trendVals, 120, 28)}
+             <span class="cp-trend-label">risk trend · ${trendVals.length} pipeline run${trendVals.length === 1 ? "" : "s"} · latest ${trendVals[trendVals.length - 1]}/10</span>
+           </div>`
+        : "";
 
       // Filter by country_tags (assigned per-event at ingest, see
       // fetch_feeds.py COUNTRY_KEYWORDS), NOT by region. Region is a coarse
@@ -438,6 +471,7 @@
 
       return `<div class="country-popup">
           <div class="cp-head">${esc(name)}</div>
+          ${trendHtml}
           <div class="cp-tabs">
             <button class="cp-tab active" onclick="cpTab(this,'news')">News</button>
             <button class="cp-tab" onclick="cpTab(this,'analyst')">Analyst</button>
@@ -643,6 +677,17 @@
       } catch (err) {
         console.warn("Could not load data/notes.json — using fallback.", err);
         NOTES = NOTES_FALLBACK;
+      }
+      // Risk history drives the trend sparkline in each country popup.
+      // Failure here is non-fatal — the popup just shows no trend section.
+      try {
+        const res = await fetch("data/risk_history.json", { cache: "no-store" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const j = await res.json();
+        HISTORY = Array.isArray(j.history) ? j.history : [];
+      } catch (err) {
+        console.warn("Could not load data/risk_history.json — trend sparkline will be empty.", err);
+        HISTORY = [];
       }
       document.getElementById("asof").textContent =
         "AS OF " + (DATA.generated_at || "sample data");

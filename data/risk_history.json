@@ -1,0 +1,53 @@
+{
+  "note": "Per-country weighted-risk score, one entry per pipeline run. Formula: sum(event.risk_score * CATEGORY_SEVERITY[category] * recency_weight) over that country's tagged events this run, capped at 10. See README.md 'Risk scoring methodology'. Countries with zero tagged events in a given run are simply absent from that entry's scores, not scored as zero.",
+  "history": [
+    {
+      "generated_at": "2026-08-06T20:08:15+00:00",
+      "scores": {
+        "Israel": 10,
+        "South Korea": 9.2,
+        "Saudi Arabia": 4.5,
+        "Russia": 3.9,
+        "Ukraine": 6.9,
+        "Iran": 10,
+        "India": 2.4,
+        "Australia": 1.2,
+        "Mexico": 1.2,
+        "Germany": 5.8,
+        "United States": 4.2
+      }
+    },
+    {
+      "generated_at": "2026-08-06T20:08:16+00:00",
+      "scores": {
+        "Israel": 10,
+        "South Korea": 9.2,
+        "Saudi Arabia": 4.5,
+        "Russia": 3.9,
+        "Ukraine": 6.9,
+        "Iran": 10,
+        "India": 2.4,
+        "Australia": 1.2,
+        "Mexico": 1.2,
+        "Germany": 5.8,
+        "United States": 4.2
+      }
+    },
+    {
+      "generated_at": "2026-08-06T20:08:18+00:00",
+      "scores": {
+        "Israel": 10,
+        "South Korea": 9.2,
+        "Saudi Arabia": 4.5,
+        "Russia": 3.9,
+        "Ukraine": 6.9,
+        "Iran": 10,
+        "India": 2.4,
+        "Australia": 1.2,
+        "Mexico": 1.2,
+        "Germany": 5.8,
+        "United States": 4.2
+      }
+    }
+  ]
+}

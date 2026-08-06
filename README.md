@@ -37,7 +37,13 @@ public RSS feeds ──> scripts/fetch_feeds.py ──> data/events.json ──>
 
 `id · date · region · location · lat/lon · category · event_type ·
 source_name · source_url · summary · why_it_matters · confidence ·
-risk_score · tags`
+risk_score · tags · country_tags`
+
+`data/events.json` also carries a top-level `sources[]` array (one entry per
+RSS feed, with a `last_success` timestamp — drives the "Source Freshness"
+indicator) alongside `events[]`. `data/risk_history.json` is a separate,
+append-only file: one `{generated_at, scores}` entry per pipeline run,
+capped at the most recent 200 runs — see "Risk scoring methodology" below.
 
 ## Run it locally
 
@@ -48,6 +54,43 @@ python -m http.server        # from the project folder
 
 To refresh data manually: `pip install -r requirements.txt` then
 `python scripts/fetch_feeds.py`.
+
+## Risk scoring methodology
+
+Two distinct scores exist, and they answer different questions:
+
+- **`risk_score`** (0-9, on each individual event) — a placeholder keyword
+  rubric (see `RISK_KEYWORDS` in `fetch_feeds.py`): base 3, bumped by
+  severity keywords found in the headline. This is a single event's score.
+- **Per-country trend score** (0-10, shown as the sparkline on each country's
+  map popup) — computed fresh every pipeline run from that run's tagged
+  events, in `compute_country_scores()`:
+
+  ```
+  score = sum( event.risk_score * CATEGORY_SEVERITY[event.category] * recency_weight )
+          over every event tagged with that country this run, capped at 10
+  ```
+
+  - `CATEGORY_SEVERITY` weights category by how directly it implies
+    escalation risk (Military 1.0, Cyber 0.8, Maritime 0.7, Energy 0.6,
+    Economic/Information 0.5, Geopolitical 0.4 default) — a Military-tagged
+    headline contributes more than a general Geopolitical one at the same
+    `risk_score`.
+  - `recency_weight` decays linearly from 1.0 (published now) to 0.0 across
+    the 7-day retention window (`MAX_AGE_DAYS`), so the score reflects recent
+    weighted activity, not a raw event count or a single stale headline.
+  - A country with zero tagged events in a given run is simply **absent**
+    from that run's scores — it is not recorded as a 0. The sparkline plots
+    absent runs as 0 for display continuity, but that's a rendering choice,
+    not a claim that "0 risk" was measured.
+
+Each pipeline run appends one `{generated_at, scores}` entry to
+`data/risk_history.json` (capped at the most recent `MAX_HISTORY_RUNS`, ~50
+days at 4 runs/day) — the history is accumulated across real runs, not
+backfilled or interpolated.
+
+Both scores share the same honesty caveat as the rest of this project: a
+documented placeholder rubric, not a validated model.
 
 ## Honest limitations
 

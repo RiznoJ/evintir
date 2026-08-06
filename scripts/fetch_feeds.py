@@ -112,6 +112,41 @@ COUNTRY_KEYWORDS = {
     "Kuwait":         ["kuwait", "kuwaiti"],
 }
 
+# ---------------------------------------------------------------------------
+# 2c. PER-COUNTRY RISK HISTORY — documented, defensible formula, not a
+#     validated model (same honesty standard as RISK_KEYWORDS above).
+#     For each country with >=1 tagged event this run:
+#       score = sum over its tagged events of
+#               event.risk_score * CATEGORY_SEVERITY[event.category] * recency_weight
+#     recency_weight decays LINEARLY to 0 across the MAX_AGE_DAYS window
+#     (1.0 for an event published right now, 0.0 for one about to age out),
+#     so a country's score reflects recent, weighted activity — not a raw
+#     event count and not a single snapshot risk_score. Capped at 10 so it
+#     stays on the same 0-10 scale as risk_score for the sparkline's y-axis.
+#     This exact formula is also stated in README.md under "Risk scoring
+#     methodology" — if you change it here, update that section too.
+# ---------------------------------------------------------------------------
+CATEGORY_SEVERITY = {
+    "Military": 1.0, "Cyber": 0.8, "Maritime": 0.7, "Energy": 0.6,
+    "Economic": 0.5, "Information": 0.5, "Geopolitical": 0.4,
+}
+MAX_HISTORY_RUNS = 200   # ~50 days of history at 4 runs/day; caps file size
+
+
+def compute_country_scores(events):
+    """country name -> weighted recent-risk score (see CATEGORY_SEVERITY above)."""
+    now = datetime.now(timezone.utc)
+    totals = {}
+    for e in events:
+        if not e.get("country_tags"):
+            continue
+        age_days = (now - datetime.strptime(e["date"], "%Y-%m-%d").replace(tzinfo=timezone.utc)).days
+        recency_weight = max(0.0, 1 - age_days / MAX_AGE_DAYS)
+        weight = e["risk_score"] * CATEGORY_SEVERITY.get(e["category"], 0.4) * recency_weight
+        for country in e["country_tags"]:
+            totals[country] = totals.get(country, 0.0) + weight
+    return {country: round(min(score, 10), 1) for country, score in totals.items()}
+
 CATEGORY_RULES = [
     (["ransomware", "cyber", "malware", "hack", "breach", "vulnerability",
       "phishing", "cve-"], "Cyber"),
@@ -280,8 +315,9 @@ def main():
             pass  # no usable previous run — every source just starts fresh
 
     events, source_status = fetch_all(prev_sources)
+    generated_at = datetime.now(timezone.utc).isoformat(timespec="seconds")
     out = {
-        "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "generated_at": generated_at,
         "note": "Auto-generated from public RSS feeds. Confidence 'Unverified' "
                 "means no human review yet. Coordinates are region centroids.",
         "sources": source_status,
@@ -289,6 +325,30 @@ def main():
     }
     path.write_text(json.dumps(out, indent=2), encoding="utf-8")
     print(f"Wrote {len(events)} events -> {path}")
+
+    # Per-country risk history — APPENDED, not overwritten, so the dashboard
+    # can draw a trend sparkline instead of only ever showing one snapshot.
+    # See CATEGORY_SEVERITY / compute_country_scores above for the formula.
+    history_path = path.parent / "risk_history.json"
+    history = []
+    if history_path.exists():
+        try:
+            history = json.loads(history_path.read_text(encoding="utf-8")).get("history", [])
+        except Exception:
+            history = []
+    history.append({"generated_at": generated_at, "scores": compute_country_scores(events)})
+    history = history[-MAX_HISTORY_RUNS:]
+    history_out = {
+        "note": "Per-country weighted-risk score, one entry per pipeline run. "
+                "Formula: sum(event.risk_score * CATEGORY_SEVERITY[category] * "
+                "recency_weight) over that country's tagged events this run, "
+                "capped at 10. See README.md 'Risk scoring methodology'. "
+                "Countries with zero tagged events in a given run are simply "
+                "absent from that entry's scores, not scored as zero.",
+        "history": history,
+    }
+    history_path.write_text(json.dumps(history_out, indent=2), encoding="utf-8")
+    print(f"Appended risk-history entry ({len(history)} runs retained) -> {history_path}")
 
 
 if __name__ == "__main__":

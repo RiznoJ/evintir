@@ -296,6 +296,18 @@
     let NOTES = [];    // analyst posts from data/notes.json (drives country badges)
     let map, markerLayer, countryLayer, territoryLayer;
 
+    // Shared escaper — feed-derived text (event summaries, source names, etc.)
+    // comes from uncontrolled external RSS sources and must never be inserted
+    // as raw HTML. Every innerHTML template that embeds event fields runs
+    // them through this first.
+    const esc = s => String(s).replace(/[&<>"]/g, ch =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
+
+    // Feed-supplied link URLs also need validating, not just escaping — a
+    // hostile feed entry could set its link to a javascript: URI. Only
+    // http(s) URLs are ever rendered as a clickable source link.
+    const safeUrl = u => /^https?:\/\//i.test(String(u || "")) ? u : null;
+
     function riskBand(s) {
       if (s >= 7) return { cls: "high", label: "HIGH",    color: "#D65A5A" };
       if (s >= 4) return { cls: "med",  label: "ELEVATED", color: "#E0A93E" };
@@ -396,13 +408,19 @@
     // Popup body: News tab (up to 3 matched events) + Analyst tab (linked notes).
     function countryPopupHtml(name) {
       const c = COUNTRIES[name];
-      const esc = s => String(s).replace(/[&<>"]/g, ch =>
-        ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
 
-      const news = DATA.events.filter(e => e.region === c.matchRegion).slice(0, 3);
+      // Filter by country_tags (assigned per-event at ingest, see
+      // fetch_feeds.py COUNTRY_KEYWORDS), NOT by region. Region is a coarse
+      // bucket shared by many countries (most non-ME/Russia-Ukraine/US
+      // countries fall back to "Global"), so filtering on it here showed
+      // unrelated world news under every one of those countries' News tabs.
+      // A country with zero matches shows an explicit empty state instead of
+      // silently falling back to the unfiltered feed — that fallback was
+      // the bug being fixed.
+      const news = DATA.events.filter(e => Array.isArray(e.country_tags) && e.country_tags.includes(name)).slice(0, 3);
       const newsHtml = news.length
         ? news.map(e => `<div class="cp-item"><span class="cp-date">${esc(e.date)}</span>${esc(e.summary)}</div>`).join("")
-        : `<div class="cp-empty">No events tagged “${esc(c.matchRegion)}” in the current feed.</div>`;
+        : `<div class="cp-empty">No country-specific coverage in the current window.</div>`;
 
       const posts = NOTES.filter(p => p.country === name);
       const postHtml = posts.length
@@ -440,7 +458,7 @@
           fillOpacity: 0.55, weight: 1
         })
         .bindTooltip(`${e.region} · risk ${e.risk_score}/10`, { direction: "top", sticky: true })
-        .bindPopup(`<b>${e.region}</b> · ${e.category} · risk ${e.risk_score}/10<br>${e.summary}`);
+        .bindPopup(`<b>${e.region}</b> · ${e.category} · risk ${e.risk_score}/10<br>${esc(e.summary)}`);
         markerLayer.addLayer(marker);
 
         // High-risk events additionally get a pulsing halo marker layered on top,
@@ -489,21 +507,22 @@
       document.getElementById("feed").innerHTML = evts.map(e => {
         const band = riskBand(e.risk_score);
         const open = state.openId === e.id ? "open" : "";
-        const link = e.source_url && e.source_url !== "#"
-          ? `<a href="${e.source_url}" target="_blank" rel="noopener">source link</a> · ` : "";
+        const safeSourceUrl = safeUrl(e.source_url);
+        const link = safeSourceUrl
+          ? `<a href="${esc(safeSourceUrl)}" target="_blank" rel="noopener">source link</a> · ` : "";
         return `
           <tr class="row" data-id="${e.id}" tabindex="0" aria-expanded="${open ? "true" : "false"}">
-            <td>${e.date.slice(5)}</td><td>${e.region}</td>
-            <td class="hide-sm">${e.category}</td>
-            <td><span class="pm">(U)</span> ${e.summary}</td>
+            <td>${e.date.slice(5)}</td><td>${esc(e.region)}</td>
+            <td class="hide-sm">${esc(e.category)}</td>
+            <td><span class="pm">(U)</span> ${esc(e.summary)}</td>
             <td class="score r-${band.cls}">${e.risk_score}</td>
-            <td class="conf hide-sm">${(e.confidence || "").toUpperCase()}</td>
+            <td class="conf hide-sm">${esc((e.confidence || "").toUpperCase())}</td>
           </tr>
           <tr class="detail ${open}"><td colspan="6">
-            <div class="detail-label">Why it matters</div><div>${e.why_it_matters}</div>
+            <div class="detail-label">Why it matters</div><div>${esc(e.why_it_matters)}</div>
             <div class="detail-label">Source &amp; confidence</div>
-            <div class="src">${link}${e.source_name} · confidence: ${e.confidence} · ${e.location} · ${e.event_type}</div>
-            <div>${(e.tags || []).map(t => `<span class="tag">${t}</span>`).join("")}</div>
+            <div class="src">${link}${esc(e.source_name)} · confidence: ${esc(e.confidence)} · ${esc(e.location)} · ${esc(e.event_type)}</div>
+            <div>${(e.tags || []).map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div>
           </td></tr>`;
       }).join("");
     }
@@ -521,7 +540,7 @@
            Highest-risk items concentrate in ${top[0] ? top[0].region : "—"}.
            ${unverified} of ${evts.length} items are machine-ingested and not yet human-reviewed.</p>
         <h3>Key developments</h3>
-        <ul>${top.map(e => `<li>${e.summary}
+        <ul>${top.map(e => `<li>${esc(e.summary)}
             <span class="conf r-${riskBand(e.risk_score).cls}">[${e.risk_score}/10]</span></li>`).join("")}</ul>
         <h3>What to watch</h3>
         <ul><li>Corroboration of unverified items</li>

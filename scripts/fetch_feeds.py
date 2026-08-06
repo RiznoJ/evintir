@@ -6,7 +6,10 @@ WHAT THIS SCRIPT DOES (read this first):
   1. Downloads several public RSS feeds (RSS = a standard "here are my
      latest articles" format that most news sites publish for free).
   2. Turns each article into an "event" matching the project schema.
-  3. Classifies each event by REGION and CATEGORY using keyword rules.
+  3. Classifies each event by REGION and CATEGORY using keyword rules, and
+     tags it with zero or more COUNTRY_TAGS (see COUNTRY_KEYWORDS below) so
+     the dashboard's per-country News tab can filter on country instead of
+     the much coarser region.
   4. Assigns a placeholder RISK SCORE using a simple keyword rubric.
   5. Writes everything to data/events.json — which the dashboard reads.
 
@@ -68,6 +71,47 @@ REGION_RULES = [
       "vulnerability", "cve-"], "Cyber"),
 ]
 
+# ---------------------------------------------------------------------------
+# 2b. COUNTRY TAGS — separate from REGION_RULES above. Region is one coarse
+#     bucket per event (used for map centroids); country_tags is a list of
+#     ZERO OR MORE country names an event mentions, matched against countries.js
+#     COUNTRIES keys (names here MUST match those keys exactly, including
+#     "South Korea" not "Korea, South"). A single event can tag multiple
+#     countries (e.g. an Israel-Iran story tags both). This is what the
+#     dashboard's per-country News tab filters on instead of region, since
+#     region alone collapses most countries into "Global".
+#     Same limitation as REGION_RULES: crude keyword matching on the headline
+#     only, no NLP/NER. Some countries (e.g. UAE, Kuwait) are common enough
+#     to already be reasonably unambiguous by name; short country names alone
+#     ("India", "Japan") can occasionally over-match in unrelated headlines
+#     ("China" is safe, "Japan" occasionally isn't) — documented limitation,
+#     not treated as a solved problem.
+# ---------------------------------------------------------------------------
+COUNTRY_KEYWORDS = {
+    "United States":  ["united states", "pentagon", "white house", "washington"],
+    "Russia":         ["russia", "russian", "moscow", "kremlin", "putin"],
+    "Ukraine":        ["ukraine", "ukrainian", "kyiv", "kiev", "zelensky"],
+    "China":          ["china", "chinese", "beijing", "xi jinping"],
+    "India":          ["india", "indian", "new delhi", "modi"],
+    "United Kingdom": ["united kingdom", "britain", "british", "london"],
+    "France":         ["france", "french", "paris"],
+    "Germany":        ["germany", "german", "berlin"],
+    "Israel":         ["israel", "israeli", "tel aviv", "jerusalem", "netanyahu", "idf"],
+    "Iran":           ["iran", "iranian", "tehran", "irgc"],
+    "Pakistan":       ["pakistan", "pakistani", "islamabad"],
+    "Japan":          ["japan", "japanese", "tokyo"],
+    "South Korea":    ["south korea", "seoul"],
+    "North Korea":    ["north korea", "pyongyang", "kim jong"],
+    "Indonesia":      ["indonesia", "indonesian", "jakarta"],
+    "Australia":      ["australia", "australian", "canberra"],
+    "Mexico":         ["mexico", "mexican", "mexico city"],
+    "Turkey":         ["turkey", "turkish", "ankara", "istanbul"],
+    "Saudi Arabia":   ["saudi arabia", "saudi", "riyadh"],
+    "United Arab Emirates": ["united arab emirates", "abu dhabi", "dubai", "emirati"],
+    "Qatar":          ["qatar", "qatari", "doha"],
+    "Kuwait":         ["kuwait", "kuwaiti"],
+}
+
 CATEGORY_RULES = [
     (["ransomware", "cyber", "malware", "hack", "breach", "vulnerability",
       "phishing", "cve-"], "Cyber"),
@@ -120,6 +164,18 @@ def classify(text, rules, default):
     return default
 
 
+def classify_countries(text):
+    """Return every country name (COUNTRY_KEYWORDS key) mentioned in text.
+
+    Unlike classify(), this doesn't stop at the first match — an event can
+    legitimately tag more than one country (e.g. "Israel strikes target
+    inside Iran"). Word-boundary matching, same as classify().
+    """
+    t = text.lower()
+    return [name for name, keywords in COUNTRY_KEYWORDS.items()
+            if any(re.search(r"\b" + re.escape(k.strip()) + r"\b", t) for k in keywords)]
+
+
 def score_risk(text):
     """Placeholder rubric: 3 + keyword bumps, capped 1-9."""
     t = text.lower()
@@ -164,6 +220,7 @@ def entry_to_event(entry, feed_cfg):
         "confidence": "Unverified",  # honest default for machine-ingested items
         "risk_score": score_risk(title),
         "tags": ["rss", "auto-ingested"],
+        "country_tags": classify_countries(title),
     }
 
 

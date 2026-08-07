@@ -42,11 +42,27 @@ Maintained per CLAUDE.md operating notes. Overwrite stale entries, don't append 
   (1.17MB, 3 features: Major/Middle/Minor, CC BY 4.0, CIA 2012 source via
   newzealandpaul/Shipping-Lanes). Toggleable Leaflet layer, off by default,
   labeled everywhere as static 2012 reference data — not live AIS.
+- **Two new Analyst Notes posts**: North Korea (p12, "North Korea's Compute
+  Problem: Missiles Are the Visible Layer") and Japan (p13, "Japan Is
+  Rebuilding the Machinery of Strategic Autonomy"), both tagged DEEP
+  ANALYSIS, Medium confidence, 12 and 10 sources respectively — all URLs
+  verified to match the supplied list exactly (scripted diff-check, no
+  transcription errors). Both countries already had emblem/badge data and
+  NOTICE.md license entries from earlier today; `activeCountries()` now
+  includes both, confirmed via a Node simulation against the real file.
+  Zero current events.json coverage for either country (no NK/Japan-specific
+  feed in `FEEDS` yet) — their map badges will show the honest "no event
+  data" grey ring and empty News tab until that's added, not a bug.
+  Content was reformatted into the real schema (reporting/analysis/
+  confidence/openQuestion/sources) without rewriting any sentence — the
+  "Sourced Reporting" and "Open Questions" sections became single flowing
+  paragraphs (`reporting`/`openQuestion` fields don't paragraph-split in the
+  current render), while "Assessment" mapped to `analysis`, which does.
 
 ## Files changed this session
 `scripts/fetch_feeds.py`, `index.html`, `README.md`, `NOTICE.md` (new),
 `docs/PROJECT_STATE.md` (new), `data/events.json`, `data/risk_history.json`
-(new), `data/shipping_lanes.geojson` (new).
+(new), `data/shipping_lanes.geojson` (new), `data/notes.json` (+p12, +p13).
 
 ## Known limitations / unfinished pieces
 - Country/region keyword classification is still headline-only word-boundary

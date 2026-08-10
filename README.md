@@ -1,4 +1,4 @@
-# WATCHSTANDER — Public-Source Strategic Monitor
+# Evintir — Public-Source Strategic Monitor
 
 > **Unclassified // Public sources only.** A personal learning and portfolio
 > project. Not affiliated with any government organization.

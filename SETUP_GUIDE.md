@@ -22,7 +22,7 @@ and commits must be yours.
 ## Step 2 — Create the repository (3 min)
 
 1. Click the **+** (top right) → **New repository**.
-2. Name: `watchstander` (or your own name for it — lowercase, no spaces).
+2. Name: `evintir` (or your own name for it — lowercase, no spaces).
 3. Description: "Public-source strategic monitoring dashboard — personal
    learning & portfolio project."
 4. Select **Public**. Do NOT check "Add a README" (we have one).
@@ -49,7 +49,7 @@ Web upload first (git command line comes later, as a lesson):
 2. Under "Build and deployment": Source = **Deploy from a branch**,
    Branch = **main**, folder = **/ (root)**. Save.
 3. Wait 1–2 minutes. Your live URL appears at the top:
-   `https://YOURNAME.github.io/watchstander/`
+   `https://YOURNAME.github.io/evintir/`
 4. Open it. You should see the dashboard with the sample events on the map.
 
 ## Step 5 — Turn on the data robot (3 min)

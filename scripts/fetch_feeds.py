@@ -1,6 +1,6 @@
 """
 =============================================================================
-fetch_feeds.py — the data pipeline for WATCHSTANDER
+fetch_feeds.py — the data pipeline for Evintir
 =============================================================================
 WHAT THIS SCRIPT DOES (read this first):
   1. Downloads several public RSS feeds (RSS = a standard "here are my

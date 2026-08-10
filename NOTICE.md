@@ -22,7 +22,7 @@ redistribution of the file itself).
 
 | Country | File | License (per Commons) | Verified |
 |---|---|---|---|
-| United States | Coat_of_arms_of_the_United_States.svg | US gov't work (17 U.S.C. §105), PD | ✅ 2026-08-06 |
+| United States | Greater_coat_of_arms_of_the_United_States.svg | US gov't work (17 U.S.C. §105), PD | ✅ 2026-08-10 |
 | Japan | Imperial_Seal_of_Japan.svg | PD-Japan (Copyright Act Art. 13) + PD-US (gov't edict) | ✅ 2026-08-06 |
 | North Korea | Emblem_of_North_Korea.svg | PD-North-Korea-exempt + PD-1996 (URAA) | ✅ 2026-08-06 |
 | China | National_Emblem_of_the_People's_Republic_of_China.svg | PD-PRC-exempt (official state document exemption) | ✅ 2026-08-06 |
@@ -52,6 +52,15 @@ Commons via hotlink, with `alt="United Kingdom"`) is a reasonable-faith
 reading of "attribution" for a personal/portfolio project, but a proper CC
 BY-SA attribution line (author + license link) has not been added anywhere
 on-page. Worth doing before treating this as fully compliant.
+
+**United States entry corrected 2026-08-10:** the prior file
+(`Coat_of_arms_of_the_United_States.svg`) rendered as just the striped
+escutcheon/shield alone — not the full eagle-and-shield design every other
+country's badge shows as its national emblem. Swapped to
+`Greater_coat_of_arms_of_the_United_States.svg`, the complete design (eagle,
+shield, olive branch, arrows, "E PLURIBUS UNUM" scroll) used on U.S.
+passports and embassies. Same PD basis (17 U.S.C. §105), re-verified live
+against the Commons file page on the swap date.
 
 ## RSS feed sources (`scripts/fetch_feeds.py` → `FEEDS`)
 

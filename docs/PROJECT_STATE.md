@@ -94,3 +94,104 @@ After that: the 9 planned Analyst Notes posts (NK/SK/Japan, 3 each) are a
 separate writing session per the project's own workflow (drafting happens
 elsewhere, Claude Code is for mechanical execution only). EEZ overlay is a
 dedicated future session once geometry-simplification tooling is decided on.
+
+## YouTube transcript puller (sources/fetch_transcript.sh) — new, unreviewed
+- **What works**: `sources/fetch_transcript.sh <youtube-url>` pulls
+  captions-only (`--skip-download`) via yt-dlp, prefers human/manual English
+  captions and falls back to auto-generated (detected from info.json's
+  `subtitles` vs `automatic_captions` keys), writes one cited `.md` per video
+  to `sources/transcripts/` (`YYYY-MM-DD_short-title.md`), and deletes the
+  intermediate `.vtt`/`.info.json`. VTT cues are stripped of timestamps/tags,
+  deduped, then rejoined into sentences/paragraphs (auto-caption cues break
+  mid-sentence, so raw cue-per-line text read as fragments — fixed after
+  first test run per user review).
+- **yt-dlp environment quirk**: installed via `pip3 install --user` but not
+  on PATH (`/Users/evinjacobs/Library/Python/3.9/bin/yt-dlp`); script
+  resolves `command -v yt-dlp` first, falls back to that path. Default "web"
+  client extraction currently fails on this machine with YouTube's "The page
+  needs to be reloaded" error — script forces
+  `--extractor-args "youtube:player_client=android"`, which works without a
+  PO token for caption-only pulls (video formats would need one, but we
+  never request video).
+- **Tested on exactly one video** (per user's explicit "do not proceed past
+  the single test video" instruction): CappyArmy's UFO files video
+  (w6xLLewxcX0). No human captions existed for it, so auto-generated was
+  used and correctly labeled. Known remaining rough edge: rare stray
+  duplicate words at cue boundaries (e.g. "It It was a cow") survive because
+  dedup only drops exact duplicate whole lines, not sub-line word repeats —
+  flagged to user, not yet fixed pending their call.
+- **Not done / explicitly out of scope for this session**: no channel-mode
+  (pull latest N videos from a channel) — user will request separately.
+  Nothing in `sources/` has been git-added or committed — these are raw
+  research inputs the user reviews before committing, per their instruction.
+
+## Files changed this session (transcript puller)
+`sources/fetch_transcript.sh` (new), `sources/transcripts/` (new dir,
+currently holds 4 `.md` transcripts: the UFO test video plus 3 DARPA-channel
+pulls run after format approval). No other project files touched by the
+puller itself.
+
+## Two new Analyst Notes published: p14 (US UAP files), p15 (Ukraine balloons)
+- **What works**: `data/notes.json` now has 15 posts. p14 ("Unresolved, Not
+  Unexplained...", United States, DEEP ANALYSIS, Medium confidence) and p15
+  ("The $200 Answer to a $1 Million Question...", Ukraine, DEEP ANALYSIS,
+  Medium confidence) were added following the exact p12/p13 schema —
+  `reporting` as one dense paragraph, `analysis` split on `\n\n` into
+  paragraphs, `openQuestion` as one paragraph, `sources[]` as `{label, url}`.
+  Both `titleKeyPhrase` values verified as exact substrings of their titles
+  (render silently no-ops otherwise). JSON validated with `node -e
+  "require('./data/notes.json')"` after every edit.
+- **Source URLs were the hard part**: the user's drafts had a prose "Source
+  notes" section naming outlets/topics but no actual links. Rather than
+  fabricate URLs (would violate the project's own primary-sourcing
+  standard), ran two parallel research agents to find and verify real URLs
+  via live web search — necessary since the cited events are dated 2026,
+  after model training cutoff. Every URL that made it into `sources[]` was
+  independently checked twice: once by the research agent (via direct
+  fetch/read) and once by a plain `curl -sL -o /dev/null -w "%{http_code}"`
+  pass from this session. A few return 403/406 to curl specifically
+  (smithsonianmag.com, time.com, euromaidanpress.com) — treated as bot-
+  blocking, not dead links, since the research agent's own fetch tool
+  successfully read their content directly; kept the ones the agent could
+  read (time.com, euromaidanpress.com), dropped the one neither of us could
+  ever get past a 403 (smithsonianmag.com), same treatment for the
+  government's own UAP archive (war.gov/ufo — dropped, never independently
+  verified by either pass despite plausible URL structure).
+- **Real factual catch, user-approved fix**: the US draft attributed a
+  DOE/PANTEX nuclear-facility UAP file to the Pentagon's fifth batch (Aug 7,
+  2026); verification found it's actually from the fourth batch (July 10,
+  2026) — the fifth-batch CBS article doesn't mention DOE/PANTEX at all.
+  User chose to correct the batch number in `reporting` rather than drop the
+  claim or leave it wrong. Also silently tightened one adjacent factual
+  nuance (the Fu-Go/Hanford line) after the Atomic Heritage Foundation
+  source confirmed backup systems prevented a full outage, rather than the
+  draft's "briefly blacked out" phrasing — small edit, didn't change the
+  argument, flagged in this note for the record.
+- **Sources dropped from the user's original citation list** because no
+  confident real-article match was found (not used, not guessed): CNN and
+  ABC News for the fifth-batch UAP release (CNN's coverage is video-only,
+  ABC's confirmed piece is from an earlier May 2026 batch), United24 Media
+  for the Ukraine balloon campaign (that specific article turned out to be
+  about Russia's balloon use, not Ukraine's), and a dedicated 2025–2026
+  Reuters article on Palantir's continuing role (none found; kept only the
+  2023 Karp quote via a verified Reuters-wire republication on Euronews, per
+  user's explicit choice, plus the 2024 Time piece).
+- **US coat-of-arms fixed** (`countries.js`, `NOTICE.md`): the prior file
+  (`Coat_of_arms_of_the_United_States.svg`) rendered as just the striped
+  shield/escutcheon alone — confirmed by downloading and rendering it — not
+  the full eagle-and-shield design every other country's badge shows.
+  Swapped to `Greater_coat_of_arms_of_the_United_States.svg` (eagle, shield,
+  olive branch, arrows, "E PLURIBUS UNUM" scroll — the design used on US
+  passports/embassies), same PD basis (17 U.S.C. §105), verified via direct
+  WebFetch of the Commons file page. `countries.js` re-checked with `node
+  --check`.
+- **Not done**: nothing has been git-added or committed — user's standing
+  rule is they review before anything goes to git, and this session never
+  received explicit instruction to commit.
+
+## Next logical step
+Confirm with user whether to commit the notes.json + countries.js/NOTICE.md
+changes (git status currently shows them as uncommitted working-tree
+changes). If committing, do NOT push without separate explicit confirmation
+— matches this project's established pattern of "commit locally, review,
+then push."

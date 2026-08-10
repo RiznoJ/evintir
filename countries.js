@@ -15,7 +15,7 @@
    ========================================================================== */
 
 const COUNTRIES = {
-  "United States":  { coatOfArms: "https://commons.wikimedia.org/wiki/Special:FilePath/File:Coat_of_arms_of_the_United_States.svg", lat: 39.8, lon: -98.6, matchRegion: "United States" },
+  "United States":  { coatOfArms: "https://commons.wikimedia.org/wiki/Special:FilePath/File:Greater_coat_of_arms_of_the_United_States.svg", lat: 39.8, lon: -98.6, matchRegion: "United States" },
   "Russia":         { coatOfArms: "https://commons.wikimedia.org/wiki/Special:FilePath/File:Coat_of_Arms_of_the_Russian_Federation.svg", lat: 61.5, lon: 105.3, matchRegion: "Europe / Russia-Ukraine" },
   "Ukraine":        { coatOfArms: "https://commons.wikimedia.org/wiki/Special:FilePath/File:Lesser_Coat_of_Arms_of_Ukraine.svg", lat: 48.4, lon: 31.2, matchRegion: "Europe / Russia-Ukraine" },
   "China":          { coatOfArms: "https://commons.wikimedia.org/wiki/Special:FilePath/File:National_Emblem_of_the_People's_Republic_of_China.svg", lat: 35.9, lon: 104.2, matchRegion: "Global" },

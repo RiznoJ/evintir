@@ -80,9 +80,20 @@ Two distinct scores exist, and they answer different questions:
     the 7-day retention window (`MAX_AGE_DAYS`), so the score reflects recent
     weighted activity, not a raw event count or a single stale headline.
   - A country with zero tagged events in a given run is simply **absent**
-    from that run's scores — it is not recorded as a 0. The sparkline plots
-    absent runs as 0 for display continuity, but that's a rendering choice,
-    not a claim that "0 risk" was measured.
+    from that run's scores — it is not recorded as a 0. Absence can mean
+    "genuinely no elevated activity that run," but it can also mean "no
+    feed coverage of this country that run" or "this country wasn't being
+    tracked yet when this history entry was recorded" — those cases are
+    indistinguishable in the data, so nothing displayed here claims to
+    know which one happened.
+  - **Missing-observation rule (applies everywhere risk history is
+    displayed):** an absent score is treated as a gap, never as a measured
+    0. Both the country popup's sparkline and Country Compare's trend
+    direction filter out history entries with no score for that country
+    before computing anything — they do not plot or average in a 0. A
+    country with fewer than 2 real (non-absent) data points shows an
+    explicit "insufficient history" / "no scored risk-history data" state
+    instead of a misleading flat line or invented trend.
 
 Each pipeline run appends one `{generated_at, scores}` entry to
 `data/risk_history.json` (capped at the most recent `MAX_HISTORY_RUNS`, ~50

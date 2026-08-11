@@ -155,6 +155,56 @@
     .no-posts { font-family: var(--mono); font-size: 12.5px; color: var(--muted); padding: 20px 0; }
 
     .credits { text-align: center; font-family: var(--mono); font-size: 11px; color: var(--muted); padding: 24px 10px 10px; }
+
+    /* ---- Per-post Print / Copy Link controls (Task 1/2) --------------------
+       One toolbar per article, not a global page control — printing must act
+       on exactly the article it's attached to. Styled to match index.html's
+       .print-btn so both pages read as one system. */
+    .post-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; }
+    .post-btn { font-family: var(--mono); font-size: 10.5px; letter-spacing: .05em; color: var(--muted);
+      background: transparent; border: 1px solid var(--line); padding: 4px 10px; cursor: pointer; }
+    .post-btn:hover { color: var(--ink); border-color: var(--muted); }
+    .post-btn:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+    .copy-feedback { font-family: var(--mono); font-size: 10.5px; color: var(--conf-high);
+      opacity: 0; transition: opacity .15s ease; }
+    .copy-feedback.show { opacity: 1; }
+    @media (max-width: 480px) { .post-controls { gap: 6px; } .post-btn { padding: 4px 8px; } }
+
+    /* ---- Single-article print (Task 1) --------------------------------------
+       Triggered by printPost() below, which stamps ONE .post with .print-target
+       and adds .printing-single to <body> before calling window.print(). Only
+       that article prints — nav, filters, country badges, sort controls, other
+       posts, and the controls themselves are all suppressed. The UNCLASSIFIED
+       banners and Evintir wordmark stay visible (same convention as the
+       Situation Map's printable brief in index.html), and source URLs are
+       expanded inline via ::after since an anchor's href is otherwise invisible
+       on paper. */
+    @media print {
+      body.printing-single nav.tabs,
+      body.printing-single .intro,
+      body.printing-single .country-strip,
+      body.printing-single .feed-controls,
+      body.printing-single .credits,
+      body.printing-single .post-controls { display: none !important; }
+
+      body.printing-single .post { display: none !important; }
+      body.printing-single .post.print-target { display: block !important; }
+
+      body.printing-single { background: #fff; color: #000; }
+      body.printing-single main { padding: 0; max-width: 100%; }
+      body.printing-single .banner { background: transparent; color: #000; border-bottom: 2px solid #000; }
+      body.printing-single .post.print-target { border: none; background: #fff; color: #000; }
+      body.printing-single .post-head, body.printing-single .post-body { padding: 0; border: none; }
+      body.printing-single .post-head { margin-bottom: 14px; }
+      body.printing-single .block-label { color: #000; }
+      body.printing-single .post-title .key { color: #000; text-decoration: underline; }
+      body.printing-single .post-meta, body.printing-single .sources { color: #333; }
+      body.printing-single .keytag.keytag-DEEP-ANALYSIS { color: #000; border-color: #000; }
+      /* Source links: keep visible + underlined, and print the raw URL after
+         the label so it's useful even when the PDF isn't clickable-checked. */
+      body.printing-single .sources a { color: #000; text-decoration: underline; }
+      body.printing-single .sources a::after { content: " (" attr(href) ")"; color: #333; }
+    }
   </style>
 </head>
 
@@ -202,6 +252,9 @@
     <div class="credits">
       Personal learning &amp; portfolio project · public, unclassified sources only ·
       analysis reflects my own reading, not an official position of any organization
+    </div>
+    <div class="credits">
+      UK Royal Coat of Arms (HM Government) by Sodacan, <a href="https://commons.wikimedia.org/wiki/File:Royal_Coat_of_Arms_of_the_United_Kingdom_(HM_Government)_(St_Edwards_Crown).svg" target="_blank" rel="noopener" style="color:inherit">CC BY-SA 3.0</a> — all other emblems public domain (see NOTICE.md)
     </div>
   </main>
 
@@ -335,6 +388,11 @@
             <div class="keytag ${tagClass}">${esc(tagText)}</div>
             <div class="post-title">${renderTitle(p.title, p.titleKeyPhrase)}</div>
             <div class="post-meta">(U) ${esc(p.date)}${p.country ? " · " + esc(p.country) : ""}</div>
+            <div class="post-controls">
+              <button type="button" class="post-btn" data-action="print" data-id="${esc(p.id)}">Print / Save as PDF</button>
+              <button type="button" class="post-btn" data-action="copy" data-id="${esc(p.id)}">Copy Link</button>
+              <span class="copy-feedback" aria-live="polite"></span>
+            </div>
           </div>
           <div class="post-body">
             <div class="block">
@@ -380,6 +438,65 @@
       if (!btn) return;
       state.sort = btn.dataset.sort;         // country filter is left untouched
       render();
+    });
+
+    /* ---- Print / Save as PDF — one article at a time (Task 1) --------------
+       Stamps the target .post with .print-target and <body> with
+       .printing-single (see the @media print rules above, which key off
+       both classes), then calls the browser's own print dialog — no PDF
+       library. Cleared on 'afterprint' so a later print/Ctrl+P doesn't
+       reuse a stale target. */
+    function printPost(id) {
+      document.querySelectorAll(".post").forEach(el =>
+        el.classList.toggle("print-target", el.id === "post-" + id));
+      document.body.classList.add("printing-single");
+      window.print();
+    }
+    window.addEventListener("afterprint", () => {
+      document.body.classList.remove("printing-single");
+      document.querySelectorAll(".post.print-target").forEach(el => el.classList.remove("print-target"));
+    });
+
+    /* ---- Copy Link (Task 2) -------------------------------------------------
+       Copies a direct URL to this exact post using the existing
+       analyst.html#post-<id> hash scheme (unchanged — scrollToHash() below
+       still drives it). Clipboard API first; execCommand fallback covers
+       non-secure contexts where navigator.clipboard is unavailable. */
+    function showCopyFeedback(btn) {
+      const span = btn.parentElement.querySelector(".copy-feedback");
+      if (!span) return;
+      span.textContent = "Copied";
+      span.classList.add("show");
+      clearTimeout(span._hideTimer);
+      span._hideTimer = setTimeout(() => span.classList.remove("show"), 1600);
+    }
+    async function copyPostLink(id, btn) {
+      const url = `${location.origin}${location.pathname}#post-${id}`;
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(url);
+        } else {
+          const ta = document.createElement("textarea");
+          ta.value = url;
+          ta.style.position = "fixed";
+          ta.style.opacity = "0";
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          document.body.removeChild(ta);
+        }
+        showCopyFeedback(btn);
+      } catch (err) {
+        console.warn("Copy link failed:", err);
+      }
+    }
+
+    /* ---- Wiring: per-post controls (event-delegated — posts re-render) ----- */
+    document.getElementById("posts").addEventListener("click", ev => {
+      const printBtn = ev.target.closest('[data-action="print"]');
+      if (printBtn) { printPost(printBtn.dataset.id); return; }
+      const copyBtn = ev.target.closest('[data-action="copy"]');
+      if (copyBtn) { copyPostLink(copyBtn.dataset.id, copyBtn); return; }
     });
 
     /* ---- Scroll to a linked post (analyst.html#post-<id>) once rendered ---- */

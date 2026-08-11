@@ -322,6 +322,9 @@
       auto-ingested items are marked Unverified until reviewed ·
       inspired by open-source world-monitor dashboards (see README credits)
     </div>
+    <div class="credits">
+      UK Royal Coat of Arms (HM Government) by Sodacan, <a href="https://commons.wikimedia.org/wiki/File:Royal_Coat_of_Arms_of_the_United_Kingdom_(HM_Government)_(St_Edwards_Crown).svg" target="_blank" rel="noopener" style="color:inherit">CC BY-SA 3.0</a> — all other emblems public domain (see NOTICE.md)
+    </div>
   </main>
 
   <div class="banner">Unclassified&nbsp;//&nbsp;Public Sources Only</div>
@@ -521,15 +524,28 @@
 
       // Risk trend: one pipeline run's weighted score per history entry (see
       // fetch_feeds.py compute_country_scores / CATEGORY_SEVERITY for the
-      // documented formula). A run where this country had zero tagged events
-      // plots as 0, not a gap — it genuinely had no scored activity that run.
-      const trendVals = (HISTORY || []).map(h => (h.scores && h.scores[name]) || 0);
+      // documented formula). compute_country_scores() only writes an entry
+      // for a country when it had >=1 tagged event that run — a country
+      // with no entry that run is ABSENT, not measured-zero. Absence can
+      // mean "genuinely no elevated activity" but can also mean "no feed
+      // coverage that run" or "country added after this history entry was
+      // recorded" — we can't tell those apart, so we don't render absent
+      // runs as a 0 data point (that would silently claim "measured no
+      // risk" for something that may just be unmeasured). Same
+      // missing-means-gap interpretation as trendDirection() below, for
+      // Country Compare — the two must agree, see README "Risk scoring
+      // methodology".
+      const trendVals = (HISTORY || [])
+        .map(h => (h.scores && h.scores[name] != null) ? h.scores[name] : null)
+        .filter(v => v != null);
       const trendHtml = trendVals.length
         ? `<div class="cp-trend">
              ${sparklineSvg(trendVals, 120, 28)}
-             <span class="cp-trend-label">risk trend · ${trendVals.length} pipeline run${trendVals.length === 1 ? "" : "s"} · latest ${trendVals[trendVals.length - 1]}/10</span>
+             <span class="cp-trend-label">risk trend · ${trendVals.length} of ${HISTORY.length} pipeline run${HISTORY.length === 1 ? "" : "s"} had data · latest ${trendVals[trendVals.length - 1]}/10</span>
            </div>`
-        : "";
+        : (HISTORY.length
+            ? `<div class="cp-trend"><span class="cp-trend-label">No scored risk-history data for ${esc(name)} yet.</span></div>`
+            : "");
 
       // Filter by country_tags (assigned per-event at ingest, see
       // fetch_feeds.py COUNTRY_KEYWORDS), NOT by region. Region is a coarse
@@ -595,8 +611,13 @@
 
       const c = COUNTRIES[countryParam];
       map.setView([c.lat, c.lon], 4);
-      marker.openPopup();
 
+      // Leaflet fires 'popupopen' SYNCHRONOUSLY from inside openPopup() —
+      // the listener must be registered before that call, not after, or it
+      // misses this open and only fires on some future one (e.g. the user
+      // manually closing and reopening the popup). Previously this was
+      // registered after marker.openPopup(), so the tab param silently did
+      // nothing on first load.
       const tabParam = params.get("tab");
       if (tabParam === "analyst" || tabParam === "analysis") {
         map.once("popupopen", ev => {
@@ -604,6 +625,7 @@
           if (btn) btn.click();
         });
       }
+      marker.openPopup();
     }
 
     function renderMap() {
@@ -756,6 +778,9 @@
        share (an overlap a reader wouldn't otherwise notice by checking one
        country at a time).
        ===================================================================== */
+    // Missing-value rule (must match countryPopupHtml's trendVals above): a
+    // history entry with no score for this country is a GAP, not a 0 —
+    // filtered out rather than counted as measured-zero risk.
     function trendDirection(name) {
       const vals = HISTORY.map(h => h.scores && h.scores[name]).filter(v => v != null);
       if (vals.length < 2) return { label: "INSUFFICIENT HISTORY", delta: null };

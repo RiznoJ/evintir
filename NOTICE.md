@@ -45,13 +45,12 @@ redistribution of the file itself).
 | Qatar | Emblem_of_Qatar.svg | Per Commons file page | not re-verified |
 | Kuwait | Emblem_of_Kuwait.svg | Per Commons file page | not re-verified |
 
-**Action item surfaced by this spot-check:** the UK file is CC BY-SA/GFDL,
-not public domain like the others — it legally requires attribution on
-reuse. This project's use (an `<img>` on the page, sourced directly from
-Commons via hotlink, with `alt="United Kingdom"`) is a reasonable-faith
-reading of "attribution" for a personal/portfolio project, but a proper CC
-BY-SA attribution line (author + license link) has not been added anywhere
-on-page. Worth doing before treating this as fully compliant.
+**Action item resolved 2026-08-10:** the UK file is CC BY-SA/GFDL, not
+public domain like the others — it legally requires attribution on reuse.
+A proper attribution line (author "Sodacan" + CC BY-SA 3.0 + link to the
+Commons file page, confirmed live against the file page's licensing
+section) has been added to the footer credits strip on both index.html and
+analyst.html.
 
 **United States entry corrected 2026-08-10:** the prior file
 (`Coat_of_arms_of_the_United_States.svg`) rendered as just the striped

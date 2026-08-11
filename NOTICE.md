@@ -81,6 +81,31 @@ original publisher.
 |---|---|---|---|
 | Reference shipping corridors (`data/shipping_lanes.geojson`) | [newzealandpaul/Shipping-Lanes](https://github.com/newzealandpaul/Shipping-Lanes), data/Shipping_Lanes_v1.geojson, georeferenced from the CIA's declassified "Map of the World's Oceans" (Oct 2012) | CC BY 4.0 (excluding Statista) — author P. Benden / Central Intelligence Agency; cite: Benden, P. (2022). *Global Shipping Lanes* [Data set]. Zenodo. https://doi.org/10.5281/zenodo.6361763 | Toggleable Leaflet overlay on the Situation Map, labeled everywhere it appears (legend + tooltip) as a static 2012 reference source — explicitly **not** live AIS/vessel-traffic data |
 
+## China Strategic Reference Layer (`data/reference/china.geojson`)
+
+**Research inspiration:** Joseph Wen (溫約瑟), Taiwan — *中國人民解放軍基地及設施* (PLA
+bases and facilities), a public Google My Maps project documenting thousands
+of PLA-associated sites:
+https://www.google.com/maps/d/u/0/viewer?mid=19Q8BraU1Nmnk23TzMb5rhXFuIAnOpTTq
+(accessed 2026-08). Evintir's strategic layer is an independent, curated
+subset written in Evintir's own words — a small, sourced set of entries
+selected and described for this project, not a mirror or copy of Wen's
+selection, arrangement, or descriptions. His map is never embedded in or
+fetched by Evintir at runtime; each site's popup instead links out to the
+same general area on his map (built from that site's own stored
+coordinates, not a specific pin of his), and the strategic panel credits him
+by name with a note that his public map documents many more sites than
+Evintir's curated subset.
+
+**Institutional sources** used to compile and verify individual entries:
+U.S. DoD *China Military Power Report*, Congressional Research Service
+(CRS), the Air University China Aerospace Studies Institute (CASI), the
+Jamestown Foundation, New America, the Project 2049 Institute, and the
+IISS *Military Balance*. Each entry in `china.geojson` carries its own
+`source_label`/`source_url` pointing to the specific institution behind
+that entry — this section is a summary catalogue, not a substitute for
+those per-entry citations.
+
 ## Investigated, not integrated
 
 - **Marine Regions EEZ boundaries** (Flanders Marine Institute / UNESCO,

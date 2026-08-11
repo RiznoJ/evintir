@@ -47,6 +47,11 @@
        also used by analyst.html. Loads before the inline script at page bottom. -->
   <script src="countries.js"></script>
 
+  <!-- China Strategic Reference Layer (Phase 1): self-contained module, owns
+       its own lazy-loaded data, its own markerClusterGroup, and its own
+       on-map legend/exit control. See js/strategic-china.js for details. -->
+  <script src="js/strategic-china.js"></script>
+
   <style>
     :root {
       --bg: #0E151D; --panel: #151F2A; --panel-2: #1B2836; --line: #26364A;
@@ -110,6 +115,102 @@
     .map-legend hr { border: none; border-top: 1px solid var(--line); margin: 4px 0; }
     .map-legend label { display: flex; align-items: center; gap: 6px; cursor: pointer; }
     .map-legend .lane-swatch { width: 14px; height: 2px; display: inline-block; flex-shrink: 0; }
+
+    /* ---- China Strategic Reference Layer (Phase 1) ------------------------
+       Deliberately NOT circleMarker dots (events), NOT rotated diamonds
+       (chokepoints), NOT coat-of-arms rings (country badges) — a hexagon
+       badge with a category glyph, so strategic sites are visually
+       unmistakable from every other marker type on the map. */
+    .strategic-marker-wrap { background: transparent; border: none; }
+    .strategic-marker { width: 22px; height: 22px; display: flex; align-items: center; justify-content: center;
+      clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+      color: #0E151D; font-family: var(--mono); font-weight: 700; font-size: 10px;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.4); }
+
+    /* Strategic cluster bubbles — steel-blue, distinct from the brass event
+       clusters, even though both use Leaflet.markercluster's default class
+       names (the layer instances are separate; the palette keeps them
+       visually separate too). */
+    .strategic-cluster-small, .strategic-cluster-medium, .strategic-cluster-large {
+      background: rgba(62, 124, 184, 0.28); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .strategic-cluster-small div, .strategic-cluster-medium div, .strategic-cluster-large div {
+      background: #3E7CB8; color: #fff; font-family: var(--mono); font-weight: 600; font-size: 12px;
+      width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+
+    .strategic-popup { min-width: 220px; max-width: 260px; }
+    .strategic-popup-head { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+    .strategic-swatch { width: 18px; height: 18px; flex: none; display: flex; align-items: center; justify-content: center;
+      clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+      color: #0E151D; font-family: var(--mono); font-weight: 700; font-size: 9px; }
+    .strategic-swatch.small { width: 14px; height: 14px; font-size: 8px; }
+    .strategic-popup-title { font-family: var(--disp); font-weight: 600; font-size: 16px; letter-spacing: .03em; }
+    .strategic-popup-meta { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+    .strategic-popup-loc { font-family: var(--mono); font-size: 10.5px; color: var(--muted); margin-bottom: 8px; }
+    .strategic-popup-desc { font-size: 12.5px; margin-bottom: 8px; }
+    .strategic-popup-src { font-family: var(--mono); font-size: 11px; margin-bottom: 6px; }
+    .strategic-popup-src a { color: var(--brass); }
+    .strategic-nolink { color: var(--muted); }
+    .strategic-popup-flag { font-family: var(--mono); font-size: 10px; color: var(--brass); letter-spacing: .04em;
+      text-transform: uppercase; margin-bottom: 4px; }
+    .strategic-popup-verify { font-family: var(--mono); font-size: 10.5px; color: var(--muted); }
+    .strategic-popup-wen { margin-bottom: 6px; }
+    .strategic-popup-wen a { color: var(--brass); font-family: var(--mono); font-size: 11px; }
+    .strategic-popup-theater { font-family: var(--mono); font-size: 10px; color: var(--risk-med); line-height: 1.4; margin-bottom: 8px; }
+
+    /* On-map panel (Leaflet control, top-right while active): context
+       summary, Major/All tier toggle, category filters, search, Exit, and a
+       Wen-attribution footer. Scrollable with a fixed max-height rather than
+       trying to hide pieces on mobile — the content list grew substantially
+       in Phase 2 and a fixed pixel budget is more robust than chasing every
+       screen size with display:none overrides. */
+    .strategic-panel { background: rgba(21, 31, 42, 0.95); border: 1px solid var(--line); padding: 10px 12px;
+      font-family: var(--mono); font-size: 11px; color: var(--ink); max-width: 220px;
+      max-height: 340px; overflow-y: auto; }
+    .strategic-panel-title { font-family: var(--disp); font-weight: 600; font-size: 14px; letter-spacing: .04em; margin-bottom: 2px; }
+    .strategic-panel-flag { color: var(--brass); font-size: 9.5px; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 8px; }
+    .strategic-loading { color: var(--muted); font-size: 10.5px; padding: 4px 0; }
+    .strategic-unavailable { color: var(--risk-med); font-size: 10.5px; line-height: 1.4; margin-bottom: 8px; }
+
+    .strategic-summary { font-size: 10.5px; color: var(--muted); line-height: 1.6; margin-bottom: 8px; }
+    .strategic-summary .stat-strong { color: var(--ink); font-weight: 600; }
+    .strategic-summary hr { border: none; border-top: 1px solid var(--line); margin: 6px 0; }
+    .strategic-summary-breakdown { margin-top: 2px; }
+
+    .strategic-tier-toggle, .strategic-filters { display: flex; flex-direction: column; gap: 3px; margin-bottom: 8px; font-size: 10.5px; }
+    .strategic-tier-toggle label, .strategic-filters label { display: flex; align-items: center; gap: 5px; cursor: pointer; color: var(--muted); }
+    .strategic-tier-toggle label:hover, .strategic-filters label:hover { color: var(--ink); }
+    .swatch-pair { display: inline-flex; gap: 2px; flex: none; }
+
+    .strategic-search { margin-bottom: 4px; }
+    .strategic-search input[type="text"] { width: 100%; background: var(--panel-2); border: 1px solid var(--line);
+      color: var(--ink); font-family: var(--mono); font-size: 10.5px; padding: 5px 6px; }
+    .strategic-search input[type="text"]:focus-visible { outline: 2px solid var(--brass); outline-offset: 1px; }
+    .strategic-search-results { margin-top: 4px; max-height: 120px; overflow-y: auto; }
+    .strategic-search-result { display: block; width: 100%; text-align: left; background: transparent; border: none;
+      color: var(--muted); font-family: var(--mono); font-size: 10.5px; padding: 3px 4px; cursor: pointer; }
+    .strategic-search-result:hover { background: var(--panel-2); color: var(--ink); }
+    .strategic-search-empty { font-size: 10px; color: var(--muted); font-style: italic; padding: 3px 0; }
+
+    /* Sticky, not just top-margined: .strategic-panel is itself the
+       scrolling container (overflow-y:auto, capped height), and the filter/
+       search body above can grow past that cap. Without position:sticky,
+       Exit scrolls out of view along with everything else, and on a small
+       mobile panel a user has no obvious reason to suspect scrolling
+       further reveals it — found via a real mobile-viewport test. */
+    .strategic-exit-btn { position: sticky; bottom: -1px; margin-top: 4px; width: 100%; font-family: var(--mono);
+      font-size: 10.5px; letter-spacing: .05em; color: var(--muted); background: rgba(21, 31, 42, 0.98);
+      border: 1px solid var(--line); padding: 5px 10px; cursor: pointer; }
+    .strategic-exit-btn:hover { color: var(--ink); border-color: var(--muted); }
+
+    .strategic-panel-credit { font-size: 9.5px; color: var(--muted); line-height: 1.4; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--line); }
+    .strategic-panel-credit a { color: var(--brass); }
+
+    /* Entry point inside the China country popup — matches .print-btn styling. */
+    .cp-strategic { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--line); }
+    .cp-strategic-btn { width: 100%; font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: .05em;
+      text-transform: uppercase; color: var(--bg); background: var(--brass); border: 1px solid var(--brass);
+      padding: 6px 10px; cursor: pointer; }
+    .cp-strategic-btn:hover { opacity: 0.9; }
 
     /* Pulse ring: an animated CSS halo dropped on top of HIGH-risk markers only,
        so the most important events visually stand out from the rest of the map. */
@@ -230,6 +331,10 @@
       header { padding: 16px; } main { padding: 12px 16px 28px; }
       #map { height: 280px; }
       .hide-sm { display: none; }
+      /* #map is only 280px tall here — cap the panel well under that so it
+         can't overlap the pre-existing bottom-left map-legend or crowd out
+         its own Exit button; the panel scrolls internally instead. */
+      .strategic-panel { max-width: 170px; max-height: 210px; padding: 8px 10px; }
     }
     @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 
@@ -355,7 +460,7 @@
     let DATA = null;   // filled by loadData()
     let NOTES = [];    // analyst posts from data/notes.json (drives country badges)
     let HISTORY = [];  // per-run country risk scores from data/risk_history.json (drives sparkline)
-    let map, markerLayer, countryLayer, territoryLayer, laneLayer;
+    let map, markerLayer, countryLayer, territoryLayer, laneLayer, baseTileLayer;
     let countryMarkers = {};  // country name -> its L.marker, so the deep-link feature can find it
 
     // Shared escaper — feed-derived text (event summaries, source names, etc.)
@@ -399,7 +504,10 @@
     function initMap() {
       map = L.map("map", { worldCopyJump: true, zoomControl: true })
              .setView([25, 30], 2);
-      L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+      // Stored (not just chained .addTo(map)) so the China Strategic layer
+      // can temporarily raise its maxZoom for regional exploration and
+      // restore it on exit — see js/strategic-china.js.
+      baseTileLayer = L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
         attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
         maxZoom: 8, minZoom: 2
       }).addTo(map);
@@ -565,6 +673,16 @@
         ? posts.map(p => `<div class="cp-item"><a href="analyst.html#post-${esc(p.id)}">${esc(p.title)}</a></div>`).join("")
         : `<div class="cp-empty">No analyst notes for ${esc(name)} yet.</div>`;
 
+      // China Strategic Reference Layer entry point — China only, additive to
+      // the existing News/Analyst tabs, not a replacement. See
+      // window.activateChinaStrategic below for the (risk/events/notes)
+      // context it hands the strategic panel.
+      const strategicHtml = name === "China"
+        ? `<div class="cp-strategic">
+             <button type="button" class="cp-strategic-btn" onclick="activateChinaStrategic()">Explore Strategic Map</button>
+           </div>`
+        : "";
+
       return `<div class="country-popup">
           <div class="cp-head">${esc(name)}</div>
           ${trendHtml}
@@ -574,6 +692,7 @@
           </div>
           <div class="cp-panel cp-news active">${newsHtml}</div>
           <div class="cp-panel cp-analyst">${postHtml}</div>
+          ${strategicHtml}
         </div>`;
     }
 
@@ -585,6 +704,21 @@
       btn.classList.add("active");
       root.querySelector(".cp-news").classList.toggle("active", which === "news");
       root.querySelector(".cp-analyst").classList.toggle("active", which === "analyst");
+    };
+
+    // Global so the China country popup's inline onclick can reach it (same
+    // convention as window.cpTab above). Computes China's CURRENT risk/
+    // events/notes using the exact same helpers/filters countryPopupHtml
+    // itself uses, and hands them to StrategicChina.activate() as a
+    // read-only display context — the strategic module never touches
+    // DATA/NOTES/COUNTRIES directly, and this never writes back into them.
+    window.activateChinaStrategic = function () {
+      if (!window.StrategicChina) return;
+      const risk = countryMaxRisk("China", DATA.events);
+      const band = countryBand(risk);
+      const eventsCount = DATA.events.filter(e => Array.isArray(e.country_tags) && e.country_tags.includes("China")).length;
+      const notesCount = NOTES.filter(p => p.country === "China").length;
+      window.StrategicChina.activate({ riskLabel: band.label, riskValue: risk, eventsCount, notesCount });
     };
 
     /* ========================================================================
@@ -865,6 +999,10 @@
 
     async function boot() {
       initMap();
+      // China Strategic Reference Layer (Phase 1): hand the module the map +
+      // base tile layer once, up front. It does NOT fetch its data here —
+      // data/reference/china.geojson is only fetched on first activation.
+      if (window.StrategicChina) window.StrategicChina.init(map, baseTileLayer);
       try {
         const res = await fetch("data/events.json", { cache: "no-store" });
         if (!res.ok) throw new Error("HTTP " + res.status);

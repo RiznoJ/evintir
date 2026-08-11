@@ -103,6 +103,31 @@ backfilled or interpolated.
 Both scores share the same honesty caveat as the rest of this project: a
 documented placeholder rubric, not a validated model.
 
+## China Strategic Reference Layer
+
+An opt-in, geographic reference layer of publicly-sourced Chinese military
+and strategic sites, reachable from China's country popup on the Situation
+Map ("Explore Strategic Map"). It is **static context, not real-time force
+disposition** — every entry is a fixed public-source description with a
+citation, `verification_status`, and `last_reviewed` date, and it never
+factors into `risk_score`, country risk trends, or any other event math on
+this site.
+
+Sites are shown in two tiers — **Major Sites** (the default view) and **All
+Curated Sites**, which additionally includes lower-confidence or
+theater-level entries — filterable by category (Navy, Air, Ground, Rocket,
+Joint/Command, Information/Intelligence, Central/Political-Military) and
+searchable by name, branch, category, or location. Data lives in
+`data/reference/china.geojson` and is fetched only when the layer is
+opened, not on page load.
+
+Research inspiration and attribution: Joseph Wen's public PLA-sites map
+(credited by name in the layer's own panel and in
+[NOTICE.md](NOTICE.md)) — Evintir's layer is an independently curated,
+much smaller subset written in Evintir's own words, not a copy of his
+selection or descriptions, and his map is never embedded or depended on at
+runtime.
+
 ## Honest limitations
 
 - Keyword classification is crude and mislabels some items; machine-ingested

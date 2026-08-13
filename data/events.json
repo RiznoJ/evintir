@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T12:44:19+00:00",
+  "generated_at": "2026-08-13T18:48:04+00:00",
   "note": "Auto-generated from public RSS feeds. Confidence 'Unverified' means no human review yet. Coordinates are region centroids.",
   "sources": [
     {
@@ -12,28 +12,49 @@
       "source": "BBC World",
       "ok": true,
       "entries_this_run": 25,
-      "last_success": "2026-08-13T12:44:18+00:00"
+      "last_success": "2026-08-13T18:48:04+00:00"
     },
     {
       "source": "Al Jazeera",
       "ok": true,
       "entries_this_run": 25,
-      "last_success": "2026-08-13T12:44:18+00:00"
+      "last_success": "2026-08-13T18:48:04+00:00"
     },
     {
       "source": "gCaptain (maritime)",
       "ok": true,
       "entries_this_run": 12,
-      "last_success": "2026-08-13T12:44:18+00:00"
+      "last_success": "2026-08-13T18:48:04+00:00"
     },
     {
       "source": "U.S. DoD Releases",
       "ok": true,
-      "entries_this_run": 16,
-      "last_success": "2026-08-13T12:44:18+00:00"
+      "entries_this_run": 15,
+      "last_success": "2026-08-13T18:48:04+00:00"
     }
   ],
   "events": [
+    {
+      "id": "RSS-9888c50b20",
+      "date": "2026-08-13",
+      "region": "United States",
+      "location": "United States",
+      "lat": 38.0,
+      "lon": -97.0,
+      "category": "Military",
+      "event_type": "Public news report",
+      "source_name": "U.S. DoD Releases",
+      "source_url": "https://www.war.gov/News/News-Stories/Article/Article/4572953/army-reserve-engineers-train-across-multiple-missions-during-exercise-northern/",
+      "summary": "Army Reserve Engineers Train Across Multiple Missions During Exercise Northern Strike",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 7,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
     {
       "id": "RSS-e8201d357c",
       "date": "2026-08-13",
@@ -59,7 +80,7 @@
       ]
     },
     {
-      "id": "RSS-21249e1475",
+      "id": "RSS-5ba03be444",
       "date": "2026-08-13",
       "region": "Middle East",
       "location": "Middle East",
@@ -68,8 +89,8 @@
       "category": "Geopolitical",
       "event_type": "Public news report",
       "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/8/13/yemeni-forces-say-houthi-attack-repelled-in-taiz-amid-escalation?traffic_source=rss",
-      "summary": "Yemeni forces say Houthi attack repelled in Taiz amid escalation",
+      "source_url": "https://www.aljazeera.com/news/2026/8/13/will-all-out-war-in-yemen-reignite-as-houthis-escalate-attacks?traffic_source=rss",
+      "summary": "Will all-out war in Yemen reignite as the Houthis escalate attacks?",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 6,
@@ -80,7 +101,31 @@
       "country_tags": []
     },
     {
-      "id": "RSS-00c758f0c7",
+      "id": "RSS-25deb09a5f",
+      "date": "2026-08-13",
+      "region": "Europe / Russia-Ukraine",
+      "location": "Europe / Russia-Ukraine",
+      "lat": 49.0,
+      "lon": 32.0,
+      "category": "Maritime",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/8/13/13-08-sv-ukraine-russia-grain-attack-ur?traffic_source=rss",
+      "summary": "Ukraine attacks key Russian grain terminal on Black Sea port",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 6,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Russia",
+        "Ukraine"
+      ]
+    },
+    {
+      "id": "RSS-09443cca3d",
       "date": "2026-08-13",
       "region": "Global",
       "location": "Global",
@@ -88,12 +133,35 @@
       "lon": 0.0,
       "category": "Geopolitical",
       "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/sports/2026/8/13/swiatek-sinks-svitolina-to-set-up-rybakina-title-clash-in-toronto?traffic_source=rss",
-      "summary": "Swiatek sinks Svitolina to set up Rybakina title clash in Toronto",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/cj4kppdk2qwo?at_medium=RSS&at_campaign=rss",
+      "summary": "Palestinians told to leave homes in village where Israeli settlers besieged houses",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
-      "risk_score": 5,
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Israel"
+      ]
+    },
+    {
+      "id": "RSS-91fd82f2cc",
+      "date": "2026-08-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/cqlxpq5q799o?at_medium=RSS&at_campaign=rss",
+      "summary": "Romania shuts only nuclear plant as heat causes huge drop in Danube River level",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
       "tags": [
         "rss",
         "auto-ingested"
@@ -125,63 +193,17 @@
       ]
     },
     {
-      "id": "RSS-1ee5a1141e",
+      "id": "RSS-89555754a0",
       "date": "2026-08-13",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Maritime",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/cn0npn249qvo?at_medium=RSS&at_campaign=rss",
-      "summary": "UK defends seizing shadow fleet tanker after Putin threat",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Russia"
-      ]
-    },
-    {
-      "id": "RSS-09443cca3d",
-      "date": "2026-08-13",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Military",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/cj4kppdk2qwo?at_medium=RSS&at_campaign=rss",
-      "summary": "More troops to be sent to West Bank village besieged by Israeli settlers",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Israel"
-      ]
-    },
-    {
-      "id": "RSS-4abd3982ef",
-      "date": "2026-08-13",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
+      "region": "United States",
+      "location": "United States",
+      "lat": 38.0,
+      "lon": -97.0,
       "category": "Geopolitical",
       "event_type": "Public news report",
       "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/cgk4pex4mn8o?at_medium=RSS&at_campaign=rss",
-      "summary": "Ebola outbreak on track to be deadliest ever, WHO chief says",
+      "source_url": "https://www.bbc.co.uk/news/articles/cyvl2d5j52lo?at_medium=RSS&at_campaign=rss",
+      "summary": "Conditions on US aircraft carrier at sea for more than 250 days raise alarms",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -192,7 +214,7 @@
       "country_tags": []
     },
     {
-      "id": "RSS-547200c61d",
+      "id": "RSS-9abea52318",
       "date": "2026-08-13",
       "region": "Global",
       "location": "Global",
@@ -201,8 +223,8 @@
       "category": "Geopolitical",
       "event_type": "Public news report",
       "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/cx2r179e232o?at_medium=RSS&at_campaign=rss",
-      "summary": "Travis Kelce shares first details from his wedding to Taylor Swift: 'Best night of my life'",
+      "source_url": "https://www.bbc.co.uk/news/articles/cx2k1r97vx7o?at_medium=RSS&at_campaign=rss",
+      "summary": "Person fined after using foghorn to wake sleeping polar bear",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -234,6 +256,159 @@
       "country_tags": []
     },
     {
+      "id": "RSS-34a2437c4c",
+      "date": "2026-08-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/c5yw71q9y00o?at_medium=RSS&at_campaign=rss",
+      "summary": "Mangione lawyers to meet federal prosecutors amid reports of plea deal",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-0758efa7f4",
+      "date": "2026-08-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/c2352jyvm5xo?at_medium=RSS&at_campaign=rss",
+      "summary": "Air India to test all pilots for banned substances",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "India"
+      ]
+    },
+    {
+      "id": "RSS-1ee5a1141e",
+      "date": "2026-08-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Maritime",
+      "event_type": "Public news report",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/cn0npn249qvo?at_medium=RSS&at_campaign=rss",
+      "summary": "UK defends seizing shadow fleet tanker after Putin threat",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Russia"
+      ]
+    },
+    {
+      "id": "RSS-aad12090b9",
+      "date": "2026-08-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/cj9dpdmr77do?at_medium=RSS&at_campaign=rss",
+      "summary": "Four Canadian hockey stars remain suspended after sexual assault acquittal",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-4abd3982ef",
+      "date": "2026-08-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/cgk4pex4mn8o?at_medium=RSS&at_campaign=rss",
+      "summary": "Ebola outbreak on track to be deadliest ever, WHO chief says",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-182debe3e3",
+      "date": "2026-08-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/c2el29e3m3xo?at_medium=RSS&at_campaign=rss",
+      "summary": "Presidential pardon for French alleged spy accused of plotting Mali coup",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "France"
+      ]
+    },
+    {
+      "id": "RSS-547200c61d",
+      "date": "2026-08-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/cx2r179e232o?at_medium=RSS&at_campaign=rss",
+      "summary": "Travis Kelce shares first details from his wedding to Taylor Swift: 'Best night of my life'",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
       "id": "RSS-5b5cc81dcc",
       "date": "2026-08-13",
       "region": "Global",
@@ -244,7 +419,7 @@
       "event_type": "Public news report",
       "source_name": "BBC World",
       "source_url": "https://www.bbc.co.uk/news/articles/cqx7pp3yd25o?at_medium=RSS&at_campaign=rss",
-      "summary": "French ambassador to CAR accused of bringing women to official residence faces disciplinary action",
+      "summary": "French ambassador to CAR accused of misconduct at official residence faces disciplinary action",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -411,7 +586,7 @@
       "country_tags": []
     },
     {
-      "id": "RSS-5853ee8f18",
+      "id": "RSS-4f3120a08a",
       "date": "2026-08-13",
       "region": "Global",
       "location": "Global",
@@ -419,9 +594,402 @@
       "lon": 0.0,
       "category": "Geopolitical",
       "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/c4g306eln8wo?at_medium=RSS&at_campaign=rss",
-      "summary": "Members of Trump's cabinet remained on decoy plane, after president's quiet exit",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/8/13/poland-arrests-man-who-allegedly-tried-to-kill-ukrainian-american?traffic_source=rss",
+      "summary": "Poland arrests man who allegedly tried to kill Ukrainian American",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Ukraine"
+      ]
+    },
+    {
+      "id": "RSS-3123050be0",
+      "date": "2026-08-13",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/8/13/gaza-mural-for-burger-king-worker-fired-for-shouting-free?traffic_source=rss",
+      "summary": "Gaza mural for Burger King worker fired for shouting \u2018Free Palestine\u2019",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-6288ff310f",
+      "date": "2026-08-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/8/13/trump-administration-gutted-federal-civil-rights-enforcement-hrw-says?traffic_source=rss",
+      "summary": "Trump administration \u2018gutted\u2019 federal civil rights enforcement, HRW says",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-a3116840fb",
+      "date": "2026-08-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/8/13/dr-congo-ebola-outbreak-spreads-to-a-sixth-province?traffic_source=rss",
+      "summary": "DR Congo Ebola outbreak spreads to a sixth province",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-4dae051090",
+      "date": "2026-08-13",
+      "region": "Indo-Pacific",
+      "location": "Indo-Pacific",
+      "lat": 18.0,
+      "lon": 118.0,
+      "category": "Maritime",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/8/13/china-and-indonesias-joint-naval-drills-anger-taiwan?traffic_source=rss",
+      "summary": "China and Indonesia\u2019s joint naval drills anger Taiwan",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "China",
+        "Indonesia"
+      ]
+    },
+    {
+      "id": "RSS-e58a4f1c68",
+      "date": "2026-08-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/8/13/reports-of-us-sailors-in-middle-east-trying-to-jump-ship-spark-outcry?traffic_source=rss",
+      "summary": "Reports of US sailors in Middle East trying to jump ship spark outcry",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-8e081e77d8",
+      "date": "2026-08-13",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Economic",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/counting-the-cost/2026/8/13/is-russias-economy-cracking-despite-the-iran-war-windfall?traffic_source=rss",
+      "summary": "Is Russia\u2019s economy cracking despite the Iran war windfall?",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Russia",
+        "Iran"
+      ]
+    },
+    {
+      "id": "RSS-f14ea786f1",
+      "date": "2026-08-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/8/13/zambian-president-hichilema-votes-as-he-seeks-second-term?traffic_source=rss",
+      "summary": "Zambian president Hichilema votes as he seeks second term",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-630276268d",
+      "date": "2026-08-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/opinions/2026/8/13/turkiyes-ak-party-turns-25-a-journey-of-change-and-renewal?traffic_source=rss",
+      "summary": "Turkiye\u2019s AK Party turns 25: A journey of change and renewal",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-f3bc28ba72",
+      "date": "2026-08-13",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Maritime",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/8/13/iran-says-strait-of-hormuz-under-its-control-rejects-trump-claims?traffic_source=rss",
+      "summary": "Iran says Strait of Hormuz under its control, rejects Trump claims",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Iran"
+      ]
+    },
+    {
+      "id": "RSS-8090805a9d",
+      "date": "2026-08-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/8/13/pro-palestine-football-fans-lament-west-ham-for-signing-manor-solomon?traffic_source=rss",
+      "summary": "Pro-Palestine football fans lament West Ham for signing Manor Solomon",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-5d3cd5493b",
+      "date": "2026-08-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Energy",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/8/13/oman-says-massive-oil-spill-reaches-coastline-what-damage-could-it-do?traffic_source=rss",
+      "summary": "Oman says massive oil spill reaches coastline: What damage could it do?",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-87977b5d78",
+      "date": "2026-08-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/8/13/ebola-outbreak-caused-by-new-animal-transmission-what-that-means?traffic_source=rss",
+      "summary": "Ebola outbreak caused by new \u2018animal transmission\u2019: What that means",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-4228976357",
+      "date": "2026-08-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/8/13/report-from-scene-of-palestinian-homes-besieged-by-settlers?traffic_source=rss",
+      "summary": "Report from scene of Palestinian homes besieged by settlers",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-87c479965a",
+      "date": "2026-08-13",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/8/13/lebanese-americans-sue-us-over-israels-rights-abuses-in-lebanon-war?traffic_source=rss",
+      "summary": "Lebanese Americans sue US over Israel\u2019s rights abuses in Lebanon war",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Israel"
+      ]
+    },
+    {
+      "id": "RSS-c717543d79",
+      "date": "2026-08-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/sports/2026/8/13/spanish-super-cup-will-be-held-in-turkiye-in-2027?traffic_source=rss",
+      "summary": "Spanish Super Cup will be held in Turkiye in 2027",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-e71bff8e55",
+      "date": "2026-08-13",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/8/13/turkiye-lays-out-mechanisms-of-defence-pact-with-pakistan-saudi-arabia?traffic_source=rss",
+      "summary": "Turkiye lays out \u2018mechanisms\u2019 of defence pact with Pakistan, Saudi Arabia",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Pakistan",
+        "Saudi Arabia"
+      ]
+    },
+    {
+      "id": "RSS-a5ac38d77f",
+      "date": "2026-08-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/8/13/falling-danube-flow-forces-shutdown-of-romanias-sole-nuclear-plant?traffic_source=rss",
+      "summary": "Falling Danube flow forces shutdown of Romania\u2019s sole nuclear plant",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-cfcc69876e",
+      "date": "2026-08-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/sports/2026/8/13/infantinos-fifa-fate-must-go-to-an-election-says-african-football-chief?traffic_source=rss",
+      "summary": "Infantino\u2019s FIFA fate must go to an election, says Africa football chief",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -507,7 +1075,7 @@
       "event_type": "Public news report",
       "source_name": "Al Jazeera",
       "source_url": "https://www.aljazeera.com/news/2026/8/13/more-than-135-million-people-in-europe-set-for-temperatures-over-35c?traffic_source=rss",
-      "summary": "More than 135 million people in Europe set for temperatures over 35C",
+      "summary": "More than 135 million people in Europe face temperatures over 35C",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -518,40 +1086,17 @@
       "country_tags": []
     },
     {
-      "id": "RSS-2b87ef7f93",
+      "id": "RSS-54f94dc7c2",
       "date": "2026-08-13",
       "region": "Middle East",
       "location": "Middle East",
       "lat": 29.0,
       "lon": 45.0,
-      "category": "Geopolitical",
+      "category": "Maritime",
       "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/features/2026/8/13/israel-trucks-out-gazas-rubble-to-hide-genocide-and-redraw-the-map?traffic_source=rss",
-      "summary": "Israel trucks out Gaza\u2019s rubble to \u2018hide genocide\u2019 and \u2018redraw the map\u2019",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Israel"
-      ]
-    },
-    {
-      "id": "RSS-91ab47ee68",
-      "date": "2026-08-13",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/sports/2026/8/13/fulham-march-off-in-malaga-in-friendly-repeat-of-senegal-afcon-protest?traffic_source=rss",
-      "summary": "Fulham walk off in Malaga in friendly repeat of Senegal AFCON final protest",
+      "source_name": "gCaptain (maritime)",
+      "source_url": "https://gcaptain.com/hormuz-shipping-traffic-shows-no-sign-of-recovery/",
+      "summary": "Hormuz Shipping Traffic Shows No Sign of Recovery",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -562,40 +1107,17 @@
       "country_tags": []
     },
     {
-      "id": "RSS-a003cdfeff",
+      "id": "RSS-ed58e0579f",
       "date": "2026-08-13",
-      "region": "Europe / Russia-Ukraine",
-      "location": "Europe / Russia-Ukraine",
-      "lat": 49.0,
-      "lon": 32.0,
-      "category": "Geopolitical",
+      "region": "Indo-Pacific",
+      "location": "Indo-Pacific",
+      "lat": 18.0,
+      "lon": 118.0,
+      "category": "Maritime",
       "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/8/13/civilian-deaths-in-ukraine-in-july-hit-highest-level-since-may-2022-un?traffic_source=rss",
-      "summary": "Civilian deaths in Ukraine in July hit highest level since May 2022: UN",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Ukraine"
-      ]
-    },
-    {
-      "id": "RSS-9252e9a3df",
-      "date": "2026-08-13",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/8/13/eurovision-to-bar-countries-at-war-from-hosting-what-that-means?traffic_source=rss",
-      "summary": "Eurovision to bar countries at war from hosting: What that means",
+      "source_name": "gCaptain (maritime)",
+      "source_url": "https://gcaptain.com/koreas-sk-shipping-h-line-swap-tankers-to-create-lng-giant/",
+      "summary": "Korea\u2019s SK Shipping, H-Line Swap Tankers to Create LNG Giant",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -606,38 +1128,17 @@
       "country_tags": []
     },
     {
-      "id": "RSS-108b598815",
-      "date": "2026-08-13",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/sports/2026/8/13/russell-westbrook-announces-nba-retirement-after-18-seasons?traffic_source=rss",
-      "summary": "Russell Westbrook announces NBA retirement after 18 seasons",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-ef1c61f954",
+      "id": "RSS-efc88795ce",
       "date": "2026-08-13",
       "region": "Middle East",
       "location": "Middle East",
       "lat": 29.0,
       "lon": 45.0,
-      "category": "Geopolitical",
+      "category": "Maritime",
       "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/8/13/life-and-loss-as-a-first-responder-in-southern-lebanon?traffic_source=rss",
-      "summary": "Life and loss as a first responder in southern Lebanon",
+      "source_name": "gCaptain (maritime)",
+      "source_url": "https://gcaptain.com/hormuz-disruption-cuts-both-ways-for-maersk-and-hapag-lloyd/",
+      "summary": "Hormuz Disruption Cuts Both Ways for Maersk and Hapag-Lloyd",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -648,280 +1149,17 @@
       "country_tags": []
     },
     {
-      "id": "RSS-87fd0382c4",
+      "id": "RSS-b172aef90b",
       "date": "2026-08-13",
       "region": "Global",
       "location": "Global",
       "lat": 10.0,
       "lon": 0.0,
-      "category": "Geopolitical",
+      "category": "Maritime",
       "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/centre-stage/2026/8/13/what-postcolonialism-looks-like-in-southeast-asia?traffic_source=rss",
-      "summary": "What postcolonialism looks like in Southeast Asia",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-ea6b7a7550",
-      "date": "2026-08-13",
-      "region": "Europe / Russia-Ukraine",
-      "location": "Europe / Russia-Ukraine",
-      "lat": 49.0,
-      "lon": 32.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/8/13/japan-protests-as-russias-putin-visits-disputed-kuril-islands?traffic_source=rss",
-      "summary": "Japan protests as Russia\u2019s Putin visits disputed Kuril Islands",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Russia",
-        "Japan"
-      ]
-    },
-    {
-      "id": "RSS-0a864a1345",
-      "date": "2026-08-13",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/8/13/13-08-clip-singapore-ship-crashes-kolkatta-in?traffic_source=rss",
-      "summary": "Singapore-flagged container ship crashes into riverbank in India",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "India"
-      ]
-    },
-    {
-      "id": "RSS-075c71a98d",
-      "date": "2026-08-13",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/sports/2026/8/13/la-liga-what-to-know-ahead-of-new-2026-27-football-season?traffic_source=rss",
-      "summary": "La Liga: What to know ahead of new 2026-27 football season",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-5cd204ff7f",
-      "date": "2026-08-13",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/sports/2026/8/13/fifas-infantino-backed-by-six-arab-federations-including-qatar-and-morocco?traffic_source=rss",
-      "summary": "FIFA\u2019s Infantino backed by six Arab federations including Qatar and Morocco",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Qatar"
-      ]
-    },
-    {
-      "id": "RSS-8cab5cb316",
-      "date": "2026-08-13",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/8/13/pro-palestine-activists-smear-red-paint-on-danish-defence-company?traffic_source=rss",
-      "summary": "Pro-Palestine activists smear red paint on Danish defence company",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-c78bab0ce4",
-      "date": "2026-08-13",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/sports/2026/8/13/bangladesh-stun-australia-with-worst-total-in-contest-as-hasan-takes-6-55?traffic_source=rss",
-      "summary": "Bangladesh humble Australia with worst total in contest as Hasan takes 6-55",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Australia"
-      ]
-    },
-    {
-      "id": "RSS-b118d38a3b",
-      "date": "2026-08-13",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/gallery/2026/8/13/photos-hope-fades-in-colombia-as-teams-dig-for-earthquake-survivors?traffic_source=rss",
-      "summary": "Photos: Hope fades in Colombia as teams dig for earthquake survivors",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-7a66e509ad",
-      "date": "2026-08-13",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/8/13/us-diplomat-calls-israeli-settler-siege-of-west-bank-homes-act-of-terror?traffic_source=rss",
-      "summary": "US diplomat calls Israeli settler siege of West Bank homes \u2018act of terror\u2019",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Israel"
-      ]
-    },
-    {
-      "id": "RSS-b709a9c631",
-      "date": "2026-08-13",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/8/13/how-to-stay-safe-during-an-earthquake-a-visual-guide?traffic_source=rss",
-      "summary": "How to stay safe during an earthquake: A visual guide",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-fce61bd043",
-      "date": "2026-08-13",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/8/13/13-08-clip-colombia-hospital-co?traffic_source=rss",
-      "summary": "Part of children\u2019s hospital collapses in Colombia earthquake",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-3c6250977a",
-      "date": "2026-08-13",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/8/13/uk-drought-imperils-farmers?traffic_source=rss",
-      "summary": "As temperatures soar, \u2018exceptionally serious\u2019 drought imperils UK farmers",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-ef8e7b89ad",
-      "date": "2026-08-13",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/8/13/three-us-states-to-hold-executions-on-same-day-for-first-time-since-2010?traffic_source=rss",
-      "summary": "Three US states to hold executions on same day for first time since 2010",
+      "source_name": "gCaptain (maritime)",
+      "source_url": "https://gcaptain.com/major-salvage-effort-begins-for-grounded-shadow-fleet-tanker-off-oman/",
+      "summary": "Major Salvage Effort Begins for Grounded Shadow Fleet Tanker Off Oman",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -1088,134 +1326,6 @@
       ]
     },
     {
-      "id": "RSS-b28edaa1ce",
-      "date": "2026-08-12",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/cz7d2e5wlgno?at_medium=RSS&at_campaign=rss",
-      "summary": "Woman pulled alive from rubble 36 hours after Colombia quake",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-ee29509955",
-      "date": "2026-08-12",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/czxe2vyxd7do?at_medium=RSS&at_campaign=rss",
-      "summary": "At least 44 die as ferry sinks in Zimbabwe's Lake Kariba",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-12b9e4da85",
-      "date": "2026-08-12",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/cm2gp3zmkpmo?at_medium=RSS&at_campaign=rss",
-      "summary": "Danube river's low water levels reveal remains of WWII soldiers and motorcycle",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-0b1cdcfb56",
-      "date": "2026-08-12",
-      "region": "Indo-Pacific",
-      "location": "Indo-Pacific",
-      "lat": 18.0,
-      "lon": 118.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/c75g9777wwxo?at_medium=RSS&at_campaign=rss",
-      "summary": "Zhu Rongji, who helped turn China into a trading giant, dies at 97",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "China"
-      ]
-    },
-    {
-      "id": "RSS-0f7e486f6a",
-      "date": "2026-08-12",
-      "region": "Indo-Pacific",
-      "location": "Indo-Pacific",
-      "lat": 18.0,
-      "lon": 118.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/cdewpklnzwxo?at_medium=RSS&at_campaign=rss",
-      "summary": "Singapore and S Korea pull Trader Joe's seasoning over poppy seeds",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-8f279dfc29",
-      "date": "2026-08-12",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/c20d292gdp4o?at_medium=RSS&at_campaign=rss",
-      "summary": "ICE plans to equip agents with gloves that can deliver electric shocks",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
       "id": "RSS-f57885b45a",
       "date": "2026-08-12",
       "region": "Global",
@@ -1298,74 +1408,6 @@
         "auto-ingested"
       ],
       "country_tags": []
-    },
-    {
-      "id": "RSS-f4473e1365",
-      "date": "2026-08-12",
-      "region": "Middle East",
-      "location": "Middle East",
-      "lat": 29.0,
-      "lon": 45.0,
-      "category": "Energy",
-      "event_type": "Public news report",
-      "source_name": "gCaptain (maritime)",
-      "source_url": "https://gcaptain.com/iea-warns-oil-market-risks-mount-as-hormuz-disruptions-drain-inventories/",
-      "summary": "IEA Warns Oil Market Risks Mount as Hormuz Disruptions Drain Inventories",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-46a3859818",
-      "date": "2026-08-12",
-      "region": "Indo-Pacific",
-      "location": "Indo-Pacific",
-      "lat": 18.0,
-      "lon": 118.0,
-      "category": "Maritime",
-      "event_type": "Public news report",
-      "source_name": "gCaptain (maritime)",
-      "source_url": "https://gcaptain.com/taiwan-condemns-dangerous-planned-chinese-navy-drill-with-indonesia-to-its-east/",
-      "summary": "Taiwan Condemns \u2018Dangerous\u2019 Planned Chinese Navy Drill with Indonesia to Its East",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "China",
-        "Indonesia"
-      ]
-    },
-    {
-      "id": "RSS-43428e7630",
-      "date": "2026-08-12",
-      "region": "Middle East",
-      "location": "Middle East",
-      "lat": 29.0,
-      "lon": 45.0,
-      "category": "Maritime",
-      "event_type": "Public news report",
-      "source_name": "gCaptain (maritime)",
-      "source_url": "https://gcaptain.com/trump-claims-hormuz-control-as-us-iran-harden-their-stances/",
-      "summary": "Trump Claims Hormuz Control as US, Iran Harden Their Stances",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Iran"
-      ]
     },
     {
       "id": "RSS-6a46834fd0",
@@ -1466,27 +1508,6 @@
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 4,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-cc42025a2d",
-      "date": "2026-08-11",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Maritime",
-      "event_type": "Public news report",
-      "source_name": "gCaptain (maritime)",
-      "source_url": "https://gcaptain.com/ship-pays-4-million-to-cut-the-line-at-panama-canal/",
-      "summary": "Ship Pays $4 Million to Cut the Line at Panama Canal",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
       "tags": [
         "rss",
         "auto-ingested"
@@ -1675,50 +1696,6 @@
       "source_name": "U.S. DoD Releases",
       "source_url": "https://www.war.gov/News/News-Stories/Article/Article/4566255/space-launch-delta-45-partners-with-florida-national-guard-to-strengthen-hazmat/",
       "summary": "Space Launch Delta 45 Partners With Florida National Guard to Strengthen Hazmat Response",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-b9f1b2157d",
-      "date": "2026-08-06",
-      "region": "Indo-Pacific",
-      "location": "Indo-Pacific",
-      "lat": 18.0,
-      "lon": 118.0,
-      "category": "Military",
-      "event_type": "Public news report",
-      "source_name": "U.S. DoD Releases",
-      "source_url": "https://www.war.gov/News/News-Stories/Article/Article/4565502/marines-make-history-with-first-attack-drone-live-fire-series-in-south-korea/",
-      "summary": "Marines Make History With First Attack Drone Live-Fire Series in South Korea",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 8,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "South Korea"
-      ]
-    },
-    {
-      "id": "RSS-9460f7fb22",
-      "date": "2026-08-06",
-      "region": "United States",
-      "location": "United States",
-      "lat": 38.0,
-      "lon": -97.0,
-      "category": "Military",
-      "event_type": "Public news report",
-      "source_name": "U.S. DoD Releases",
-      "source_url": "https://www.war.gov/News/News-Stories/Article/Article/4565533/northcom-prepares-deployment-to-support-wildfire-suppression/",
-      "summary": "Northcom Prepares Deployment to Support Wildfire Suppression",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,

@@ -128,6 +128,30 @@ much smaller subset written in Evintir's own words, not a copy of his
 selection or descriptions, and his map is never embedded or depended on at
 runtime.
 
+## Tech Watch
+
+A filterable index of defense-technology developments drawn from three
+YouTube channels (Sandboxx and Cappy Army, secondary sources; DARPAtv, a
+primary source), covering 28 February 2026 forward. **Tech Watch is a
+collection layer, not analysis** — every entry describes what its linked
+source videos discuss ("Covers reported...", "Discusses..."), never an
+assertion about the world, and is visibly and structurally separate from
+the hand-written, confidence-labeled Analyst Notes.
+
+The unit of the feed is a development, not a video: multiple channels
+covering the same thing collapse into one entry with a headline, a short
+blurb drafted from an auto-caption transcript, and links to every source
+video underneath, each labeled by channel and source tier (primary/
+secondary). Nothing publishes without a human explicitly approving it in
+`data/clusters_draft.json` first.
+
+Filter by topic, theater, channel, or date range, or search headlines and
+blurbs directly on the [Tech Watch tab](techwatch.html). Detection (which
+videos exist) runs on a schedule in GitHub Actions; extraction (captions,
+via `yt-dlp`) runs locally, since YouTube blocks datacenter IPs — see
+[docs/TECHWATCH.md](docs/TECHWATCH.md) for the full pipeline, the closed
+topic/theater vocabularies, and the run order.
+
 ## Honest limitations
 
 - Keyword classification is crude and mislabels some items; machine-ingested

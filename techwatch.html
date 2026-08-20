@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  TECH WATCH — collection layer, not analysis
+  ============================================================================
+  WHAT THIS PAGE IS:
+    A filterable index of defense-technology developments drawn from three
+    YouTube channels (config/techwatch.json), covering 28 Feb 2026 forward.
+    The unit of the feed is a DEVELOPMENT, not a video — several source
+    videos covering the same thing collapse into one entry (data/techwatch.json,
+    built by scripts/build_clusters.py + scripts/publish_techwatch.py).
+
+  WHAT THIS PAGE IS NOT:
+    Analysis. Every blurb describes what the linked source videos discuss —
+    never an assertion about the world. That's Analyst Notes' job
+    (analyst.html), written by hand with confidence labels and citations.
+    Nothing here publishes without human approval first (see
+    docs/TECHWATCH.md) — this page only ever renders already-approved,
+    already-reviewed entries from data/techwatch.json.
+
+  GRACEFUL DEGRADATION: data/techwatch.json may not exist yet, or may have
+  zero items (e.g. right after the tab is built, before the pipeline has
+  published anything). Every fetch is wrapped so that case renders a plain
+  empty-state message — no console errors, no broken layout.
+
+  TEARDOWN ORDER: script (bottom) -> body skeleton -> CSS. Same convention
+  as index.html / analyst.html.
+  ============================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Watch — Evintir</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0E151D; --panel: #151F2A; --panel-2: #1B2836; --line: #26364A;
+      --ink: #D9E2EA; --muted: #7E8FA0; --brass: #C9A44C;
+      --risk-high: #D65A5A; --risk-med: #E0A93E; --risk-low: #55A97A;
+      --unclass: #1D7A3E;
+      --mono: "IBM Plex Mono", monospace;
+      --sans: "IBM Plex Sans", sans-serif;
+      --disp: "Barlow Condensed", sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.5; }
+
+    .banner { background: var(--unclass); color: #fff; font-family: var(--mono); font-size: 12px; font-weight: 600;
+      letter-spacing: .14em; text-align: center; padding: 5px 10px; text-transform: uppercase; }
+
+    header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;
+      padding: 20px 28px 12px; border-bottom: 1px solid var(--line); }
+    .wordmark { font-family: var(--disp); font-weight: 700; font-size: 34px; letter-spacing: .22em; }
+    .wordmark span { color: var(--brass); }
+    .subtitle { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: .05em; }
+
+    nav.tabs { display: flex; gap: 2px; padding: 0 28px; border-bottom: 1px solid var(--line); background: var(--panel); }
+    nav.tabs a { font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none; padding: 12px 18px; border-bottom: 2px solid transparent; }
+    nav.tabs a:hover { color: var(--ink); }
+    nav.tabs a.active { color: var(--brass); border-bottom-color: var(--brass); }
+    @media (max-width: 900px) { nav.tabs { padding: 0 16px; } }
+
+    main { padding: 24px 28px 40px; max-width: 1100px; margin: 0 auto; }
+    .eyebrow { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--brass); margin: 20px 0 10px; }
+
+    /* Disclosure — deliberately NOT styled like the brass .eyebrow section
+       labels used everywhere else on the site, so it can't be mistaken for
+       routine chrome. Amber left border (same hex as --risk-med) signals
+       "read this," matching the caution color already used for ELEVATED
+       risk elsewhere. Rendered from data/techwatch.json's own "disclosure"
+       string, never hardcoded editorial copy, so the data and the page
+       can't drift out of sync. */
+    .tw-disclosure { background: var(--panel-2); border-left: 4px solid var(--risk-med);
+      padding: 12px 16px; margin-bottom: 22px; }
+    .tw-disclosure-label { font-family: var(--mono); font-size: 10.5px; font-weight: 700; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--risk-med); margin-bottom: 5px; }
+    .tw-disclosure-text { font-size: 13.5px; color: var(--ink); }
+
+    .filter-group { margin-bottom: 16px; }
+    .filter-group-label { font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--brass); margin-bottom: 8px; }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { font-family: var(--mono); font-size: 12px; letter-spacing: .05em; color: var(--muted);
+      background: transparent; border: 1px solid var(--line); padding: 5px 12px; cursor: pointer; }
+    .chip:hover { color: var(--ink); border-color: var(--muted); }
+    .chip.active { color: var(--bg); background: var(--brass); border-color: var(--brass); font-weight: 600; }
+    .chip:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+
+    .sort-toggle { display: inline-flex; border: 1px solid var(--line); }
+    .sort-btn { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; color: var(--muted);
+      background: transparent; border: none; padding: 6px 12px; cursor: pointer; }
+    .sort-btn + .sort-btn { border-left: 1px solid var(--line); }
+    .sort-btn:hover { color: var(--ink); }
+    .sort-btn.active { color: var(--bg); background: var(--brass); font-weight: 600; }
+    .sort-btn:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+
+    .tw-search { margin-bottom: 4px; }
+    .tw-search input[type="text"] { width: 100%; max-width: 360px; background: var(--panel-2); border: 1px solid var(--line);
+      color: var(--ink); font-family: var(--mono); font-size: 12.5px; padding: 7px 10px; }
+    .tw-search input[type="text"]:focus-visible { outline: 2px solid var(--brass); outline-offset: 1px; }
+
+    .tw-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 20px;
+      margin: 18px 0 16px; padding-top: 14px; border-top: 1px solid var(--line); }
+    .tw-count { font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
+    .tw-reset-btn { font-family: var(--mono); font-size: 11px; letter-spacing: .05em; color: var(--muted);
+      background: transparent; border: 1px solid var(--line); padding: 5px 12px; cursor: pointer; }
+    .tw-reset-btn:hover { color: var(--ink); border-color: var(--muted); }
+
+    .tw-cards { display: flex; flex-direction: column; gap: 14px; }
+    .tw-card { background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--brass);
+      padding: 16px 18px; }
+    .tw-card-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px;
+      margin-bottom: 6px; }
+    .tw-topic { font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--brass); }
+    .tw-daterange { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+    .tw-headline { font-family: var(--disp); font-size: 20px; font-weight: 600; letter-spacing: .02em; margin-bottom: 6px; }
+    .tw-theaters { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+    .tw-theater-tag { font-family: var(--mono); font-size: 10px; color: var(--muted); border: 1px solid var(--line);
+      padding: 1px 7px; }
+    .tw-blurb { font-size: 14px; margin-bottom: 10px; }
+
+    .tw-sources summary { font-family: var(--mono); font-size: 11.5px; color: var(--muted); cursor: pointer;
+      list-style: none; }
+    .tw-sources summary::-webkit-details-marker { display: none; }
+    .tw-sources summary::before { content: "▸ "; color: var(--brass); }
+    .tw-sources[open] summary::before { content: "▾ "; }
+    .tw-sources summary:hover { color: var(--ink); }
+    .tw-video-list { list-style: none; margin-top: 8px; border-top: 1px solid var(--line); }
+    .tw-video-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px;
+      padding: 7px 0; border-bottom: 1px solid var(--line); font-size: 12.5px; }
+    .tw-video-channel { font-family: var(--sans); font-weight: 600; color: var(--ink); }
+    .tw-video-tier { font-family: var(--mono); font-size: 10px; letter-spacing: .05em; text-transform: uppercase;
+      padding: 1px 6px; border: 1px solid var(--line); color: var(--muted); }
+    .tw-tier-primary { color: var(--risk-low); border-color: var(--risk-low); }
+    .tw-video-date { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+    .tw-video-link a { color: var(--brass); text-decoration: none; }
+    .tw-video-link a:hover { text-decoration: underline; }
+
+    .no-posts { font-family: var(--mono); font-size: 12.5px; color: var(--muted); padding: 20px 0; }
+    .tw-empty-wrap { text-align: center; padding: 10px 0 4px; }
+
+    .credits { text-align: center; font-family: var(--mono); font-size: 11px; color: var(--muted); padding: 24px 10px 10px; }
+
+    @media (max-width: 900px) {
+      header { padding: 16px; } main { padding: 16px 16px 32px; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  </style>
+</head>
+
+<body>
+  <div class="banner">Unclassified&nbsp;//&nbsp;Public Sources Only</div>
+
+  <header>
+    <div>
+      <div class="wordmark"><span>E</span>vintir</div>
+      <div class="subtitle">Tech Watch · collection layer, not analysis — video index across three defense channels</div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <a href="index.html">Situation Map</a>
+    <a href="analyst.html">Analysis</a>
+    <a href="techwatch.html" class="active">Tech Watch</a>
+  </nav>
+
+  <main>
+    <div class="tw-disclosure">
+      <div class="tw-disclosure-label">Disclosure</div>
+      <div class="tw-disclosure-text" id="twDisclosure"></div>
+    </div>
+
+    <div class="filter-group">
+      <div class="filter-group-label">Topic</div>
+      <div class="filters" id="twTopicFilters"></div>
+    </div>
+
+    <div class="filter-group">
+      <div class="filter-group-label">Theater</div>
+      <div class="filters" id="twTheaterFilters"></div>
+    </div>
+
+    <div class="filter-group">
+      <div class="filter-group-label">Channel</div>
+      <div class="filters" id="twChannelFilters"></div>
+    </div>
+
+    <div class="filter-group">
+      <div class="filter-group-label">Date range</div>
+      <div class="sort-toggle" id="twDateRange" role="group" aria-label="Filter by date range">
+        <button type="button" class="sort-btn" data-range="30" aria-pressed="false">Last 30 days</button>
+        <button type="button" class="sort-btn" data-range="90" aria-pressed="false">Last 90 days</button>
+        <button type="button" class="sort-btn" data-range="floor" aria-pressed="false">Since Feb 2026</button>
+        <button type="button" class="sort-btn active" data-range="all" aria-pressed="true">All</button>
+      </div>
+    </div>
+
+    <div class="filter-group tw-search">
+      <div class="filter-group-label">Search</div>
+      <input type="text" id="twSearch" placeholder="Search headlines and blurbs…" aria-label="Search Tech Watch entries">
+    </div>
+
+    <div class="tw-toolbar">
+      <div class="tw-count" id="twCount"></div>
+      <button type="button" class="tw-reset-btn" id="twReset" hidden>Reset filters</button>
+    </div>
+
+    <div class="tw-empty-wrap" id="twEmpty" hidden></div>
+    <div class="tw-cards" id="twCards"></div>
+
+    <div class="credits">
+      Personal learning &amp; portfolio project · public, unclassified sources only ·
+      entries describe what linked videos discuss, not verified facts — see Analyst Notes for analysis
+    </div>
+  </main>
+
+  <div class="banner">Unclassified&nbsp;//&nbsp;Public Sources Only</div>
+
+  <script>
+    /* ========================================================================
+       DATA — data/techwatch.json (published clusters) is the only required
+       fetch; config/techwatch.json is an optional enhancement so filter
+       chips can show the full closed vocabulary (13 topics, 5 theaters, 3
+       channels) even before any item uses every category. If that second
+       fetch fails, chips are simply derived from whatever items loaded.
+       ===================================================================== */
+    const DEFAULT_DISCLOSURE =
+      "Tech Watch entries are short summaries of publicly available video " +
+      "content, drafted from automatic captions and reviewed before " +
+      "publication. They describe what the linked source videos discuss; " +
+      "they are not verified factual claims and are not analytical " +
+      "assessments. See Analyst Notes for sourced, confidence-labeled analysis.";
+    const FLOOR_DATE_FALLBACK = "2026-02-28";
+
+    let TECHWATCH = { disclosure: DEFAULT_DISCLOSURE, items: [] };
+    let CONFIG = null;
+
+    const state = {
+      topics: new Set(),
+      theaters: new Set(),
+      channels: new Set(),
+      dateRange: "all",
+      search: ""
+    };
+
+    // Same escaping/URL-validation discipline as index.html and analyst.html —
+    // published blurbs/headlines are reviewed, but video titles pulled from
+    // YouTube are uncontrolled third-party text and must never hit innerHTML raw.
+    const esc = s => String(s).replace(/[&<>"]/g, ch =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
+    const safeUrl = u => /^https?:\/\//i.test(String(u || "")) ? u : null;
+
+    function isoDaysAgo(n) {
+      const d = new Date();
+      d.setUTCDate(d.getUTCDate() - n);
+      return d.toISOString().slice(0, 10);
+    }
+
+    function dateRangeCutoff(key) {
+      if (key === "30") return isoDaysAgo(30);
+      if (key === "90") return isoDaysAgo(90);
+      if (key === "floor") return (CONFIG && CONFIG.floor_date) || FLOOR_DATE_FALLBACK;
+      return null;
+    }
+
+    function itemMatches(item) {
+      if (state.topics.size && !state.topics.has(item.topic)) return false;
+      if (state.theaters.size) {
+        const theaters = item.theaters || [];
+        if (!theaters.some(t => state.theaters.has(t))) return false;
+      }
+      if (state.channels.size) {
+        const channels = new Set((item.videos || []).map(v => v.channel));
+        let any = false;
+        for (const ch of state.channels) if (channels.has(ch)) { any = true; break; }
+        if (!any) return false;
+      }
+      const cutoff = dateRangeCutoff(state.dateRange);
+      if (cutoff && String(item.date_end) < cutoff) return false;
+      if (state.search.trim()) {
+        const q = state.search.trim().toLowerCase();
+        const hay = `${item.headline} ${item.blurb}`.toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    }
+
+    function anyFilterActive() {
+      return state.topics.size > 0 || state.theaters.size > 0 || state.channels.size > 0 ||
+        state.dateRange !== "all" || state.search.trim() !== "";
+    }
+
+    /* ---- Filter chips (Topic / Theater / Channel — all multi-select, all
+       combinable, independent of each other) -------------------------------- */
+    function chip(label, active, group, val) {
+      return `<button type="button" class="chip ${active ? "active" : ""}" data-group="${group}" data-val="${esc(val)}">${esc(label)}</button>`;
+    }
+
+    function renderFilterChips() {
+      const topics = CONFIG ? Object.keys(CONFIG.topics)
+        : [...new Set(TECHWATCH.items.map(i => i.topic))].sort();
+      const theaters = CONFIG ? CONFIG.theaters
+        : [...new Set(TECHWATCH.items.flatMap(i => i.theaters || []))];
+      const channels = CONFIG ? CONFIG.channels.map(c => c.display_name)
+        : [...new Set(TECHWATCH.items.flatMap(i => (i.videos || []).map(v => v.channel)))].sort();
+
+      document.getElementById("twTopicFilters").innerHTML =
+        topics.map(t => chip(t, state.topics.has(t), "topic", t)).join("");
+      document.getElementById("twTheaterFilters").innerHTML =
+        theaters.map(t => chip(t, state.theaters.has(t), "theater", t)).join("");
+      document.getElementById("twChannelFilters").innerHTML =
+        channels.map(c => chip(c, state.channels.has(c), "channel", c)).join("");
+    }
+
+    function renderDateRangeUI() {
+      document.querySelectorAll("#twDateRange .sort-btn").forEach(b => {
+        const on = b.dataset.range === state.dateRange;
+        b.classList.toggle("active", on);
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+    }
+
+    /* ---- Cards -------------------------------------------------------------- */
+    function renderVideoRow(v) {
+      const url = safeUrl(v.url);
+      const tierClass = v.source_tier === "primary" ? "tw-tier-primary" : "tw-tier-secondary";
+      const tierLabel = v.source_tier === "primary" ? "primary source" : "secondary source";
+      const titleHtml = url
+        ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(v.title)}</a>`
+        : esc(v.title);
+      return `<li class="tw-video-row">
+          <span class="tw-video-channel">${esc(v.channel)}</span>
+          <span class="tw-video-tier ${tierClass}">${tierLabel}</span>
+          <span class="tw-video-date">${esc(v.published || "")}</span>
+          <span class="tw-video-link">${titleHtml}</span>
+        </li>`;
+    }
+
+    function renderCard(item) {
+      const videos = (item.videos || []).slice()
+        .sort((a, b) => String(b.published).localeCompare(String(a.published)));
+      const theaterTags = (item.theaters || [])
+        .map(t => `<span class="tw-theater-tag">${esc(t)}</span>`).join("");
+      const n = videos.length;
+      return `<article class="tw-card" id="tw-${esc(item.id)}">
+          <div class="tw-card-head">
+            <div class="tw-topic">${esc(item.topic)}</div>
+            <div class="tw-daterange">${esc(item.date_start)} – ${esc(item.date_end)}</div>
+          </div>
+          <h3 class="tw-headline">${esc(item.headline)}</h3>
+          ${theaterTags ? `<div class="tw-theaters">${theaterTags}</div>` : ""}
+          <p class="tw-blurb">${esc(item.blurb)}</p>
+          <details class="tw-sources">
+            <summary>${n} source video${n === 1 ? "" : "s"}</summary>
+            <ul class="tw-video-list">${videos.map(renderVideoRow).join("")}</ul>
+          </details>
+        </article>`;
+    }
+
+    /* ---- Toolbar / result count / empty states ------------------------------ */
+    function renderResults() {
+      const all = TECHWATCH.items;
+      const shown = all.filter(itemMatches)
+        .sort((a, b) => String(b.date_end).localeCompare(String(a.date_end)));
+
+      document.getElementById("twCount").textContent =
+        all.length ? `Showing ${shown.length} of ${all.length}` : "";
+      document.getElementById("twReset").hidden = !anyFilterActive();
+
+      const cardsHost = document.getElementById("twCards");
+      const emptyHost = document.getElementById("twEmpty");
+
+      if (!all.length) {
+        cardsHost.innerHTML = "";
+        emptyHost.hidden = false;
+        emptyHost.innerHTML = `<div class="no-posts">No Tech Watch entries published yet — check back after the next pipeline run.</div>`;
+        return;
+      }
+      if (!shown.length) {
+        cardsHost.innerHTML = "";
+        emptyHost.hidden = false;
+        emptyHost.innerHTML = `<div class="no-posts">No entries match the current filters.</div>`;
+        return;
+      }
+      emptyHost.hidden = true;
+      cardsHost.innerHTML = shown.map(renderCard).join("");
+    }
+
+    function renderDisclosure() {
+      document.getElementById("twDisclosure").textContent = TECHWATCH.disclosure || DEFAULT_DISCLOSURE;
+    }
+
+    function renderAll() {
+      renderDisclosure();
+      renderFilterChips();
+      renderDateRangeUI();
+      renderResults();
+    }
+
+    /* ---- Wiring -------------------------------------------------------------- */
+    function wireChipGroup(containerId, targetSet) {
+      document.getElementById(containerId).addEventListener("click", ev => {
+        const btn = ev.target.closest(".chip");
+        if (!btn) return;
+        const val = btn.dataset.val;
+        if (targetSet.has(val)) targetSet.delete(val); else targetSet.add(val);
+        renderAll();
+      });
+    }
+    wireChipGroup("twTopicFilters", state.topics);
+    wireChipGroup("twTheaterFilters", state.theaters);
+    wireChipGroup("twChannelFilters", state.channels);
+
+    document.getElementById("twDateRange").addEventListener("click", ev => {
+      const btn = ev.target.closest(".sort-btn");
+      if (!btn) return;
+      state.dateRange = btn.dataset.range;
+      renderAll();
+    });
+
+    document.getElementById("twSearch").addEventListener("input", ev => {
+      state.search = ev.target.value;
+      renderResults();
+      document.getElementById("twReset").hidden = !anyFilterActive();
+    });
+
+    document.getElementById("twReset").addEventListener("click", () => {
+      state.topics.clear();
+      state.theaters.clear();
+      state.channels.clear();
+      state.dateRange = "all";
+      state.search = "";
+      document.getElementById("twSearch").value = "";
+      renderAll();
+    });
+
+    /* ---- Deep-linking: techwatch.html#tw-<cluster-id>, same scroll-on-load
+       convention as analyst.html's #post-<id> ---------------------------------- */
+    function scrollToHash() {
+      if (!location.hash.startsWith("#tw-")) return;
+      const el = document.querySelector(location.hash);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    /* ========================================================================
+       BOOT — every fetch degrades gracefully. A missing or empty
+       data/techwatch.json (the expected state before the pipeline has
+       published anything) renders the plain empty-state message below, not
+       a broken page or a console error.
+       ===================================================================== */
+    async function boot() {
+      try {
+        const res = await fetch("data/techwatch.json", { cache: "no-store" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const j = await res.json();
+        TECHWATCH = {
+          disclosure: typeof j.disclosure === "string" && j.disclosure ? j.disclosure : DEFAULT_DISCLOSURE,
+          items: Array.isArray(j.items) ? j.items : []
+        };
+      } catch (err) {
+        console.warn("Could not load data/techwatch.json — Tech Watch will show as empty.", err);
+        TECHWATCH = { disclosure: DEFAULT_DISCLOSURE, items: [] };
+      }
+
+      try {
+        const res = await fetch("config/techwatch.json", { cache: "no-store" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        CONFIG = await res.json();
+      } catch (err) {
+        console.warn("Could not load config/techwatch.json — filter chips will derive from loaded items only.", err);
+        CONFIG = null;
+      }
+
+      renderAll();
+      scrollToHash();
+    }
+    boot();
+  </script>
+</body>
+</html>

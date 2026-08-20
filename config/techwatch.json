@@ -1,0 +1,58 @@
+{
+  "floor_date": "2026-02-28",
+  "floor_date_rationale": "Start of the 2026 Iran war (28 Feb 2026). Absolute floor; never relaxed.",
+  "rss_window_days": 45,
+  "cluster_window_days": 21,
+  "channels": [
+    {
+      "key": "sandboxx",
+      "display_name": "Sandboxx",
+      "channel_id": "UCNPMEL4N_kfEC-w2A6CuPGg",
+      "url": "https://www.youtube.com/channel/UCNPMEL4N_kfEC-w2A6CuPGg",
+      "source_tier": "secondary",
+      "representative_priority": 1,
+      "tier_note": "Defense reporting and commentary. Broadest topical range of the three. Treat claims as leads requiring primary-source confirmation."
+    },
+    {
+      "key": "cappyarmy",
+      "display_name": "Cappy Army",
+      "channel_id": "UCwrpo8z3IgJln2ZidqBUiMA",
+      "url": "https://www.youtube.com/channel/UCwrpo8z3IgJln2ZidqBUiMA",
+      "source_tier": "secondary",
+      "representative_priority": 2,
+      "tier_note": "Veteran-hosted defense commentary. Treat claims as leads requiring primary-source confirmation."
+    },
+    {
+      "key": "darpatv",
+      "display_name": "DARPAtv",
+      "channel_id": "UCOIHBHRbvncMo7Bf0Vx1zEQ",
+      "url": "https://www.youtube.com/channel/UCOIHBHRbvncMo7Bf0Vx1zEQ",
+      "source_tier": "primary",
+      "representative_priority": 3,
+      "tier_note": "Official DARPA channel. Primary source for DARPA program statements."
+    }
+  ],
+  "theaters": [
+    "Middle East",
+    "Indo-Pacific",
+    "Europe & Ukraine",
+    "Arctic",
+    "Homeland & Global"
+  ],
+  "topics": {
+    "Air & Missile Defense": ["air defense", "missile defense", "interceptor", "patriot", "thaad", "iron dome", "golden dome", "sam site", "surface-to-air", "arrow 3", "david's sling", "ballistic missile defense"],
+    "Uncrewed Systems & Counter-UAS": ["drone", "drones", "uav", "uas", "counter-drone", "counter drone", "counter-uas", "loitering munition", "quadcopter", "fpv", "switchblade", "reaper", "shahed", "unmanned aerial"],
+    "Hypersonics & Long-Range Strike": ["hypersonic", "glide vehicle", "prsm", "long-range strike", "cruise missile", "tomahawk", "dark eagle", "conventional prompt strike", "standoff missile"],
+    "Electronic Warfare & Spectrum": ["electronic warfare", "jamming", "jammer", "spoofing", "gps denial", "gnss", "spectrum", "electromagnetic", "sigint", "elint", "radar warning", "electronic attack"],
+    "Cyber & Information Operations": ["cyber", "cyberattack", "hacking", "malware", "ransomware", "information operations", "disinformation", "influence operation", "cyber command", "network attack"],
+    "Space & Satellites": ["satellite", "space force", "orbital", "anti-satellite", "asat", "starlink", "space domain", "launch vehicle", "low earth orbit", "leo constellation"],
+    "AI & Autonomy": ["artificial intelligence", " ai ", "machine learning", "autonomous", "autonomy", "collaborative combat aircraft", "cca", "loyal wingman", "replicator", "algorithm", "targeting ai"],
+    "Naval & Undersea": ["navy", "naval", "submarine", "destroyer", "carrier", "frigate", "undersea", "anti-submarine", "shipbuilding", "aukus", "torpedo", "sea drone", "usv", "uuv"],
+    "Munitions & Industrial Base": ["munitions", "artillery", "155mm", "shell production", "stockpile", "defense industrial", "production line", "supply chain", "magazine depth", "arsenal"],
+    "Ground Systems & Soldier Equipment": ["tank", "abrams", "bradley", "infantry", "body armor", "rifle", "night vision", "armored vehicle", "ivas", "soldier kit", "small arms"],
+    "Nuclear & Strategic Forces": ["nuclear", "icbm", "sentinel", "minuteman", "triad", "warhead", "deterrence", "b-21", "strategic bomber", "nuclear posture"],
+    "Cryptology & Secure Communications": ["encryption", "cryptography", "cryptology", "post-quantum", "quantum computing", "secure comms", "signals intelligence", "nsa", "key management", "cipher", "code breaking"],
+    "Doctrine, Budget & Policy": ["budget", "appropriation", "ndaa", "doctrine", "posture", "acquisition", "procurement", "pentagon policy", "force structure", "recruiting", "readiness"]
+  },
+  "exclude_keywords": ["podcast highlight", "merch", "q&a", "giveaway", "subscriber", "reaction", "tier list", "storytime"]
+}

@@ -1,0 +1,45 @@
+# =============================================================================
+# Tech Watch: ongoing detection, every 6 hours. Same shape as update-feeds.yml
+# ("Every 6 hours, start a fresh Linux machine, run our detection script, and
+# if data/watchlist.json changed, commit it"), except this job installs
+# nothing — watch_channels.py is standard-library only (urllib + xml.etree),
+# by design, since YouTube blocks datacenter IPs for anything beyond RSS
+# polling. Extraction (yt-dlp, transcripts, the Claude API key) never runs
+# here — that stays local. See docs/TECHWATCH.md.
+# =============================================================================
+name: Tech Watch — refresh watchlist
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # minute 0 of every 6th hour, UTC
+  workflow_dispatch:          # adds a manual "Run workflow" button in the UI
+
+permissions:
+  contents: write             # the robot needs permission to commit
+
+concurrency:
+  group: techwatch-refresh
+  cancel-in-progress: false   # let an in-flight run finish rather than race its own commit
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Poll channel RSS feeds
+        run: python3 scripts/watch_channels.py
+
+      - name: Commit updated watchlist (only if it changed)
+        run: |
+          git config user.name "watchstander-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/watchlist.json
+          git diff --cached --quiet || git commit -m "chore(techwatch): refresh watchlist [automated]"
+          git push

@@ -204,4 +204,37 @@ What this actually cost, honestly. This wasn't a quick pipeline run. I left my l
 **Loose ends**
 - 22 clusters remain in draft for a future approval pass.
 - One cluster has no captions on either candidate video and needs a hand-written blurb if I want it live.
+
+## August 25 — Catch-up extraction: closing a four-day detection/extraction gap, end to end
+Detection (`watch_channels.py`) has been running on its own in GitHub Actions every 6 hours since the 20th, exactly as designed. Extraction never has a schedule, on purpose — it needs yt-dlp against a residential IP, which means it only runs when I sit down and run it by hand. Nobody had since the 21st, so four days of RSS hits just sat in `data/watchlist.json` at `status: "indexed"`, detected but never clustered or transcribed. Not a bug, just the tradeoff of a local-only extraction half — worth writing down so a multi-day gap like this doesn't look alarming next time it happens.
+
+**Finding the actual backlog**
+Asked for everything indexed since the 19th; the real number was bigger. My local `data/watchlist.json` was stale (last touched the 21st), so the CI-committed refreshes from the 21st through today hadn't been pulled in yet — a fast-forward `git pull` was clean since nothing local had touched that file. Once current, the indexed-but-unprocessed count was 18, not 7: the 7 from the 19th on, plus 11 older ones from Aug 8–18 (three days of DARPA Lift Challenge broadcasts, three Sandboxx fighter-aircraft breakdowns, one Cappy Army video) that had also never made it through a clustering pass. Flagged the discrepancy and got confirmation to process all 18 in one run rather than silently narrowing scope to the number I'd originally asked about.
+
+**Running it**
+`build_clusters.py` classified 10 of the 18 as relevant (8 hit exclude-keyword or no-topic-match filters) and formed 3 new draft clusters — one DARPA Lift Challenge cluster (7 videos), one Navy fighter-aircraft cluster (2 videos), one Cuba/Iran-drone cluster (1 video). `fetch_representatives.py` and `draft_blurbs.py` ran scoped to just those 3 cluster IDs, on purpose — the same eligibility check also surfaced 7 pre-existing draft clusters from March through July that were sitting unblurbed for unrelated reasons, and pulling those into today's run would have quietly expanded a detection-gap catch-up into a second, different backlog. Left them alone.
+
+**A fourth video, added by hand**
+One of the 8 filtered out as "irrelevant" — an AIM-424 air-to-air missile video from Sandboxx — got a manual override after a second look: the keyword filter has no "air-to-air missile" bucket in its closed topic vocabulary, so it fell through, but it was clearly in scope. Ran it through the same transcript/blurb steps by hand, outside `build_clusters.py`'s classifier, and gave it its own cluster (`Hypersonics & Long-Range Strike`) since it didn't fit the topic of any of the other three.
+
+**Local preview caught a stale server before it caused confusion**
+The local preview server was still running from a previous session — but serving from `~/Desktop`, not the repo, a repeat of the exact "dead server mistaken for a broken pipeline" failure mode from the 20th–21st build. Killed it and started a fresh one rooted correctly before doing any review.
+
+**How this actually got published**
+Reviewed all 4 clusters on localhost and got the go-ahead to push. Publishing here didn't go through `publish_techwatch.py` — that script only reads clusters at `status: "approved"`, and these were still `status: "draft"`. Instead of hand-setting `approved` and then running the normal script, I wrote a one-off merge (same item-building logic as `publish_techwatch.py`, applied to just these 4 cluster IDs) straight into `data/techwatch.json`, then deleted the 4 clusters out of `data/clusters_draft.json` once they were confirmed live. Functionally the same gate — nothing published without me looking at it on localhost and saying so explicitly — but worth being honest that the mechanism was custom, not the documented `draft → approved → publish` path. If this pattern repeats, it's worth either scripting the "approve + merge + prune" sequence properly or just using the real approve field and running `publish_techwatch.py` as designed.
+
+**Final state**
+4 clusters / 11 videos live in `data/techwatch.json` on `main` (pushed as `f1e5ef4`), real publish dates preserved throughout (Aug 8, 11, 21, 24 — never today's date). `data/clusters_draft.json` has the 4 published clusters removed and the 7 unrelated older drafts plus everything else untouched. `data/watchlist.json`'s status transitions from this run (clustered/transcribed/irrelevant) got committed alongside rather than left stale for next time. Working tree clean, local preview server stopped.
+
+**Judgment calls worth remembering**
+- A stale local file can make a backlog look smaller than it is. Always pull before counting anything CI might have touched since the last local session.
+- When a scoped ask turns out to undercount the real backlog, say so and ask, rather than either quietly expanding scope or quietly dropping the extra items.
+- "Eligible for this script" and "in scope for this task" aren't the same set. `fetch_representatives.py`/`draft_blurbs.py` will happily pick up any unblurbed draft cluster, old or new — scoping by `--cluster-id` to just the ones this run created kept an unrelated older backlog from riding along.
+- A closed keyword vocabulary will always miss some in-scope items at the edges (the AIM-424 video). That's the right failure mode for a filter — quietly wrong would be worse than visibly incomplete and correctable by hand.
+- Leaving state uncommitted "to stay scoped" can just relocate the staleness problem to next session. Committing `watchlist.json`'s real status transitions alongside the publish was worth the slightly wider diff.
+
+**Loose ends**
+- 7 older draft clusters (March–July) are still sitting unblurbed, for reasons unrelated to this run — a separate cleanup pass, not today's problem.
+- `sources/fetch_transcript.sh` has never been committed on any branch, repo-wide — the pipeline depends on it but a fresh clone wouldn't have it. Noticed while checking git status before this push; not today's task, flagging for a deliberate decision later.
+- Today's publish used a one-off merge script instead of the documented `approved` → `publish_techwatch.py` path (see above) — fine for a single catch-up, but if this becomes routine it should get formalized instead of repeated ad hoc.
 - Extra drafted-but-unpublished blurbs from the mis-targeted run are a cheap head start whenever I approve more.

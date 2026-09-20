@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T10:16:34+00:00",
+  "generated_at": "2026-09-20T15:04:34+00:00",
   "note": "Auto-generated from public RSS feeds. Confidence 'Unverified' means no human review yet. Coordinates are region centroids.",
   "sources": [
     {
@@ -11,26 +11,26 @@
     {
       "source": "BBC World",
       "ok": true,
-      "entries_this_run": 24,
-      "last_success": "2026-09-20T10:16:33+00:00"
+      "entries_this_run": 25,
+      "last_success": "2026-09-20T15:04:33+00:00"
     },
     {
       "source": "Al Jazeera",
       "ok": true,
       "entries_this_run": 25,
-      "last_success": "2026-09-20T10:16:33+00:00"
+      "last_success": "2026-09-20T15:04:33+00:00"
     },
     {
       "source": "gCaptain (maritime)",
       "ok": true,
       "entries_this_run": 12,
-      "last_success": "2026-09-20T10:16:33+00:00"
+      "last_success": "2026-09-20T15:04:33+00:00"
     },
     {
       "source": "U.S. DoD Releases",
       "ok": true,
       "entries_this_run": 13,
-      "last_success": "2026-09-20T10:16:33+00:00"
+      "last_success": "2026-09-20T15:04:33+00:00"
     }
   ],
   "events": [
@@ -41,14 +41,14 @@
       "location": "Europe / Russia-Ukraine",
       "lat": 49.0,
       "lon": 32.0,
-      "category": "Military",
+      "category": "Geopolitical",
       "event_type": "Public news report",
       "source_name": "BBC World",
       "source_url": "https://www.bbc.co.uk/news/articles/c34gdjk1ne8yo?at_medium=RSS&at_campaign=rss",
-      "summary": "Two killed in 'massive' Ukrainian drone attack on Moscow region, Russia says",
+      "summary": "Largest attack on Moscow sees Ukraine fire hundreds of drones, mayor says",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
-      "risk_score": 9,
+      "risk_score": 8,
       "tags": [
         "rss",
         "auto-ingested"
@@ -59,20 +59,20 @@
       ]
     },
     {
-      "id": "RSS-5bc65cbf2d",
+      "id": "RSS-e3de728165",
       "date": "2026-09-20",
       "region": "Europe / Russia-Ukraine",
       "location": "Europe / Russia-Ukraine",
       "lat": 49.0,
       "lon": 32.0,
-      "category": "Military",
+      "category": "Geopolitical",
       "event_type": "Public news report",
       "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/9/20/mass-ukrainian-drone-attack-on-moscow-kills-two-russia-says?traffic_source=rss",
-      "summary": "Two killed in Ukrainian drone attack on Moscow, says Russia",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/9/20/moscow-attacked-by-more-than-1000-ukrainian-drones?traffic_source=rss",
+      "summary": "Moscow attacked by more than 1,000 Ukrainian drones",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
-      "risk_score": 9,
+      "risk_score": 8,
       "tags": [
         "rss",
         "auto-ingested"
@@ -80,6 +80,29 @@
       "country_tags": [
         "Russia",
         "Ukraine"
+      ]
+    },
+    {
+      "id": "RSS-94c64ada66",
+      "date": "2026-09-20",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/9/20/gazas-children-return-to-classrooms-after-years-of-israeli-attacks?traffic_source=rss",
+      "summary": "Gaza\u2019s children return to classrooms after years of Israeli attacks",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 6,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Israel"
       ]
     },
     {
@@ -104,27 +127,6 @@
       "country_tags": [
         "Saudi Arabia"
       ]
-    },
-    {
-      "id": "RSS-b09dd547f9",
-      "date": "2026-09-20",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Military",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/9/20/jammertest-arctic-exercise-to-counter-satellite-jamming?traffic_source=rss",
-      "summary": "Jammertest: Arctic exercise to counter satellite jamming",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 4,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
     },
     {
       "id": "RSS-b3c7a8b567",
@@ -171,6 +173,27 @@
       ]
     },
     {
+      "id": "RSS-9b7cadaecb",
+      "date": "2026-09-20",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Military",
+      "event_type": "Public news report",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/cqdj4pez00dzo?at_medium=RSS&at_campaign=rss",
+      "summary": "Trump says his planned triumphal arch will double as a military complex to store ammunition",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
       "id": "RSS-175f5edb3d",
       "date": "2026-09-20",
       "region": "Global",
@@ -211,6 +234,428 @@
         "auto-ingested"
       ],
       "country_tags": []
+    },
+    {
+      "id": "RSS-2b807babab",
+      "date": "2026-09-20",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/9/20/hundreds-protest-in-tunisia-for-release-of-jailed-gaza-flotilla-activists?traffic_source=rss",
+      "summary": "Hundreds protest in Tunisia for release of jailed Gaza flotilla activists",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-d6563fb41a",
+      "date": "2026-09-20",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/9/20/humanoid-robots-fight-in-cage-match-in-shanghai?traffic_source=rss",
+      "summary": "Humanoid robots fight in cage match in Shanghai",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-01ce3bd1fe",
+      "date": "2026-09-20",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/opinions/2026/9/20/the-pro-israel-censors-are-starting-to-lose?traffic_source=rss",
+      "summary": "The pro-Israel censors are starting to lose",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Israel"
+      ]
+    },
+    {
+      "id": "RSS-0c73cf290f",
+      "date": "2026-09-20",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/deja-vu-2/2026/9/20/jews-and-muslims-lived-together-for-centuries-did-zionism-tear-them-apart-2?traffic_source=rss",
+      "summary": "Jews and Muslims lived together for centuries. Did Zionism tear them apart?",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-cee34cdea2",
+      "date": "2026-09-20",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/economy/2026/9/20/whats-behind-iranian-authorities-push-for-a-mass-mobilisation-campaign?traffic_source=rss",
+      "summary": "What\u2019s behind Iranian authorities\u2019 push for a mass mobilisation campaign?",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Iran"
+      ]
+    },
+    {
+      "id": "RSS-a98a697b09",
+      "date": "2026-09-20",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/9/20/netanyahu-tours-tunnels-underneath-al-aqsa-mosque-compound?traffic_source=rss",
+      "summary": "Netanyahu tours tunnels underneath Al-Aqsa Mosque compound",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Israel"
+      ]
+    },
+    {
+      "id": "RSS-366410060a",
+      "date": "2026-09-20",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/sports/2026/9/20/iran-win-asian-games-basketball-bronze-amid-emotional-scenes?traffic_source=rss",
+      "summary": "Iran win Asian Games basketball bronze amid emotional scenes",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Iran"
+      ]
+    },
+    {
+      "id": "RSS-e8127ebf51",
+      "date": "2026-09-20",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/economy/2026/9/20/postponing-the-future-war-and-inflation-redraw-marriage-terms-in-iran?traffic_source=rss",
+      "summary": "Postponing the future: War and inflation redraw marriage terms in Iran",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Iran"
+      ]
+    },
+    {
+      "id": "RSS-e76368d23b",
+      "date": "2026-09-20",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/9/20/former-pakistan-pm-imran-khans-sister-arrested-ahead-of-planned-pti-march?traffic_source=rss",
+      "summary": "Former Pakistan PM Imran Khan\u2019s sister arrested before planned PTI march",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Pakistan"
+      ]
+    },
+    {
+      "id": "RSS-17bc3c5663",
+      "date": "2026-09-20",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/sports/liveblog/2026/9/20/live-fulham-vs-manchester-united-premier-league?traffic_source=rss",
+      "summary": "LIVE: Fulham vs Manchester United \u2013 Premier League",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-f00c2e5e6c",
+      "date": "2026-09-20",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/9/20/israeli-forces-kill-palestinian-near-jenin-in-occupied-west-bank?traffic_source=rss",
+      "summary": "Israeli forces kill Palestinian near Jenin in occupied West Bank",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Israel"
+      ]
+    },
+    {
+      "id": "RSS-fc023aeabc",
+      "date": "2026-09-20",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/9/20/pro-palestine-protesters-demonstrate-outside-ed-sheeran-concert?traffic_source=rss",
+      "summary": "Pro-Palestine protesters demonstrate outside Ed Sheeran concert",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-59db0609b7",
+      "date": "2026-09-20",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/9/20/israeli-settlers-storm-al-aqsa-in-latest-targeting-of-east-jerusalem-sites?traffic_source=rss",
+      "summary": "Israeli settlers storm Al-Aqsa in latest targeting of East Jerusalem sites",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Israel"
+      ]
+    },
+    {
+      "id": "RSS-84870f1577",
+      "date": "2026-09-20",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/features/2026/9/20/back-to-school-in-gaza-learning-in-tents-after-years-of-disruption?traffic_source=rss",
+      "summary": "Back to school in Gaza: Learning in tents after years of disruption",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-5883597882",
+      "date": "2026-09-20",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/9/20/what-are-irans-new-conditions-to-end-its-war-with-the-us?traffic_source=rss",
+      "summary": "What are Iran\u2019s latest conditions to end its war with the US?",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Iran"
+      ]
+    },
+    {
+      "id": "RSS-a3ef07e8ee",
+      "date": "2026-09-20",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/sports/2026/9/20/anthems-transport-housing-whats-gone-wrong-at-the-asian-games-in-japan?traffic_source=rss",
+      "summary": "Anthems, transport, housing: What\u2019s gone wrong at the Asian Games in Japan?",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Japan"
+      ]
+    },
+    {
+      "id": "RSS-51dee5be53",
+      "date": "2026-09-20",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/sports/liveblog/2026/9/20/live-atletico-madrid-vs-real-madrid-la-liga-2?traffic_source=rss",
+      "summary": "LIVE: Atletico Madrid vs Real Madrid \u2013 La Liga",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-810fe73838",
+      "date": "2026-09-20",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/opinions/2026/9/20/trumps-greenland-deal-a-triumph-of-optics?traffic_source=rss",
+      "summary": "Trump\u2019s Greenland deal: A triumph of optics?",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-a227a8bdb0",
+      "date": "2026-09-20",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/9/20/turkish-fm-says-ready-to-meet-saudi-defence-needs-what-does-that-mean?traffic_source=rss",
+      "summary": "Turkish FM says ready to meet Saudi defence needs \u2013 what does that mean?",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Turkey",
+        "Saudi Arabia"
+      ]
     },
     {
       "id": "RSS-e033a57c1e",
@@ -280,373 +725,6 @@
       "country_tags": []
     },
     {
-      "id": "RSS-5e6c8d1f8e",
-      "date": "2026-09-20",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/9/20/20-09-clip-townsend-gets-rolled-over-in-thailand-th?traffic_source=rss",
-      "summary": "Former England and Tottenham star Andros Townsend run over by pitch roller",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-db383a4d9e",
-      "date": "2026-09-20",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/sports/2026/9/20/myanmars-van-defeats-pantoja-to-retain-flyweight-title-in-ufc-331?traffic_source=rss",
-      "summary": "Myanmar\u2019s Van defeats Pantoja to retain flyweight title in UFC 331",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-6b8c0d55ed",
-      "date": "2026-09-20",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/9/20/journalists-locked-out-of-the-white-house-after-trump-ban?traffic_source=rss",
-      "summary": "Journalists locked out of the White House after Trump ban",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "United States"
-      ]
-    },
-    {
-      "id": "RSS-a2404865e6",
-      "date": "2026-09-20",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/9/20/two-german-states-go-to-the-polls-after-far-right-gains?traffic_source=rss",
-      "summary": "Germany\u2019s Berlin, Mecklenburg-Western Pomerania states head to polls",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Germany"
-      ]
-    },
-    {
-      "id": "RSS-6401f274ea",
-      "date": "2026-09-20",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/9/20/state-funeral-honours-hong-kongs-first-post-colonial-leader-tung-chee-hwa?traffic_source=rss",
-      "summary": "State funeral honours Hong Kong\u2019s first post-colonial leader Tung Chee-hwa",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-a0ce295556",
-      "date": "2026-09-20",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/9/20/tunisian-protesters-demand-release-of-four-sumud-activists?traffic_source=rss",
-      "summary": "Tunisian protesters demand release of four Sumud activists",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-6e6c530926",
-      "date": "2026-09-20",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/by-the-numbers-3/2026/9/20/how-did-the-us-recall-a-billion-products-in-six-months?traffic_source=rss",
-      "summary": "How did the US recall a billion products in six months?",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-9302c6156b",
-      "date": "2026-09-20",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/9/20/moroccos-pjd-what-has-the-party-learned-from-its-dramatic-fall?traffic_source=rss",
-      "summary": "Morocco\u2019s PJD: what has the party learned from its dramatic fall",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-8b4fc5a7f9",
-      "date": "2026-09-20",
-      "region": "Middle East",
-      "location": "Middle East",
-      "lat": 29.0,
-      "lon": 45.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/9/20/ed-sheeran-opens-solo-concert-with-comments-about-gaza?traffic_source=rss",
-      "summary": "Ed Sheeran opens solo concert with comments about Gaza",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-7d2e23cdf6",
-      "date": "2026-09-20",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/9/20/peruvian-journalist-shot-dead-after-threatening-to-expose-police?traffic_source=rss",
-      "summary": "Peruvian journalist shot dead after threatening to expose police",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-a604fd2fc3",
-      "date": "2026-09-20",
-      "region": "Middle East",
-      "location": "Middle East",
-      "lat": 29.0,
-      "lon": 45.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/9/20/ed-sheeran-calls-gaza-situation-unjustifiable-after-palestine-controversy?traffic_source=rss",
-      "summary": "Ed Sheeran calls Gaza situation \u2018unjustifiable\u2019 after Palestine controversy",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-614dc1c234",
-      "date": "2026-09-20",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/9/20/australia-seeks-big-tech-support-for-internet-safety-ai-regulation?traffic_source=rss",
-      "summary": "Australia seeks big tech support for internet safety, AI regulation",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Australia"
-      ]
-    },
-    {
-      "id": "RSS-45ea6794b6",
-      "date": "2026-09-20",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/inside-story/2026/9/20/how-much-of-a-challenge-recurrent-bombings-to-pakistan?traffic_source=rss",
-      "summary": "How much of a challenge are recurrent bombings for Pakistan?",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Pakistan"
-      ]
-    },
-    {
-      "id": "RSS-ad7d1fe6e1",
-      "date": "2026-09-20",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/9/20/dr-congo-begins-ebola-vaccination-trials-for-frontline-health-workers?traffic_source=rss",
-      "summary": "DR Congo begins Ebola vaccination trials for frontline health workers",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-c49299e905",
-      "date": "2026-09-20",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/9/20/michelle-bachelet-exits-un-chief-race-after-low-poll-support?traffic_source=rss",
-      "summary": "Michelle Bachelet exits UN chief race after low poll support",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-6e440aa671",
-      "date": "2026-09-20",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/9/20/dr-congo-rolls-out-ebola-vaccine-for-health-workers-as-death-toll-rises?traffic_source=rss",
-      "summary": "DR Congo rolls out Ebola vaccine for health workers as death toll rises",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-97e39aa3ab",
-      "date": "2026-09-20",
-      "region": "Middle East",
-      "location": "Middle East",
-      "lat": 29.0,
-      "lon": 45.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/liveblog/2026/9/20/iran-war-live-tehran-calls-for-end-to-war-lifting-of-us-naval-blockade?traffic_source=rss",
-      "summary": "Iran war live: \u2018Battlefield success\u2019 against US before any talks \u2013 Speaker",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Iran"
-      ]
-    },
-    {
       "id": "RSS-a29e9f62cc",
       "date": "2026-09-20",
       "region": "Global",
@@ -714,73 +792,6 @@
       ]
     },
     {
-      "id": "RSS-fe9219ea3c",
-      "date": "2026-09-19",
-      "region": "Middle East",
-      "location": "Middle East",
-      "lat": 29.0,
-      "lon": 45.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/9/19/turkiye-backs-saudi-arabias-security-amid-escalating-houthi-attacks-fm?traffic_source=rss",
-      "summary": "Turkiye backs Saudi Arabia\u2019s security amid escalating Houthi attacks: FM",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 6,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Saudi Arabia"
-      ]
-    },
-    {
-      "id": "RSS-434963f0f4",
-      "date": "2026-09-19",
-      "region": "Middle East",
-      "location": "Middle East",
-      "lat": 29.0,
-      "lon": 45.0,
-      "category": "Military",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/9/19/saudi-led-coalition-says-defences-intercept-houthi-missile-fired-at-riyadh?traffic_source=rss",
-      "summary": "Saudi-led coalition says defence intercepted Houthi missile fired at Riyadh",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 6,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Saudi Arabia"
-      ]
-    },
-    {
-      "id": "RSS-7ffe8b5c74",
-      "date": "2026-09-19",
-      "region": "Europe / Russia-Ukraine",
-      "location": "Europe / Russia-Ukraine",
-      "lat": 49.0,
-      "lon": 32.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/c63d7lexyym1o?at_medium=RSS&at_campaign=rss",
-      "summary": "Nato welcomes Greenland deal as Trump says it will give US 'permanent security control'",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
       "id": "RSS-bde67e703b",
       "date": "2026-09-19",
       "region": "Global",
@@ -812,7 +823,28 @@
       "event_type": "Public news report",
       "source_name": "BBC World",
       "source_url": "https://www.bbc.co.uk/news/articles/cvgy1q2k2z0o?at_medium=RSS&at_campaign=rss",
-      "summary": "Cultural treasures are being destroyed by war, and people want justice",
+      "summary": "Cultural treasures are being destroyed worldwide - so why is no-one being punished?",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-7ffe8b5c74",
+      "date": "2026-09-19",
+      "region": "Europe / Russia-Ukraine",
+      "location": "Europe / Russia-Ukraine",
+      "lat": 49.0,
+      "lon": 32.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/c63d7lexyym1o?at_medium=RSS&at_campaign=rss",
+      "summary": "Nato welcomes Greenland deal as Trump says it will give US 'permanent security control'",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -867,27 +899,6 @@
       "country_tags": []
     },
     {
-      "id": "RSS-f2c909c537",
-      "date": "2026-09-19",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/cqlykr2vrv04o?at_medium=RSS&at_campaign=rss",
-      "summary": "Trump says US will form 'AI Force' and appoint an artificial intelligence tsar",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
       "id": "RSS-9eee1724b3",
       "date": "2026-09-19",
       "region": "Global",
@@ -899,6 +910,27 @@
       "source_name": "BBC World",
       "source_url": "https://www.bbc.co.uk/news/articles/c607l0k72rlvo?at_medium=RSS&at_campaign=rss",
       "summary": "Google's Gemini AI hacked three companies in security test",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-f2c909c537",
+      "date": "2026-09-19",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/cqlykr2vrv04o?at_medium=RSS&at_campaign=rss",
+      "summary": "Trump says US will form 'AI Force' and appoint an artificial intelligence tsar",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,

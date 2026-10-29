@@ -175,8 +175,9 @@ license catalogue (country emblem files, RSS feed providers).
 Inspired by public open-source world-monitor dashboards, especially
 [worldmonitor](https://github.com/koala73/worldmonitor). This project shares
 no code with it and was built independently from scratch; it is a simplified,
-educational take on the same idea. Map tiles by [CARTO](https://carto.com/)
-with data © OpenStreetMap contributors. Mapping by
+educational take on the same idea. Map tiles by
+[Esri](https://www.esri.com/) (World Dark Gray Canvas; sources: Esri, HERE,
+Garmin, © OpenStreetMap contributors). Mapping by
 [Leaflet](https://leafletjs.com/).
 
 ## What I learned

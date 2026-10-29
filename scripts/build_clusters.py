@@ -126,6 +126,7 @@ def main():
     config = load_config()
     cluster_window = config["cluster_window_days"]
     channel_priority = {c["display_name"]: c["representative_priority"] for c in config["channels"]}
+    inactive_keys = {c["key"] for c in config["channels"] if not c.get("active", True)}
 
     watchlist = load_watchlist()
     draft_data = load_clusters_draft()
@@ -147,6 +148,8 @@ def main():
     for video_id, entry in watchlist["videos"].items():
         if video_id in assigned_ids or entry.get("status") != "indexed":
             continue
+        if entry.get("channel_key") in inactive_keys:
+            continue  # retired channel: leave its backlog untouched, never cluster it
         relevant, topics = classify_relevance(entry, config)
         entry["relevant"] = relevant
         if not relevant:

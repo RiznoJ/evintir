@@ -130,9 +130,9 @@ runtime.
 
 ## Tech Watch
 
-A filterable index of defense-technology developments drawn from three
-YouTube channels (Sandboxx and Cappy Army, secondary sources; DARPAtv, a
-primary source), covering 28 February 2026 forward. **Tech Watch is a
+A filterable index of defense-technology developments drawn from
+YouTube channels (DARPAtv, a primary source; Sandboxx, a secondary source;
+Cappy Army was tracked through Oct 2026 and has since been retired), covering 28 February 2026 forward. **Tech Watch is a
 collection layer, not analysis** — every entry describes what its linked
 source videos discuss ("Covers reported...", "Discusses..."), never an
 assertion about the world, and is visibly and structurally separate from

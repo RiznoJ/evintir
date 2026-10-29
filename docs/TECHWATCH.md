@@ -22,12 +22,12 @@ Tech Watch entries never get treated as verified facts and never feed into
 turns out to matter, it gets written up properly, by hand, as its own
 Analyst Note — Tech Watch never substitutes for that step.
 
-## The three channels
+## Tracked channels
 
 | Channel | Tier | Why |
 |---|---|---|
 | Sandboxx | secondary | Defense reporting and commentary, broadest topical range of the three. Claims are leads requiring primary-source confirmation. |
-| Cappy Army | secondary | Veteran-hosted defense commentary. Same secondary-source caveat. |
+| Cappy Army | secondary | **Retired 2026-10-29** (`active: false` in config). Veteran-hosted defense commentary. Items published before retirement stay on the site; the channel is no longer polled, indexed, or clustered. |
 | DARPAtv | primary | Official DARPA channel — a primary source for DARPA program statements. |
 
 Every published entry labels each linked video "primary source" or

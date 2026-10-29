@@ -89,6 +89,8 @@ def main():
     total_added = 0
 
     for channel in config["channels"]:
+        if not channel.get("active", True):
+            continue  # retired channel: kept in config for history, not polled
         try:
             entries = parse_feed(fetch_feed(channel["channel_id"]))
         except (urllib.error.URLError, ET.ParseError, TimeoutError) as exc:

@@ -250,7 +250,7 @@ def main():
     config = load_config()
     floor_date = config["floor_date"]
 
-    channels = config["channels"]
+    channels = [c for c in config["channels"] if c.get("active", True)]
     if args.channel:
         channels = [c for c in channels if c["key"] == args.channel]
         if not channels:

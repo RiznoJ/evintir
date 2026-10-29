@@ -1,0 +1,161 @@
+{
+  "updated": "2026-10-29",
+  "note": "Hand-curated updates on cryptology, intelligence, and quantum: cryptography and post-quantum migration, cryptanalysis, signals intelligence, steganography and covert channels, and quantum computing. Public sources only. Each entry separates sourced reporting from assessment and ends with the debate, presenting competing positions as their holders argue them. Entries do not assess the status of any specific U.S. system.",
+  "entries": [
+    {
+      "id": "pqc-001",
+      "topic": "Cryptography & PQC",
+      "actor": "NSA",
+      "country": "United States",
+      "type": "Mandate & timeline",
+      "status": "In progress",
+      "date": "2022-09-07",
+      "confidence": "High (facts) · Medium (assessment)",
+      "title": "CNSA 2.0: NSA's Post-Quantum Deadlines for National Security Systems",
+      "bottomLine": "The decisive date is not 2035. It is January 1, 2027, when new national security system acquisitions are supposed to be CNSA 2.0 compliant. From that point, the quantum transition is decided in contracts more than in labs.",
+      "requires": [
+        "One algorithm set at every classification level: ML-KEM-1024 for key establishment, ML-DSA-87 for signatures, AES-256, SHA-384/512, and LMS or XMSS hash-based signatures for software and firmware signing.",
+        "No hybrid requirement. NSA says it will not require hybrid certified products, and directs that hybrid or non-standardized quantum-resistant solutions not be used on NSS mission systems except where NSA recommends them.",
+        "Software and firmware signing moves first. NSA's stated reason: validation algorithms are often locked in for a system's life, so a quantum-resistant root of trust may be needed years before the rest of the system is upgraded.",
+        "Signing sources that are themselves national security systems must use CMVP-validated hardware. NSA states no waivers will be granted for this.",
+        "Until Commercial Solutions for Classified (CSfC) capability packages support CNSA 2.0, NSA allows pre-shared symmetric keys as a near-term option, which it rates above unvalidated post-quantum public-key algorithms."
+      ],
+      "keyDates": [
+        {
+          "date": "2022-05-04",
+          "label": "NSM-10 sets the 2035 goal: mitigate as much quantum risk as is feasible"
+        },
+        {
+          "date": "2022-09-07",
+          "label": "NSA announces CNSA 2.0 (FAQ since updated)"
+        },
+        {
+          "date": "2023-12-31",
+          "label": "NSM-10: NSS agencies adopt symmetric-key protections for quantum-vulnerable key exchanges, where appropriate"
+        },
+        {
+          "date": "2025-12-31",
+          "label": "End of the grace period for systems validated under NIAP or CSfC profiles"
+        },
+        {
+          "date": "2027-01-01",
+          "label": "New NSS acquisitions must be CNSA 2.0 compliant, unless otherwise noted"
+        },
+        {
+          "date": "2030-12-31",
+          "label": "Equipment and services that cannot support CNSA 2.0 phased out"
+        },
+        {
+          "date": "2031-12-31",
+          "label": "CNSA 2.0 algorithms mandated, unless otherwise noted"
+        },
+        {
+          "date": "2035-12-31",
+          "label": "Goal: all national security systems quantum-resistant (NSM-10)"
+        }
+      ],
+      "strategicRead": [
+        {
+          "head": "The acquisition date is the real deadline.",
+          "body": "The 2035 goal gets the headlines, but the January 2027 acquisition rule does more of the work. Military platforms and their communications equipment stay in service for decades, so equipment bought in 2026 under the older CNSA 1.0 suite can still be fielded long after 2035. The 2030 phase-out date exists to deal with that tail. In practice, the transition for national security systems is being decided in procurement offices and vendor roadmaps, years before anyone knows whether a cryptographically relevant quantum computer will exist.",
+          "confidence": "High on the dates · Medium on the assessment"
+        },
+        {
+          "head": "The sequence follows asset lifetime, not threat timing.",
+          "body": "Two different clocks are running. For confidentiality, the clock is harvest-now-decrypt-later: traffic recorded today is exposed the day a capable quantum computer exists, so key establishment is urgent for anything that must stay secret for decades. For integrity, the clock is immutability: a signing key locked into fielded hardware cannot be swapped once forgery becomes possible. Moving hash-based firmware signing first is NSA's answer to the second clock. Most public commentary only discusses the first.",
+          "confidence": "High — NSA's stated rationale and the standard harvest-now model"
+        },
+        {
+          "head": "One parameter set for everything is a deliberate trade.",
+          "body": "NSA chose the largest parameter sets at every classification level instead of scaling strength to sensitivity. That buys margin and simplicity and charges it to bandwidth and processing. An ML-DSA-87 signature is 4,627 bytes; an ECDSA P-256 signature is 64, roughly 72 times smaller. On fiber that is a rounding error. On constrained tactical links, satellite channels, and small embedded devices it is an engineering problem, and it lands on the systems least able to absorb it.",
+          "confidence": "High on sizes · Medium on where the burden concentrates"
+        },
+        {
+          "head": "Allies are not making the same bet.",
+          "body": "NSA does not require hybrid schemes and steers national security systems away from them, citing added complexity, interoperability burden, and a second migration later. France's ANSSI takes the opposite position and recommends hybrid mechanisms that pair a classical algorithm with a post-quantum one; Germany's BSI is reported to recommend the same. Neither position is careless. They price different risks: NSA treats complexity and a second transition as the larger danger, while ANSSI treats an undiscovered weakness in young lattice-based mathematics as the larger danger and keeps a classical layer as insurance. The practical cost falls on coalition communications, where U.S. and European equipment has to agree on a common mode.",
+          "confidence": "High on NSA and ANSSI positions · Medium on BSI (secondhand) · Medium on interoperability friction"
+        }
+      ],
+      "indicators": [
+        "NIAP protection profiles and CSfC capability packages adding CNSA 2.0 support ahead of the January 2027 acquisition rule.",
+        "Vendor announcements of CNSA 2.0-validated products, especially networking and embedded equipment, where larger keys and signatures cost the most.",
+        "Any published cryptanalytic result that weakens ML-KEM or ML-DSA. That is the single event that would vindicate the hybrid approach.",
+        "Whether NATO or Five Eyes guidance converges on hybrid or pure post-quantum for coalition links.",
+        "Further revisions to NSA's CNSA 2.0 FAQ, which NSA has already updated since 2022."
+      ],
+      "sources": [
+        {
+          "label": "NSA — CNSA 2.0 FAQ (primary)",
+          "url": "https://media.defense.gov/2022/Sep/07/2003071836/-1/-1/0/CSI_CNSA_2.0_FAQ_.PDF"
+        },
+        {
+          "label": "White House — NSM-10 on quantum computing and vulnerable cryptographic systems (primary)",
+          "url": "https://bidenwhitehouse.archives.gov/briefing-room/statements-releases/2022/05/04/national-security-memorandum-on-promoting-united-states-leadership-in-quantum-computing-while-mitigating-risks-to-vulnerable-cryptographic-systems"
+        },
+        {
+          "label": "ANSSI — post-quantum cryptography position (primary)",
+          "url": "https://cyber.gouv.fr/en/technological-and-cybersecurity-challenges/post-quantum-cryptography/"
+        },
+        {
+          "label": "PostQuantum.com — hybrid vs. pure PQC requirements by country (secondary)",
+          "url": "https://postquantum.com/pqc-migration-timelines/hybrid-vs-pure-pqc-compliance/"
+        },
+        {
+          "label": "Evertrust — PQC algorithm key and signature sizes (secondary)",
+          "url": "https://evertrust.io/guide/pqc-algorithms"
+        },
+        {
+          "label": "The Register — Peter Gutmann's critique of quantum cryptanalysis (secondary)",
+          "url": "https://theregister.com/2025/07/17/quantum_cryptanalysis_criticism"
+        },
+        {
+          "label": "Gidney (2025) — How to factor 2048-bit RSA integers with less than a million noisy qubits (primary)",
+          "url": "https://arxiv.org/abs/2505.15917v1"
+        },
+        {
+          "label": "The Quantum Insider — 2025–2026 resource-estimate papers (secondary)",
+          "url": "https://thequantuminsider.com/2026/03/31/q-day-just-got-closer-three-papers-in-three-months-are-rewriting-the-quantum-threat-timeline/"
+        },
+        {
+          "label": "SecurityWeek — SIKE broken on a classical PC (2022)",
+          "url": "https://www.securityweek.com/nist-post-quantum-algorithm-finalist-cracked-using-classical-pc"
+        }
+      ],
+      "debate": {
+        "intro": "Experts argue about this on two separate axes: how to migrate, and how urgent it is.",
+        "positions": [
+          {
+            "axis": "How to migrate",
+            "position": "Go pure post-quantum",
+            "heldBy": "NSA; Australia's ASD (reported)",
+            "argument": "The new algorithms are trusted. Pairing them with classical algorithms adds complexity and interoperability burden, and guarantees a second migration later to remove the classical half.",
+            "confidence": "High — NSA's stated position"
+          },
+          {
+            "axis": "How to migrate",
+            "position": "Keep a classical layer as insurance",
+            "heldBy": "France's ANSSI; Germany's BSI (reported)",
+            "argument": "Post-quantum math is young, and it has already failed once in public. In July 2022, SIKE, a fourth-round candidate in NIST's competition, was broken by two researchers at KU Leuven using a single classical CPU core in about an hour. A hybrid scheme fails only if both layers fail.",
+            "confidence": "High on positions and the SIKE break"
+          },
+          {
+            "axis": "How urgent",
+            "position": "The threat is overstated",
+            "heldBy": "Peter Gutmann, University of Auckland, and other skeptics",
+            "argument": "No quantum computer has factored a number larger than 21 without tricks, and publicized records have used specially chosen numbers that classical methods also crack. On this view, migration is expensive, the new algorithms are less efficient, and the effort distracts from the failures actually behind most breaches.",
+            "confidence": "High that this is his position · disputed by researchers including Daniel Bernstein and Scott Aaronson"
+          },
+          {
+            "axis": "How urgent",
+            "position": "The bar keeps dropping",
+            "heldBy": "Resource-estimate research, including Google Quantum AI",
+            "argument": "In 2019 the estimate to break RSA-2048 was about 20 million noisy qubits. In May 2025 Craig Gidney of Google Quantum AI put it under 1 million, in under a week. A February 2026 simulation-only result claimed under 100,000. No machine is near these numbers, but the target keeps moving toward the hardware, and harvest-now-decrypt-later means the exposure starts when data is collected.",
+            "confidence": "High on the published estimates · the 2026 result is simulation only"
+          }
+        ],
+        "synthesis": "The skeptic and the urgent case can both be right: no machine today is close, and the machine required keeps getting smaller. Planning happens in that gap.",
+        "openQuestion": "Is 2035 set by the threat or by capacity? NSM-10's wording is \"mitigating as much of the quantum risk as is feasible by 2035.\" That phrasing concedes the goal is bounded by how fast the government can migrate, not by any forecast of quantum progress. If a cryptographically relevant quantum computer arrives earlier than expected, the binding constraint will not be the algorithms, which already exist. It will be acquisition speed, and the equipment bought before January 2027."
+      }
+    }
+  ]
+}

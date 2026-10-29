@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  CRYPTOLOGIC WATCH — cryptology, intelligence, and quantum, sourced and assessed
+  ============================================================================
+  WHAT THIS PAGE IS:
+    Hand-curated updates across cryptography and post-quantum migration,
+    cryptanalysis, SIGINT, steganography and covert channels, and quantum
+    computing. Each entry (data/cryptologic.json) pairs sourced facts with a
+    strategic read, indicators, and "The Debate": competing positions as
+    their holders argue them, ending in an open question.
+
+  WHAT THIS PAGE IS NOT:
+    An assessment of the migration status of any specific U.S. system.
+    Entries cover public policy, standards, and published capability
+    milestones only.
+
+  GRACEFUL DEGRADATION: if data/cryptologic.json is missing or empty, the page
+  renders a plain empty-state message.
+
+  TEARDOWN ORDER: script (bottom) -> body skeleton -> CSS. Same convention
+  as index.html / analyst.html / techwatch.html.
+  ============================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cryptologic Watch — Evintir</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0E151D; --panel: #151F2A; --panel-2: #1B2836; --line: #26364A;
+      --ink: #D9E2EA; --muted: #7E8FA0; --brass: #C9A44C;
+      --risk-high: #D65A5A; --risk-med: #E0A93E; --risk-low: #55A97A;
+      --unclass: #1D7A3E;
+      --mono: "IBM Plex Mono", monospace;
+      --sans: "IBM Plex Sans", sans-serif;
+      --disp: "Barlow Condensed", sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.55; }
+
+    .banner { background: var(--unclass); color: #fff; font-family: var(--mono); font-size: 12px; font-weight: 600;
+      letter-spacing: .14em; text-align: center; padding: 5px 10px; text-transform: uppercase; }
+    header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;
+      padding: 20px 28px 12px; border-bottom: 1px solid var(--line); }
+    .wordmark { font-family: var(--disp); font-weight: 700; font-size: 34px; letter-spacing: .22em; }
+    .wordmark span { color: var(--brass); }
+    .subtitle { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: .05em; }
+
+    nav.tabs { display: flex; flex-wrap: wrap; gap: 2px; padding: 0 28px; border-bottom: 1px solid var(--line); background: var(--panel); }
+    nav.tabs a { font-family: var(--mono); font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none; padding: 12px 18px; border-bottom: 2px solid transparent; }
+    nav.tabs a:hover { color: var(--ink); }
+    nav.tabs a.active { color: var(--brass); border-bottom-color: var(--brass); }
+
+    main { padding: 24px 28px 40px; max-width: 1100px; margin: 0 auto; }
+    .eyebrow { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--brass); margin: 26px 0 10px; }
+
+    .method { background: var(--panel-2); border-left: 4px solid var(--risk-med); padding: 12px 16px; }
+    .method-label { font-family: var(--mono); font-size: 10.5px; font-weight: 700; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--risk-med); margin-bottom: 5px; }
+    .method-text { font-size: 13.5px; }
+
+    /* Stat tiles */
+    .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 18px; }
+    .tile { background: var(--panel); border: 1px solid var(--line); padding: 14px 16px; }
+    .tile-label { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+    .tile-value { font-family: var(--disp); font-size: 34px; font-weight: 700; color: var(--brass); line-height: 1.1; margin-top: 4px; }
+    .tile-sub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+
+    /* Timeline */
+    .timeline-wrap { background: var(--panel); border: 1px solid var(--line); padding: 18px 18px 10px; overflow-x: auto; }
+    .timeline { position: relative; min-width: 720px; height: 92px; }
+    .tl-axis { position: absolute; left: 0; right: 0; top: 40px; height: 2px; background: var(--line); }
+    .tl-tick { position: absolute; top: 48px; font-family: var(--mono); font-size: 10.5px; color: var(--muted); transform: translateX(-50%); }
+    .tl-tickmark { position: absolute; top: 36px; width: 1px; height: 10px; background: var(--line); }
+    .tl-dot { position: absolute; top: 34px; width: 14px; height: 14px; border-radius: 50%; transform: translateX(-50%);
+      border: 2px solid var(--brass); background: var(--brass); cursor: pointer; padding: 0; }
+    .tl-dot.future { background: var(--bg); }
+    .tl-dot:hover, .tl-dot:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+    .tl-today { position: absolute; top: 14px; width: 2px; height: 46px; background: var(--risk-med); transform: translateX(-50%); }
+    .tl-today-label { position: absolute; top: 0; font-family: var(--mono); font-size: 10px; color: var(--risk-med);
+      letter-spacing: .1em; transform: translateX(-50%); white-space: nowrap; }
+    .tl-legend { display: flex; gap: 18px; flex-wrap: wrap; font-family: var(--mono); font-size: 11px; color: var(--muted); margin-top: 6px; }
+    .tl-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--brass); margin-right: 6px; vertical-align: -1px; }
+    .tl-legend i.done { background: var(--brass); }
+    .tl-legend i.today { border: none; width: 2px; height: 12px; border-radius: 0; background: var(--risk-med); }
+    .tl-hover { font-family: var(--mono); font-size: 12px; color: var(--ink); min-height: 18px; margin-top: 8px; }
+
+    /* Filters */
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { font-family: var(--mono); font-size: 12px; letter-spacing: .05em; color: var(--muted);
+      background: transparent; border: 1px solid var(--line); padding: 5px 12px; cursor: pointer; }
+    .chip:hover { color: var(--ink); border-color: var(--muted); }
+    .chip.active { color: var(--bg); background: var(--brass); border-color: var(--brass); font-weight: 600; }
+
+    /* Entry card */
+    .card { background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--brass); margin-top: 14px; }
+    .card-top { padding: 18px 20px 16px; }
+    .meta { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; font-family: var(--mono); font-size: 11px; color: var(--muted); }
+    .badge { font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+      padding: 2px 8px; border: 1px solid var(--line); }
+    .badge.sector { color: var(--brass); border-color: var(--brass); }
+    .badge.status-progress { color: var(--risk-med); border-color: var(--risk-med); }
+    .badge.status-done { color: var(--risk-low); border-color: var(--risk-low); }
+    .card h2 { font-family: var(--disp); font-size: 26px; font-weight: 600; letter-spacing: .02em; line-height: 1.2; margin: 10px 0 10px; }
+    .bottomline { font-size: 15.5px; border-left: 2px solid var(--brass); padding-left: 12px; }
+    .bottomline b { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; color: var(--brass); display: block; margin-bottom: 2px; }
+
+    .block { padding: 16px 20px; border-bottom: 1px solid var(--line); }
+    .block:last-child { border-bottom: none; }
+    .block-label { font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--brass); margin-bottom: 10px; }
+    .block ul { padding-left: 18px; }
+    .block li { margin-bottom: 7px; font-size: 14.5px; }
+    .block li::marker { color: var(--brass); }
+
+    .dates { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .dates td { padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .dates tr:last-child td { border-bottom: none; }
+    .dates td.d { font-family: var(--mono); font-size: 12.5px; white-space: nowrap; width: 120px; color: var(--ink); }
+    .dates td.s { width: 110px; font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+    .dates td.s.past { color: var(--muted); }
+    .dates td.s.next { color: var(--risk-med); font-weight: 700; }
+    .dates td.s.future { color: var(--ink); }
+
+    .read { margin-bottom: 16px; }
+    .read:last-child { margin-bottom: 0; }
+    .read h3 { font-family: var(--sans); font-size: 15.5px; font-weight: 600; margin-bottom: 4px; }
+    .read p { font-size: 14.5px; }
+    .read .conf { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-top: 5px; }
+
+    .openq { font-size: 14.5px; font-style: italic; }
+
+    .debate-intro { font-size: 14.5px; margin-bottom: 12px; color: var(--muted); }
+    .axis { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+      margin: 14px 0 8px; padding-bottom: 4px; border-bottom: 1px dashed var(--line); }
+    .takes { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px; }
+    .take { background: var(--panel-2); border: 1px solid var(--line); padding: 12px 14px; }
+    .take h4 { font-family: var(--disp); font-size: 18px; font-weight: 600; letter-spacing: .02em; }
+    .take .who { font-family: var(--mono); font-size: 11px; color: var(--brass); margin: 2px 0 6px; }
+    .take p { font-size: 14px; }
+    .take .conf { font-family: var(--mono); font-size: 10.5px; color: var(--muted); margin-top: 6px; }
+    .synthesis { margin-top: 14px; font-size: 14.5px; border-left: 2px solid var(--brass); padding-left: 12px; }
+    .openq-wrap { margin-top: 14px; }
+    .openq-label { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--brass); margin-bottom: 4px; }
+
+    /* Collapsible sections: reader sees headline + bottom line, opens the rest on demand */
+    details.sec { border-top: 1px solid var(--line); }
+    details.sec > summary { list-style: none; cursor: pointer; padding: 13px 20px; display: flex; align-items: baseline;
+      gap: 12px; font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--brass); }
+    details.sec > summary::-webkit-details-marker { display: none; }
+    details.sec > summary::before { content: "▸"; }
+    details.sec[open] > summary::before { content: "▾"; }
+    details.sec > summary:hover { background: var(--panel-2); }
+    details.sec > summary .hint { font-weight: 400; letter-spacing: .02em; text-transform: none; color: var(--muted);
+      font-size: 12px; margin-left: auto; text-align: right; }
+    details.sec > summary:focus-visible { outline: 2px solid var(--brass); outline-offset: -2px; }
+    details.sec > .sec-body { padding: 4px 20px 18px; }
+    @media (max-width: 600px) { details.sec > summary .hint { display: none; } }
+
+    ol.srclist { padding-left: 20px; font-size: 13.5px; }
+    ol.srclist li { margin-bottom: 5px; }
+    ol.srclist a { color: var(--brass); text-decoration: none; }
+    ol.srclist a:hover { text-decoration: underline; }
+    details.sources summary { font-family: var(--mono); font-size: 11.5px; color: var(--muted); cursor: pointer; list-style: none; }
+    details.sources summary::-webkit-details-marker { display: none; }
+    details.sources summary::before { content: "▸ "; color: var(--brass); }
+    details.sources[open] summary::before { content: "▾ "; }
+    details.sources ol { margin-top: 10px; padding-left: 20px; font-size: 13.5px; }
+    details.sources li { margin-bottom: 5px; }
+    details.sources a { color: var(--brass); text-decoration: none; }
+    details.sources a:hover { text-decoration: underline; }
+
+    .why { background: var(--panel); border: 1px solid var(--line); padding: 16px 20px; font-size: 14.5px; }
+    .why p + p { margin-top: 8px; }
+
+    .empty { font-family: var(--mono); font-size: 12.5px; color: var(--muted); padding: 20px 0; }
+    .credits { text-align: center; font-family: var(--mono); font-size: 11px; color: var(--muted); padding: 24px 10px 10px; }
+
+    @media (max-width: 900px) {
+      header { padding: 16px; } main { padding: 16px 16px 32px; } nav.tabs { padding: 0 16px; }
+      .dates td.s { width: auto; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="banner">Unclassified&nbsp;//&nbsp;Public Sources Only</div>
+
+  <header>
+    <div>
+      <div class="wordmark"><span>E</span>vintir</div>
+      <div class="subtitle">Cryptologic Watch · cryptology, intelligence, and quantum — sourced, assessed, and argued</div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <a href="index.html">Situation Map</a>
+    <a href="analyst.html">Analysis</a>
+    <a href="techwatch.html">Tech Watch</a>
+    <a href="cryptologic.html" class="active">Cryptologic Watch</a>
+  </nav>
+
+  <main>
+    <div class="method">
+      <div class="method-label">Method</div>
+      <div class="method-text" id="cwNote"></div>
+    </div>
+
+    <div class="tiles" id="cwTiles"></div>
+
+    <div class="eyebrow">Timeline — key dates across all tracked entries</div>
+    <div class="timeline-wrap">
+      <div class="timeline" id="cwTimeline"></div>
+      <div class="tl-legend"><span><i class="done"></i>Passed</span><span><i></i>Upcoming</span><span><i class="today"></i>Today</span></div>
+      <div class="tl-hover" id="cwHover">Hover or tap a point for detail.</div>
+    </div>
+
+    <div class="eyebrow">Topic</div>
+    <div class="filters" id="cwFilters"></div>
+
+    <div id="cwEntries"></div>
+
+    <div class="eyebrow">What this page covers</div>
+    <div class="why">
+      <p>Intelligence has always been a contest between hiding information and finding it: codes and codebreaking, signals and interception, messages concealed in plain sight. Quantum computing is the first technology in decades that could change the terms of that contest for everyone at once.</p>
+      <p>This page follows that contest through public developments: what changed, what it decides, and where informed people disagree. The disagreements are left open on purpose.</p>
+    </div>
+  </main>
+
+  <div class="credits">Evintir · public, unclassified sources only · not affiliated with any government organization</div>
+
+  <script>
+    const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    const DAY = 86400000;
+    const today = new Date(new Date().toISOString().slice(0, 10) + "T00:00:00Z");
+    const parse = d => new Date(d + "T00:00:00Z");
+    const fmt = d => parse(d).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" });
+
+    let DATA = { entries: [] };
+    let activeSector = "All";
+
+    function allDates() {
+      const out = [];
+      DATA.entries.forEach(e => (e.keyDates || []).forEach(k => out.push({ ...k, entry: e })));
+      return out.sort((a, b) => a.date.localeCompare(b.date));
+    }
+
+    function renderTiles() {
+      const dates = allDates();
+      const next = dates.find(k => parse(k.date) >= today);
+      const horizon = dates.filter(k => parse(k.date) >= today).slice(-1)[0];
+      const days = next ? Math.round((parse(next.date) - today) / DAY) : null;
+      const years = horizon ? ((parse(horizon.date) - today) / (365.25 * DAY)).toFixed(1) : null;
+      const tiles = [
+        { label: "Next hard date", value: next ? days + " days" : "—", sub: next ? fmt(next.date) + " · " + next.label : "" },
+        { label: "Furthest tracked goal", value: horizon ? years + " yrs" : "—", sub: horizon ? horizon.label : "" }
+      ];
+      document.getElementById("cwTiles").innerHTML = tiles.map(t =>
+        `<div class="tile"><div class="tile-label">${esc(t.label)}</div><div class="tile-value">${esc(t.value)}</div><div class="tile-sub">${esc(t.sub)}</div></div>`).join("");
+    }
+
+    function renderTimeline() {
+      const el = document.getElementById("cwTimeline");
+      const dates = allDates();
+      if (!dates.length) { el.innerHTML = ""; return; }
+      const y0 = Math.min(parse(dates[0].date).getUTCFullYear(), today.getUTCFullYear());
+      const y1 = Math.max(parse(dates[dates.length - 1].date).getUTCFullYear(), today.getUTCFullYear()) + 1;
+      const t0 = Date.UTC(y0, 0, 1), t1 = Date.UTC(y1, 0, 1);
+      const pct = t => (((t - t0) / (t1 - t0)) * 96 + 2).toFixed(2) + "%";
+      let html = '<div class="tl-axis"></div>';
+      for (let y = y0; y <= y1; y++) {
+        const p = pct(Date.UTC(y, 0, 1));
+        html += `<div class="tl-tickmark" style="left:${p}"></div><div class="tl-tick" style="left:${p}">${y}</div>`;
+      }
+      html += `<div class="tl-today" style="left:${pct(today.getTime())}"></div><div class="tl-today-label" style="left:${pct(today.getTime())}">TODAY</div>`;
+      dates.forEach((k, i) => {
+        const future = parse(k.date) >= today;
+        html += `<button type="button" class="tl-dot${future ? " future" : ""}" style="left:${pct(parse(k.date).getTime())}"
+          data-i="${i}" aria-label="${esc(fmt(k.date) + ": " + k.label)}"></button>`;
+      });
+      el.innerHTML = html;
+      const hover = document.getElementById("cwHover");
+      el.querySelectorAll(".tl-dot").forEach(b => {
+        const k = dates[+b.dataset.i];
+        const show = () => { hover.textContent = `${fmt(k.date)} — ${k.label}  [${k.entry.actor}]`; };
+        b.addEventListener("mouseenter", show);
+        b.addEventListener("focus", show);
+        b.addEventListener("click", () => { show(); document.getElementById(k.entry.id)?.scrollIntoView({ behavior: "smooth", block: "start" }); });
+      });
+    }
+
+    function renderFilters() {
+      const sectors = ["All", ...new Set(DATA.entries.map(e => e.topic))];
+      const el = document.getElementById("cwFilters");
+      el.innerHTML = sectors.map(s => `<button type="button" class="chip${s === activeSector ? " active" : ""}" data-s="${esc(s)}">${esc(s)}</button>`).join("");
+      el.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => { activeSector = b.dataset.s; renderFilters(); renderEntries(); }));
+    }
+
+    // One collapsible section; closed by default so the card opens to headline + bottom line only.
+    const sec = (label, hint, body) =>
+      `<details class="sec"><summary>${esc(label)}<span class="hint">${esc(hint)}</span></summary><div class="sec-body">${body}</div></details>`;
+
+    function renderDebate(d) {
+      const axes = [...new Set((d.positions || []).map(p => p.axis))];
+      const body = axes.map(a => `<div class="axis">${esc(a)}</div><div class="takes">` +
+        d.positions.filter(p => p.axis === a).map(p => `<div class="take"><h4>${esc(p.position)}</h4>
+          <div class="who">${esc(p.heldBy)}</div><p>${esc(p.argument)}</p><div class="conf">Confidence: ${esc(p.confidence)}</div></div>`).join("") + `</div>`).join("");
+      return (d.intro ? `<p class="debate-intro">${esc(d.intro)}</p>` : "") + body +
+        (d.synthesis ? `<p class="synthesis">${esc(d.synthesis)}</p>` : "") +
+        (d.openQuestion ? `<div class="openq-wrap"><div class="openq-label">Open question</div><p class="openq">${esc(d.openQuestion)}</p></div>` : "");
+    }
+
+    function renderEntries() {
+      const el = document.getElementById("cwEntries");
+      const list = DATA.entries.filter(e => activeSector === "All" || e.topic === activeSector);
+      if (!list.length) { el.innerHTML = '<div class="empty">No entries yet.</div>'; return; }
+      el.innerHTML = list.map(e => {
+        const futureDates = (e.keyDates || []).filter(k => parse(k.date) >= today);
+        const nextDate = futureDates[0]?.date;
+        const rows = (e.keyDates || []).map(k => {
+          const past = parse(k.date) < today;
+          const cls = past ? "past" : (k.date === nextDate ? "next" : "future");
+          const txt = past ? "Passed" : (k.date === nextDate ? "Next · " + Math.round((parse(k.date) - today) / DAY) + "d" : "Upcoming");
+          return `<tr><td class="d">${esc(fmt(k.date))}</td><td class="s ${cls}">${esc(txt)}</td><td>${esc(k.label)}</td></tr>`;
+        }).join("");
+        const statusCls = /done|complete/i.test(e.status) ? "status-done" : "status-progress";
+        return `
+        <article class="card" id="${esc(e.id)}">
+          <div class="card-top">
+            <div class="meta">
+              <span class="badge sector">${esc(e.topic)}</span>
+              <span class="badge ${statusCls}">${esc(e.status)}</span>
+              <span>${esc(e.actor)} · ${esc(e.country)} · ${esc(e.type)}</span>
+              <span>· Confidence: ${esc(e.confidence)}</span>
+            </div>
+            <h2>${esc(e.title)}</h2>
+            <div class="bottomline"><b>BOTTOM LINE</b>${esc(e.bottomLine)}</div>
+          </div>
+          ${sec("Strategic read", (e.strategicRead || []).length + " points", (e.strategicRead || []).map(r => `<div class="read"><h3>${esc(r.head)}</h3><p>${esc(r.body)}</p><div class="conf">Confidence: ${esc(r.confidence)}</div></div>`).join(""))}
+          ${e.debate ? sec("The debate", (e.debate.positions || []).length + " positions · open question", renderDebate(e.debate)) : ""}
+          ${sec("Key dates", nextDate ? "Next: " + fmt(nextDate) : "", `<table class="dates">${rows}</table>`)}
+          ${sec("What it requires", "Sourced facts", `<ul>${(e.requires || []).map(r => `<li>${esc(r)}</li>`).join("")}</ul>`)}
+          ${sec("Indicators to watch", (e.indicators || []).length + " signals", `<ul>${(e.indicators || []).map(r => `<li>${esc(r)}</li>`).join("")}</ul>`)}
+          ${sec("Sources", (e.sources || []).length + " cited", `<ol class="srclist">${(e.sources || []).map(s => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a></li>`).join("")}</ol>`)}
+        </article>`;
+      }).join("");
+    }
+
+    fetch("data/cryptologic.json", { cache: "no-store" })
+      .then(r => r.ok ? r.json() : { entries: [] })
+      .catch(() => ({ entries: [] }))
+      .then(d => {
+        DATA = d && Array.isArray(d.entries) ? d : { entries: [] };
+        document.getElementById("cwNote").textContent = DATA.note || "Hand-curated from public sources.";
+        renderTiles(); renderTimeline(); renderFilters(); renderEntries();
+      });
+  </script>
+</body>
+</html>

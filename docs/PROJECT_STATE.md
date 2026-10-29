@@ -3,6 +3,16 @@
 Maintained per CLAUDE.md operating notes. Overwrite stale entries, don't append forever.
 
 ## Works now that didn't before
+- **Basemap restored (2026-10-29)**: CARTO `dark_all` began serving
+  "API KEY REQUIRED" placeholder tiles, so the situation map showed markers
+  over a blank/watermarked background. `index.html` now uses Esri World Dark
+  Gray Base + Reference (labels) tiles, no key needed. Markers, clustering,
+  data, and China-layer zoom logic untouched.
+  - Return check after ~2 months idle: both scheduled workflows
+    (`update-feeds.yml`, `techwatch.yml`) kept running in CI the whole time
+    (476 bot commits); all data JSON/GeoJSON parses; `node --check` passes.
+  - Not yet re-checked: local Tech Watch extraction (yt-dlp version,
+    Anthropic API key). Run a single-video test before the next batch.
 - **China Strategic Reference Layer — Phase 2** (extends Phase 1, doesn't
   replace it): the strategic panel opened from China's country popup now has
   a Major/All tier toggle, 7 category-filter checkboxes, a live context

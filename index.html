@@ -508,9 +508,15 @@
       // Stored (not just chained .addTo(map)) so the China Strategic layer
       // can temporarily raise its maxZoom for regional exploration and
       // restore it on exit — see js/strategic-china.js.
-      baseTileLayer = L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
-        attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+      // Basemap: Esri World Dark Gray Canvas (keyless). Replaced CARTO dark_all
+      // in Oct 2026 after CARTO began serving "API KEY REQUIRED" placeholder tiles.
+      baseTileLayer = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}", {
+        attribution: 'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, &copy; OpenStreetMap contributors',
         maxZoom: 8, minZoom: 2
+      }).addTo(map);
+      // Place-name labels drawn above the base (CARTO's dark_all had labels baked in).
+      L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}", {
+        maxZoom: 16, minZoom: 2, pane: "overlayPane", opacity: 0.8
       }).addTo(map);
 
       // markerClusterGroup replaces the old plain layerGroup: overlapping markers

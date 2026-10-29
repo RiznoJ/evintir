@@ -3,6 +3,13 @@
 Maintained per CLAUDE.md operating notes. Overwrite stale entries, don't append forever.
 
 ## Works now that didn't before
+- **Cryptologic Watch tab (2026-10-29)**: new `cryptologic.html` +
+  `data/cryptologic.json` (hand-curated). Covers cryptography/PQC,
+  cryptanalysis, SIGINT, steganography/covert channels, quantum. Entries
+  open to title + bottom line; sections are drop-downs, including "The
+  Debate" (competing positions + open question). First entry: CNSA 2.0.
+  Future entries ~1/3 the length; other countries' developments go on the
+  Situation Map as a layer linking back to this tab.
 - **Tech Watch channels (2026-10-29)**: Cappy Army retired (`"active": false`
   in config; skipped by watcher/indexer/clusterer; published items untouched).
   Tracking DARPAtv + Sandboxx.

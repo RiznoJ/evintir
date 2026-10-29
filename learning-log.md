@@ -260,6 +260,9 @@ Didn't try to process the 64-video backlog. Picked two topics instead:
 
 Sandboxx has no quantum or cryptology video in the index, which was what I originally wanted. The captured-drone video was the closest cryptology-adjacent one, and the quantum angle came from DARPA's own QBI material.
 
+**Cryptologic Watch: a new tab**
+Started as a post-quantum migration tracker, then widened to cover the whole cryptology–intelligence–quantum space (cryptography, cryptanalysis, SIGINT, steganography, quantum). The first draft showed every section at once and read as too much; reworked it so each entry opens to a headline and bottom line, with everything else in drop-downs. Added "The Debate" to each entry: competing positions argued the way their holders argue them, then an open question. First entry is NSA's CNSA 2.0 timeline, with the debate on two axes: how to migrate (pure post-quantum vs. hybrid) and how urgent the threat is (overstated vs. falling resource estimates). Decided future entries run about a third of this length, and other countries' developments go on the map instead.
+
 **Security check**
 - `.env` holds the only real secret and is gitignored; it has never been committed. A full-history scan for key patterns (API keys, GitHub tokens, AWS, Slack) found only the placeholder in `.env.example`.
 - No token in `.git/config`. The remote is the clean HTTPS URL; the embedded-token push URL from an earlier session is gone.

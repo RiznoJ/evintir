@@ -238,3 +238,42 @@ Reviewed all 4 clusters on localhost and got the go-ahead to push. Publishing he
 - `sources/fetch_transcript.sh` has never been committed on any branch, repo-wide — the pipeline depends on it but a fresh clone wouldn't have it. Noticed while checking git status before this push; not today's task, flagging for a deliberate decision later.
 - Today's publish used a one-off merge script instead of the documented `approved` → `publish_techwatch.py` path (see above) — fine for a single catch-up, but if this becomes routine it should get formalized instead of repeated ad hoc.
 - Extra drafted-but-unpublished blurbs from the mis-targeted run are a cheap head start whenever I approve more.
+
+## October 29 — Back after two months: map fix, Cappy Army retired, two Deep Analysis posts, security check
+First session since August 25. I hadn't opened the repo, VS Code, or GitHub in about two months and assumed most of it had broken. Less had broken than I expected, and what had broken wasn't my code.
+
+**What was actually wrong**
+The live map showed markers over a blank background. Nothing in the repo had changed: CARTO, the tile provider, had started serving "API KEY REQUIRED" placeholder images on its free dark basemap. The tile requests still returned successfully, so nothing showed up as an error in the console; the only evidence was visual. Swapped to Esri's World Dark Gray Canvas (base layer plus a labels layer), which needs no key. One URL in `index.html`. The lesson: a static site with external dependencies still has moving parts I don't control, and "no console errors" doesn't mean nothing failed.
+
+**What hadn't broken**
+- GitHub Actions kept running the whole time: 476 bot commits between Aug 25 and today (feed refreshes and Tech Watch watchlist refreshes every 6 hours), all green. I expected the scheduled workflows to have been auto-disabled for inactivity. They weren't.
+- My saved GitHub credentials still worked; the push went through without re-authenticating.
+- The local repo had no uncommitted work. It was 476 commits behind and fast-forwarded cleanly. It was also still on the old `techwatch` branch; moved back to `main`, which is what Pages publishes.
+
+**Tech Watch: down to two channels**
+Retired Cappy Army; tracking DARPAtv and Sandboxx only. Didn't delete it from `config/techwatch.json`: three scripts look up channel priority and tier by display name, and already-published Cappy items would break those lookups. Marked it `"active": false` instead and made the watcher, indexer, and clusterer skip inactive channels. A `build_clusters.py --dry-run` picked up 64 queued videos (34 Sandboxx + 30 DARPAtv) and skipped all 92 queued Cappy videos, with no files written. Published Cappy items stay live.
+
+**Two Deep Analysis posts**
+Didn't try to process the 64-video backlog. Picked two topics instead:
+- "From Defending Against Biology to Building With It": Warhound (cloned and gene-edited military working dogs, $200M seed round including In-Q-Tel), DARPA BTO's HUBBLE protein-interaction program, and O-Circuit, which funds computation on living neural tissue that steers a drone toward an odor source. Ends on open questions about human-derived neurons as components. Founder attribution for Warhound is disputed (Luckey says Lamm started it and Anduril supplies hardware), so the note says that rather than picking a side.
+- "The Drone Was Never the Secret": Iran's capture of an Anduril Dive-LD in the Strait of Hormuz on Sept 8, read against USS Pueblo (1968). Machines are recoverable; keys are the asset; unmanned systems have no crew to destroy key material. Ties in DARPA's Quantum Benchmarking Initiative and harvest-now-decrypt-later. Kept to general design principles and public statements, with no assumptions about the Dive-LD's actual design.
+
+Sandboxx has no quantum or cryptology video in the index, which was what I originally wanted. The captured-drone video was the closest cryptology-adjacent one, and the quantum angle came from DARPA's own QBI material.
+
+**Security check**
+- `.env` holds the only real secret and is gitignored; it has never been committed. A full-history scan for key patterns (API keys, GitHub tokens, AWS, Slack) found only the placeholder in `.env.example`.
+- No token in `.git/config`. The remote is the clean HTTPS URL; the embedded-token push URL from an earlier session is gone.
+- `sources/transcripts/` has never been committed.
+- Both workflows request only `contents: write`, which they need to commit refreshed data, and use no secrets.
+- Added `.claude/` (local tool settings) to `.gitignore`.
+
+**Judgment calls worth remembering**
+- After a long gap, check before assuming. I expected expired permissions and disabled workflows; the actual failure was an outside vendor changing its terms.
+- Retire, don't delete, when other code still references the thing. A flag is reversible; a deletion breaks history.
+- Don't force a source to fit the topic. When the channel I wanted to use hadn't covered the subject, I used its closest relevant video, pulled the rest from primary sources, and said so.
+
+**Loose ends**
+- Tech Watch extraction (yt-dlp, API key, the pinned Haiku model ID in `draft_blurbs.py`) is untested since August. Single-video test before the next batch.
+- `sources/fetch_transcript.sh` is still uncommitted.
+- 64-video Sandboxx/DARPAtv backlog is unprocessed.
+- The old `techwatch` branch is stale.

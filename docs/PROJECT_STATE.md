@@ -3,6 +3,12 @@
 Maintained per CLAUDE.md operating notes. Overwrite stale entries, don't append forever.
 
 ## Works now that didn't before
+- **Tech Watch channels (2026-10-29)**: Cappy Army retired (`"active": false`
+  in config; skipped by watcher/indexer/clusterer; published items untouched).
+  Tracking DARPAtv + Sandboxx.
+- **Two Deep Analysis posts (2026-10-29)**: p16 (United States — biology as
+  a defense platform: Warhound, HUBBLE, O-Circuit) and p17 (Iran — captured
+  Dive-LD and the Pueblo cryptologic lesson).
 - **Basemap restored (2026-10-29)**: CARTO `dark_all` began serving
   "API KEY REQUIRED" placeholder tiles, so the situation map showed markers
   over a blank/watermarked background. `index.html` now uses Esri World Dark

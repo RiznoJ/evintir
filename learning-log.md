@@ -280,3 +280,32 @@ Started as a post-quantum migration tracker, then widened to cover the whole cry
 - `sources/fetch_transcript.sh` is still uncommitted.
 - 64-video Sandboxx/DARPAtv backlog is unprocessed.
 - The old `techwatch` branch is stale.
+
+## October 30 — North Korea Deep Analysis, Cryptologic Watch to three entries, Tech Watch catch-up, security cleanup
+
+Worked from the MacBook terminal only, no VS Code or Claude Code. Claude worked on the repo directly through a folder I granted access to, and I ran the steps that had to happen on my machine.
+
+**Security cleanup first**
+- Remote URL clean and no token ever committed (full-history scan of `git log -p --all` for `ghp_` returned 0).
+- Found four old GitHub tokens sitting in plaintext in my shell history from the embedded-token push workaround. Revoked them on GitHub and deleted the lines from `~/.zsh_history`. Revoking is the real fix; deleting the lines just removes the evidence.
+- The local server now binds to `127.0.0.1` only. Plain `python3 -m http.server` listens on every network interface, so anyone on the same Wi-Fi could load my preview.
+- Found a second server still running on port 8000 from an earlier session. "Address already in use" was the clue. Killed it.
+
+**Deep Analysis: "October 29: North Korea's Juche by Other Means"**
+The Binance theft (about $6.3B, attributed by TRM Labs and Chainalysis to TraderTraitor) and North Korea's first drone-only exhibition happened on the same day, so I wrote them as one piece. The argument: Juche no longer means self-reliance in the literal sense; it means independence from Washington, financed by theft and sharpened by combat experience borrowed from Russia's war. My first instinct was "North Korea has reached total Juche," which would not survive an expert reader, since by the literal definition it is less self-reliant than ever. The defensible version is sharper anyway. Attribution stays at Medium until the FBI or Treasury confirms. The first draft came out as a generic intel memo with tables and didn't match the site's format; rebuilt it as Sourced Reporting / Analysis / Open Question like every other post.
+
+**Cryptologic Watch: two shorter entries**
+- DARPA QBI Stage C (Oct 7): four more quantum approaches moved into government verification against a 2033 utility-scale target. The point I care about is that utility is not the same as breaking RSA, and that 2033 lands in the middle of the CNSA 2.0 migration.
+- Binance as a key-custody failure: every signature appears to have been valid. The failure was in what the signing pipeline was told to authorize.
+
+**Tech Watch: seven entries, two months of backlog**
+The automatic clusterer had lumped unrelated DARPA videos together (quantum, AI theory, and career videos all under "Doctrine, Budget & Policy") and split the Dive-LD videos across two clusters. Built seven clusters by hand instead. Only two transcripts came through; YouTube returned 429 Too Many Requests on the rest even after updating yt-dlp and pausing between requests. Those five blurbs are hand-written from verified facts and video titles, kept general, and marked `human_edited: true`. Also caught a Haiku blurb error on the F-35 entry: it said the parts were diverted from a shipment to Australia, when the transcript says they were removed from an Australian jet and sent to the U.S. Rewrote it from the transcript. That is exactly why the review gate exists.
+
+**Judgment calls worth remembering**
+- A strong instinct is worth keeping; the wording has to survive a hostile expert.
+- Automatic clustering is a first pass. When it groups things wrong, fix the grouping instead of publishing it.
+- When the transcript step fails, a smaller blurb that says less is better than one that guesses.
+
+**Loose ends**
+- yt-dlp is blocked by YouTube. Likely cause: it runs on the system Python 3.9, which newer yt-dlp releases no longer support, so `pip install -U` can't reach the current version. Fix next session: install yt-dlp through Homebrew or a newer Python, then re-pull transcripts for the five hand-written entries.
+- `sources/fetch_transcript.sh` now accepts a `YTDLP_EXTRACTOR_ARGS` override. Still uncommitted, along with the two helper scripts in `sources/`.

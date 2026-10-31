@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-29",
+  "updated": "2026-10-30",
   "note": "Hand-curated updates on cryptology, intelligence, and quantum: cryptography and post-quantum migration, cryptanalysis, signals intelligence, steganography and covert channels, and quantum computing. Public sources only. Each entry separates sourced reporting from assessment and ends with the debate, presenting competing positions as their holders argue them. Entries do not assess the status of any specific U.S. system.",
   "entries": [
     {
@@ -156,6 +156,191 @@
         "synthesis": "The skeptic and the urgent case can both be right: no machine today is close, and the machine required keeps getting smaller. Planning happens in that gap.",
         "openQuestion": "Is 2035 set by the threat or by capacity? NSM-10's wording is \"mitigating as much of the quantum risk as is feasible by 2035.\" That phrasing concedes the goal is bounded by how fast the government can migrate, not by any forecast of quantum progress. If a cryptographically relevant quantum computer arrives earlier than expected, the binding constraint will not be the algorithms, which already exist. It will be acquisition speed, and the equipment bought before January 2027."
       }
+    },
+    {
+      "id": "qc-001",
+      "topic": "Quantum Computing",
+      "actor": "DARPA",
+      "country": "United States",
+      "type": "Program milestone",
+      "status": "In progress",
+      "date": "2026-10-07",
+      "confidence": "High (facts) · Medium (assessment)",
+      "title": "DARPA QBI Stage C: Testing Whether a Useful Quantum Computer Can Exist by 2033",
+      "bottomLine": "DARPA has moved four more quantum approaches into Stage C, where government evaluators test whether a utility-scale machine can actually be built. It is the closest thing to an independent, official clock on quantum progress, and the date it is testing is 2033.",
+      "requires": [
+        "On October 7, 2026, DARPA advanced Atom Computing (neutral atoms), Diraq (silicon spin qubits), IBM (modular superconducting) and IonQ (trapped ions) to Stage C of the Quantum Benchmarking Initiative. Microsoft and PsiQuantum were already in Stage C through the earlier US2QC pilot.",
+        "QBI's question is whether any approach can reach utility-scale operation, defined as computational value exceeding cost, by 2033. DARPA frames it as a question, not a commitment.",
+        "Stage A is a short concept evaluation. Stage B is a yearlong review of R&D plans, technical risks and prototypes; 11 teams advanced to it in November 2025. Stage C is independent verification by a government test-and-evaluation team.",
+        "About $200 million in new DARPA funding covers the four entrants, against a Stage C ceiling of up to $300 million per performer over multiple years. Several Stage B teams were not selected, and DARPA expects further selections."
+      ],
+      "keyDates": [
+        {
+          "date": "2025-11-07",
+          "label": "QBI Stage B: 11 teams advance (reported)"
+        },
+        {
+          "date": "2026-10-07",
+          "label": "QBI Stage C: Atom Computing, Diraq, IBM and IonQ advance"
+        },
+        {
+          "date": "2027-01-01",
+          "label": "CNSA 2.0: new national security system acquisitions must comply"
+        },
+        {
+          "date": "2033-12-31",
+          "label": "QBI target: utility-scale quantum operation"
+        },
+        {
+          "date": "2035-12-31",
+          "label": "NSM-10 goal: national security systems quantum-resistant"
+        }
+      ],
+      "strategicRead": [
+        {
+          "head": "An independent clock, not a vendor roadmap.",
+          "body": "Most public quantum timelines come from companies raising capital. QBI is the first U.S. government effort to check those claims against engineering evidence, using its own evaluation team. A Stage C success would give the 2033 question a credible answer. Universal failure would be just as informative.",
+          "confidence": "High on program design · Medium on significance"
+        },
+        {
+          "head": "Utility is not the same as breaking RSA.",
+          "body": "QBI measures whether a machine's value exceeds its cost. Chemistry or materials simulation could clear that bar long before a machine can run Shor's algorithm against RSA-2048, which the best published estimate (Gidney, Google Quantum AI, 2025) still places near one million noisy qubits. A Stage C success would shorten threat timelines without itself creating a cryptographically relevant quantum computer.",
+          "confidence": "Medium"
+        },
+        {
+          "head": "2033 lands in the middle of the migration.",
+          "body": "The QBI date falls after the CNSA 2.0 phase-out deadlines of 2030 and 2031 and two years before the 2035 NSM-10 goal. A verified utility-scale machine in 2033 would arrive while legacy equipment is still being retired, which makes the acquisition decisions of 2026 and 2027 the ones that count.",
+          "confidence": "Medium"
+        }
+      ],
+      "indicators": [
+        "Further Stage C selections, and which Stage B teams leave the program.",
+        "Results published by the government evaluation team, as distinct from performer press releases.",
+        "Logical-qubit error rates reported against Stage C milestones.",
+        "Congressional action on the reported proposal to raise annual military quantum spending to about $567 million."
+      ],
+      "debate": {
+        "intro": "The argument is less about QBI itself than about what its answer would mean.",
+        "positions": [
+          {
+            "axis": "Is 2033 credible",
+            "position": "A useful machine this decade is realistic",
+            "heldBy": "Stage C performers, including IBM and IonQ (company statements)",
+            "argument": "Each has published a roadmap to fault-tolerant systems within the decade, and selection for Stage C means those plans survived a year of government technical review.",
+            "confidence": "High that this is their position · roadmaps are unverified"
+          },
+          {
+            "axis": "Is 2033 credible",
+            "position": "Utility benchmarks invite generous definitions",
+            "heldBy": "Skeptics of quantum timelines in the research community",
+            "argument": "Past quantum milestones have often relied on problems chosen to favor quantum hardware. A machine that beats its cost on a narrow task may say little about general or cryptographic capability.",
+            "confidence": "Medium — a general skeptic position, not a published response to QBI"
+          },
+          {
+            "axis": "What it means for cryptography",
+            "position": "Plan as if the answer is yes",
+            "heldBy": "NSA's CNSA 2.0 posture",
+            "argument": "Harvest-now-decrypt-later makes data collected today exposed whenever a capable machine appears, so migration timelines cannot wait for QBI's verdict.",
+            "confidence": "High — NSA's stated rationale"
+          }
+        ],
+        "synthesis": "QBI cannot say when RSA breaks. It can replace company roadmaps with government-verified evidence on whether the hardware path is real.",
+        "openQuestion": "If a Stage C performer demonstrates utility-scale operation before 2033, does the 2035 migration goal move earlier, or does the government keep setting its deadline by how fast it can migrate rather than by the threat?"
+      },
+      "sources": [
+        {
+          "label": "DARPAtv — Quantum Benchmarking Initiative Overview (primary)",
+          "url": "https://www.youtube.com/watch?v=_S5tfGBoiCE"
+        },
+        {
+          "label": "IonQ — advances to final stage of DARPA QBI (company statement)",
+          "url": "https://investors.ionq.com/news/news-details/2026/IonQ-Advances-to-Final-Stage-of-DARPAs-Quantum-Benchmarking-Initiative/default.aspx"
+        },
+        {
+          "label": "Intelligence Community News — DARPA adds four organizations to QBI Stage C",
+          "url": "https://intelligencecommunitynews.com/darpa-adds-four-organizations-to-qbi-stage-c/"
+        },
+        {
+          "label": "Granted AI — October 8 quantum package, Stage C funding and requirements (secondary)",
+          "url": "https://grantedai.com/blog/pentagon-350-million-quantum-package-october-8-2026-darpa-qbi-stage-c-atom-computing-diraq-ibm-ionq-300-million-ceiling-psiquantum-150-million-osc-conditional-loan-application-workshops-strategy"
+        },
+        {
+          "label": "DataCenterDynamics — 11 companies advance to QBI Stage B",
+          "url": "https://www.datacenterdynamics.com/en/news/darpa-announces-11-companies-advancing-to-second-stage-of-it-quantum-benchmarking-initiative/"
+        },
+        {
+          "label": "R&D World — can a useful quantum computer exist by 2033?",
+          "url": "https://www.rdworldonline.com/darpas-quantum-benchmarking-push-can-a-useful-quantum-computer-exist-by-2033/"
+        }
+      ]
+    },
+    {
+      "id": "kc-001",
+      "topic": "Key Custody & Signing",
+      "actor": "DPRK (TraderTraitor, commercially attributed)",
+      "country": "North Korea",
+      "type": "Incident",
+      "status": "Under investigation",
+      "date": "2026-10-29",
+      "confidence": "High (facts) · Medium (attribution)",
+      "title": "Binance: $6.3 Billion Taken Without Breaking a Single Key",
+      "bottomLine": "Every signature in the largest digital-asset theft on record appears to have been cryptographically valid. The failure was in what the signing pipeline was told to authorize, which makes custody procedure, not cryptography, the attack surface.",
+      "requires": [
+        "Binance disclosed the incident on October 29, 2026, putting affected assets at about $6.3 billion. Its preliminary finding is that attackers entered through a compromised DevOps engineer's laptop and used internal systems to authorize transfers.",
+        "The largest Ethereum loss used EIP-7702 delegation, which lets an ordinary account sign a standing delegation of its execution to contract code. Dozens of authorizations were reportedly staged in advance.",
+        "Issuers froze an estimated $2.5 to $3 billion, mostly stablecoins. More than 420,000 ETH and 18,270 BTC, worth about $2.4 billion, remain with the attackers.",
+        "TRM Labs attributes the operation with high confidence to North Korea's TraderTraitor unit, and Chainalysis concurs. No U.S. government attribution had been issued as of October 30."
+      ],
+      "keyDates": [
+        {
+          "date": "2025-02-21",
+          "label": "Bybit theft (about $1.5 billion), later attributed to TraderTraitor by the FBI"
+        },
+        {
+          "date": "2026-10-29",
+          "label": "Binance discloses about $6.3 billion security incident"
+        }
+      ],
+      "strategicRead": [
+        {
+          "head": "Kerckhoffs held. The keyholder did not.",
+          "body": "Modern custody assumes the adversary knows the system and protects the key with hardware security modules, multi-party computation and signing thresholds. Those controls decide who can sign. They do not decide what a signer is shown or why a signature is requested. DMM Bitcoin, Bybit and Binance were all lost at that layer.",
+          "confidence": "Medium"
+        },
+        {
+          "head": "EIP-7702 changes what one signature is worth.",
+          "body": "A single valid delegation can confer standing control of an account rather than approve one transfer. That raises the payoff of compromising the signing pipeline once, and staged authorizations imply the attacker held signing capability well before the cash-out.",
+          "confidence": "Medium — Binance has not disclosed how the authorizations were obtained"
+        }
+      ],
+      "indicators": [
+        "An FBI public service announcement or OFAC designation tied to the theft.",
+        "Binance's root-cause report on initial access and the EIP-7702 authorizations.",
+        "Wallet or client changes in the Ethereum ecosystem that limit standing delegations.",
+        "Movement of the unfrozen ETH and BTC through bridges, swap services and OTC brokers."
+      ],
+      "sources": [
+        {
+          "label": "Evintir Deep Analysis — October 29: North Korea's Juche by Other Means",
+          "url": "analyst.html"
+        },
+        {
+          "label": "CNBC — Binance's $6.3 billion hack: what we know",
+          "url": "https://www.cnbc.com/2026/10/30/billions-in-crypto-frozen-in-binance-hack-heres-what-happens-next-.html"
+        },
+        {
+          "label": "Crowdfund Insider — attack sequence and EIP-7702 delegation",
+          "url": "https://www.crowdfundinsider.com/2026/10/320956-record-6-3b-binance-hack-likely-tied-to-north-korean-hackers-surpassing-bybit-and-bitget-breaches-analysis/"
+        },
+        {
+          "label": "Tech Insider — TraderTraitor attribution (TRM Labs, Chainalysis)",
+          "url": "https://tech-insider.org/binance-hack-north-korea-tradertraitor-6-36b-trm-labs-2026/"
+        },
+        {
+          "label": "Security Affairs — FBI attributes Bybit hack to TraderTraitor (2025)",
+          "url": "https://securityaffairs.com/174735/cyber-crime/fbi-north-korea-responsible-bybit-hack.html"
+        }
+      ]
     }
   ]
 }

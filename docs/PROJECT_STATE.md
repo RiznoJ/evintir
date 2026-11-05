@@ -3,6 +3,22 @@
 Maintained per CLAUDE.md operating notes. Overwrite stale entries, don't append forever.
 
 ## Works now that didn't before
+- **Cryptologic Watch track layout (2026-11-05)**: `cryptologic.html` now groups
+  entries into 9 numbered tracks defined in new `data/cryptologic-tracks.json`
+  (track -> entry ids, angle, planned Foundations piece, open question). Track
+  cards show freshness: Current (<=21 days), Update due, Stale, or Coverage
+  planned. New "Latest across all tracks" strip. Entries can carry an
+  `updates` log (dated notes shown at top of card) and an `updated` date.
+  - New `data/glossary.json` (30 terms): first use of each term per card gets
+    a hover/tap definition with an example. Reusable on other pages.
+  - New entry qn-001 (NASA air-to-ground quantum link, Oct 21 flight).
+  - kc-001 (Binance) updated: FBI attribution (Oct 31), Binance root cause
+    (Nov 3), KCNA denial, new debate section.
+  - pqc-001 (CNSA 2.0) updated: NSA Oct 1, 2026 PQC measures / Resource Hub.
+  - Weekday morning research brief (scheduled Claude task, 7:37 AM CT) scans
+    all 9 tracks and proposes entries; nothing publishes without approval.
+  - Known gap: 6 of 9 tracks have no entries yet (shown as Coverage planned).
+    Next: HNDL Foundations piece for track 1.
 - **Cryptologic Watch tab (2026-10-29)**: new `cryptologic.html` +
   `data/cryptologic.json` (hand-curated). Covers cryptography/PQC,
   cryptanalysis, SIGINT, steganography/covert channels, quantum. Entries

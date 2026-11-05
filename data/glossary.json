@@ -1,0 +1,185 @@
+{
+  "note": "Site-wide glossary. Each term gets a plain definition and one example. The first use of a term in each card gets a hover/tap definition.",
+  "terms": [
+    {
+      "term": "PQC",
+      "full": "Post-quantum cryptography",
+      "def": "Encryption math designed to resist attack by both normal and quantum computers. Runs on ordinary hardware.",
+      "example": "NIST's ML-KEM standard is a PQC algorithm."
+    },
+    {
+      "term": "QKD",
+      "full": "Quantum key distribution",
+      "def": "Sharing an encryption key by sending single particles of light. Eavesdropping disturbs them, which can be detected.",
+      "example": "China used the Micius satellite for QKD between ground stations."
+    },
+    {
+      "term": "HNDL",
+      "full": "Harvest now, decrypt later",
+      "def": "Recording encrypted traffic today in order to decrypt it once a powerful enough quantum computer exists.",
+      "example": "Diplomatic cables that must stay secret for 25 years are exposed to HNDL now."
+    },
+    {
+      "term": "CRQC",
+      "full": "Cryptographically relevant quantum computer",
+      "def": "A quantum computer large and reliable enough to break today's public-key encryption. None is publicly known to exist.",
+      "example": "Planning deadlines assume a CRQC could arrive within the life of current systems."
+    },
+    {
+      "term": "CNSA 2.0",
+      "full": "Commercial National Security Algorithm Suite 2.0",
+      "def": "NSA's required set of quantum-resistant algorithms for national security systems, with phased deadlines.",
+      "example": "New NSS purchases are expected to be CNSA 2.0 compliant from 2027."
+    },
+    {
+      "term": "NSS",
+      "full": "National security systems",
+      "def": "U.S. government systems that handle classified or mission-critical information, such as military command networks.",
+      "example": "A Navy ship's tactical data link is an NSS."
+    },
+    {
+      "term": "NSA",
+      "full": "National Security Agency",
+      "def": "U.S. agency for signals intelligence and for securing national security systems. Sets their cryptography standards.",
+      "example": "NSA publishes CNSA 2.0."
+    },
+    {
+      "term": "NIST",
+      "full": "National Institute of Standards and Technology",
+      "def": "U.S. agency that writes widely adopted technical standards, including public encryption standards.",
+      "example": "NIST finalized its first PQC standards in August 2024."
+    },
+    {
+      "term": "ML-KEM",
+      "full": "Module-Lattice Key Encapsulation Mechanism",
+      "def": "NIST's main post-quantum standard for setting up a shared encryption key (FIPS 203).",
+      "example": "Browsers are adding ML-KEM to protect web connections."
+    },
+    {
+      "term": "ML-DSA",
+      "full": "Module-Lattice Digital Signature Algorithm",
+      "def": "NIST's main post-quantum standard for digital signatures, which prove who sent something (FIPS 204).",
+      "example": "Software updates can be signed with ML-DSA."
+    },
+    {
+      "term": "SIGINT",
+      "full": "Signals intelligence",
+      "def": "Intelligence gathered by intercepting communications and electronic signals.",
+      "example": "Intercepting and analyzing radio traffic is SIGINT."
+    },
+    {
+      "term": "DARPA",
+      "full": "Defense Advanced Research Projects Agency",
+      "def": "Pentagon agency that funds high-risk, high-payoff research.",
+      "example": "DARPA funded the early internet."
+    },
+    {
+      "term": "QBI",
+      "full": "Quantum Benchmarking Initiative",
+      "def": "DARPA program testing whether any company can build a useful, error-corrected quantum computer by 2033.",
+      "example": "QBI moves companies through stages of increasingly strict review."
+    },
+    {
+      "term": "CISA",
+      "full": "Cybersecurity and Infrastructure Security Agency",
+      "def": "U.S. agency that protects civilian government networks and critical infrastructure.",
+      "example": "CISA issued joint advisories on Volt Typhoon."
+    },
+    {
+      "term": "lawful intercept",
+      "full": "Lawful intercept",
+      "def": "Built-in capability in telecom networks that lets authorities wiretap under court order.",
+      "example": "Salt Typhoon reportedly reached carriers' lawful intercept systems."
+    },
+    {
+      "term": "steganography",
+      "full": "Steganography",
+      "def": "Hiding the fact that a message exists, for example inside an image file.",
+      "example": "Malware can hide commands in the pixels of a picture."
+    },
+    {
+      "term": "logical qubit",
+      "full": "Logical qubit",
+      "def": "A reliable qubit built from many error-prone physical qubits through error correction. The count that matters.",
+      "example": "Breaking strong encryption needs thousands of logical qubits."
+    },
+    {
+      "term": "qubit",
+      "full": "Qubit",
+      "def": "The basic unit of a quantum computer. Unlike a bit, it can hold a blend of 0 and 1.",
+      "example": "Announced qubit counts usually mean physical qubits."
+    },
+    {
+      "term": "entangled",
+      "full": "Entanglement",
+      "def": "A link between particles where measuring one instantly constrains the other.",
+      "example": "Some QKD schemes use entangled photon pairs."
+    },
+    {
+      "term": "photons",
+      "full": "Photon",
+      "def": "A single particle of light. Quantum communication encodes information in individual photons.",
+      "example": "QKD sends keys one photon at a time."
+    },
+    {
+      "term": "AES-256",
+      "full": "Advanced Encryption Standard, 256-bit key",
+      "def": "A symmetric encryption standard. Quantum computers weaken it only modestly, so it remains approved.",
+      "example": "CNSA 2.0 keeps AES-256."
+    },
+    {
+      "term": "AFRL",
+      "full": "Air Force Research Laboratory",
+      "def": "The U.S. Air Force and Space Force's main research lab.",
+      "example": "AFRL runs quantum networking research."
+    },
+    {
+      "term": "EuroQCI",
+      "full": "European Quantum Communication Infrastructure",
+      "def": "EU program to build quantum communication links across member states, on the ground and in space.",
+      "example": "EuroQCI plans to link national QKD networks."
+    },
+    {
+      "term": "EIP-7702",
+      "full": "Ethereum Improvement Proposal 7702",
+      "def": "An Ethereum feature that lets a normal account hand its execution over to smart-contract code with one signature.",
+      "example": "Binance's largest Ethereum loss used an EIP-7702 delegation."
+    },
+    {
+      "term": "OFAC",
+      "full": "Office of Foreign Assets Control",
+      "def": "U.S. Treasury office that issues sanctions, including against crypto addresses and laundering services.",
+      "example": "OFAC sanctioned the Tornado Cash mixer in 2022."
+    },
+    {
+      "term": "KCNA",
+      "full": "Korean Central News Agency",
+      "def": "North Korea's state news agency and the regime's official voice abroad.",
+      "example": "KCNA published North Korea's denial of the Binance theft."
+    },
+    {
+      "term": "CNSSP 15",
+      "full": "Committee on National Security Systems Policy 15",
+      "def": "The U.S. policy that sets which cryptography national security systems must use.",
+      "example": "CNSSP 15 requires quantum-resistant support in new NSS from 2027."
+    },
+    {
+      "term": "zero-day",
+      "full": "Zero-day vulnerability",
+      "def": "A software flaw the vendor does not yet know about, so no fix exists when it is exploited.",
+      "example": "The fake coding test carried zero-day malware that evaded endpoint security."
+    },
+    {
+      "term": "TraderTraitor",
+      "full": "TraderTraitor",
+      "def": "FBI name for a North Korean state hacking cluster that targets crypto firms, often through fake recruiters.",
+      "example": "The FBI attributed the 2025 Bybit theft to TraderTraitor."
+    },
+    {
+      "term": "FBI",
+      "full": "Federal Bureau of Investigation",
+      "def": "U.S. federal law enforcement and domestic intelligence agency; leads attribution of many cyber crimes.",
+      "example": "The FBI publicly attributed the Binance theft."
+    }
+  ]
+}

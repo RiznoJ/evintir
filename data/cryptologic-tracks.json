@@ -1,0 +1,122 @@
+{
+  "updated": "2026-11-05",
+  "note": "Defines Cryptologic Watch tracks and maps entry ids in cryptologic.json to tracks. A track's freshness is the most recent date or updated value among its entries.",
+  "staleDays": 21,
+  "tracks": [
+    {
+      "id": "quantum-threat",
+      "n": 1,
+      "name": "The Quantum Threat to Encryption",
+      "angle": "Data captured today can be decrypted later. The deadline is set by how long secrets must stay secret, not by when a quantum computer arrives.",
+      "foundations": {
+        "title": "Harvest-now, decrypt-later",
+        "status": "Planned"
+      },
+      "entryIds": [
+        "pqc-001"
+      ],
+      "closingQuestion": "What data captured today will still matter in 2040, and who decides?"
+    },
+    {
+      "id": "quantum-networks",
+      "n": 2,
+      "name": "Quantum Computing & Networks",
+      "angle": "Qubit counts make headlines; error-corrected logical qubits decide outcomes. Quantum networking is a separate race with a separate verdict.",
+      "foundations": {
+        "title": "What a cryptographically relevant quantum computer actually means",
+        "status": "Planned"
+      },
+      "entryIds": [
+        "qc-001",
+        "qn-001"
+      ],
+      "closingQuestion": "If an adversary built a cryptographically relevant quantum computer first, how would anyone know?"
+    },
+    {
+      "id": "quantum-nav",
+      "n": 3,
+      "name": "Quantum Sensing & Navigation",
+      "angle": "GPS jamming and spoofing are now routine in conflict zones. Quantum sensors are a candidate fallback, mostly still at trial stage.",
+      "foundations": {
+        "title": "How quantum sensors navigate without satellites",
+        "status": "Planned"
+      },
+      "entryIds": [],
+      "closingQuestion": "Does the advantage go to whoever fields first, or do new sensors bring new ways to be deceived?"
+    },
+    {
+      "id": "telecom",
+      "n": 4,
+      "name": "Telecom Intrusion & Lawful Intercept",
+      "angle": "Systems built for court-authorized wiretaps became a target. Salt Typhoon is the reference case.",
+      "foundations": {
+        "title": "Lawful intercept: how wiretap infrastructure works",
+        "status": "Planned"
+      },
+      "entryIds": [],
+      "closingQuestion": "Does Salt Typhoon change the debate over lawful access to encrypted communications?"
+    },
+    {
+      "id": "prepositioning",
+      "n": 5,
+      "name": "Infrastructure Pre-Positioning",
+      "angle": "U.S. government advisories describe Volt Typhoon as positioning for disruption in a future crisis, not espionage. Scope limited to published CISA and FBI reporting.",
+      "foundations": {
+        "title": "Espionage vs. pre-positioning",
+        "status": "Planned"
+      },
+      "entryIds": [],
+      "closingQuestion": "How do you deter an intrusion whose purpose is a crisis that has not happened yet?"
+    },
+    {
+      "id": "seabed",
+      "n": 6,
+      "name": "Undersea Cables & the Seabed",
+      "angle": "Nearly all intercontinental data moves on cables. Damage is frequent; attribution is slow and often contested.",
+      "foundations": {
+        "title": "How the cable network works and fails",
+        "status": "Planned"
+      },
+      "entryIds": [],
+      "closingQuestion": "Where is the line between accident, gray-zone activity, and an act of war?"
+    },
+    {
+      "id": "covert",
+      "n": 7,
+      "name": "Covert Channels & Provenance",
+      "angle": "Steganography hides that a message exists. Generative AI shifts the contest toward proving where content came from.",
+      "foundations": {
+        "title": "Steganography and covert channels",
+        "status": "Planned"
+      },
+      "entryIds": [],
+      "closingQuestion": "In the long run, does provenance or detection win?"
+    },
+    {
+      "id": "startups",
+      "n": 8,
+      "name": "Defense-Tech Startup Radar",
+      "angle": "Firms are profiled only with a public DoD, DIU, or SBIR link. Capability claims are attributed, not repeated.",
+      "foundations": {
+        "title": "How to read a defense-tech contract announcement",
+        "status": "Planned"
+      },
+      "entryIds": [],
+      "closingQuestion": "Which of these firms is building something the government cannot build itself?"
+    },
+    {
+      "id": "key-custody",
+      "n": 9,
+      "name": "Digital Asset Security",
+      "angle": "The largest thefts break operations, not cryptography. Lower priority; existing coverage retained.",
+      "foundations": {
+        "title": "Key custody and signing",
+        "status": "Planned"
+      },
+      "entryIds": [
+        "kc-001"
+      ],
+      "closingQuestion": "If the math holds and the people fail, where should security spending go?"
+    }
+  ]
+}

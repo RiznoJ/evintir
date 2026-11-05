@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <!--
+  TRACK LAYOUT (Nov 2026): entries are grouped into numbered tracks defined
+  in data/cryptologic-tracks.json. Track cards show freshness (current within
+  staleDays, update due, stale, or coverage planned). A "Latest" strip lists
+  the newest entries across tracks. Entries may carry an "updates" log shown
+  at the top of the card. Terms in data/glossary.json get a hover/tap
+  definition on first use in each card.
+
   ============================================================================
   CRYPTOLOGIC WATCH — cryptology, intelligence, and quantum, sourced and assessed
   ============================================================================
@@ -185,6 +192,65 @@
     .empty { font-family: var(--mono); font-size: 12.5px; color: var(--muted); padding: 20px 0; }
     .credits { text-align: center; font-family: var(--mono); font-size: 11px; color: var(--muted); padding: 24px 10px 10px; }
 
+
+    /* ---------- Track layout, updates, glossary (Nov 2026) ---------- */
+    .latest { background: var(--panel); border: 1px solid var(--line); }
+    .latest a { display: grid; grid-template-columns: 110px 210px 1fr; gap: 12px; padding: 10px 16px; border-bottom: 1px solid var(--line);
+      color: var(--ink); text-decoration: none; font-size: 14px; align-items: baseline; }
+    .latest a:last-child { border-bottom: none; }
+    .latest a:hover { background: var(--panel-2); }
+    .latest .ld { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+    .latest .lt { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--brass); }
+    @media (max-width: 700px) { .latest a { grid-template-columns: 1fr; gap: 2px; } }
+
+    .coverage { font-family: var(--mono); font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+    .coverage b { color: var(--ink); }
+    .tracks { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; align-items: start; }
+    details.track { background: var(--panel); border: 1px solid var(--line); border-top: 3px solid var(--line); }
+    details.track.fresh { border-top-color: var(--risk-low); }
+    details.track.due { border-top-color: var(--risk-med); }
+    details.track.stale { border-top-color: var(--risk-high); }
+    details.track.planned { border-top-color: var(--line); }
+    .planned .tr-status { color: var(--muted); }
+    .updates { padding: 0 20px 16px; }
+    .upd { display: grid; grid-template-columns: 110px 1fr; gap: 12px; font-size: 14px; padding: 7px 0; border-top: 1px dashed var(--line); }
+    .upd .ud { font-family: var(--mono); font-size: 12px; color: var(--risk-med); }
+    .upd-label { font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--risk-med); margin-bottom: 4px; }
+    @media (max-width: 600px) { .upd { grid-template-columns: 1fr; gap: 2px; } }
+    details.track > summary { list-style: none; cursor: pointer; padding: 14px 16px; }
+    details.track > summary::-webkit-details-marker { display: none; }
+    details.track > summary:hover { background: var(--panel-2); }
+    .tr-head { display: flex; gap: 10px; align-items: baseline; }
+    .tr-n { font-family: var(--disp); font-size: 22px; font-weight: 700; color: var(--brass); }
+    .tr-name { font-family: var(--disp); font-size: 20px; font-weight: 600; letter-spacing: .02em; line-height: 1.15; }
+    .tr-angle { font-size: 13.5px; color: var(--muted); margin: 6px 0 10px; }
+    .tr-meta { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 11px; color: var(--muted); }
+    .tr-status { font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .fresh .tr-status { color: var(--risk-low); } .due .tr-status { color: var(--risk-med); } .stale .tr-status { color: var(--risk-high); }
+    details.track > summary .tr-meta span:last-child::after { content: "  ▸"; color: var(--brass); }
+    details.track[open] > summary .tr-meta span:last-child::after { content: "  ▾"; }
+    .tr-body { padding: 4px 16px 16px; border-top: 1px solid var(--line); }
+    .tr-lbl { font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--brass); margin: 12px 0 5px; }
+    .tr-body ul { padding-left: 18px; font-size: 14px; }
+    .tr-body li::marker { color: var(--brass); }
+    .tr-body a { color: var(--ink); }
+    .tr-body a:hover { color: var(--brass); }
+    .tr-none { font-size: 13.5px; color: var(--muted); font-style: italic; }
+    .tr-q { font-size: 14px; font-style: italic; }
+    .pill { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; border: 1px solid var(--line);
+      padding: 1px 6px; color: var(--muted); margin-left: 6px; }
+    .badge.draft { color: #111; background: var(--risk-med); border-color: var(--risk-med); }
+    .badge.track { color: var(--ink); }
+
+    /* Glossary tooltips */
+    abbr.gl { text-decoration: underline dotted var(--brass); text-underline-offset: 3px; cursor: help; }
+    abbr.gl:focus-visible { outline: 1px solid var(--brass); }
+    #glTip { position: fixed; z-index: 50; max-width: 300px; background: var(--panel-2); border: 1px solid var(--brass);
+      padding: 10px 12px; font-size: 13px; line-height: 1.45; box-shadow: 0 6px 20px rgba(0,0,0,.45); display: none; }
+    #glTip .gt-term { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .08em; color: var(--brass); margin-bottom: 3px; }
+    #glTip .gt-ex { color: var(--muted); margin-top: 5px; font-size: 12.5px; }
+
     @media (max-width: 900px) {
       header { padding: 16px; } main { padding: 16px 16px 32px; } nav.tabs { padding: 0 16px; }
       .dates td.s { width: auto; }
@@ -217,6 +283,13 @@
 
     <div class="tiles" id="cwTiles"></div>
 
+    <div class="eyebrow">Latest across all tracks</div>
+    <div class="latest" id="cwLatest"></div>
+
+    <div class="eyebrow">Tracks</div>
+    <div class="coverage" id="cwCoverage"></div>
+    <div class="tracks" id="cwTracks"></div>
+
     <div class="eyebrow">Timeline — key dates across all tracked entries</div>
     <div class="timeline-wrap">
       <div class="timeline" id="cwTimeline"></div>
@@ -224,7 +297,7 @@
       <div class="tl-hover" id="cwHover">Hover or tap a point for detail.</div>
     </div>
 
-    <div class="eyebrow">Topic</div>
+    <div class="eyebrow">Entries by track</div>
     <div class="filters" id="cwFilters"></div>
 
     <div id="cwEntries"></div>
@@ -236,6 +309,7 @@
     </div>
   </main>
 
+  <div id="glTip" role="tooltip"></div>
   <div class="credits">Evintir · public, unclassified sources only · not affiliated with any government organization</div>
 
   <script>
@@ -246,7 +320,111 @@
     const fmt = d => parse(d).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" });
 
     let DATA = { entries: [] };
-    let activeSector = "All";
+    let TRACKS = { tracks: [], staleDays: 21 };
+    let GLOSS = [];
+    let activeSector = "All";          // holds a track id, or "All"
+    const trackOf = {};                // entry id -> track
+
+    const lastDate = e => [e.updated, e.date].filter(Boolean).sort().slice(-1)[0];
+
+    function renderLatest() {
+      const list = [...DATA.entries].sort((a, b) => lastDate(b).localeCompare(lastDate(a))).slice(0, 5);
+      document.getElementById("cwLatest").innerHTML = list.map(e =>
+        `<a href="#${esc(e.id)}" data-id="${esc(e.id)}"><span class="ld">${esc(fmt(lastDate(e)))}</span>
+          <span class="lt">${esc(trackOf[e.id]?.name || e.topic)}</span><span>${esc(e.title)}${e.draft ? '<span class="pill">Draft</span>' : ""}</span></a>`).join("");
+      document.querySelectorAll("#cwLatest a").forEach(a => a.addEventListener("click", ev => { ev.preventDefault(); jumpTo(a.dataset.id); }));
+    }
+
+    function jumpTo(id) {
+      activeSector = "All"; renderFilters(); renderEntries();
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function renderTracks() {
+      const stale = TRACKS.staleDays || 21;
+      let covered = 0, current = 0;
+      const html = TRACKS.tracks.map(t => {
+        const entries = DATA.entries.filter(e => trackOf[e.id] === t);
+        const last = [t.reviewed, ...entries.map(lastDate)].filter(Boolean).sort().slice(-1)[0];
+        const age = last ? Math.round((today - parse(last)) / DAY) : null;
+        const cls = age === null ? "planned" : age <= stale ? "fresh" : age <= stale * 2 ? "due" : "stale";
+        const label = age === null ? "Coverage planned" : age <= stale ? "Current" : age <= stale * 2 ? "Update due" : "Stale";
+        if (entries.length) covered++; if (cls === "fresh") current++;
+        const list = entries.length
+          ? `<ul>${entries.map(e => `<li><a href="#${esc(e.id)}" data-id="${esc(e.id)}">${esc(e.title)}</a>${e.draft ? '<span class="pill">Draft</span>' : ""}</li>`).join("")}</ul>`
+          : `<p class="tr-none">No entries yet.</p>`;
+        return `<details class="track ${cls}" id="track-${esc(t.id)}">
+          <summary>
+            <div class="tr-head"><span class="tr-n">${t.n}</span><span class="tr-name">${esc(t.name)}</span></div>
+            <p class="tr-angle">${esc(t.angle)}</p>
+            <div class="tr-meta"><span class="tr-status">${label}${last ? " · " + esc(fmt(last)) : ""}</span><span>${entries.length} ${entries.length === 1 ? "entry" : "entries"}</span></div>
+          </summary>
+          <div class="tr-body">
+            <div class="tr-lbl">Foundations</div>
+            <p>${esc(t.foundations?.title || "")}<span class="pill">${esc(t.foundations?.status || "Planned")}</span></p>
+            <div class="tr-lbl">Entries</div>${list}
+            <div class="tr-lbl">Open question</div><p class="tr-q">${esc(t.closingQuestion)}</p>
+          </div></details>`;
+      }).join("");
+      document.getElementById("cwTracks").innerHTML = html;
+      document.getElementById("cwCoverage").innerHTML =
+        `<b>${covered}</b> of <b>${TRACKS.tracks.length}</b> tracks have coverage · <b>${current}</b> current (updated within ${stale} days)`;
+      document.querySelectorAll("#cwTracks .tr-body a").forEach(a => a.addEventListener("click", ev => { ev.preventDefault(); jumpTo(a.dataset.id); }));
+    }
+
+    // ---- Glossary: wrap the first use of each term per card; hover on desktop, tap on touch ----
+    function applyGlossary(root) {
+      if (!GLOSS.length) return;
+      const terms = [...GLOSS].sort((a, b) => b.term.length - a.term.length);
+      const rx = new RegExp("(?<![\\w-])(" + terms.map(t => t.term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|") + ")(?![\\w-])", "i");
+      const lookup = t => terms.find(g => g.term.toLowerCase() === t.toLowerCase());
+      root.querySelectorAll("article.card, details.track").forEach(card => {
+        const used = new Set();
+        const walker = document.createTreeWalker(card, NodeFilter.SHOW_TEXT, {
+          acceptNode: n => n.parentElement.closest("a, abbr, h2, .tr-name, .meta, .srclist, script") ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT
+        });
+        const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+        nodes.forEach(node => {
+          let text = node.nodeValue, frag = null, m;
+          while ((m = rx.exec(text))) {
+            const g = lookup(m[1]);
+            const key = g.term.toLowerCase();
+            const cut = m.index + m[1].length;
+            if (used.has(key)) {               // already defined in this card: skip past it
+              frag = frag || document.createDocumentFragment();
+              frag.appendChild(document.createTextNode(text.slice(0, cut))); text = text.slice(cut); continue;
+            }
+            used.add(key);
+            frag = frag || document.createDocumentFragment();
+            frag.appendChild(document.createTextNode(text.slice(0, m.index)));
+            const ab = document.createElement("abbr");
+            ab.className = "gl"; ab.tabIndex = 0; ab.dataset.term = key; ab.textContent = m[1];
+            frag.appendChild(ab);
+            text = text.slice(cut);
+          }
+          if (frag) { frag.appendChild(document.createTextNode(text)); node.parentNode.replaceChild(frag, node); }
+        });
+      });
+    }
+
+    const tip = () => document.getElementById("glTip");
+    function showTip(el) {
+      const g = GLOSS.find(x => x.term.toLowerCase() === el.dataset.term); if (!g) return;
+      const t = tip();
+      t.innerHTML = `<div class="gt-term">${esc(g.full)}</div><div>${esc(g.def)}</div>${g.example ? `<div class="gt-ex">e.g. ${esc(g.example)}</div>` : ""}`;
+      t.style.display = "block";
+      const r = el.getBoundingClientRect(), w = t.offsetWidth, h = t.offsetHeight;
+      let x = Math.min(Math.max(8, r.left), window.innerWidth - w - 8);
+      let y = r.bottom + 8; if (y + h > window.innerHeight - 8) y = r.top - h - 8;
+      t.style.left = x + "px"; t.style.top = y + "px";
+    }
+    const hideTip = () => { tip().style.display = "none"; };
+    document.addEventListener("mouseover", e => { const a = e.target.closest?.("abbr.gl"); if (a) showTip(a); });
+    document.addEventListener("mouseout", e => { if (e.target.closest?.("abbr.gl")) hideTip(); });
+    document.addEventListener("focusin", e => { if (e.target.matches?.("abbr.gl")) showTip(e.target); });
+    document.addEventListener("focusout", hideTip);
+    document.addEventListener("click", e => { const a = e.target.closest?.("abbr.gl"); if (a) { e.preventDefault(); e.stopPropagation(); showTip(a); } else hideTip(); }, true);
+    window.addEventListener("scroll", hideTip, { passive: true });
 
     function allDates() {
       const out = [];
@@ -299,9 +477,10 @@
     }
 
     function renderFilters() {
-      const sectors = ["All", ...new Set(DATA.entries.map(e => e.topic))];
+      const used = TRACKS.tracks.filter(t => DATA.entries.some(e => trackOf[e.id] === t));
+      const sectors = [{ id: "All", name: "All" }, ...used];
       const el = document.getElementById("cwFilters");
-      el.innerHTML = sectors.map(s => `<button type="button" class="chip${s === activeSector ? " active" : ""}" data-s="${esc(s)}">${esc(s)}</button>`).join("");
+      el.innerHTML = sectors.map(s => `<button type="button" class="chip${s.id === activeSector ? " active" : ""}" data-s="${esc(s.id)}">${esc(s.name)}</button>`).join("");
       el.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => { activeSector = b.dataset.s; renderFilters(); renderEntries(); }));
     }
 
@@ -321,7 +500,8 @@
 
     function renderEntries() {
       const el = document.getElementById("cwEntries");
-      const list = DATA.entries.filter(e => activeSector === "All" || e.topic === activeSector);
+      const list = [...DATA.entries].sort((a, b) => lastDate(b).localeCompare(lastDate(a)))
+        .filter(e => activeSector === "All" || trackOf[e.id]?.id === activeSector);
       if (!list.length) { el.innerHTML = '<div class="empty">No entries yet.</div>'; return; }
       el.innerHTML = list.map(e => {
         const futureDates = (e.keyDates || []).filter(k => parse(k.date) >= today);
@@ -337,7 +517,8 @@
         <article class="card" id="${esc(e.id)}">
           <div class="card-top">
             <div class="meta">
-              <span class="badge sector">${esc(e.topic)}</span>
+              ${e.draft ? '<span class="badge draft">Draft</span>' : ""}
+              <span class="badge sector">${esc(trackOf[e.id] ? trackOf[e.id].n + " · " + trackOf[e.id].name : e.topic)}</span>
               <span class="badge ${statusCls}">${esc(e.status)}</span>
               <span>${esc(e.actor)} · ${esc(e.country)} · ${esc(e.type)}</span>
               <span>· Confidence: ${esc(e.confidence)}</span>
@@ -345,6 +526,7 @@
             <h2>${esc(e.title)}</h2>
             <div class="bottomline"><b>BOTTOM LINE</b>${esc(e.bottomLine)}</div>
           </div>
+          ${(e.updates || []).length ? `<div class="updates"><div class="upd-label">Updates</div>${[...e.updates].sort((a, b) => b.date.localeCompare(a.date)).map(u => `<div class="upd"><span class="ud">${esc(fmt(u.date))}</span><span>${esc(u.text)}</span></div>`).join("")}</div>` : ""}
           ${sec("Strategic read", (e.strategicRead || []).length + " points", (e.strategicRead || []).map(r => `<div class="read"><h3>${esc(r.head)}</h3><p>${esc(r.body)}</p><div class="conf">Confidence: ${esc(r.confidence)}</div></div>`).join(""))}
           ${e.debate ? sec("The debate", (e.debate.positions || []).length + " positions · open question", renderDebate(e.debate)) : ""}
           ${sec("Key dates", nextDate ? "Next: " + fmt(nextDate) : "", `<table class="dates">${rows}</table>`)}
@@ -353,15 +535,25 @@
           ${sec("Sources", (e.sources || []).length + " cited", `<ol class="srclist">${(e.sources || []).map(s => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a></li>`).join("")}</ol>`)}
         </article>`;
       }).join("");
+      applyGlossary(el);
     }
 
     fetch("data/cryptologic.json", { cache: "no-store" })
       .then(r => r.ok ? r.json() : { entries: [] })
       .catch(() => ({ entries: [] }))
-      .then(d => {
+      .then(async d => {
         DATA = d && Array.isArray(d.entries) ? d : { entries: [] };
+        const get = u => fetch(u, { cache: "no-store" }).then(r => r.ok ? r.json() : null).catch(() => null);
+        const [tr, gl] = await Promise.all([get("data/cryptologic-tracks.json"), get("data/glossary.json")]);
+        if (tr && Array.isArray(tr.tracks)) {
+          TRACKS = tr;
+          DATA.entries = [...DATA.entries, ...(tr.draftEntries || [])];
+          tr.tracks.forEach(t => (t.entryIds || []).forEach(id => { trackOf[id] = t; }));
+        }
+        GLOSS = (gl && gl.terms) || [];
         document.getElementById("cwNote").textContent = DATA.note || "Hand-curated from public sources.";
-        renderTiles(); renderTimeline(); renderFilters(); renderEntries();
+        renderTiles(); renderTimeline(); renderLatest(); renderTracks(); applyGlossary(document.getElementById("cwTracks"));
+        renderFilters(); renderEntries();
       });
   </script>
 </body>

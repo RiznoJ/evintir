@@ -193,6 +193,63 @@
     .credits { text-align: center; font-family: var(--mono); font-size: 11px; color: var(--muted); padding: 24px 10px 10px; }
 
 
+    /* ---------- At a glance, key judgments (Nov 6) ---------- */
+    .glance { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+    .glance button { text-align: left; background: var(--panel); border: 1px solid var(--line); padding: 12px 14px; cursor: pointer; color: var(--ink); }
+    .glance button:hover { border-color: var(--brass); }
+    .glance .gv { font-family: var(--disp); font-size: 28px; font-weight: 700; color: var(--brass); line-height: 1.1; }
+    .glance .gl { font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
+    .glance .gs { font-size: 12.5px; color: var(--muted); margin-top: 4px; }
+    .latest a[hidden] { display: none; }
+    .glance button:not([data-tab]) { cursor: default; }
+    .glance button:not([data-tab]):hover { border-color: var(--line); }
+    .latest .lj { display: block; font-size: 13px; color: var(--muted); margin-top: 3px; }
+    .latest .more-row { display: block; width: 100%; text-align: left; background: transparent; border: none; border-top: 1px solid var(--line);
+      padding: 10px 16px; font-family: var(--mono); font-size: 12px; color: var(--brass); cursor: pointer; }
+    .latest .more-row:hover { background: var(--panel-2); }
+    @media (max-width: 700px) { .latest a { grid-template-columns: 1fr; gap: 2px; } }
+
+    /* ---------- Tabs and sorting (Nov 6) ---------- */
+    details.about { background: var(--panel); border: 1px solid var(--line); margin-bottom: 14px; }
+    details.about > summary { list-style: none; cursor: pointer; padding: 11px 16px; display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+    details.about > summary::-webkit-details-marker { display: none; }
+    details.about > summary::before { content: "▸"; color: var(--brass); }
+    details.about[open] > summary::before { content: "▾"; }
+    .about-label { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--brass); }
+    .about-sum { font-size: 13px; color: var(--muted); }
+    .about-body { padding: 0 16px 16px; display: grid; gap: 10px; }
+    .subtabs { position: sticky; top: 0; z-index: 20; display: flex; gap: 4px; overflow-x: auto; background: var(--bg);
+      border-bottom: 1px solid var(--line); padding: 8px 0 0; margin-bottom: 16px; scrollbar-width: none; }
+    .subtabs::-webkit-scrollbar { display: none; }
+    .subtabs button { flex: 0 0 auto; font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase;
+      color: var(--muted); background: transparent; border: 1px solid transparent; border-bottom: none; padding: 9px 14px; cursor: pointer; }
+    .subtabs button:hover { color: var(--ink); }
+    .subtabs button.active { color: var(--brass); border-color: var(--line); background: var(--panel); font-weight: 700; margin-bottom: -1px; }
+    .subtabs .ct { color: var(--muted); font-weight: 400; }
+    .panel[hidden] { display: none; }
+    .panel-intro { font-size: 13.5px; color: var(--muted); margin-bottom: 12px; }
+    .toolbar { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
+    .sort { display: flex; gap: 6px; align-items: center; font-family: var(--mono); font-size: 11px; color: var(--muted); }
+    .latest .lk { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-right: 6px; }
+
+    /* ---------- Foundations, deep dives, map (Nov 6) ---------- */
+    .preview { background: var(--panel-2); border-left: 4px solid var(--risk-med); padding: 10px 16px; margin-bottom: 12px;
+      font-family: var(--mono); font-size: 12px; color: var(--ink); }
+    .preview b { color: var(--risk-med); }
+    .card .brief { font-size: 15px; border-left: 2px solid var(--brass); padding-left: 12px; }
+    .card .brief b { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; color: var(--brass); display: block; margin-bottom: 2px; }
+    .eco-groups { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+    .eco-group { background: var(--panel); border: 1px solid var(--line); padding: 12px 14px; }
+    .eco-group h3 { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--brass); margin-bottom: 8px; }
+    .eco-item { padding: 7px 0; border-top: 1px dashed var(--line); font-size: 13.5px; }
+    .eco-item:first-of-type { border-top: none; }
+    .eco-item a { color: var(--ink); font-weight: 600; text-decoration: none; }
+    .eco-item a:hover { color: var(--brass); }
+    .eco-item .where { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+    .eco-links { background: var(--panel); border: 1px solid var(--line); padding: 12px 16px; margin-top: 12px; overflow-x: auto; }
+    .eco-links td.rel { font-family: var(--mono); font-size: 11.5px; color: var(--brass); white-space: nowrap; }
+    .eco-note { font-family: var(--mono); font-size: 11.5px; color: var(--muted); margin-top: 8px; }
+
     /* ---------- Track layout, updates, glossary (Nov 2026) ---------- */
     .latest { background: var(--panel); border: 1px solid var(--line); }
     .latest a { display: grid; grid-template-columns: 110px 210px 1fr; gap: 12px; padding: 10px 16px; border-bottom: 1px solid var(--line);
@@ -276,37 +333,77 @@
   </nav>
 
   <main>
-    <div class="method">
-      <div class="method-label">Method</div>
-      <div class="method-text" id="cwNote"></div>
-    </div>
+    <div id="cwPreview"></div>
 
-    <div class="tiles" id="cwTiles"></div>
-
-    <div class="eyebrow">Latest across all tracks</div>
-    <div class="latest" id="cwLatest"></div>
-
-    <div class="eyebrow">Tracks</div>
-    <div class="coverage" id="cwCoverage"></div>
-    <div class="tracks" id="cwTracks"></div>
-
-    <div class="eyebrow">Timeline — key dates across all tracked entries</div>
-    <div class="timeline-wrap">
-      <div class="timeline" id="cwTimeline"></div>
-      <div class="tl-legend"><span><i class="done"></i>Passed</span><span><i></i>Upcoming</span><span><i class="today"></i>Today</span></div>
-      <div class="tl-hover" id="cwHover">Hover or tap a point for detail.</div>
-    </div>
-
-    <div class="eyebrow">Entries by track</div>
-    <div class="filters" id="cwFilters"></div>
-
-    <div id="cwEntries"></div>
-
-    <div class="eyebrow">What this page covers</div>
-    <div class="why">
+    <details class="about" id="cwAbout">
+      <summary><span class="about-label">About this page</span><span class="about-sum">Cryptology and quantum technology through a national security lens · public sources only · purpose and method</span></summary>
+      <div class="about-body">
+        <div class="method">
+          <div class="method-label">Purpose</div>
+          <div class="method-text">Cryptologic Watch is my effort to understand, in depth, how cryptology and quantum technologies shape national security and intelligence strategy. News is the starting point, not the product. For each development, I trace the system underneath it: the science, the universities and companies building it, the programs funding it, the supply chains it depends on, and how governments are positioning around it. I'm a University of Illinois graduate from Chicago, pursuing a commission as a U.S. Navy Cryptologic Warfare Officer. This is an independent, AI-assisted learning project built only on public, unclassified sources. It does not represent the Navy or any government agency, does not assess the status of any specific U.S. system, and the views are my own.</div>
+        </div>
+        <div class="method">
+          <div class="method-label">Method</div>
+          <div class="method-text" id="cwNote"></div>
+        </div>
+        <div class="why">
       <p>Intelligence has always been a contest between hiding information and finding it: codes and codebreaking, signals and interception, messages concealed in plain sight. Quantum computing is the first technology in decades that could change the terms of that contest for everyone at once.</p>
       <p>This page follows that contest through public developments: what changed, what it decides, and where informed people disagree. The disagreements are left open on purpose.</p>
-    </div>
+        </div>
+      </div>
+    </details>
+
+    <nav class="subtabs" id="cwTabs" aria-label="Cryptologic Watch sections">
+      <button type="button" data-tab="overview">Overview</button>
+      <button type="button" data-tab="entries">Entries <span class="ct" id="ctEntries"></span></button>
+      <button type="button" data-tab="explainers">Explainers <span class="ct" id="ctExplainers"></span></button>
+      <button type="button" data-tab="deep">Deep dives <span class="ct" id="ctDeep"></span></button>
+      <button type="button" data-tab="map">Ecosystem map</button>
+      <button type="button" data-tab="timeline">Timeline</button>
+    </nav>
+
+    <section class="panel" data-panel="overview">
+      <div class="tiles" id="cwTiles"></div>
+      <div class="eyebrow">At a glance · what this page holds</div>
+      <div class="glance" id="cwGlance"></div>
+      <div class="eyebrow">Latest · the one-line takeaway from each piece, newest first</div>
+      <div class="latest" id="cwLatest"></div>
+      <div class="eyebrow">Tracks · the nine areas this page follows</div>
+      <div class="coverage" id="cwCoverage"></div>
+      <div class="tracks" id="cwTracks"></div>
+    </section>
+
+    <section class="panel" data-panel="entries" hidden>
+      <p class="panel-intro">Developments in the news, one per card. Each opens to its headline and bottom line; the rest is in drop-downs.</p>
+      <div class="toolbar"><div class="filters" id="cwFilters"></div><div class="sort" data-sort="entries"></div></div>
+      <div id="cwEntries"></div>
+    </section>
+
+    <section class="panel" data-panel="explainers" hidden>
+      <p class="panel-intro">Background pieces that explain how something works, so the news makes sense. They change rarely.</p>
+      <div class="toolbar"><div class="filters" id="cwFdFilters"></div><div class="sort" data-sort="explainers"></div></div>
+      <div id="cwFoundations"></div>
+    </section>
+
+    <section class="panel" data-panel="deep" hidden>
+      <p class="panel-intro">Longer analysis of the system behind the news: who builds it, who pays, what it depends on, and how states compete.</p>
+      <div class="toolbar"><div class="filters" id="cwSeries"></div><div class="sort" data-sort="deep"></div></div>
+      <div id="cwDeep"></div>
+    </section>
+
+    <section class="panel" data-panel="map" hidden>
+      <p class="panel-intro">Who builds, funds, supplies, and verifies, and how they connect. Every item links to its source.</p>
+      <div id="cwMap"></div>
+    </section>
+
+    <section class="panel" data-panel="timeline" hidden>
+      <p class="panel-intro">Key dates across all entries, past and upcoming.</p>
+      <div class="timeline-wrap">
+        <div class="timeline" id="cwTimeline"></div>
+        <div class="tl-legend"><span><i class="done"></i>Passed</span><span><i></i>Upcoming</span><span><i class="today"></i>Today</span></div>
+        <div class="tl-hover" id="cwHover">Hover or tap a point for detail.</div>
+      </div>
+    </section>
   </main>
 
   <div id="glTip" role="tooltip"></div>
@@ -324,20 +421,136 @@
     let GLOSS = [];
     let activeSector = "All";          // holds a track id, or "All"
     const trackOf = {};                // entry id -> track
+    // Drafts are visible only when previewing locally; the live site hides them.
+    const LOCAL = ["localhost", "127.0.0.1", "[::1]", "::1"].includes(location.hostname);
+    const visible = x => !x.draft || LOCAL;
+    let ECO = null;
+    let activeSeries = "All";
+    const fdList = t => Array.isArray(t.foundations) ? t.foundations : (t.foundations ? [t.foundations] : []);
+    const fdLine = f => {
+      const readable = (f.sections || []).length && visible(f);
+      const status = readable ? (f.draft ? "Draft" : (f.status || "Published")) : ((f.sections || []).length ? "In progress" : (f.status || "Planned"));
+      return `<p>${readable ? `<a href="#${esc(f.id)}" data-id="${esc(f.id)}">${esc(f.title)}</a>` : esc(f.title)}<span class="pill">${esc(status)}</span></p>`;
+    };
 
     const lastDate = e => [e.updated, e.date].filter(Boolean).sort().slice(-1)[0];
 
     function renderLatest() {
-      const list = [...DATA.entries].sort((a, b) => lastDate(b).localeCompare(lastDate(a))).slice(0, 5);
-      document.getElementById("cwLatest").innerHTML = list.map(e =>
-        `<a href="#${esc(e.id)}" data-id="${esc(e.id)}"><span class="ld">${esc(fmt(lastDate(e)))}</span>
-          <span class="lt">${esc(trackOf[e.id]?.name || e.topic)}</span><span>${esc(e.title)}${e.draft ? '<span class="pill">Draft</span>' : ""}</span></a>`).join("");
-      document.querySelectorAll("#cwLatest a").forEach(a => a.addEventListener("click", ev => { ev.preventDefault(); jumpTo(a.dataset.id); }));
+      const fds = []; TRACKS.tracks.forEach(t => fdList(t).forEach(f => { if ((f.sections || []).length && visible(f)) fds.push({ f, t }); }));
+      const all = [
+        ...DATA.entries.map(e => ({ id: e.id, date: lastDate(e), kind: "Entry", where: trackOf[e.id]?.name || e.topic, title: e.title, draft: e.draft, line: e.bottomLine })),
+        ...fds.map(({ f, t }) => ({ id: f.id, date: f.updated || f.date || "", kind: "Explainer", where: t.name, title: f.title, draft: f.draft, line: f.summary })),
+        ...deepList().map(x => ({ id: x.id, date: x.updated || x.date || "", kind: "Deep dive", where: x.series, title: x.title, draft: x.draft, line: x.bottomLine })),
+      ].sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+      const SHOW = 6;
+      const row = (x, extra) => `<a href="#${esc(x.id)}" data-id="${esc(x.id)}"${extra || ""}><span class="ld">${x.date ? esc(fmt(x.date)) : ""}</span>
+          <span class="lt"><span class="lk">${esc(x.kind)}</span>${esc(x.where)}</span>
+          <span>${esc(x.title)}${x.draft ? '<span class="pill">Draft</span>' : ""}<span class="lj">${esc(judgment(x.line))}</span></span></a>`;
+      const el = document.getElementById("cwLatest");
+      el.innerHTML = all.slice(0, SHOW).map(x => row(x)).join("") +
+        all.slice(SHOW).map(x => row(x, ' class="more" hidden')).join("") +
+        (all.length > SHOW ? `<button type="button" class="more-row" id="cwMore">Show all ${all.length} items ▾</button>` : "");
+      el.querySelectorAll("a").forEach(a => a.addEventListener("click", ev => { ev.preventDefault(); jumpTo(a.dataset.id); }));
+      const more = document.getElementById("cwMore");
+      if (more) more.addEventListener("click", () => {
+        const open = more.dataset.open === "1";
+        el.querySelectorAll("a.more").forEach(a => { a.hidden = open; });
+        more.dataset.open = open ? "0" : "1";
+        more.textContent = open ? `Show all ${all.length} items ▾` : "Show fewer ▴";
+      });
+    }
+
+    // First sentence of a bottom line (two if the first is very short), without splitting "U.S."
+    function judgment(text) {
+      const parts = String(text || "").split(/(?<![A-Z])\.\s+(?=[A-Z"'])/);
+      let s = parts[0] + (parts.length > 1 ? "." : "");
+      if (s.length < 70 && parts[1]) s += " " + parts[1] + (parts.length > 2 ? "." : "");
+      return s.length > 240 ? s.slice(0, 237).replace(/\s+\S*$/, "") + "…" : s;
+    }
+
+    const words = o => JSON.stringify(o || "").split(/\s+/).length;
+    const readMin = o => Math.max(1, Math.round(words(o) / 230));
+
+    function renderGlance() {
+      const fds = []; TRACKS.tracks.forEach(t => fdList(t).forEach(f => { if ((f.sections || []).length && visible(f)) fds.push(f); }));
+      const deep = deepList();
+      const m = ECO && ECO.map && visible(ECO.map) ? ECO.map : null;
+      const orgs = m ? (m.groups || []).reduce((a, g) => a + (g.items || []).length, 0) : 0;
+      const urls = new Set();
+      [...DATA.entries, ...fds, ...deep].forEach(x => (x.sources || []).forEach(s => urls.add(s.url)));
+      const mins = [...fds.map(f => f.sections), ...deep.map(x => x.sections), ...DATA.entries.map(e => [e.strategicRead, e.requires, e.debate])]
+        .reduce((a, o) => a + readMin(o), 0);
+      const covered = TRACKS.tracks.filter(t => DATA.entries.some(e => trackOf[e.id] === t) || fdList(t).some(f => (f.sections || []).length && visible(f))).length;
+      const tiles = [
+        { v: DATA.entries.length, l: "Entries", s: "News developments, assessed", tab: "entries" },
+        { v: fds.length, l: "Explainers", s: "How the technology works", tab: "explainers" },
+        { v: deep.length, l: "Deep dives", s: "Supply chain, money, strategy", tab: "deep" },
+        { v: orgs, l: "Organizations mapped", s: "Labs, firms, agencies, hubs", tab: "map" },
+        { v: urls.size, l: "Sources cited", s: "Primary sources preferred", tab: null },
+        { v: "~" + mins + " min", l: "Total reading", s: "Every card opens in layers", tab: null },
+      ].filter(t => t.v !== 0);
+      const el = document.getElementById("cwGlance");
+      el.innerHTML = tiles.map(t => `<button type="button"${t.tab ? ` data-tab="${t.tab}"` : ' tabindex="-1"'}><div class="gv">${esc(t.v)}</div><div class="gl">${esc(t.l)}</div><div class="gs">${esc(t.s)}</div></button>`).join("");
+      el.querySelectorAll("button[data-tab]").forEach(b => b.addEventListener("click", () => { showTab(b.dataset.tab); document.getElementById("cwTabs").scrollIntoView({ block: "start" }); }));
     }
 
     function jumpTo(id) {
-      activeSector = "All"; renderFilters(); renderEntries();
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      const el = document.getElementById(id);
+      const panel = el?.closest(".panel")?.dataset.panel;
+      if (panel === "entries") { activeSector = "All"; renderFilters(); renderEntries(); }
+      if (panel === "deep" && activeSeries !== "All") { activeSeries = "All"; renderSeries(); renderDeep(); }
+      if (panel === "explainers" && activeFdTrack !== "All") { activeFdTrack = "All"; renderFdFilters(); renderFoundations(); }
+      if (panel) showTab(panel, false);
+      setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" }), 30);
+    }
+
+    // ---- Tabs: one section visible at a time; the address bar remembers which ----
+    const TABS = ["overview", "entries", "explainers", "deep", "map", "timeline"];
+    function showTab(name, updateHash = true) {
+      if (!TABS.includes(name)) name = "overview";
+      document.querySelectorAll(".panel").forEach(s => { s.hidden = s.dataset.panel !== name; });
+      document.querySelectorAll("#cwTabs button").forEach(b => b.classList.toggle("active", b.dataset.tab === name));
+      if (updateHash) history.replaceState(null, "", "#" + name);
+    }
+    function initTabs() {
+      document.querySelectorAll("#cwTabs button").forEach(b => b.addEventListener("click", () => {
+        showTab(b.dataset.tab); document.getElementById("cwTabs").scrollIntoView({ block: "start" });
+      }));
+      const hash = decodeURIComponent(location.hash.slice(1));
+      if (TABS.includes(hash)) showTab(hash, false);
+      else if (hash && document.getElementById(hash)) jumpTo(hash);
+      else showTab("overview", false);
+      const n = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v ? "(" + v + ")" : ""; };
+      let fdCount = 0; TRACKS.tracks.forEach(t => fdList(t).forEach(f => { if ((f.sections || []).length && visible(f)) fdCount++; }));
+      n("ctEntries", DATA.entries.length); n("ctExplainers", fdCount); n("ctDeep", deepList().length);
+      // Hide tabs that have nothing to show yet (e.g. drafts on the live site).
+      const hide = (tab, empty) => { const b = document.querySelector(`#cwTabs button[data-tab="${tab}"]`); if (b) b.hidden = empty; };
+      hide("explainers", !fdCount); hide("deep", !deepList().length); hide("map", !(ECO && ECO.map && visible(ECO.map)));
+    }
+
+    // ---- Newest / oldest sorting, per section ----
+    const SORT = { entries: "new", explainers: "new", deep: "new" };
+    const bySort = (key, getDate) => (a, b) => { const c = (getDate(b) || "").localeCompare(getDate(a) || ""); return SORT[key] === "new" ? c : -c; };
+    function renderSorts() {
+      document.querySelectorAll(".sort").forEach(el => {
+        const key = el.dataset.sort;
+        el.innerHTML = `<span>Sort</span>` + [["new", "Newest"], ["old", "Oldest"]].map(([v, l]) =>
+          `<button type="button" class="chip${SORT[key] === v ? " active" : ""}" data-v="${v}">${l}</button>`).join("");
+        el.querySelectorAll("button").forEach(b => b.addEventListener("click", () => {
+          SORT[key] = b.dataset.v; renderSorts();
+          ({ entries: renderEntries, explainers: renderFoundations, deep: renderDeep })[key]();
+        }));
+      });
+    }
+
+    // ---- Explainer filter by track ----
+    let activeFdTrack = "All";
+    function renderFdFilters() {
+      const el = document.getElementById("cwFdFilters");
+      const used = TRACKS.tracks.filter(t => fdList(t).some(f => (f.sections || []).length && visible(f)));
+      el.innerHTML = used.length ? [{ id: "All", name: "All" }, ...used].map(t =>
+        `<button type="button" class="chip${t.id === activeFdTrack ? " active" : ""}" data-t="${esc(t.id)}">${esc(t.name)}</button>`).join("") : "";
+      el.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => { activeFdTrack = b.dataset.t; renderFdFilters(); renderFoundations(); }));
     }
 
     function renderTracks() {
@@ -361,7 +574,7 @@
           </summary>
           <div class="tr-body">
             <div class="tr-lbl">Foundations</div>
-            <p>${esc(t.foundations?.title || "")}<span class="pill">${esc(t.foundations?.status || "Planned")}</span></p>
+            ${fdList(t).map(fdLine).join("")}
             <div class="tr-lbl">Entries</div>${list}
             <div class="tr-lbl">Open question</div><p class="tr-q">${esc(t.closingQuestion)}</p>
           </div></details>`;
@@ -500,7 +713,7 @@
 
     function renderEntries() {
       const el = document.getElementById("cwEntries");
-      const list = [...DATA.entries].sort((a, b) => lastDate(b).localeCompare(lastDate(a)))
+      const list = [...DATA.entries].sort(bySort("entries", lastDate))
         .filter(e => activeSector === "All" || trackOf[e.id]?.id === activeSector);
       if (!list.length) { el.innerHTML = '<div class="empty">No entries yet.</div>'; return; }
       el.innerHTML = list.map(e => {
@@ -522,6 +735,7 @@
               <span class="badge ${statusCls}">${esc(e.status)}</span>
               <span>${esc(e.actor)} · ${esc(e.country)} · ${esc(e.type)}</span>
               <span>· Confidence: ${esc(e.confidence)}</span>
+              <span>· ${readMin([e.strategicRead, e.requires, e.debate])} min read · ${(e.sources || []).length} sources</span>
             </div>
             <h2>${esc(e.title)}</h2>
             <div class="bottomline"><b>BOTTOM LINE</b>${esc(e.bottomLine)}</div>
@@ -538,22 +752,103 @@
       applyGlossary(el);
     }
 
+    function renderFoundations() {
+      const el = document.getElementById("cwFoundations");
+      const items = [];
+      TRACKS.tracks.forEach(t => { if (activeFdTrack !== "All" && t.id !== activeFdTrack) return; fdList(t).forEach(f => { if ((f.sections || []).length && visible(f)) items.push({ f, t }); }); });
+      items.sort(bySort("explainers", x => x.f.updated || x.f.date));
+      if (!items.length) { el.innerHTML = '<div class="empty">Explainers are in progress.</div>'; return; }
+      el.innerHTML = items.map(({ f, t }) => `
+        <article class="card" id="${esc(f.id)}">
+          <div class="card-top">
+            <div class="meta">
+              ${f.draft ? '<span class="badge draft">Draft</span>' : ""}
+              <span class="badge sector">${esc(t.n + " · " + t.name)}</span>
+              <span class="badge status-done">Foundations</span>
+              ${(f.updated || f.date) ? `<span>${esc(fmt(f.updated || f.date))}</span>` : ""}
+              <span>${readMin(f.sections)} min read · ${(f.sources || []).length} sources</span>
+              ${f.confidence ? `<span>Confidence: ${esc(f.confidence)}</span>` : ""}
+            </div>
+            <h2>${esc(f.title)}</h2>
+            <div class="brief"><b>IN BRIEF</b>${esc(f.summary || "")}</div>
+          </div>
+          ${sec("Read the explainer", f.sections.length + " sections", f.sections.map(s => `<div class="read"><h3>${esc(s.head)}</h3><p>${esc(s.body)}</p></div>`).join(""))}
+          ${sec("Sources", (f.sources || []).length + " cited", `<ol class="srclist">${(f.sources || []).map(s => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a></li>`).join("")}</ol>`)}
+        </article>`).join("");
+      applyGlossary(el);
+    }
+
+    const deepList = () => ((ECO && ECO.deepDives) || []).filter(visible);
+
+    function renderSeries() {
+      const el = document.getElementById("cwSeries");
+      const series = ["All", ...new Set(deepList().map(x => x.series))];
+      el.innerHTML = deepList().length ? series.map(s => `<button type="button" class="chip${s === activeSeries ? " active" : ""}" data-s="${esc(s)}">${esc(s)}</button>`).join("") : "";
+      el.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => { activeSeries = b.dataset.s; renderSeries(); renderDeep(); }));
+    }
+
+    function renderDeep() {
+      const el = document.getElementById("cwDeep");
+      const list = deepList().filter(x => activeSeries === "All" || x.series === activeSeries).sort(bySort("deep", x => x.updated || x.date));
+      if (!list.length) { el.innerHTML = '<div class="empty">Deep dives are in progress.</div>'; return; }
+      el.innerHTML = list.map(x => `
+        <article class="card" id="${esc(x.id)}">
+          <div class="card-top">
+            <div class="meta">
+              ${x.draft ? '<span class="badge draft">Draft</span>' : ""}
+              <span class="badge sector">${esc(x.series)} · ${esc(x.n)}</span>
+              ${x.date ? `<span>${esc(fmt(x.date))}</span>` : ""}
+              <span>${readMin(x.sections)} min read · ${(x.sections || []).length} sections · ${(x.sources || []).length} sources</span>
+            </div>
+            <h2>${esc(x.title)}</h2>
+            <div class="bottomline"><b>BOTTOM LINE</b>${esc(x.bottomLine)}</div>
+          </div>
+          ${sec("Analysis", (x.sections || []).length + " sections · open question", (x.sections || []).map(s => `<div class="read"><h3>${esc(s.head)}</h3><p>${esc(s.body)}</p>${s.confidence ? `<div class="conf">Confidence: ${esc(s.confidence)}</div>` : ""}</div>`).join("") +
+            (x.openQuestion ? `<div class="openq-wrap"><div class="openq-label">Open question</div><p class="openq">${esc(x.openQuestion)}</p></div>` : ""))}
+          ${sec("Sources", (x.sources || []).length + " cited", `<ol class="srclist">${(x.sources || []).map(s => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a></li>`).join("")}</ol>`)}
+        </article>`).join("");
+      applyGlossary(el);
+    }
+
+    function renderMap() {
+      const el = document.getElementById("cwMap");
+      const m = ECO && ECO.map;
+      if (!m || !visible(m)) { el.innerHTML = '<div class="empty">The ecosystem map is in progress.</div>'; return; }
+      el.innerHTML = `<div class="eco-groups">${(m.groups || []).map(g => `<div class="eco-group"><h3>${esc(g.name)}</h3>${(g.items || []).map(i =>
+          `<div class="eco-item"><a href="${esc(i.url)}" target="_blank" rel="noopener">${esc(i.name)}</a><div class="where">${esc(i.where)}</div><div>${esc(i.role)}</div></div>`).join("")}</div>`).join("")}</div>
+        <div class="eco-links"><div class="tr-lbl">Documented connections</div><table class="dates">${(m.links || []).map(l =>
+          `<tr><td>${esc(l.from)}</td><td class="rel">${esc(l.rel)}</td><td>${esc(l.to)}</td><td class="eco-where">${esc(l.note || "")}</td></tr>`).join("")}</table>
+        <div class="eco-note">${esc(m.sourceNote || "")}</div></div>`;
+    }
+
+    function renderPreview() {
+      if (!LOCAL) return;
+      const n = DATA.entries.filter(e => e.draft).length + deepList().filter(x => x.draft).length +
+        TRACKS.tracks.reduce((a, t) => a + fdList(t).filter(f => f.draft && (f.sections || []).length).length, 0);
+      if (n) document.getElementById("cwPreview").innerHTML =
+        `<div class="preview"><b>LOCAL PREVIEW</b> · ${n} draft items are visible here and hidden on the live site. To publish one, change its "draft": true to false.</div>`;
+    }
+
     fetch("data/cryptologic.json", { cache: "no-store" })
       .then(r => r.ok ? r.json() : { entries: [] })
       .catch(() => ({ entries: [] }))
       .then(async d => {
         DATA = d && Array.isArray(d.entries) ? d : { entries: [] };
         const get = u => fetch(u, { cache: "no-store" }).then(r => r.ok ? r.json() : null).catch(() => null);
-        const [tr, gl] = await Promise.all([get("data/cryptologic-tracks.json"), get("data/glossary.json")]);
+        const [tr, gl, eco] = await Promise.all([get("data/cryptologic-tracks.json"), get("data/glossary.json"), get("data/cryptologic-ecosystem.json")]);
+        ECO = eco;
         if (tr && Array.isArray(tr.tracks)) {
           TRACKS = tr;
           DATA.entries = [...DATA.entries, ...(tr.draftEntries || [])];
           tr.tracks.forEach(t => (t.entryIds || []).forEach(id => { trackOf[id] = t; }));
         }
+        DATA.entries = DATA.entries.filter(visible);
         GLOSS = (gl && gl.terms) || [];
         document.getElementById("cwNote").textContent = DATA.note || "Hand-curated from public sources.";
         renderTiles(); renderTimeline(); renderLatest(); renderTracks(); applyGlossary(document.getElementById("cwTracks"));
         renderFilters(); renderEntries();
+        renderFdFilters(); renderFoundations(); renderSeries(); renderDeep(); renderMap(); renderPreview();
+        renderLatest(); renderGlance(); renderSorts(); initTabs();
       });
   </script>
 </body>

@@ -309,3 +309,14 @@ The automatic clusterer had lumped unrelated DARPA videos together (quantum, AI 
 **Loose ends**
 - yt-dlp is blocked by YouTube. Likely cause: it runs on the system Python 3.9, which newer yt-dlp releases no longer support, so `pip install -U` can't reach the current version. Fix next session: install yt-dlp through Homebrew or a newer Python, then re-pull transcripts for the five hand-written entries.
 - `sources/fetch_transcript.sh` now accepts a `YTDLP_EXTRACTOR_ARGS` override. Still uncommitted, along with the two helper scripts in `sources/`.
+
+
+## November 6 — Cryptologic Watch goes deeper: explainers, deep dives, ecosystem map
+
+(Draft written with Claude from today's session. Rewrite it in my own words before committing.)
+
+- What I did: Reframed the Cryptologic Watch tab around a stated purpose: understand the system underneath each development, not just the headline. Added a Purpose box, five Foundations explainers (harvest-now-decrypt-later, how quantum computers work, how qubits are built, QKD vs. PQC, lawful intercept), six deep dives (supply chain, the Illinois hub, funding and policy, national strategies, applications, and harvest-now-decrypt-later as an offensive strategy), a first version of an ecosystem map, and a Fitburg cable-sabotage entry. Updated the CNSA 2.0 entry with the Alice & Bob estimate.
+- How the facts were checked: every claim was traced to a source before it went in. The check caught real errors, including a bit-flip figure that was already out of date, a bill provision I had described wrongly, and a supplier that had been sold. The corrections are what make the pages defensible.
+- New technical piece: a draft system. Anything marked draft shows on localhost only, so I can commit work in progress without publishing it.
+- Judgment calls: kept U.S. offensive capabilities out of scope and used only publicly attributed operations and official doctrine. Labeled spending figures for China as low confidence. Marked company-reported trial results as company-reported.
+- Loose ends: read every draft myself before publishing it; confirm both quantum bills' status on congress.gov; decide whether offense and counterintelligence becomes its own track.

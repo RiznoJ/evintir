@@ -1,0 +1,864 @@
+{
+  "updated": "2026-11-06",
+  "note": "Deep dives and the ecosystem map for Cryptologic Watch. Items marked draft show only on localhost.",
+  "deepDives": [
+    {
+      "id": "eco-01",
+      "series": "The Quantum Ecosystem",
+      "n": 1,
+      "draft": true,
+      "date": "2026-11-06",
+      "title": "The Supply Chain: A Quantum Computer Is Mostly Not the Quantum Part",
+      "bottomLine": "The qubit chip is small. Most of the machine is cooling, wiring, lasers, and control electronics, and a few of those parts come from a handful of suppliers or one scarce isotope. Export controls now treat those parts as strategic, and there is evidence the controls are pushing China to build its own.",
+      "sections": [
+        {
+          "head": "What surrounds the chip",
+          "body": "A superconducting quantum computer needs a dilution refrigerator to reach around 10 millikelvin, microwave control electronics with nanosecond timing, cryogenic amplifiers and wiring, and a classical computer to run it. Atom- and ion-based machines swap the refrigerator for vacuum chambers and precision lasers. Each of these is a specialized industry.",
+          "confidence": "High"
+        },
+        {
+          "head": "Cooling: a small number of makers",
+          "body": "Bluefors (Finland) is a leading maker of dilution refrigerators; Maybell Quantum (Denver) makes the 'Icebox.' In June 2025 Oxford Instruments agreed to sell its quantum business, NanoScience, to Quantum Design International for £60 million, so a long-standing British supplier is changing hands.",
+          "confidence": "High"
+        },
+        {
+          "head": "Helium-3: one scarce isotope",
+          "body": "Dilution refrigerators run on helium-3. In the U.S. it comes solely from National Nuclear Security Administration operations, as a byproduct of the radioactive decay of tritium processed at the Savannah River Site, and the DOE Isotope Program sells it. In other words, a key input to quantum computing is a byproduct of the nuclear weapons complex. Companies are now signing for future supply from the Moon: DOE agreed in May 2025 to buy 3 liters of lunar helium-3 from Interlune for delivery by April 2029, and Bluefors agreed in September 2025 to buy up to 10,000 liters a year from 2028 to 2037. None has been extracted yet.",
+          "confidence": "High on sourcing · lunar supply is unproven"
+        },
+        {
+          "head": "Control electronics",
+          "body": "The systems that generate and read qubit signals come from a short list of firms: Quantum Machines (Israel, which raised $170 million in February 2025), Qblox (Netherlands), Zurich Instruments (Switzerland, owned by Germany's Rohde & Schwarz since 2021), and Keysight (U.S.). Several are allied but non-U.S. companies, which makes the supply chain a coalition issue, not just a national one.",
+          "confidence": "High on companies · Medium on the assessment"
+        },
+        {
+          "head": "Export controls",
+          "body": "On September 6, 2024, the Commerce Department's Bureau of Industry and Security added quantum items to U.S. export controls: quantum computers with 34 or more working qubits that meet set error thresholds, cryogenic chips and amplifiers, cryogenic cooling systems that reach 0.1 kelvin or colder (which covers dilution refrigerators), and related software and technology. A license exception covers countries with equivalent controls.",
+          "confidence": "High"
+        },
+        {
+          "head": "Did the controls backfire?",
+          "body": "A June 2025 RUSI commentary argued that the controls pushed Chinese labs toward domestic suppliers, naming Hefei Zhileng for dilution refrigerators, and sped up a local supply chain. Chinese state media reported in February 2024 that China had begun mass-producing its own 'EZ-Q Fridge,' reaching about 10 millikelvin; that claim has not been independently verified. Assessment: controls can slow a competitor and accelerate its self-sufficiency at the same time. Which effect dominates is the open question.",
+          "confidence": "Medium (RUSI argument) · Low–Medium (Chinese production claim)"
+        },
+        {
+          "head": "The policy response",
+          "body": "The Senate's National Quantum Initiative reauthorization bill (S. 3597) would require mapping quantum supply chains, identifying single points of failure, and recommending fixes. It cleared committee in April 2026 and has not passed the full Senate.",
+          "confidence": "High on the bill text · Medium on status"
+        }
+      ],
+      "openQuestion": "If the scarcest input to American quantum computers comes from the nuclear weapons complex, and the control electronics come largely from allies, is quantum supply-chain security a national project or an alliance one? And does restricting exports to China buy time, or does it fund China's independence?",
+      "sources": [
+        {
+          "label": "Oxford Instruments — sale of NanoScience (June 2025, primary)",
+          "url": "https://www.oxinst.com/news/sale-of-oxford-instruments’-quantum-business,-nanoscience/"
+        },
+        {
+          "label": "Bluefors — dilution refrigerator systems (primary)",
+          "url": "https://bluefors.com/products/dilution-refrigerator-measurement-systems/"
+        },
+        {
+          "label": "The Quantum Insider — Maybell Icebox (2022)",
+          "url": "https://thequantuminsider.com/2022/03/14/colorados-maybell-quantum-exits-stealth-unveils-the-icebox/"
+        },
+        {
+          "label": "DOE Isotope Program — supply and demand of helium-3 (primary)",
+          "url": "https://www.isotopes.gov/Supply-and-Demand-of-Helium-3"
+        },
+        {
+          "label": "Interlune — DOE buys lunar helium-3 (May 2025, primary)",
+          "url": "https://www.interlune.space/press-release/u-s-department-of-energy-buys-helium-3-from-u-s-space-resources-company-interlune-in-historic-agreement"
+        },
+        {
+          "label": "Bluefors — helium-3 from the Moon with Interlune (Sept. 2025, primary)",
+          "url": "https://bluefors.com/press-releases/bluefors-to-source-Helium-3-from-the-moon-with-interlune-to-power-next-phase-of-quantum-industry-growth/"
+        },
+        {
+          "label": "The Quantum Insider — Quantum Machines raises $170M (Feb. 2025)",
+          "url": "https://thequantuminsider.com/2025/02/25/quantum-machines-raises-170-million-as-its-customer-base-exceeds-50-of-companies-developing-quantum-computers/"
+        },
+        {
+          "label": "Zurich Instruments — now a Rohde & Schwarz company (primary)",
+          "url": "https://www.zhinst.com/ko/news/zurich-instruments-now-rohde-schwarz-company/"
+        },
+        {
+          "label": "Federal Register — BIS quantum export controls (Sept. 6, 2024, primary)",
+          "url": "https://www.federalregister.gov/documents/2024/09/06/2024-19633/commerce-control-list-additions-and-revisions-implementation-of-controls-on-advanced-technologies"
+        },
+        {
+          "label": "RUSI — Export controls accelerate China's quantum supply chain (June 2025)",
+          "url": "https://www.rusi.org/explore-our-research/publications/commentary/export-controls-accelerate-chinas-quantum-supply-chain"
+        },
+        {
+          "label": "The Quantum Insider — reports China mass-producing dilution refrigerators (Feb. 2024)",
+          "url": "https://thequantuminsider.com/2024/02/28/reports-china-mass-producing-dilution-refrigerator-critical-to-superconducting-quantum-computing/"
+        },
+        {
+          "label": "Senate Commerce — NQI reauthorization passes committee (Apr. 2026, primary)",
+          "url": "https://www.commerce.senate.gov/press/dem/release/led-by-cantwell-and-young-national-quantum-initiative-reauthorization-act-unanimously-passes-commerce-committee-on-world-quantum-day/"
+        }
+      ]
+    },
+    {
+      "id": "eco-02",
+      "series": "The Quantum Ecosystem",
+      "n": 2,
+      "draft": true,
+      "date": "2026-11-06",
+      "title": "The Illinois Hub: How Chicago Became a Quantum Proving Ground",
+      "bottomLine": "Illinois has assembled the pieces of a national quantum hub in one region: a university research network led by UIUC, two Department of Energy centers, a state-funded industrial park on Chicago's South Side, and a DARPA program to test whether the machines work. The national security link is direct: the proving ground exists to verify claims for the Defense Department.",
+      "sections": [
+        {
+          "head": "UIUC: IQUIST and HQAN",
+          "body": "The Illinois Quantum Information Science and Technology Center (IQUIST) is UIUC's quantum hub; Elizabeth Goldschmidt became its director on July 16, 2026, succeeding Brian DeMarco. UIUC also leads HQAN (Hybrid Quantum Architectures and Networks), an NSF Quantum Leap Challenge Institute with the University of Chicago, UW–Madison, and Northwestern, which NSF renewed in August 2026 with $37.5 million over five years. HQAN's focus is linking smaller quantum processors over a network instead of building one giant chip. UIUC launched an undergraduate minor in Quantum Information Science in fall 2026.",
+          "confidence": "High"
+        },
+        {
+          "head": "Who is doing what at UIUC",
+          "body": "Paul Kwiat develops optical quantum tools (photon sources, memories, detectors), including drone-based quantum communication. Goldschmidt works on quantum memories and single-photon sources. Wolfgang Pfaff works on superconducting circuits and quantum networks. Angela Kou studies superconducting qubits and the material defects that limit them, under a $4.8 million Air Force Office of Scientific Research project announced in October 2025. DeMarco directs HQAN and studies ultracold atoms.",
+          "confidence": "High"
+        },
+        {
+          "head": "Chicago Quantum Exchange and the national labs",
+          "body": "The Chicago Quantum Exchange was founded in June 2017 by the University of Chicago, Argonne, and Fermilab; its anchor institutions now include UIUC, UW–Madison, Northwestern, and Purdue. In November 2025 DOE renewed its five national quantum research centers for $625 million, including Argonne-led Q-NEXT and Fermilab-led SQMS at $125 million each over five years. A 124-mile, six-node quantum network linking Argonne and UChicago was activated in June 2022.",
+          "confidence": "High"
+        },
+        {
+          "head": "The Illinois Quantum and Microelectronics Park",
+          "body": "On September 30, 2025, ground was broken on a 128-acre campus at the former U.S. Steel South Works site in South Chicago. The state has committed $500 million. PsiQuantum is the anchor tenant and plans a million-qubit-scale, fault-tolerant machine there; IBM, Infleqtion, Diraq, Pasqal, and Quantum Machines are also tenants. Phase one, about 30 acres, is under construction for completion in 2027.",
+          "confidence": "High"
+        },
+        {
+          "head": "The DARPA connection",
+          "body": "In July 2024 Illinois announced the DARPA-Illinois Quantum Proving Ground, a federal-state program to test and validate quantum hardware at the park, with the state pledging up to $140 million alongside DARPA funding. It ties into DARPA's Quantum Benchmarking Initiative, which asks whether any approach can reach a useful scale by 2033. PsiQuantum, which raised $1 billion in September 2025, is one of six companies in the program's final verification stage.",
+          "confidence": "High"
+        },
+        {
+          "head": "Why it matters for national security",
+          "body": "Three things converge here: defense-funded basic research (the Air Force grant), government verification of company claims (the proving ground), and the workforce pipeline (the new minor and the national labs). The Israel link is also concrete: Quantum Machines, which runs Israel's national quantum computing center, is a tenant. Assessment: the region's significance is less any single machine than the fact that the U.S. government is building a place to check whether the machines are real.",
+          "confidence": "High on the facts · Medium on the assessment"
+        }
+      ],
+      "openQuestion": "A state government is spending hundreds of millions to host companies whose core technology is not yet proven. If the proving ground's job is to tell DARPA which claims are true, what happens to the park if the answer for its anchor tenant is no? Is concentrating a national capability in one region a strength, or a single point of failure?",
+      "sources": [
+        {
+          "label": "IQUIST — Goldschmidt named director (July 2026, primary)",
+          "url": "https://iquist.illinois.edu/news/Goldschmidt-named-IQUIST-director"
+        },
+        {
+          "label": "Grainger Engineering — HQAN renewed for five years (Aug. 2026, primary)",
+          "url": "https://grainger.illinois.edu/news/stories/HQAN-renewed-five-years"
+        },
+        {
+          "label": "IQUIST — QIS minor announced (Aug. 2026, primary)",
+          "url": "https://iquist.illinois.edu/news/undergraduate-minor-in-quantum-information-science-qis-announced"
+        },
+        {
+          "label": "IQUIST — Paul Kwiat (primary)",
+          "url": "https://iquist.illinois.edu/people/paul-kwiat"
+        },
+        {
+          "label": "Grainger Engineering — AFOSR superconducting hardware project (Oct. 2025, primary)",
+          "url": "https://grainger.illinois.edu/news/stories/afosr-superconducting-quantum-hardware-tls"
+        },
+        {
+          "label": "Fermilab — Chicago Quantum Exchange founded (June 2017, primary)",
+          "url": "https://news.fnal.gov/2017/06/chicago-quantum-exchange-create-technologically-transformative-ecosystem/"
+        },
+        {
+          "label": "Chicago Quantum Exchange — members (primary)",
+          "url": "https://chicagoquantum.org/about/members"
+        },
+        {
+          "label": "Chicago Quantum Exchange — DOE $625M center renewal (Nov. 2025)",
+          "url": "https://chicagoquantum.org/news/department-energy-announces-625m-quantum-center-renewal-summit"
+        },
+        {
+          "label": "UChicago — 124-mile quantum network (June 2022, primary)",
+          "url": "https://news.uchicago.edu/story/chicago-quantum-network-argonne-pritzker-molecular-engineering-toshiba"
+        },
+        {
+          "label": "Business Wire — IQMP groundbreaking (Sept. 30, 2025)",
+          "url": "https://www.businesswire.com/news/home/20250930243293/en"
+        },
+        {
+          "label": "The Quantum Insider — Quantum Machines becomes sixth IQMP tenant (Feb. 2026)",
+          "url": "https://thequantuminsider.com/2026/02/04/quantum-machines-becomes-sixth-tenant-at-illinois-quantum-park/"
+        },
+        {
+          "label": "Grainger Engineering — DARPA-Illinois Quantum Proving Ground (July 2024, primary)",
+          "url": "https://grainger.illinois.edu/news/stories/quantum-proving-ground"
+        },
+        {
+          "label": "DARPA — Quantum Benchmarking Initiative (primary)",
+          "url": "https://www.darpa.mil/research/programs/quantum-benchmarking-initiative"
+        },
+        {
+          "label": "Quantum Computing Report — PsiQuantum raises $1B (Sept. 2025)",
+          "url": "https://quantumcomputingreport.com/psiquantum-raises-1-billion-to-build-fault-tolerant-quantum-computers-announces-collaboration-with-nvidia/"
+        }
+      ]
+    },
+    {
+      "id": "eco-03",
+      "series": "The Quantum Ecosystem",
+      "n": 3,
+      "draft": true,
+      "date": "2026-11-06",
+      "title": "Who Pays: The Money and Law Behind U.S. Quantum",
+      "bottomLine": "Reported federal quantum research spending has held at roughly $1 billion a year, and the law that coordinates it is waiting on reauthorization. One private funding round, PsiQuantum's $1 billion in September 2025, was roughly equal to the government's entire reported annual figure.",
+      "sections": [
+        {
+          "head": "The baseline",
+          "body": "The National Quantum Initiative Act, signed December 21, 2018, coordinates federal quantum research. Its most recent budget supplement reports total federal quantum information science R&D of $1.036 billion in FY2023 (actual), $1.006 billion in FY2024 (enacted), and $998 million requested for FY2025. Public budget figures may not capture all defense spending.",
+          "confidence": "High on the reported figures"
+        },
+        {
+          "head": "Reauthorization, still pending",
+          "body": "The Senate bill (S. 3597, Senators Young and Cantwell) passed the Commerce Committee unanimously on April 14, 2026. It would extend the program through 2034, add NASA, map supply chains, and require a post-quantum migration strategy. The House bill (H.R. 8462, Representative Weber) was approved by the Science Committee on April 29, 2026; it would run through 2032 and direct DOE's quantum research to include energy uses such as electric-grid management. Neither has passed a full chamber.",
+          "confidence": "Medium: confirm status on congress.gov"
+        },
+        {
+          "head": "DARPA: paying to find out what is real",
+          "body": "DARPA's Quantum Benchmarking Initiative asks whether any approach can reach utility scale, meaning its value exceeds its cost, by 2033. It runs in three stages: a concept (up to $1 million), a research plan and prototypes (up to $15 million), and government verification (up to $300 million). As of October 2026, six companies are in the final stage: Atom Computing, Diraq, IBM, IonQ, Microsoft, and PsiQuantum.",
+          "confidence": "High"
+        },
+        {
+          "head": "Defense sensing programs",
+          "body": "The Defense Innovation Unit's Transition of Quantum Sensing program, launched May 9, 2024, field-tests quantum navigation and anomaly detection. DARPA's Robust Quantum Sensors program, announced February 7, 2025, aims to make quantum sensors survive the vibration and interference of real military platforms.",
+          "confidence": "High"
+        },
+        {
+          "head": "The intelligence community's public footprint",
+          "body": "NSA's Laboratory for Physical Sciences in College Park, Maryland, runs a quantum information science program that aims to 'advance the state of the art in quantum computing,' and in 2020 launched a Qubit Collaboratory with the Army Research Office. This is what NSA says publicly; its classified work is outside the scope of this page.",
+          "confidence": "High"
+        },
+        {
+          "head": "Assessment",
+          "body": "The government's role is shifting from main funder to referee. Private money now rivals public research budgets, so the federal levers that matter most may be verification (DARPA), procurement deadlines (CNSA 2.0), and export controls, rather than grant totals.",
+          "confidence": "Medium"
+        }
+      ],
+      "openQuestion": "When private investors fund quantum hardware at the scale of the federal research budget, what does the government actually control? Is buying verification and setting deadlines enough influence, or does a strategic technology need public ownership of more of the stack?",
+      "sources": [
+        {
+          "label": "National Quantum Initiative Act, P.L. 115-368 (primary)",
+          "url": "https://www.govinfo.gov/link/plaw/115/public/368"
+        },
+        {
+          "label": "NQI Supplement to the President's FY2025 Budget (primary)",
+          "url": "https://bidenwhitehouse.archives.gov/wp-content/uploads/2025/01/NQI-Annual-Report-FY2025.pdf"
+        },
+        {
+          "label": "Senate Commerce — S. 3597 passes committee (Apr. 2026, primary)",
+          "url": "https://www.commerce.senate.gov/press/dem/release/led-by-cantwell-and-young-national-quantum-initiative-reauthorization-act-unanimously-passes-commerce-committee-on-world-quantum-day/"
+        },
+        {
+          "label": "House Science Committee — H.R. 8462 passes committee (Apr. 2026, primary)",
+          "url": "https://science.house.gov/2026/4/chairman-babin-subcommittee-chairman-weber-applaud-committee-passage-of-national-quantum-initiative-reauthorization-act"
+        },
+        {
+          "label": "H.R. 8462 bill text (primary)",
+          "url": "https://www.govinfo.gov/content/pkg/BILLS-119hr8462ih/xml/BILLS-119hr8462ih.xml"
+        },
+        {
+          "label": "DARPA — Quantum Benchmarking Initiative (primary)",
+          "url": "https://www.darpa.mil/research/programs/quantum-benchmarking-initiative"
+        },
+        {
+          "label": "Quantum Computing Report — four companies enter QBI Stage C (Oct. 2026)",
+          "url": "https://quantumcomputingreport.com/darpa-selects-atom-computing-diraq-ibm-and-ionq-for-final-stage-c-verification-under-quantum-benchmarking-initiative/"
+        },
+        {
+          "label": "DIU — Transition of Quantum Sensors solicitation (May 2024, primary)",
+          "url": "https://www.diu.mil/latest/defense-innovation-unit-launches-first-cso-under-new-emerging-technology"
+        },
+        {
+          "label": "DARPA — Robust Quantum Sensors (Feb. 2025, primary)",
+          "url": "https://www.darpa.mil/news/2025/quantum-sensors-defense-platforms"
+        },
+        {
+          "label": "NSA — LPS Qubit Collaboratory (2020, primary)",
+          "url": "https://www.nsa.gov/Press-Room/News-Highlights/Article/Article/2397829/nsas-laboratory-for-physical-sciences-announces-first-ever-qubit-collaboratory/"
+        },
+        {
+          "label": "Laboratory for Physical Sciences (primary)",
+          "url": "https://lps.umd.edu"
+        }
+      ]
+    },
+    {
+      "id": "eco-04",
+      "series": "The Quantum Ecosystem",
+      "n": 4,
+      "draft": true,
+      "date": "2026-11-06",
+      "title": "Four Bets: How the U.S., China, Europe, and Israel Approach Quantum",
+      "bottomLine": "The major players are not running the same race. The U.S. is betting on verification, new encryption standards, and export controls; China on scale and quantum communication networks; Europe on shared infrastructure; Israel on a specialist niche in the control layer that the whole industry depends on.",
+      "sections": [
+        {
+          "head": "United States: verify, migrate, restrict",
+          "body": "DARPA verifies company claims through the Quantum Benchmarking Initiative, NSA sets post-quantum migration deadlines for national security systems through CNSA 2.0, and the Commerce Department restricts exports of key components. Funding runs through the National Quantum Initiative at about $1 billion a year in reported federal research spending.",
+          "confidence": "High"
+        },
+        {
+          "head": "China: scale and networks",
+          "body": "China's public quantum spending is often cited as $15.3 billion, a 2022 McKinsey estimate of announced funding; other analysts put the real figure far lower, so treat it as unverified. Verified points: the Hefei National Laboratory (about 7 billion yuan for its first phase); USTC's Zuchongzhi 3.0, a 105-qubit superconducting processor that set a benchmark claim in March 2025; Jiuzhang photonic machines detecting up to 255 photons in narrow sampling tasks; and the world's most extensive QKD networks and satellites. China's 15th Five-Year Plan (2026–2030) reportedly lists quantum technology first among its 'future industries.'",
+          "confidence": "High on hardware milestones · Low on spending figures"
+        },
+        {
+          "head": "Europe: shared infrastructure",
+          "body": "The EU's Quantum Flagship launched in 2018 with €1 billion. The Quantum Europe Strategy, published July 2, 2025, aims for leadership by 2030, and a Quantum Act proposal is due in 2026. All 27 member states have signed on to EuroQCI, a planned quantum communication network. The UK published a separate National Quantum Strategy on March 20, 2023, committing £2.5 billion over 10 years, and added £670 million for quantum computing in June 2025.",
+          "confidence": "High"
+        },
+        {
+          "head": "Israel: the control layer",
+          "body": "The Israel National Quantum Initiative launched in 2018 and was expanded to NIS 1.25 billion over six years in 2020, with partners including the defense ministry's research directorate (MAFAT). In March 2021 the government allocated about $60 million to build a national quantum computer; the Weizmann Institute built Israel's first small one in 2022, and Israel Aerospace Industries unveiled a 20-qubit superconducting machine in December 2024. Quantum Machines opened the Israeli Quantum Computing Center at Tel Aviv University on June 24, 2024. Israel's distinctive strength is control electronics: Quantum Machines sells to companies building quantum computers worldwide.",
+          "confidence": "High"
+        },
+        {
+          "head": "Assessment",
+          "body": "Each approach reflects national strengths. The U.S. relies on its regulatory and procurement power, China on state-directed scale, Europe on coordination among members, and Israel on a defense-linked startup sector. The U.S.–Israel overlap is concrete: an Israeli firm whose systems run Israel's national center is also a tenant of the Illinois quantum park.",
+          "confidence": "Medium"
+        }
+      ],
+      "openQuestion": "Is quantum a race with one winner, or a set of separate contests (computing, communications, sensing) that different countries can win at the same time? If China leads in quantum networks while the U.S. leads in verified computing, which lead matters more for intelligence, and who would know first?",
+      "sources": [
+        {
+          "label": "McKinsey — Betting big on quantum (2022)",
+          "url": "https://www.mckinsey.com/featured-insights/charts/betting-big-on-quantum"
+        },
+        {
+          "label": "PostQuantum.com — China's quantum investment is unknowable (critique)",
+          "url": "https://postquantum.com/quantum-computing/china-quantum-investment-unknowable/"
+        },
+        {
+          "label": "PostQuantum.com — Hefei National Laboratory",
+          "url": "https://postquantum.com/china-quantum-ambition/china-hefei-quantum/"
+        },
+        {
+          "label": "Physical Review Letters — Zuchongzhi 3.0 (Mar. 2025, primary)",
+          "url": "https://physics.aps.org/featured-article-pdf/10.1103/PhysRevLett.134.090601"
+        },
+        {
+          "label": "SCMP — Jiuzhang 3.0 (2023)",
+          "url": "https://www.scmp.com/news/china/science/article/3237538/chinese-scientists-claim-record-smashing-quantum-computing-breakthrough"
+        },
+        {
+          "label": "China Briefing — quantum in the 15th Five-Year Plan",
+          "url": "https://www.china-briefing.com/news/chinas-quantum-technology-15th-fyp-commercialization/"
+        },
+        {
+          "label": "European Commission — EU plan to lead in quantum by 2030 (July 2025, primary)",
+          "url": "https://commission.europa.eu/news-and-media/news/eus-plan-become-global-leader-quantum-2030-2025-07-02_en"
+        },
+        {
+          "label": "European Commission — Quantum policy, Flagship, EuroQCI (primary)",
+          "url": "https://digital-strategy.ec.europa.eu/en/policies/quantum"
+        },
+        {
+          "label": "UKRI — UK National Quantum Strategy (Mar. 2023, primary)",
+          "url": "https://uknqt.ukri.org/news/uk-government-publishes-the-national-quantum-strategy/"
+        },
+        {
+          "label": "UK Government — quantum support restating £670M (Nov. 2025, primary)",
+          "url": "https://www.gov.uk/government/news/government-support-to-get-quantum-to-work-faster-boosting-uks-health-defence-energy-and-more"
+        },
+        {
+          "label": "Israel Council for Higher Education — National Quantum Initiative (primary)",
+          "url": "https://che.org.il/en/?p=530217"
+        },
+        {
+          "label": "Bloomberg — Israel allocates $60M for first quantum computer (Mar. 2021)",
+          "url": "https://www.bloomberg.com/news/articles/2021-03-03/israel-allocates-60-million-to-build-first-quantum-computer"
+        },
+        {
+          "label": "Israel Hayom — Weizmann builds Israel's first quantum computer (Mar. 2022)",
+          "url": "https://www.israelhayom.com/2022/03/22/weizmann-institute-team-builds-israels-first-quantum-computer"
+        },
+        {
+          "label": "The Media Line — Israel unveils 20-qubit quantum computer (Dec. 2024)",
+          "url": "https://themedialine.org/mideast-daily-news/israel-unveils-20-qubit-quantum-computer-in-major-technology-milestone"
+        },
+        {
+          "label": "Quantum Machines — opens the Israeli Quantum Computing Center (June 2024)",
+          "url": "https://prnewswire.com/news-releases/quantum-machines-opens-the-israeli-quantum-computing-center-302181680.html"
+        }
+      ]
+    },
+    {
+      "id": "eco-05",
+      "series": "The Quantum Ecosystem",
+      "n": 5,
+      "draft": true,
+      "date": "2026-11-06",
+      "title": "Applications: What Is Fielded, What Is in Trials, What Is Hype",
+      "bottomLine": "Quantum technology already runs inside GPS satellites, and quantum navigation is in military field trials because GPS jamming is now routine. Code-breaking remains theory. Quantum radar and 'transparent oceans' are where public claims most outrun the evidence.",
+      "sections": [
+        {
+          "head": "Fielded: atomic clocks",
+          "body": "Every GPS satellite carries multiple atomic clocks, which supply the precise timing the system depends on. Timing underpins navigation, communications, and the coordination of military operations.",
+          "confidence": "High"
+        },
+        {
+          "head": "In trials: navigation without GPS",
+          "body": "The need is real: in June 2025, 13 EU member states described Baltic-region GPS interference since 2022 as 'systematic, deliberate action by Russia and Belarus.' Trials so far: Q-CTRL announced on August 27, 2026 a GPS-free quantum gravimetric navigation trial at sea (its accuracy figures are company-reported). Under DIU's quantum sensing program, Honeywell and Vector Atomic flew a quantum inertial sensor on the X-37B space plane, launched August 21, 2025. The Royal Navy has tested a quantum accelerometer (2023), an optical clock on an uncrewed submarine (October 2025), and cold-atom clocks timing a radar without satellite signals (August 2026). Northrop Grumman and SandboxAQ flight-tested quantum-enabled magnetic navigation on a drone in summer 2026 (company claim).",
+          "confidence": "High that trials occurred · performance figures are mostly self-reported"
+        },
+        {
+          "head": "Contested: finding submarines",
+          "body": "Quantum magnetometers are sometimes said to threaten submarine stealth. A 2020 Australian National University study expected detection to improve by the 2050s but concluded the oceans are unlikely to become transparent. A 2025 MIT thesis found that because magnetic signals fade steeply with distance, large gains in sensitivity buy only modest gains in range.",
+          "confidence": "Medium: few public expert assessments exist"
+        },
+        {
+          "head": "Hype: quantum radar",
+          "body": "In 2016 China's CETC claimed a quantum radar detected targets at 100 km, without releasing data. The U.S. Defense Science Board concluded in 2019 that quantum radar 'will not provide upgraded capability to DOD,' a finding the Congressional Research Service repeated in May 2026. A 2021 review rated it at the earliest stage of technology readiness.",
+          "confidence": "High that expert consensus is skeptical"
+        },
+        {
+          "head": "Space",
+          "body": "China's Micius satellite (2016) and Jinan-1 microsatellite (2025) demonstrated space-based quantum key distribution. NASA's Cold Atom Laboratory has studied ultracold atoms on the International Space Station since 2018, and its Deep Space Atomic Clock, launched in June 2019, tested precise timing for spacecraft navigation. NASA's planned Quantum Gravity Gradiometer Pathfinder would use ultracold atoms to measure Earth's gravity from orbit, with launch targeted near the end of the decade.",
+          "confidence": "High"
+        },
+        {
+          "head": "Energy",
+          "body": "Making ammonia for fertilizer uses about 2% of the world's total final energy consumption, according to the IEA. Understanding how bacteria do it naturally (the FeMoco enzyme cofactor) is a classic target for quantum chemistry, and battery materials are another. Published studies of both assume fault-tolerant quantum computers, which do not exist yet. These are long-term applications.",
+          "confidence": "High on figures · timelines are uncertain"
+        },
+        {
+          "head": "Theory, for now: code-breaking",
+          "body": "Shor's algorithm has only factored very small numbers on real hardware, using simplified circuits. Every resource estimate for breaking RSA describes a machine that does not yet exist. See the CNSA 2.0 entry and the harvest-now, decrypt-later explainer for why it still drives policy today.",
+          "confidence": "High"
+        }
+      ],
+      "openQuestion": "The quantum technologies closest to the battlefield are sensors and clocks, not computers, yet public attention goes to code-breaking. Are policymakers watching the wrong race, or is code-breaking rightly the priority because its consequences would be so large and so hard to detect?",
+      "sources": [
+        {
+          "label": "GPS.gov — GPS and timing (primary)",
+          "url": "https://www.gps.gov/gps-and-telling-time"
+        },
+        {
+          "label": "Lithuanian Ministry of Transport — 13 states call for EU response to GNSS interference (June 2025, primary)",
+          "url": "https://sumin.lrv.lt/en/news/minister-sabutis-builds-regional-coalition-and-calls-for-eu-response-to-gnss-interference/"
+        },
+        {
+          "label": "Q-CTRL — GPS-free gravimetric navigation trial (Aug. 2026, company)",
+          "url": "https://q-ctrl.com/blog/q-ctrl-achieves-worlds-first-gps-free-quantum-gravimetric-navigation-demonstration-in-maritime-field-trial"
+        },
+        {
+          "label": "DIU — quantum sensing from lab to orbit (primary)",
+          "url": "https://www.diu.mil/latest/advancing-quantum-sensing-for-the-dod-from-lab-to-orbit-within-months"
+        },
+        {
+          "label": "EurekAlert — Imperial quantum accelerometer on a Royal Navy ship (2023)",
+          "url": "https://www.eurekalert.org/news-releases/990617"
+        },
+        {
+          "label": "Infleqtion — optical clock on Royal Navy uncrewed submarine (Oct. 2025, company)",
+          "url": "https://ir.infleqtion.com/news-events/press-releases/detail/100/infleqtion-and-royal-navy-demonstrate-worlds-first-quantum-optical-clock-on-underwater-autonomous-submarine-to-advance-gps-free-navigation"
+        },
+        {
+          "label": "Royal Navy — quantum clock trials (Aug. 2026, primary)",
+          "url": "https://www.royalnavy.mod.uk/news/2026/august/14/20260814-dcto-quantum-clock-trials"
+        },
+        {
+          "label": "The Aviationist — Northrop Grumman and SandboxAQ AQNav (Oct. 2026)",
+          "url": "https://theaviationist.com/2026/10/05/northrop-grumman-and-sandboxaq-lumberjack-aqnav/"
+        },
+        {
+          "label": "ANU National Security College — Transparent Oceans? (2020)",
+          "url": "https://researchportalplus.anu.edu.au/en/publications/transparent-oceans-the-coming-ssbn-counter-detection-task-may-be-/"
+        },
+        {
+          "label": "MIT DSpace — quantum magnetometry and submarine detection (2025 thesis)",
+          "url": "https://dspace.mit.edu/handle/1721.1/159947"
+        },
+        {
+          "label": "CRS — Defense Primer: Quantum Technology (May 2026, primary)",
+          "url": "https://www.everycrsreport.com/files/2026-05-12_IF11836_95437ccf75195685b40fce932ac482b84b1ff26b.html"
+        },
+        {
+          "label": "Krelina — Quantum Technology for Military Applications (2021)",
+          "url": "https://arxiv.org/pdf/2103.12548"
+        },
+        {
+          "label": "CNBC — CETC quantum radar claim (Sept. 2016)",
+          "url": "https://www.cnbc.com/2016/09/21/the-end-of-stealth-new-chinese-radar-capable-of-detecting-invisible-targets-100km-away.html"
+        },
+        {
+          "label": "NASA JPL — Cold Atom Laboratory (primary)",
+          "url": "https://www.jpl.nasa.gov/missions/cold-atom-laboratory-cal/"
+        },
+        {
+          "label": "NASA — Deep Space Atomic Clock (primary)",
+          "url": "https://www.nasa.gov/mission/deep-space-atomic-clock-dsac/"
+        },
+        {
+          "label": "NASA — first quantum sensor for gravity measurements (primary)",
+          "url": "https://science.nasa.gov/directorates/smd/earth-science-division/earth-science-technology-office/nasa-aims-to-fly-first-quantum-sensor-for-gravity-measurements/"
+        },
+        {
+          "label": "IEA — Ammonia Technology Roadmap (primary)",
+          "url": "https://www.iea.org/reports/ammonia-technology-roadmap"
+        },
+        {
+          "label": "Reiher et al. — Elucidating reaction mechanisms on quantum computers (PNAS, 2017)",
+          "url": "https://arxiv.org/abs/1605.03590v2"
+        },
+        {
+          "label": "Delgado et al. — simulating lithium-ion batteries on a fault-tolerant quantum computer (2022)",
+          "url": "https://arxiv.org/pdf/2204.11890v1"
+        }
+      ]
+    },
+    {
+      "id": "off-01",
+      "series": "Offense & Counterintelligence",
+      "n": 1,
+      "draft": true,
+      "date": "2026-11-06",
+      "title": "Harvest-Now, Decrypt-Later as an Offensive Strategy",
+      "bottomLine": "Seen from the attacker's side, harvest-now, decrypt-later is an old intelligence strategy: collect what you cannot read yet, and wait. Venona proved patience can pay for decades. One side's collection program is the other side's counterintelligence problem, which is why the same event, such as Salt Typhoon, belongs on both ledgers.",
+      "sections": [
+        {
+          "head": "Two sides of one operation",
+          "body": "Every collection operation is also a counterintelligence failure for someone. Salt Typhoon is China's collection effort, as described by U.S. officials, and America's counterintelligence problem. This page analyzes the offensive side only through publicly attributed operations and official doctrine. It does not assess U.S. capabilities."
+        },
+        {
+          "head": "Collection first, decryption later",
+          "body": "For an attacker, the hard part is access, not storage. Once traffic is collected, waiting costs little. U.S. agencies tell organizations to assume adversaries 'could be targeting data today' for future decryption. Salt Typhoon shows large-scale access to communications data is real, though public disclosures do not say whether encrypted traffic was stored for later decryption."
+        },
+        {
+          "head": "History: Venona and Ultra",
+          "body": "Venona read Soviet messages from the 1940s for nearly four decades, because a Soviet mistake (reused one-time pads) made them breakable after the fact. Ultra, the Allied breaking of German Enigma traffic, shows the value of reading an adversary's messages in real time. Sir Harry Hinsley, the official historian of British wartime intelligence, estimated that without Ultra the war would have lasted two to four years longer. That is a counterfactual estimate: GCHQ's authorized historian, John Ferris, cautions that Bletchley Park was not the war-winner many assume, and GCHQ credits crucial groundwork by Polish and French codebreakers."
+        },
+        {
+          "head": "Publicly attributed offensive operations",
+          "body": "Governments do name offensive operations by adversaries. In October 2020 the Justice Department charged six officers of Russia's GRU Unit 74455 ('Sandworm') over attacks including the Ukrainian power grid (2015–16), NotPetya (2017), and the 2018 Winter Olympics opening ceremony; these remain allegations. The FBI attributed the 2026 Binance theft to North Korea's TraderTraitor (see the key-custody entry). These cases are the reliable public record for studying offense."
+        },
+        {
+          "head": "U.S. doctrine, in its own words",
+          "body": "The 2018 DoD Cyber Strategy committed the U.S. to 'defend forward to disrupt or halt malicious cyber activity at its source' and to 'persistently contest malicious cyber activity in day-to-day competition.' U.S. Cyber Command's 2018 vision argued 'superiority through persistence.' Legally, military operations fall under Title 10 of the U.S. Code and intelligence activities under Title 50, with different oversight committees; the Congressional Research Service explains the distinction."
+        },
+        {
+          "head": "Why this matters for a Cryptologic Warfare Officer",
+          "body": "The Navy describes the Cryptologic Warfare community's mission as applying signals intelligence, electronic warfare, cyberspace operations, and information operations, and lists 'attacking, defending and exploiting networks' among its work. Understanding offense and counterintelligence as one subject is the job, not a side interest."
+        }
+      ],
+      "openQuestion": "If every state assumes its rivals are already storing its encrypted traffic, does that assumption change behavior today, for example by making leaders more cautious about what they transmit? Or does it mostly change budgets? And if one side quietly gained the ability to read old traffic, would the first sign be a public breakthrough, or a change in how that side behaves?",
+      "sources": [
+        {
+          "label": "CISA, NSA, NIST — Quantum-Readiness factsheet (Aug. 2023, primary)",
+          "url": "https://www.nccoe.nist.gov/sites/default/files/2023-08/quantum-readiness-fact-sheet.pdf"
+        },
+        {
+          "label": "NSA — Venona (primary)",
+          "url": "https://www.nsa.gov/News-Features/Declassified-Documents/Venona"
+        },
+        {
+          "label": "GCHQ — Bletchley Park and WWII (primary)",
+          "url": "https://www.gchq.gov.uk/section/history/bletchley-park-and-wwii"
+        },
+        {
+          "label": "Santa Clara University — Hinsley lecture on the influence of Ultra (catalog)",
+          "url": "https://dh.scu.edu/exhibits/items/show/5828"
+        },
+        {
+          "label": "Yahoo News (Canadian Press) — GCHQ historian on Bletchley's legacy",
+          "url": "https://ca.news.yahoo.com/bletchley-parks-legacy-wwii-winner-113000645.html"
+        },
+        {
+          "label": "DOJ — six GRU officers charged (Oct. 2020, primary)",
+          "url": "https://www.justice.gov/archives/opa/pr/six-russian-gru-officers-charged-connection-worldwide-deployment-destructive-malware-and"
+        },
+        {
+          "label": "DoD Cyber Strategy 2018, summary (primary)",
+          "url": "https://dml.armywarcollege.edu/wp-content/uploads/2023/07/DoD-Cyber-Strategy-2018-Summary.pdf"
+        },
+        {
+          "label": "USCYBERCOM — Achieve and Maintain Cyberspace Superiority (2018, archive copy)",
+          "url": "https://nsarchive.gwu.edu/media/16477/ocr"
+        },
+        {
+          "label": "CRS — Covert Action and Clandestine Activities, Title 10 and Title 50 (R45175)",
+          "url": "https://www.everycrsreport.com/reports/R45175.html"
+        },
+        {
+          "label": "MyNavyHR — Cryptologic Warfare community (primary)",
+          "url": "https://www.mynavyhr.navy.mil/Career-Management/Community-Management/Officer/Active-OCM/Information-Warfare/Cryptologic-Warfare/"
+        },
+        {
+          "label": "Navy.com — Cryptologic Warfare careers (primary)",
+          "url": "https://www.navy.com/careers/cryptologic-warfare"
+        }
+      ]
+    }
+  ],
+  "map": {
+    "draft": true,
+    "groups": [
+      {
+        "name": "Universities",
+        "items": [
+          {
+            "name": "UIUC (IQUIST, HQAN)",
+            "where": "Urbana-Champaign, IL",
+            "role": "Leads the HQAN institute; new QIS minor",
+            "url": "https://iquist.illinois.edu/"
+          },
+          {
+            "name": "University of Chicago",
+            "where": "Chicago, IL",
+            "role": "Co-founded Chicago Quantum Exchange; HQAN partner",
+            "url": "https://chicagoquantum.org/about/members"
+          },
+          {
+            "name": "USTC",
+            "where": "Hefei, China",
+            "role": "Zuchongzhi and Jiuzhang machines; Micius science",
+            "url": "https://physics.aps.org/featured-article-pdf/10.1103/PhysRevLett.134.090601"
+          },
+          {
+            "name": "Weizmann Institute",
+            "where": "Rehovot, Israel",
+            "role": "Built Israel's first small quantum computer (2022)",
+            "url": "https://www.israelhayom.com/2022/03/22/weizmann-institute-team-builds-israels-first-quantum-computer"
+          }
+        ]
+      },
+      {
+        "name": "Government labs and agencies",
+        "items": [
+          {
+            "name": "DARPA (QBI, RoQS)",
+            "where": "Arlington, VA",
+            "role": "Verifies quantum computing claims; funds robust sensors",
+            "url": "https://www.darpa.mil/research/programs/quantum-benchmarking-initiative"
+          },
+          {
+            "name": "NSA (CNSA 2.0, LPS)",
+            "where": "Fort Meade / College Park, MD",
+            "role": "Sets post-quantum deadlines; public quantum research lab",
+            "url": "https://lps.umd.edu"
+          },
+          {
+            "name": "NIST",
+            "where": "Gaithersburg, MD",
+            "role": "Post-quantum standards (FIPS 203–205)",
+            "url": "https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards"
+          },
+          {
+            "name": "Argonne (Q-NEXT)",
+            "where": "Lemont, IL",
+            "role": "Leads a DOE quantum research center",
+            "url": "https://chicagoquantum.org/news/department-energy-announces-625m-quantum-center-renewal-summit"
+          },
+          {
+            "name": "Fermilab (SQMS)",
+            "where": "Batavia, IL",
+            "role": "Leads a DOE quantum research center",
+            "url": "https://chicagoquantum.org/news/department-energy-announces-625m-quantum-center-renewal-summit"
+          },
+          {
+            "name": "DOE Isotope Program / NNSA",
+            "where": "Savannah River Site, SC",
+            "role": "Sole U.S. source of helium-3",
+            "url": "https://www.isotopes.gov/Supply-and-Demand-of-Helium-3"
+          },
+          {
+            "name": "Commerce Dept. (BIS)",
+            "where": "Washington, DC",
+            "role": "Export controls on quantum items (2024)",
+            "url": "https://www.federalregister.gov/documents/2024/09/06/2024-19633/commerce-control-list-additions-and-revisions-implementation-of-controls-on-advanced-technologies"
+          },
+          {
+            "name": "DIU",
+            "where": "Mountain View, CA",
+            "role": "Field-tests quantum navigation sensors",
+            "url": "https://www.diu.mil/latest/advancing-quantum-sensing-for-the-dod-from-lab-to-orbit-within-months"
+          }
+        ]
+      },
+      {
+        "name": "Hardware companies",
+        "items": [
+          {
+            "name": "PsiQuantum",
+            "where": "Palo Alto, CA / Chicago / Brisbane",
+            "role": "Photonic qubits; IQMP anchor; QBI final stage",
+            "url": "https://www.psiquantum.com/illinois"
+          },
+          {
+            "name": "IBM",
+            "where": "Armonk / Poughkeepsie, NY",
+            "role": "Superconducting; QBI final stage; IQMP tenant",
+            "url": "https://newsroom.ibm.com/2025-06-10-IBM-Sets-the-Course-to-Build-Worlds-First-Large-Scale,-Fault-Tolerant-Quantum-Computer-at-New-IBM-Quantum-Data-Center"
+          },
+          {
+            "name": "Google Quantum AI",
+            "where": "Santa Barbara, CA",
+            "role": "Willow chip; error-correction milestone",
+            "url": "https://blog.google/innovation-and-ai/technology/research/google-willow-quantum-chip/"
+          },
+          {
+            "name": "Quantinuum",
+            "where": "Broomfield, CO",
+            "role": "Trapped ions; fault-tolerant target 2029",
+            "url": "https://www.quantinuum.com/company/roadmaps"
+          },
+          {
+            "name": "Alice & Bob",
+            "where": "Paris, France",
+            "role": "Cat qubits; RSA-2048 resource estimate",
+            "url": "https://eprint.iacr.org/2026/2665"
+          },
+          {
+            "name": "Infleqtion",
+            "where": "Boulder, CO",
+            "role": "Neutral atoms and clocks; IQMP tenant",
+            "url": "https://ir.infleqtion.com/news-events/press-releases/detail/100/infleqtion-and-royal-navy-demonstrate-worlds-first-quantum-optical-clock-on-underwater-autonomous-submarine-to-advance-gps-free-navigation"
+          }
+        ]
+      },
+      {
+        "name": "Suppliers",
+        "items": [
+          {
+            "name": "Bluefors",
+            "where": "Helsinki, Finland",
+            "role": "Dilution refrigerators; lunar He-3 agreement",
+            "url": "https://bluefors.com/products/dilution-refrigerator-measurement-systems/"
+          },
+          {
+            "name": "Maybell Quantum",
+            "where": "Denver, CO",
+            "role": "Dilution refrigerators",
+            "url": "https://thequantuminsider.com/2022/03/14/colorados-maybell-quantum-exits-stealth-unveils-the-icebox/"
+          },
+          {
+            "name": "Quantum Machines",
+            "where": "Tel Aviv, Israel",
+            "role": "Control electronics; runs Israel's national center; IQMP tenant",
+            "url": "https://thequantuminsider.com/2026/02/04/quantum-machines-becomes-sixth-tenant-at-illinois-quantum-park/"
+          },
+          {
+            "name": "Qblox",
+            "where": "Delft, Netherlands",
+            "role": "Control electronics",
+            "url": "https://bits-chips.com/article/quantum-control-tech-from-delft-attracts-e26m/"
+          },
+          {
+            "name": "Zurich Instruments",
+            "where": "Zurich, Switzerland",
+            "role": "Control electronics (owned by Rohde & Schwarz)",
+            "url": "https://www.zhinst.com/ko/news/zurich-instruments-now-rohde-schwarz-company/"
+          },
+          {
+            "name": "Interlune",
+            "where": "Seattle, WA",
+            "role": "Plans to supply lunar helium-3 (not yet extracted)",
+            "url": "https://www.interlune.space/press-release/u-s-department-of-energy-buys-helium-3-from-u-s-space-resources-company-interlune-in-historic-agreement"
+          }
+        ]
+      },
+      {
+        "name": "Hubs and programs",
+        "items": [
+          {
+            "name": "Illinois Quantum and Microelectronics Park",
+            "where": "South Chicago, IL",
+            "role": "128-acre campus; $500M state commitment",
+            "url": "https://www.businesswire.com/news/home/20250930243293/en"
+          },
+          {
+            "name": "DARPA-Illinois Quantum Proving Ground",
+            "where": "Chicago, IL",
+            "role": "Tests hardware for DARPA; up to $140M from Illinois",
+            "url": "https://grainger.illinois.edu/news/stories/quantum-proving-ground"
+          },
+          {
+            "name": "Chicago Quantum Exchange",
+            "where": "Chicago, IL",
+            "role": "Regional alliance of universities, labs, companies",
+            "url": "https://chicagoquantum.org/about/members"
+          },
+          {
+            "name": "Israeli Quantum Computing Center",
+            "where": "Tel Aviv, Israel",
+            "role": "National center run by Quantum Machines",
+            "url": "https://prnewswire.com/news-releases/quantum-machines-opens-the-israeli-quantum-computing-center-302181680.html"
+          },
+          {
+            "name": "EuroQCI",
+            "where": "European Union",
+            "role": "Planned EU quantum communication network",
+            "url": "https://digital-strategy.ec.europa.eu/en/policies/quantum"
+          }
+        ]
+      }
+    ],
+    "links": [
+      {
+        "from": "UIUC",
+        "rel": "leads",
+        "to": "HQAN (with UChicago, UW–Madison, Northwestern)",
+        "note": "NSF, $37.5M over 5 years (2026)"
+      },
+      {
+        "from": "PsiQuantum",
+        "rel": "anchor tenant of",
+        "to": "Illinois Quantum and Microelectronics Park",
+        "note": "Million-qubit-scale machine planned"
+      },
+      {
+        "from": "Illinois + DARPA",
+        "rel": "fund",
+        "to": "Quantum Proving Ground",
+        "note": "Illinois up to $140M"
+      },
+      {
+        "from": "Proving Ground",
+        "rel": "verifies for",
+        "to": "DARPA QBI",
+        "note": "Target: utility scale by 2033"
+      },
+      {
+        "from": "Quantum Machines",
+        "rel": "tenant of",
+        "to": "Illinois park; operator of Israel's national center",
+        "note": "Israel–Illinois link"
+      },
+      {
+        "from": "NNSA tritium (Savannah River)",
+        "rel": "yields",
+        "to": "Helium-3 for dilution refrigerators",
+        "note": "Sole U.S. source"
+      },
+      {
+        "from": "Bluefors",
+        "rel": "agreed to buy from",
+        "to": "Interlune (lunar He-3)",
+        "note": "Up to 10,000 L/yr, 2028–2037; future delivery"
+      },
+      {
+        "from": "Commerce (BIS)",
+        "rel": "controls exports of",
+        "to": "Dilution refrigerators, cryo-electronics, quantum computers",
+        "note": "Since Sept. 2024"
+      },
+      {
+        "from": "Argonne, Fermilab",
+        "rel": "lead",
+        "to": "Q-NEXT, SQMS (DOE centers)",
+        "note": "$125M each, renewed Nov. 2025"
+      },
+      {
+        "from": "NSA",
+        "rel": "sets",
+        "to": "CNSA 2.0 deadlines",
+        "note": "New NSS acquisitions compliant from Jan. 1, 2027"
+      }
+    ],
+    "sourceNote": "Every organization and link is drawn from the sources cited in the deep dives above. Locations are headquarters or the relevant site."
+  }
+}

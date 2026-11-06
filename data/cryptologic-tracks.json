@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-05",
-  "note": "Defines Cryptologic Watch tracks and maps entry ids in cryptologic.json to tracks. A track's freshness is the most recent date or updated value among its entries.",
+  "updated": "2026-11-06",
+  "note": "Defines Cryptologic Watch tracks and maps entry ids in cryptologic.json to tracks. A track's freshness is the most recent date or updated value among its entries. A track's foundations may be a list; items with sections render as explainer cards. Items marked draft show only on localhost.",
   "staleDays": 21,
   "tracks": [
     {
@@ -8,10 +8,81 @@
       "n": 1,
       "name": "The Quantum Threat to Encryption",
       "angle": "Data captured today can be decrypted later. The deadline is set by how long secrets must stay secret, not by when a quantum computer arrives.",
-      "foundations": {
-        "title": "Harvest-now, decrypt-later",
-        "status": "Planned"
-      },
+      "foundations": [
+        {
+          "id": "fd-hndl",
+          "title": "Harvest-now, decrypt-later",
+          "status": "Draft",
+          "draft": true,
+          "summary": "Encrypted data stolen today can be read years from now, once a large enough quantum computer exists. That is why the deadline for new encryption is set by how long secrets must stay secret, not by when the machine arrives.",
+          "sections": [
+            {
+              "head": "The idea",
+              "body": "An adversary records encrypted traffic now, stores it, and waits. The encryption that protects most internet traffic today relies on public-key math (RSA and elliptic curves) that a large quantum computer running Shor's algorithm could break. A 2023 factsheet from CISA, NSA, and NIST put it directly: threat actors 'could be targeting data today that would still require protection in the future... using a catch now, break later or harvest now, decrypt later operation.'"
+            },
+            {
+              "head": "Why secrecy lifetime sets the deadline",
+              "body": "A simple planning rule follows. If a secret must stay protected for 25 years, and migrating to new encryption takes 10, then anything sent today is exposed if a capable quantum computer arrives within 25 years, and the migration had to start before that machine was anywhere close. Diplomatic cables, intelligence sources, and weapons designs have long secrecy lifetimes. A credit card number does not."
+            },
+            {
+              "head": "What is exposed and what is not",
+              "body": "The vulnerable part is the key exchange that sets up each encrypted session: record it, break it later, and the whole session opens. The bulk encryption itself (for example AES-256) is not broken by Shor's algorithm, which is why NSA's CNSA 2.0 keeps AES-256. Digital signatures face a different risk: forging them only matters once a quantum computer exists, but signing keys locked into long-lived hardware cannot be swapped quickly. See the CNSA 2.0 entry for how NSA sequences both."
+            },
+            {
+              "head": "Precedent: Venona",
+              "body": "Waiting can pay. The U.S. Army's Signal Intelligence Service began the Venona program on February 1, 1943, against Soviet messages sent between 1940 and 1948. The Soviets had reused one-time-pad key material under wartime pressure, and that mistake made the traffic exploitable. Analyst Meredith Gardner read the first message in 1946, and work continued until October 1, 1980. About 3,000 messages were at least partly read. Traffic collected in the 1940s was still producing intelligence decades later. The weakness then was human, not mathematical, but the lesson about patience is the same."
+            },
+            {
+              "head": "Where the defense stands",
+              "body": "NIST finalized the first post-quantum standards (FIPS 203, 204, and 205) on August 13, 2024, and selected a backup algorithm, HQC, on March 11, 2025. Deployment has started outside government: Signal added post-quantum key exchange in September 2023, Apple's iMessage in February 2024, and Chrome turned on hybrid post-quantum key exchange by default in 2024. Cloudflare reported in April 2026 that over 65% of the human traffic it handles is post-quantum encrypted. For national security systems, NSA's rule that new acquisitions be CNSA 2.0 compliant takes effect January 1, 2027."
+            },
+            {
+              "head": "What public sources cannot tell us",
+              "body": "Public government sources describe harvesting as a risk to plan for; they do not document specific stockpiles of encrypted traffic held for future decryption. Nor can anyone say when a cryptographically relevant quantum computer will exist. Published estimates of the machine required keep falling (see the CNSA 2.0 debate). Both unknowns point the same way: data that must stay secret for decades is already at risk."
+            }
+          ],
+          "confidence": "High on the facts · Medium on the assessment",
+          "sources": [
+            {
+              "label": "CISA, NSA, NIST — Quantum-Readiness: Migration to Post-Quantum Cryptography (Aug. 2023, primary)",
+              "url": "https://www.nccoe.nist.gov/sites/default/files/2023-08/quantum-readiness-fact-sheet.pdf"
+            },
+            {
+              "label": "NSA — Venona declassified documents (primary)",
+              "url": "https://www.nsa.gov/News-Features/Declassified-Documents/Venona"
+            },
+            {
+              "label": "NSA — Venona: An Overview (primary)",
+              "url": "https://media.defense.gov/2021/Jun/29/2002752012/-1/-1/0/VENONA_AN_OVERVIEW.PDF"
+            },
+            {
+              "label": "NIST — First three finalized post-quantum standards (Aug. 13, 2024, primary)",
+              "url": "https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards"
+            },
+            {
+              "label": "NIST — HQC selected (Mar. 11, 2025, primary)",
+              "url": "https://www.nist.gov/news-events/news/2025/03/nist-selects-hqc-fifth-algorithm-post-quantum-encryption"
+            },
+            {
+              "label": "Signal — PQXDH (Sept. 2023, primary)",
+              "url": "https://signal.org/blog/pqxdh/"
+            },
+            {
+              "label": "Apple — iMessage PQ3 (Feb. 2024, primary)",
+              "url": "https://security.apple.com/blog/imessage-pq3/"
+            },
+            {
+              "label": "Google — ML-KEM in Chrome (Sept. 2024, primary)",
+              "url": "https://security.googleblog.com/2024/09/a-new-path-for-kyber-on-web.html"
+            },
+            {
+              "label": "Cloudflare — post-quantum roadmap (Apr. 2026, primary)",
+              "url": "https://blog.cloudflare.com/post-quantum-roadmap/"
+            }
+          ],
+          "date": "2026-11-06"
+        }
+      ],
       "entryIds": [
         "pqc-001"
       ],
@@ -22,10 +93,243 @@
       "n": 2,
       "name": "Quantum Computing & Networks",
       "angle": "Qubit counts make headlines; error-corrected logical qubits decide outcomes. Quantum networking is a separate race with a separate verdict.",
-      "foundations": {
-        "title": "What a cryptographically relevant quantum computer actually means",
-        "status": "Planned"
-      },
+      "foundations": [
+        {
+          "id": "fd-how-qc",
+          "title": "How a quantum computer works",
+          "status": "Draft",
+          "draft": true,
+          "summary": "A plain-language guide: what a qubit is, where the speedup actually comes from, why errors dominate the engineering, and the most common myths.",
+          "sections": [
+            {
+              "head": "Bits and qubits",
+              "body": "An ordinary computer stores everything as bits, each either 0 or 1. A qubit can also be 0 or 1, but before it is measured it can be in a weighted blend of both, called superposition. Think of a spinning coin: while it spins it is neither heads nor tails. Measuring the qubit is like slapping the coin on the table. It lands on one side and the blend is gone."
+            },
+            {
+              "head": "Entanglement",
+              "body": "Qubits can be linked so that they behave as one system rather than separate parts. The number of possibilities a group of entangled qubits describes doubles with each qubit added: 2 qubits cover 4 combinations, 10 cover 1,024, and 300 cover more combinations than there are atoms in the observable universe."
+            },
+            {
+              "head": "Where the speedup comes from: interference",
+              "body": "A quantum computer does not simply try every answer at once. If it did, measurement would just return a random guess. The physicist Scott Aaronson calls that view 'fundamentally mistaken': a speedup comes only from 'carefully exploiting the phenomenon known as quantum interference.' A quantum algorithm is choreographed so the paths leading to wrong answers cancel out, like noise-cancelling headphones, and the paths to the right answer reinforce each other. That choreography only exists for problems with special hidden structure, which is why quantum computers help with some problems and not most."
+            },
+            {
+              "head": "Errors: physical versus logical qubits",
+              "body": "Qubits are fragile. Heat, vibration, or stray signals knock them out of superposition, an effect called decoherence. The fix is error correction: many fragile physical qubits are combined into one more reliable logical qubit. In December 2024 Google reported that on its 105-qubit Willow chip, growing the error-correcting code from a 3×3 to a 5×5 to a 7×7 grid cut the logical error rate by a factor of about 2.14 at each step. That matters because it is the first evidence that adding qubits can make a quantum computer more reliable rather than less. Breaking RSA would take thousands of logical qubits, which could mean anywhere from tens of thousands to millions of physical qubits depending on hardware quality."
+            },
+            {
+              "head": "What the code looks like",
+              "body": "Quantum programs are circuits: a sequence of operations (gates) applied to qubits, then a measurement. A two-line example puts one qubit into superposition and entangles a second with it. Run it 1,000 times and roughly half the results read 00 and half read 11, never 01 or 10. Results are probabilities, so programs run many times. IBM's open-source Qiskit library lets anyone build circuits like this in Python and run small ones on real hardware over the internet."
+            },
+            {
+              "head": "What it is good for, and not",
+              "body": "A quantum computer is a specialist co-processor controlled by an ordinary computer, not a replacement for one. The strongest cases are breaking today's public-key encryption (Shor's algorithm) and simulating molecules and materials, which was Richard Feynman's original motivation in 1981. It will not run a browser or speed up email."
+            },
+            {
+              "head": "Common myths, corrected",
+              "body": "Myth: it tries every answer at once. Correction: the speedup comes from interference (above). Myth: Shor's algorithm factors huge prime numbers. Correction: primes cannot be factored; Shor's algorithm recovers the two large primes that were multiplied together to make an RSA key. Myth: quantum key distribution is unbreakable. Correction: the physics is sound in theory, but real equipment has been hacked; in 2010 researchers blinded the detectors of two commercial systems with bright light and stole keys undetected. Myth: quantum computers can already crack encryption. Correction: on real hardware, Shor's algorithm has only factored very small numbers such as 15 and 21, using simplified circuits built with knowledge of the answer."
+            }
+          ],
+          "confidence": "High",
+          "sources": [
+            {
+              "label": "Scott Aaronson — 'tries all answers' is mistaken (2007, primary)",
+              "url": "https://scottaaronson.blog/?p=201"
+            },
+            {
+              "label": "Google — Willow chip announcement (Dec. 2024, primary)",
+              "url": "https://blog.google/innovation-and-ai/technology/research/google-willow-quantum-chip/"
+            },
+            {
+              "label": "Google Quantum AI — Quantum error correction below the surface code threshold (arXiv, primary)",
+              "url": "https://arxiv.org/abs/2408.13687"
+            },
+            {
+              "label": "Feynman — Simulating Physics with Computers (1982, primary)",
+              "url": "https://link.springer.com/article/10.1007/BF02650179"
+            },
+            {
+              "label": "Lydersen et al. — Hacking commercial quantum cryptography systems (2010, primary)",
+              "url": "https://arxiv.org/abs/1008.4593"
+            },
+            {
+              "label": "Skosana & Tame — Demonstration of Shor's factoring of N = 21 on IBM processors (2021, primary)",
+              "url": "https://www.nature.com/articles/s41598-021-95973-w"
+            },
+            {
+              "label": "National Academies — Quantum Computing: Progress and Prospects (2019)",
+              "url": "https://www.nationalacademies.org/read/25196/chapter/13"
+            }
+          ],
+          "date": "2026-11-06"
+        },
+        {
+          "id": "fd-qubits-built",
+          "title": "How qubits are built, and how we got here",
+          "status": "Draft",
+          "draft": true,
+          "summary": "What physically counts as a qubit, how the main types are made, the engineering tension they all share, and the century of physics behind them.",
+          "sections": [
+            {
+              "head": "What any qubit needs",
+              "body": "Anything can serve as a qubit if it has two distinct states to call 0 and 1, is small or cold enough to obey quantum rules, and can be controlled and read out. Atoms meet these conditions naturally. Other approaches build artificial objects that behave like atoms."
+            },
+            {
+              "head": "Real atoms: trapped ions and neutral atoms",
+              "body": "An electron in an atom can only sit on certain energy levels, like rungs on a ladder; the low rung is 0 and a higher one is 1. A laser pulse of exactly the right frequency moves it between rungs, and a partial pulse creates superposition. Trapped-ion machines (Quantinuum, IonQ) strip an electron from each atom, hold the charged ions in electric fields inside a vacuum chamber, and slow them almost to a stop with lasers, a technique honored with the 1997 Nobel Prize in Physics. Neutral-atom machines (QuEra, Atom Computing, Infleqtion) hold uncharged atoms in individual focused laser beams called optical tweezers. A qubit is read by shining a laser on it: in one state it glows, in the other it stays dark."
+            },
+            {
+              "head": "Artificial atoms: superconducting circuits",
+              "body": "Google, IBM, and Alice & Bob print tiny circuits of aluminum or niobium on silicon or sapphire chips, using cleanroom methods similar to ordinary chipmaking. The key component is the Josephson junction: two pieces of metal separated by an insulating layer about 1 to 2 nanometers thick. Cooled to around 10 millikelvin in a dilution refrigerator, the circuit becomes superconducting and behaves like a single large atom. The junction makes its energy levels unevenly spaced, so microwave pulses can address just the bottom two as 0 and 1."
+            },
+            {
+              "head": "Cat qubits and photons",
+              "body": "Alice & Bob stores microwave light inside a superconducting resonator in two states at once, named for Schrödinger's cat. Adding photons protects the qubit against one of the two main error types (bit flips), so less error correction is needed. Photonic approaches such as PsiQuantum's use particles of light themselves as qubits."
+            },
+            {
+              "head": "The tension every design shares",
+              "body": "A qubit must be isolated from the outside world, because any disturbance destroys its superposition. It must also be reachable by the lasers or microwaves that control and read it. Every wire or beam added for control is another path for noise. Each hardware approach is a different answer to that one problem."
+            },
+            {
+              "head": "How we got here",
+              "body": "1935: Einstein, Podolsky, and Rosen publish the paper that exposes entanglement; Schrödinger introduces his cat, as a criticism of how strange the theory is. 1947: Einstein calls entanglement 'spooky action at a distance' in a letter to Max Born. 1962: Brian Josephson predicts the effect behind the Josephson junction (Nobel Prize 1973). 1981: Feynman proposes simulating physics with quantum computers. 1984: Bennett and Brassard publish BB84, the first quantum key distribution protocol. 1985: David Deutsch describes a universal quantum computer. 1994: Peter Shor at Bell Labs shows a quantum computer could factor the numbers behind RSA, the moment quantum computing became a national security issue. 1995: Cirac and Zoller propose an ion-trap computer, and a NIST team including David Wineland demonstrates the first quantum logic gate (Wineland shared the 2012 Nobel Prize). 1999: NEC demonstrates the first superconducting qubit. 2019: Google's Sycamore completes a narrow benchmark it estimated would take a supercomputer 10,000 years; IBM argued it would take about 2.5 days. 2024: Google's Willow shows error correction improving with scale. 2025: the Nobel Prize in Physics goes to John Clarke, Michel Devoret, and John Martinis for showing an electric circuit can behave quantum mechanically, the foundation of every superconducting qubit."
+            }
+          ],
+          "confidence": "High",
+          "sources": [
+            {
+              "label": "Nobel Prize — Physics 1997, laser cooling (primary)",
+              "url": "https://www.nobelprize.org/prizes/physics/1997/summary/"
+            },
+            {
+              "label": "Nobel Prize — Physics 1973, Josephson (primary)",
+              "url": "https://www.nobelprize.org/prizes/physics/1973/summary/"
+            },
+            {
+              "label": "Nobel Prize — Physics 2012, Wineland and Haroche (primary)",
+              "url": "https://www.nobelprize.org/prizes/physics/2012/summary/"
+            },
+            {
+              "label": "Nobel Prize — Physics 2025, Clarke, Devoret, Martinis (primary)",
+              "url": "https://www.nobelprize.org/prizes/physics/2025/summary/"
+            },
+            {
+              "label": "Monroe et al. (NIST) — first quantum logic gate (1995, primary)",
+              "url": "https://tf.boulder.nist.gov/general/pdf/140.pdf"
+            },
+            {
+              "label": "Nakamura, Pashkin & Tsai — first superconducting qubit (Nature, 1999, primary)",
+              "url": "https://www.nature.com/articles/19718"
+            },
+            {
+              "label": "Deutsch — the universal quantum computer (1985, primary)",
+              "url": "https://www.daviddeutsch.org.uk/wp-content/deutsch85.pdf"
+            },
+            {
+              "label": "Shor — algorithms for quantum computation (arXiv, primary)",
+              "url": "https://arxiv.org/abs/quant-ph/9508027"
+            },
+            {
+              "label": "Google — quantum supremacy using a programmable processor (2019, primary)",
+              "url": "https://research.google/blog/quantum-supremacy-using-a-programmable-superconducting-processor/"
+            },
+            {
+              "label": "IBM — On 'quantum supremacy' (2019, primary)",
+              "url": "https://www.ibm.com/quantum/blog/on-quantum-supremacy"
+            },
+            {
+              "label": "Einstein, Podolsky & Rosen (1935, primary)",
+              "url": "https://link.aps.org/doi/10.1103/PhysRev.47.777"
+            },
+            {
+              "label": "Josephson junction barrier thickness (arXiv, primary)",
+              "url": "https://arxiv.org/abs/1407.0173"
+            }
+          ],
+          "date": "2026-11-06"
+        },
+        {
+          "id": "fd-qkd-pqc",
+          "title": "QKD vs. PQC: two answers to the quantum threat",
+          "status": "Draft",
+          "draft": true,
+          "summary": "One answer uses physics to distribute keys; the other uses new math that runs on today's hardware. China invested heavily in the first. The U.S. government bet on the second.",
+          "sections": [
+            {
+              "head": "Quantum key distribution (QKD)",
+              "body": "QKD uses single photons to share an encryption key. The security comes from the no-cloning theorem (1982): an unknown quantum state cannot be copied perfectly, so an eavesdropper who measures the photons disturbs them and leaves detectable errors. The first protocol, BB84 (Bennett and Brassard, 1984), sends single polarized photons and does not use entanglement. A later protocol, E91 (Ekert, 1991), does."
+            },
+            {
+              "head": "Post-quantum cryptography (PQC)",
+              "body": "PQC replaces today's vulnerable public-key math with new math problems believed hard for both ordinary and quantum computers. It runs on existing hardware and networks. NIST published the first standards in August 2024, and they are already deployed at scale in Signal, iMessage, Chrome, and Cloudflare's network."
+            },
+            {
+              "head": "Why NSA does not recommend QKD",
+              "body": "NSA says it does not recommend QKD for national security systems unless five limitations are overcome: it is only a partial solution because it does not authenticate who is on the other end; it needs special-purpose equipment that is harder to patch and upgrade; trusted relays add cost and insider risk; its security depends on hardware engineering that is hard to validate, and attacks on commercial systems have been published; and its sensitivity to eavesdropping makes denial of service easy. NSA restated that position on October 1, 2026."
+            },
+            {
+              "head": "China's bet",
+              "body": "China launched Micius, the first quantum science satellite, on August 16, 2016. In 2017 it demonstrated satellite-to-ground QKD over up to 1,200 km and a QKD-secured video call between Beijing and Vienna over more than 7,600 km. Its Beijing–Shanghai fiber backbone exceeds 2,000 km and is part of a 4,600 km network reported in 2021. In 2025 the Jinan-1 microsatellite performed real-time QKD with compact ground stations as far apart as China and South Africa, about 12,900 km."
+            },
+            {
+              "head": "Europe's middle path",
+              "body": "All 27 EU member states have signed on to EuroQCI, a planned European quantum communication infrastructure combining fiber and satellites, developed with the European Space Agency."
+            },
+            {
+              "head": "Assessment",
+              "body": "The split is less about physics than about trust and cost. PQC can be patched into the systems the U.S. already runs; QKD requires building new infrastructure but does not depend on unproven math. If a weakness were ever found in the new PQC algorithms, China's investment would look prescient. If QKD hardware keeps proving hackable, the U.S. choice looks safer. Neither outcome is settled."
+            }
+          ],
+          "confidence": "High on the facts · Medium on the assessment",
+          "sources": [
+            {
+              "label": "NSA — Quantum Key Distribution and Quantum Cryptography (primary)",
+              "url": "https://www.nsa.gov/Cybersecurity/Quantum-Key-Distribution-QKD-and-Quantum-Cryptography-QC/"
+            },
+            {
+              "label": "Bennett & Brassard — BB84 (reprint, arXiv)",
+              "url": "https://arxiv.org/abs/2003.06557"
+            },
+            {
+              "label": "Ekert — Quantum cryptography based on Bell's theorem (1991, primary)",
+              "url": "https://link.aps.org/doi/10.1103/PhysRevLett.67.661"
+            },
+            {
+              "label": "Wootters & Zurek — A single quantum cannot be cloned (1982)",
+              "url": "https://ui.adsabs.harvard.edu/abs/1982Natur.299..802W/abstract"
+            },
+            {
+              "label": "Liao et al. — satellite-to-ground QKD (2017, primary)",
+              "url": "https://arxiv.org/abs/1707.00542"
+            },
+            {
+              "label": "Austrian Academy of Sciences — Beijing–Vienna quantum call (2017, primary)",
+              "url": "https://www.oeaw.ac.at/en/news-1/secure-quantum-communication-over-7600-kilometers"
+            },
+            {
+              "label": "Chinese Academy of Sciences — 4,600 km integrated quantum network (2021)",
+              "url": "https://english.cas.cn/newsroom/cas_media/202101/t20210107_261494.shtml"
+            },
+            {
+              "label": "Chinese Academy of Sciences — Jinan-1 microsatellite QKD (2025)",
+              "url": "https://english.cas.cn/newsroom/cas_media/202503/t20250320_908464.shtml"
+            },
+            {
+              "label": "European Commission — Quantum (EuroQCI, Quantum Flagship)",
+              "url": "https://digital-strategy.ec.europa.eu/en/policies/quantum"
+            },
+            {
+              "label": "Lydersen et al. — Hacking commercial QKD systems (2010, primary)",
+              "url": "https://arxiv.org/abs/1008.4593"
+            }
+          ],
+          "date": "2026-11-06"
+        },
+        {
+          "title": "What a cryptographically relevant quantum computer actually means",
+          "status": "Planned"
+        }
+      ],
       "entryIds": [
         "qc-001",
         "qn-001"
@@ -49,10 +353,97 @@
       "n": 4,
       "name": "Telecom Intrusion & Lawful Intercept",
       "angle": "Systems built for court-authorized wiretaps became a target. Salt Typhoon is the reference case.",
-      "foundations": {
-        "title": "Lawful intercept: how wiretap infrastructure works",
-        "status": "Planned"
-      },
+      "foundations": [
+        {
+          "id": "fd-lawful-intercept",
+          "title": "Lawful intercept: how wiretap infrastructure works",
+          "status": "Draft",
+          "draft": true,
+          "summary": "U.S. phone networks are required by law to be wiretap-ready. The same capability that lets police listen with a court order is a target for foreign intelligence services, and Salt Typhoon showed what happens when it is reached.",
+          "sections": [
+            {
+              "head": "What lawful intercept is",
+              "body": "Lawful intercept is court-authorized interception of communications. In the U.S., the Communications Assistance for Law Enforcement Act (CALEA), enacted October 25, 1994, requires carriers, when presented with a court order or other lawful authorization, to isolate a target's communications and call-identifying information and deliver them to law enforcement 'unobtrusively,' without compromising other users. In 2005 the FCC extended CALEA to broadband internet providers and interconnected internet phone (VoIP) services, with compliance required by May 14, 2007."
+            },
+            {
+              "head": "Why it is a target",
+              "body": "The intercept system sits inside the carrier's network and holds two valuable things: the ability to listen, and the list of who is being listened to. A 2015 MIT report by leading cryptographers, 'Keys Under Doormats,' argued that mandated exceptional access adds complexity and hard-to-find flaws that weaken security for everyone. Assessment: intercept infrastructure concentrates intelligence value in one place, which makes it worth a foreign service's sustained effort."
+            },
+            {
+              "head": "Precedent: the Athens Affair (2004–05)",
+              "body": "Rogue software abused the lawful-intercept function in Vodafone Greece's Ericsson switches to tap about 100 phones, including Prime Minister Costas Karamanlis's, starting before the August 2004 Athens Olympics. The intercept feature was present in the switches even though Vodafone had not bought the management software for it. Ericsson told Vodafone it had found unauthorized software on March 4, 2005. No one has been convicted, and responsibility has never been officially established."
+            },
+            {
+              "head": "Salt Typhoon (2024 onward)",
+              "body": "On October 5, 2024, the Wall Street Journal reported that a Chinese group known as Salt Typhoon had broken into Verizon, AT&T, and Lumen, possibly reaching systems used for court-authorized wiretaps. On November 13, 2024, the FBI and CISA said 'PRC-affiliated actors' had stolen customer call records, compromised the private communications of a limited number of people mainly in government or politics, and copied information subject to U.S. law enforcement requests under court orders. On December 3, 2024, CISA's Jeff Greene told the public 'encryption is your friend.' On January 17, 2025, Treasury sanctioned Sichuan Juxinhe Network Technology, saying it was 'directly involved' and tied to China's Ministry of State Security. An August 27, 2025 advisory signed by 23 agencies from 13 countries named three Chinese companies. In February 2026 an FBI official said the threat is 'still very, very much ongoing,' estimated more than 80 countries affected, and said entry came through 'the most basic vulnerabilities.'"
+            },
+            {
+              "head": "Where policy stands",
+              "body": "In January 2025 the FCC ruled that CALEA requires carriers to secure their networks against unlawful interception; in November 2025 it rescinded that ruling by a 2–1 vote. On August 4, 2026, the House Select Committee on China reported that carriers' links to data centers may have offered a route into the breached infrastructure. On September 24, 2026, Senators Warner and Cruz introduced the Telecommunications Cybersecurity and Resilience Act (S. 5508), which would create voluntary best practices and certification; it is in committee. Separately, the FBI began investigating a breach of a system holding pen-register and trap-and-trace data in February 2026; press reports cite a suspected Chinese link, but the FBI has not named an actor."
+            },
+            {
+              "head": "The debate it reopens",
+              "body": "Law enforcement has long sought a guaranteed way into encrypted messaging apps. Salt Typhoon is the strongest public case for the other side: a lawful-access system built into the network was itself reached by a foreign service, and U.S. officials responded by recommending encryption. Supporters of lawful access argue the lesson is to build and guard these systems better, not to abandon them."
+            }
+          ],
+          "confidence": "High on the facts · Medium on the assessment",
+          "sources": [
+            {
+              "label": "CRS — CALEA overview (RL30677)",
+              "url": "https://www.everycrsreport.com/reports/RL30677.html"
+            },
+            {
+              "label": "Federal Register — FCC applies CALEA to broadband and VoIP (Oct. 2005, primary)",
+              "url": "https://www.govinfo.gov/content/pkg/FR-2005-10-13/html/05-20606.htm"
+            },
+            {
+              "label": "Abelson et al. — Keys Under Doormats (MIT, 2015, primary)",
+              "url": "https://dspace.mit.edu/entities/publication/29dd43b7-115f-4d76-a45c-602903903194"
+            },
+            {
+              "label": "IEEE Spectrum — The Athens Affair (2007)",
+              "url": "https://spectrum.ieee.org/the-athens-affair"
+            },
+            {
+              "label": "FBI and CISA — joint statement on PRC targeting of telecom infrastructure (Nov. 13, 2024, primary)",
+              "url": "https://cisa.gov/news-events/news/joint-statement-fbi-and-cisa-peoples-republic-china-prc-targeting-commercial-telecommunications"
+            },
+            {
+              "label": "Insurance Journal — officials urge encrypted communications (Dec. 2024)",
+              "url": "https://www.insurancejournal.com/news/national/2024/12/04/803445.htm"
+            },
+            {
+              "label": "U.S. Treasury — Sichuan Juxinhe sanctioned (Jan. 17, 2025, primary)",
+              "url": "https://content.govdelivery.com/accounts/USTREAS/bulletins/3cd4833"
+            },
+            {
+              "label": "NSA, CISA, FBI and partners — AA25-239A (Aug. 2025, primary)",
+              "url": "https://www.ic3.gov/CSA/2025/250827.pdf"
+            },
+            {
+              "label": "CyberScoop — FBI: Salt Typhoon still ongoing (Feb. 2026)",
+              "url": "https://cyberscoop.com/fbi-salt-typhoon-ongoing-threat-cybertalks-2026/"
+            },
+            {
+              "label": "Federal Register — FCC rescinds CALEA ruling (Dec. 2025, primary)",
+              "url": "https://www.govinfo.gov/content/pkg/FR-2025-12-15/html/2025-22830.htm"
+            },
+            {
+              "label": "Bloomberg Law — House panel: data centers exposed carriers (Aug. 2026)",
+              "url": "https://news.bloomberglaw.com/us-law-week/data-centers-exposed-us-carriers-to-china-hack-house-panel-says"
+            },
+            {
+              "label": "Senate Commerce — Cruz–Warner telecom cybersecurity bill (Sept. 2026, primary)",
+              "url": "https://www.commerce.senate.gov/press/rep/release/cruz-warner-introduce-bipartisan-bill-to-strengthen-telecommunications-cybersecurity/"
+            },
+            {
+              "label": "Nextgov — suspected breach of FBI surveillance-data system (Apr. 2026)",
+              "url": "https://www.nextgov.com/cybersecurity/2026/04/suspected-chinese-breach-fbi-system-exposed-surveillance-targets-phone-numbers/412612"
+            }
+          ],
+          "date": "2026-11-06"
+        }
+      ],
       "entryIds": [],
       "closingQuestion": "Does Salt Typhoon change the debate over lawful access to encrypted communications?"
     },
@@ -77,7 +468,9 @@
         "title": "How the cable network works and fails",
         "status": "Planned"
       },
-      "entryIds": [],
+      "entryIds": [
+        "seab-001"
+      ],
       "closingQuestion": "Where is the line between accident, gray-zone activity, and an act of war?"
     },
     {

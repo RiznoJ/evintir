@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-05",
+  "updated": "2026-11-06",
   "note": "Hand-curated updates on cryptology, intelligence, and quantum: cryptography and post-quantum migration, cryptanalysis, signals intelligence, steganography and covert channels, and quantum computing. Public sources only. Each entry separates sourced reporting from assessment and ends with the debate, presenting competing positions as their holders argue them. Entries do not assess the status of any specific U.S. system.",
   "entries": [
     {
@@ -232,6 +232,22 @@
         {
           "label": "SecurityWeek — SIKE broken on a classical PC (2022)",
           "url": "https://www.securityweek.com/nist-post-quantum-algorithm-finalist-cracked-using-classical-pc"
+        },
+        {
+          "label": "Pappalardo et al. (Alice & Bob), Shor's algorithm compiled on cat qubits, IACR ePrint 2026/2665 (primary, preprint)",
+          "url": "https://eprint.iacr.org/2026/2665"
+        },
+        {
+          "label": "ScienceAlert: coverage of the Alice & Bob estimate, including demonstrated bit-flip times (secondary)",
+          "url": "https://sciencealert.com/a-quantum-computer-could-crack-major-internet-encryption-in-just-3-days-study-suggests"
+        },
+        {
+          "label": "Alice & Bob: A cat qubit that jumps every hour (company lab blog, primary)",
+          "url": "https://alice-bob.com/blog/just-out-of-the-lab-a-cat-qubit-that-jumps-every-hour/"
+        },
+        {
+          "label": "Quantum Computing Report: Alice & Bob multi-hour bit-flip suppression on Helium 2 (Nov. 2026, secondary)",
+          "url": "https://quantumcomputingreport.com/alice-bob-demonstrates-multi-hour-physical-bit-flip-suppression-on-single-cat-and-helium-2-processors/"
         }
       ],
       "debate": {
@@ -262,18 +278,22 @@
             "axis": "How urgent",
             "position": "The bar keeps dropping",
             "heldBy": "Resource-estimate research, including Google Quantum AI",
-            "argument": "In 2019 the estimate to break RSA-2048 was about 20 million noisy qubits. In May 2025 Craig Gidney of Google Quantum AI put it under 1 million, in under a week. A February 2026 simulation-only result claimed under 100,000. No machine is near these numbers, but the target keeps moving toward the hardware, and harvest-now-decrypt-later means the exposure starts when data is collected.",
+            "argument": "In 2019 the estimate to break RSA-2048 was about 20 million noisy qubits. In May 2025 Craig Gidney of Google Quantum AI put it under 1 million, in under a week. A February 2026 simulation-only result claimed under 100,000. In October 2026 Alice & Bob estimated about 23,000 of its cat qubits, under optimistic hardware assumptions. No machine is near these numbers, but the target keeps moving toward the hardware, and harvest-now-decrypt-later means the exposure starts when data is collected.",
             "confidence": "High on the published estimates · the 2026 result is simulation only"
           }
         ],
         "synthesis": "The skeptic and the urgent case can both be right: no machine today is close, and the machine required keeps getting smaller. Planning happens in that gap.",
         "openQuestion": "Is 2035 set by the threat or by capacity? NSM-10's wording is \"mitigating as much of the quantum risk as is feasible by 2035.\" That phrasing concedes the goal is bounded by how fast the government can migrate, not by any forecast of quantum progress. If a cryptographically relevant quantum computer arrives earlier than expected, the binding constraint will not be the algorithms, which already exist. It will be acquisition speed, and the equipment bought before January 2027."
       },
-      "updated": "2026-11-05",
+      "updated": "2026-11-06",
       "updates": [
         {
           "date": "2026-10-01",
           "text": "NSA announced new post-quantum measures under Executive Order 14412 and launched a Post-Quantum Cryptography Resource Hub. The release restates the CNSSP 15 milestones (new commercial NSS support quantum-resistant algorithms from 2027; legacy systems that cannot are phased out by 2030) and changes no deadline. The same day, NSA reissued its position that quantum key distribution is not recommended for NSS."
+        },
+        {
+          "date": "2026-10-28",
+          "text": "Alice & Bob, a French quantum hardware company, published a preprint estimating that about 22,593 of its 'cat qubits' could break RSA-2048 in 3.14 days, and that under 30,000 could break the elliptic-curve keys used by Bitcoin in about an hour. That is far below Gidney's 2025 estimate of under 1 million qubits. Caveats: the paper is not peer reviewed, and it was written by the company that builds the hardware. Its headline figure assumes qubits that essentially never suffer bit-flip errors (about 100 years); with bit-flip times of about one hour, the estimate roughly doubles to about 45,000 qubits. The company has reported bit-flip times of 44 minutes on a single cat qubit (2025) and 189 to 252 minutes on its 12-qubit Helium 2 processor (November 2026, company-reported). The larger gap is scale: from 12 qubits to tens of thousands, while meeting the paper's other error-rate assumptions. Press headlines claiming encryption 'could fall in 3 days' describe a hypothetical machine, not one that exists. No deadline changes."
         }
       ]
     },
@@ -543,6 +563,178 @@
         "synthesis": "The three positions are not exclusive. The disagreement is over which layer gets priority spending, and whether thefts at this scale are private security failures or a national security problem.",
         "openQuestion": "If the math held and the people failed, is a $6 billion theft by a sanctioned state a cybersecurity failure or a counter-proliferation failure, and which institution should be accountable for stopping the next one?"
       }
+    },
+    {
+      "id": "seab-001",
+      "draft": true,
+      "topic": "Undersea Cables & Seabed",
+      "actor": "Helsinki District Court",
+      "country": "Finland",
+      "type": "Court ruling",
+      "status": "Not final (appeal expected)",
+      "date": "2026-11-05",
+      "confidence": "High (facts) · Medium (assessment)",
+      "title": "Fitburg Verdict: Finland Convicts a Crew for Cutting Baltic Cables, and Stops at the Crew",
+      "bottomLine": "A Helsinki court ruled that dragging an anchor about 130 km across the Gulf of Finland seabed was deliberate sabotage and jailed the ship's captain and boatswain. It is the first conviction in Finland's two anchor-dragging trials. It does not answer who, if anyone, wanted the cables cut: no government has publicly attributed the incident to the Russian state.",
+      "requires": [
+        "On November 5, 2026, three judges of the Helsinki District Court unanimously convicted captain Andrei Maksimenko (57, Russian) and boatswain Vusal Majidov (48, Azerbaijani) of aggravated sabotage. Sentences: 3 years 6 months and 2 years 10 months, unconditional, with immediate detention.",
+        "A second count, aggravated interference with telecommunications, was dismissed because the sabotage conviction already covers it.",
+        "Damages: about €1.9 million jointly, plus €85,000 from the captain alone.",
+        "The court found the anchor chain and anchor were dragged about 130 km over several hours, that both men must have known, and that the acts were intentional. Prosecutors did not allege the captain ordered the anchor lowered; the court held both responsible for letting the voyage continue, and found the boatswain helped the dragging continue for about two hours after Finnish authorities contacted the crew.",
+        "The damage occurred outside Finnish territorial waters. The court claimed jurisdiction because the effects were felt in Finland.",
+        "The ship: Fitburg, a 132 m general cargo vessel flagged in St. Vincent and the Grenadines, owned and operated by a Turkish company, en route from St. Petersburg to Haifa.",
+        "On December 31, 2025, Elisa's Helsinki–Tallinn data cable failed (noticed at 04:53 local time) and Arelion reported an interruption on a second Finland–Estonia cable. The anchor also crossed seven other cables and a gas pipeline, which the court said were put at risk.",
+        "The Finnish Border Guard seized the ship around 11:00 the same day. Finnish Customs found EU-sanctioned Russian steel aboard but dropped the sanctions case because the ship had entered Finnish waters at the authorities' request. The ship was released January 12, 2026; charges were filed June 15, 2026.",
+        "Both men denied the charges. The ruling is not final; the captain's lawyer says he will appeal."
+      ],
+      "keyDates": [
+        {
+          "date": "2023-10-08",
+          "label": "Balticconnector pipeline and two telecom cables damaged (Hong Kong-flagged NewNew Polar Bear)"
+        },
+        {
+          "date": "2024-12-25",
+          "label": "Eagle S damages Estlink 2 and four other cables"
+        },
+        {
+          "date": "2025-01-14",
+          "label": "NATO launches Baltic Sentry"
+        },
+        {
+          "date": "2025-10-03",
+          "label": "Helsinki District Court dismisses Eagle S case on jurisdiction"
+        },
+        {
+          "date": "2025-12-31",
+          "label": "Fitburg damages two Finland–Estonia cables; Border Guard seizes the ship"
+        },
+        {
+          "date": "2026-06-15",
+          "label": "Fitburg captain and boatswain charged"
+        },
+        {
+          "date": "2026-08-27",
+          "label": "Helsinki Court of Appeal revives the Eagle S case"
+        },
+        {
+          "date": "2026-11-05",
+          "label": "Fitburg verdict: both convicted of aggravated sabotage"
+        }
+      ],
+      "strategicRead": [
+        {
+          "head": "The legal path is being built case by case.",
+          "body": "In October 2025 the same court dismissed the Eagle S case, ruling that under the law of the sea the flag state, not Finland, had jurisdiction. In August 2026 the Court of Appeal reversed that. Now the Fitburg court has convicted on the basis that the effects were felt in Finland. Together these rulings point toward a workable route for prosecuting damage outside territorial waters. Whether it holds depends on the appeals.",
+          "confidence": "High on the rulings · Medium on where the case law settles"
+        },
+        {
+          "head": "Intent is proven. Sponsorship is not.",
+          "body": "The court established that the crew acted deliberately. It did not, and was not asked to, establish why. In January 2026 Finland's security intelligence service, Supo, said it takes no position on Fitburg and sees no sign of Russia preparing intermediaries for sabotage at sea. The Defence Forces' intelligence chief said no direct Russian link had been established, though on the broader pattern of incidents 'we believe a state actor is behind it.' That gap between a proven act and an unproven sponsor is the analytically important part of the story.",
+          "confidence": "High that these are the officials' stated positions"
+        },
+        {
+          "head": "Layered ownership slows everything down.",
+          "body": "A Caribbean flag, a Turkish owner, a Russian captain, an Azerbaijani boatswain, sanctioned Russian cargo, and an Israeli destination. Earlier cases look similar: Eagle S was Cook Islands-flagged, NewNew Polar Bear Hong Kong-flagged. Whether or not that structure is deliberate, it spreads legal responsibility across several states and makes both attribution and enforcement slow.",
+          "confidence": "High on the facts · Medium on the assessment"
+        },
+        {
+          "head": "Detection and seizure are getting faster.",
+          "body": "The first cable fault was noticed at 04:53 and the ship was seized around 11:00 the same morning. Charges followed in under six months and a verdict in just over ten. The Border Guard also mapped the drag trail on the seabed, which became evidence. Fast physical response is the part of the problem states can already control.",
+          "confidence": "High on the timeline"
+        }
+      ],
+      "indicators": [
+        "The captain's appeal, and whether the Court of Appeal accepts the 'effects in Finland' basis for jurisdiction.",
+        "The Eagle S retrial on the merits, and whether a Supreme Court appeal was filed.",
+        "Any official attribution of the Fitburg incident by Finland, Estonia, the EU, or NATO.",
+        "New legal tools for boarding or inspecting ships in exclusive economic zones.",
+        "Further Baltic incidents, and how quickly Baltic Sentry patrols detect them."
+      ],
+      "debate": {
+        "intro": "The verdict settles what happened on the ship. Two arguments remain open: what it proves, and what actually deters the next incident.",
+        "positions": [
+          {
+            "axis": "What the verdict proves",
+            "position": "Part of a state-backed pattern",
+            "heldBy": "Pekka Turunen, Finnish Defence Forces intelligence chief (on the broader pattern, not Fitburg specifically)",
+            "argument": "Taken one at a time, each incident can be explained as negligence or crew misconduct. Taken together, the repetition suggests a state actor, even without a direct link in any single case.",
+            "confidence": "Medium: his remark concerned the pattern, not this case"
+          },
+          {
+            "axis": "What the verdict proves",
+            "position": "Proven crew misconduct, unproven sponsor",
+            "heldBy": "Supo (Finnish Security Intelligence Service), January 2026; the defendants deny the charges",
+            "argument": "A court can establish that a crew acted deliberately. It cannot, on that evidence alone, establish who benefited. Supo publicly declined to attribute Fitburg and said it saw no sign of Russia preparing intermediaries.",
+            "confidence": "High that this is Supo's stated position"
+          },
+          {
+            "axis": "What deters the next anchor",
+            "position": "Prosecute ships and crews",
+            "heldBy": "Finnish prosecutors and courts",
+            "argument": "Prison sentences and damages put a real cost on the people aboard and the companies behind them, and each conviction strengthens the legal route for the next case.",
+            "confidence": "High on the approach · its deterrent effect is untested"
+          },
+          {
+            "axis": "What deters the next anchor",
+            "position": "Patrol and watch the seabed",
+            "heldBy": "NATO, through Baltic Sentry (launched January 2025)",
+            "argument": "Courts act months after the damage. A visible naval and surveillance presence aims to deter incidents, or catch them as they happen.",
+            "confidence": "High on the stated aim · effectiveness not publicly measured"
+          }
+        ],
+        "synthesis": "Both responses now run in parallel. The criminal case answers who was responsible on board; it was never designed to answer who, if anyone, wanted the outcome.",
+        "openQuestion": "If a sponsor is never proven, is convicting the crew the ceiling of the response? One view holds that treating each incident as a separate crime is the only fair standard, because states should not be accused without evidence. The other holds that case-by-case prosecution lets a campaign, if one exists, hide inside a series of ordinary-looking accidents. Which risk is worse for a democracy: wrongly blaming a state, or never being able to name one?"
+      },
+      "sources": [
+        {
+          "label": "Yle — Fitburg verdict (Nov. 5, 2026)",
+          "url": "https://yle.fi/a/74-20255306"
+        },
+        {
+          "label": "Helsinki Times — Fitburg captain and boatswain sentenced (Nov. 2026)",
+          "url": "https://www.helsinkitimes.fi/finland/finland-news/domestic/29457-fitburg-captain-and-boatswain-sentenced-to-prison-over-baltic-sea-cable-damage.html"
+        },
+        {
+          "label": "The Moscow Times — Finland jails captain and crew member (Nov. 5, 2026)",
+          "url": "https://www.themoscowtimes.com/2026/11/05/finland-jails-russian-captain-and-azerbaijani-crew-member-over-baltic-sea-cable-damage-a94185"
+        },
+        {
+          "label": "Finnish Police — Fitburg moved to international waters (primary)",
+          "url": "https://poliisi.fi/en/-/fitburg-vessel-to-move-to-international-waters-under-border-guard-s-control"
+        },
+        {
+          "label": "Finnish Customs — Fitburg cargo was sanctioned steel (primary)",
+          "url": "https://tulli.fi/en/-/finnish-customs-the-cargo-of-the-vessel-fitburg-consisted-of-sanctioned-steel-products"
+        },
+        {
+          "label": "Yle — trial opens; defendants deny sabotage (Sept. 2026)",
+          "url": "https://yle.fi/a/74-20245189"
+        },
+        {
+          "label": "Maritime Executive — Finland prosecutes captain and bosun",
+          "url": "https://maritime-executive.com/article/finland-prosecutes-captain-and-bosun-in-anchor-dragging-incident"
+        },
+        {
+          "label": "The Record — Appeals court revives Eagle S case (Aug. 2026)",
+          "url": "https://therecord.media/finland-appeals-court-revives-case-against-eagle-s"
+        },
+        {
+          "label": "RFE/RL — China acknowledges NewNew Polar Bear damaged Balticconnector (Aug. 2024)",
+          "url": "https://www.rferl.org/amp/china-baltic-connector-estonia-finland/33077971.html"
+        },
+        {
+          "label": "NATO SHAPE — Baltic Sentry launched (Jan. 14, 2025, primary)",
+          "url": "https://shape.nato.int/news-releases/baltic-sentry-to-enhance-natos-presence-in-the-baltic-sea"
+        },
+        {
+          "label": "BB.lv — Finnish intelligence: no evidence Moscow is cutting cables (Jan. 2026, secondary)",
+          "url": "https://en.bb.lv/article/emergencies-and-crime/2026/01/18/finnish-intelligence-no-evidence-that-moscow-is-cutting-cables-in-the-baltic-84037"
+        },
+        {
+          "label": "United24 — Finland's intelligence chief on Baltic cable pattern (Jan. 2026, secondary)",
+          "url": "https://united24media.com/latest-news/finland-warns-russia-may-keep-targeting-baltic-sea-cables-in-shadow-campaign-15243"
+        }
+      ]
     }
   ]
 }

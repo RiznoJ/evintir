@@ -3,6 +3,23 @@
 Maintained per CLAUDE.md operating notes. Overwrite stale entries, don't append forever.
 
 ## Works now that didn't before
+- **Cryptologic Watch deep layer (2026-11-06)**: Purpose box at the top of
+  `cryptologic.html`; three new page sections below the entries: Foundations
+  explainers, Deep dives (two series: The Quantum Ecosystem, Offense &
+  Counterintelligence), and an Ecosystem map (v1: grouped directory plus a
+  table of documented connections).
+  - New `data/cryptologic-ecosystem.json` (6 deep dives + map).
+  - `data/cryptologic-tracks.json`: a track's `foundations` may now be a list;
+    items with `sections` render as explainer cards (tracks 1, 2, 4: 5 pieces).
+  - New entry seab-001 (Fitburg verdict, Nov 5) mapped to the Seabed track.
+  - pqc-001: Alice & Bob resource estimate update, with corrected bit-flip
+    figures (44 min single qubit; 189–252 min on Helium 2).
+  - Glossary +14 terms.
+  - **Drafts**: anything with `"draft": true` renders only on localhost and is
+    hidden on the live site. All new pieces start as drafts; flip to false
+    after review. (Changes old behavior: draft entries used to show live with
+    a badge; none existed.)
+  - Next: review each draft, then publish; real network-graph version of the map.
 - **Cryptologic Watch track layout (2026-11-05)**: `cryptologic.html` now groups
   entries into 9 numbered tracks defined in new `data/cryptologic-tracks.json`
   (track -> entry ids, angle, planned Foundations piece, open question). Track

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-06",
+  "updated": "2026-11-09",
   "note": "Defines Cryptologic Watch tracks and maps entry ids in cryptologic.json to tracks. A track's freshness is the most recent date or updated value among its entries. A track's foundations may be a list; items with sections render as explainer cards. Items marked draft show only on localhost.",
   "staleDays": 21,
   "tracks": [
@@ -81,6 +81,83 @@
             }
           ],
           "date": "2026-11-06"
+        },
+        {
+          "id": "fd-cnssp15",
+          "title": "CNSSP 15: the policy that turns CNSA 2.0 into a requirement",
+          "status": "Draft",
+          "draft": true,
+          "date": "2026-11-09",
+          "summary": "NSA chooses the algorithms, but a committee policy makes them mandatory. CNSSP 15 is the document that sets the 2027, 2030 and 2031 dates for national security systems, and in 2026 the committee behind it gained the authority to issue binding directives.",
+          "sections": [
+            {
+              "head": "What it is",
+              "body": "CNSSP 15, 'Use of Public Standards for Secure Information Sharing,' is a policy of the Committee on National Security Systems (CNSS), the interagency body that sets security rules for national security systems (NSS): classified networks and other systems tied to intelligence, military command, and weapons. It names which public, NIST-standardized algorithms NSS must use. NSA designs the algorithm suite (CNSA); CNSSP 15 is what requires it."
+            },
+            {
+              "head": "How it got here",
+              "body": "Earlier versions were built on NSA's Suite B, then on CNSA 1.0 (RSA-3072 or larger, ECDH and ECDSA on P-384, AES-256, SHA-384); a 2016 version is publicly archived. The current version is reported to be dated December 2024 and released in early 2025, reportedly on March 4. It adopts CNSA 2.0 and deprecates CNSA 1.0. The exact dates come from secondary sources because the CNSS site does not allow automated access, so confirm them on cnss.gov before quoting."
+            },
+            {
+              "head": "The three dates",
+              "body": "January 1, 2027: CNSA 2.0 required in new products and services that provide cryptographic protection. December 31, 2030: equipment and services that cannot be updated are phased out. December 31, 2031: CNSA 2.0 mandatory for all use. These three dates replace NSA's 2022 category-by-category table (per secondary reporting). Behind them is NSM-10's 2035 goal of making national security systems quantum-resistant."
+            },
+            {
+              "head": "What it does not do",
+              "body": "It covers only national security systems. Civilian federal systems follow EO 14412 and OMB M-26-15 (PQC key establishment by end of 2030, signatures by end of 2031 for high-value systems). Everyone using NIST standards follows NIST IR 8547 (RSA and elliptic curves deprecated after 2030, disallowed after 2035). Hybrid schemes are not automatically compliant. The common web hybrid X25519MLKEM768 uses ML-KEM-768, and CNSA 2.0 requires ML-KEM-1024. Waivers granted under the previous version were reported cancelled."
+            },
+            {
+              "head": "Why it has more force now",
+              "body": "On June 12, 2026, NSPM-12 re-established CNSS, which the White House described as its first modernization in over 35 years. The committee can now issue binding security directives to NSS owners and operators, and the NSA Director is confirmed as National Manager for NSS. EO 14412 has NSA report on NSS migration to the President through CNSS. Assessment: the dates did not change, but the body that owns them now has clearer enforcement authority and a reporting channel to the President."
+            },
+            {
+              "head": "Where it shows up in practice",
+              "body": "Programs and vendors meet the policy through NIAP protection profiles and Commercial Solutions for Classified (CSfC) capability packages, which is why the CNSA 2.0 entry tracks those documents as indicators. For a cryptologic officer the chain to know is: NSA defines the suite, CNSSP 15 sets the dates, NIAP and CSfC turn them into product requirements, and acquisition offices enforce them in contracts."
+            },
+            {
+              "head": "What public sources cannot tell us",
+              "body": "How many national security systems already comply, how many waivers have been requested or granted, and how CNSS will use its new directive authority. None of that is public."
+            }
+          ],
+          "confidence": "High on the requirements and 2026 authorities · Medium on the exact CNSSP 15 release dates (secondary sources)",
+          "sources": [
+            {
+              "label": "CNSS — Policies (CNSSP 15; primary, check manually)",
+              "url": "https://www.cnss.gov/CNSS/issuances/Policies.cfm"
+            },
+            {
+              "label": "CNSSP 15, Oct. 20, 2016 version (primary, archived copy)",
+              "url": "https://fedscoop.com/wp-content/uploads/sites/5/2025/08/CNSSP_15_20161020.pdf"
+            },
+            {
+              "label": "NSA — CNSA 2.0 FAQ (primary)",
+              "url": "https://media.defense.gov/2022/Sep/07/2003071836/-1/-1/0/CSI_CNSA_2.0_FAQ_.PDF"
+            },
+            {
+              "label": "NSA — PQC measures under EO 14412 (Oct. 1, 2026, primary)",
+              "url": "https://www.nsa.gov/Press-Room/Press-Releases-Statements/Press-Release-View/Article/4615285/nsa-announces-post-quantum-cryptography-measures-to-safeguard-national-security/"
+            },
+            {
+              "label": "White House — NSPM-12 fact sheet (June 12, 2026, primary)",
+              "url": "https://www.whitehouse.gov/fact-sheets/2026/06/fact-sheet-president-donald-j-trump-defends-americas-warfighters-and-intelligence-officers-against-cyber-threats/"
+            },
+            {
+              "label": "White House — EO 14412 (June 22, 2026, primary)",
+              "url": "https://www.whitehouse.gov/presidential-actions/2026/06/securing-the-nation-against-advanced-cryptographic-attacks/"
+            },
+            {
+              "label": "NIST — IR 8547 final (Oct. 27, 2026, primary)",
+              "url": "https://csrc.nist.gov/pubs/ir/8547/final"
+            },
+            {
+              "label": "Quantum Sentinel — CNSA 2.0 and the January 2027 deadline (secondary; CNSSP 15 dates)",
+              "url": "https://quantumsentinel.uk/cnsa-2-0-1-january-2027-deadline/"
+            },
+            {
+              "label": "Morgan Stern, NCF conference slides (Mar. 17, 2026; CNSSP 15 2025 update)",
+              "url": "https://cryptologicfoundation.org/wp-content/uploads/2026/03/Dr.-Morgan-Stern-QRC_NCF_Conf_20260317.published.pdf"
+            }
+          ]
         }
       ],
       "entryIds": [
@@ -341,11 +418,92 @@
       "n": 3,
       "name": "Quantum Sensing & Navigation",
       "angle": "GPS jamming and spoofing are now routine in conflict zones. Quantum sensors are a candidate fallback, mostly still at trial stage.",
-      "foundations": {
-        "title": "How quantum sensors navigate without satellites",
-        "status": "Planned"
-      },
-      "entryIds": [],
+      "foundations": [
+        {
+          "id": "fd-qnav",
+          "title": "How quantum sensors navigate without satellites",
+          "status": "Draft",
+          "draft": true,
+          "date": "2026-11-09",
+          "summary": "Quantum navigation either measures motion so precisely that drift stays small, or matches readings of Earth's magnetic or gravity field against a map. Both work without receiving a radio signal, so neither can be jammed. Trials are promising, but most published results so far are company-reported.",
+          "sections": [
+            {
+              "head": "The problem: GPS is a faint radio signal",
+              "body": "GPS satellites orbit about 20,000 km up, and their signals are very weak by the time they reach the ground. A nearby transmitter can drown them out (jamming) or broadcast fake ones (spoofing). The NTSB's preliminary report on the May 2026 Ruidoso crash shows the scale: one test-window NOTAM warned GPS might be unavailable within 366 nautical miles, and four aircraft reported losing it that night."
+            },
+            {
+              "head": "The fallback: dead reckoning, and why it drifts",
+              "body": "Inertial navigation systems measure acceleration and rotation, then add them up over time to estimate position. Every small sensor error is added up too, so the position error grows the longer the system runs without a fix. GPS normally supplies that fix. Quantum sensing offers two ways to need it less often."
+            },
+            {
+              "head": "Approach 1: atoms as motion sensors",
+              "body": "In an atom interferometer, a cloud of laser-cooled atoms is split by laser pulses, sent along two paths, and recombined. Any acceleration or rotation shifts the interference pattern. Every atom of a given element is identical and does not wear, which is why these sensors promise less drift than mechanical or optical sensors. In May 2024 the UK flew a quantum inertial system with an optical atomic clock on a QinetiQ test aircraft (Infleqtion UK, BAE Systems; about £8 million from UKRI). No accuracy figures were published. The UK's National Quantum Strategy aims to deploy quantum navigation on aircraft by 2030."
+            },
+            {
+              "head": "Approach 2: reading the Earth like a map",
+              "body": "Rock in the Earth's crust produces small, mapped variations in the magnetic and gravity fields. A quantum magnetometer or gravimeter measures them, and software matches the readings to a map, the way a hiker matches terrain to a contour map. In August 2024 a C-17 at Joint Base Charleston used SandboxAQ's magnetic navigation as its primary navigation method. Three of five flight segments stayed within one nautical mile, with NGA and AFWERX personnel aboard. Q-CTRL reports keeping maritime position within one nautical mile using gravity alone in the Coral Sea (Aug. 2026), and up to 111 times better accuracy than a high-end inertial system in flight. Both are company-reported figures."
+            },
+            {
+              "head": "Approach 3: quantum clocks",
+              "body": "Position from GPS is really timing, so a very stable local clock keeps networks synchronized when satellite time disappears. In 2026 Saab UK, Aquark Technologies and the Royal Navy reported keeping several Giraffe 1X radars on a shared air picture with independent quantum timing and no satellite time. No figures were given."
+            },
+            {
+              "head": "Who is paying",
+              "body": "DIU's Transition of Quantum Sensing program (March 2025) gave agreements to 18 companies, from startups to Lockheed Martin and Northrop Grumman, and planned more than 10 field tests across the Air Force, Space Force and Navy within a year. DARPA's Robust Quantum Sensors program (RoQS) addresses the main weakness: these sensors are thrown off by vibration, heat and g-forces. It asks for designs that tolerate those conditions instead of shielding against them, with a helicopter test within 30 months. Q-CTRL won $24.4 million across two RoQS contracts, with Lockheed Martin as a subcontractor."
+            },
+            {
+              "head": "Limits",
+              "body": "No quantum system has replaced GPS on an operational platform; these are backups at trial stage. Map-matching is only as good as the maps, and works poorly where the field has little variation. Most performance numbers come from the companies selling the systems. The open question for this track: new sensors could also bring new ways to be deceived, for example falsified or degraded maps."
+            },
+            {
+              "head": "What public sources cannot tell us",
+              "body": "How these sensors perform on operational military platforms, or when and where they will be fielded. Public reporting covers trials and contracts, not deployments."
+            }
+          ],
+          "confidence": "High on how the methods work and on the programs · Medium on performance (mostly company-reported)",
+          "sources": [
+            {
+              "label": "NTSB — Preliminary report WPR26FA186 (primary)",
+              "url": "https://data.ntsb.gov/carol-repgen/api/Aviation/ReportMain/GenerateNewestReport/202990/pdf"
+            },
+            {
+              "label": "The Next Web — UK's first quantum navigation flight (May 2024)",
+              "url": "https://thenextweb.com/news/uk-quantum-navigation-world-first-flight-replace-gps"
+            },
+            {
+              "label": "Joint Base Charleston — C-17 demonstrates real-time quantum magnetic navigation (Aug. 2024, primary)",
+              "url": "https://www.jbcharleston.jb.mil/News/Commentaries/Display/Article/3869993/jb-charleston-demos-real-time-quantum-magnetic-navigation-technology/"
+            },
+            {
+              "label": "Q-CTRL — GPS-free quantum gravimetric navigation in maritime trial (Aug. 27, 2026, company)",
+              "url": "https://q-ctrl.com/blog/q-ctrl-achieves-worlds-first-gps-free-quantum-gravimetric-navigation-demonstration-in-maritime-field-trial"
+            },
+            {
+              "label": "Saab — quantum timing radar trial (company)",
+              "url": "https://www.saab.com/markets/united-kingdom/stories/saab-completes-world-first-quantum-timing-radar-trial"
+            },
+            {
+              "label": "ExecutiveGov — DIU Transition of Quantum Sensing field tests (Mar. 2025)",
+              "url": "https://executivegov.com/2025/03/diu-field-testing-quantum-sensors-tqs-program/"
+            },
+            {
+              "label": "Breaking Defense — DARPA RoQS (Feb. 2025)",
+              "url": "https://breakingdefense.com/2025/02/roqs-for-a-hard-place-darpa-seeks-radically-more-robust-quantum-sensors-for-inhospitable-fieldwork/"
+            },
+            {
+              "label": "GPS World — Q-CTRL and Lockheed RoQS contracts (Aug. 2025)",
+              "url": "https://www.gpsworld.com/q-ctrl-lockheed-to-develop-quantum-navigation-for-darpa/"
+            },
+            {
+              "label": "TechRadar — three quantum navigation trials (Sept. 2026, secondary)",
+              "url": "https://www.techradar.com/pro/quantum-navigation-set-to-replace-gps-as-q-ctrl-us-department-of-war-and-saab-achieve-separate-successful-trials-within-weeks"
+            }
+          ]
+        }
+      ],
+      "entryIds": [
+        "pnt-001"
+      ],
       "closingQuestion": "Does the advantage go to whoever fields first, or do new sensors bring new ways to be deceived?"
     },
     {

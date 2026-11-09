@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-06",
+  "updated": "2026-11-09",
   "note": "Deep dives and the ecosystem map for Cryptologic Watch. Items marked draft show only on localhost.",
   "deepDives": [
     {
@@ -125,7 +125,7 @@
         },
         {
           "head": "The Illinois Quantum and Microelectronics Park",
-          "body": "On September 30, 2025, ground was broken on a 128-acre campus at the former U.S. Steel South Works site in South Chicago. The state has committed $500 million. PsiQuantum is the anchor tenant and plans a million-qubit-scale, fault-tolerant machine there; IBM, Infleqtion, Diraq, Pasqal, and Quantum Machines are also tenants. Phase one, about 30 acres, is under construction for completion in 2027.",
+          "body": "On September 30, 2025, ground was broken on a 128-acre campus at the former U.S. Steel South Works site in South Chicago. The state has committed $500 million. PsiQuantum is the anchor tenant and plans a million-qubit-scale, fault-tolerant machine there; IBM, Infleqtion, Diraq, Pasqal, and Quantum Machines are also tenants. Phase one, about 30 acres, is under construction for completion in 2027. On November 6, 2026, IBM switched on its first system for the park, an IBM Quantum System Two with its Nighthawk processor, temporarily housed at the University of Chicago's Hyde Park Labs until the park is built. It anchors the state's National Quantum Algorithm Center, set up in 2024. IBM's release gives no qubit count; trade press reports 120 qubits.",
           "confidence": "High"
         },
         {
@@ -196,8 +196,13 @@
         {
           "label": "Quantum Computing Report — PsiQuantum raises $1B (Sept. 2025)",
           "url": "https://quantumcomputingreport.com/psiquantum-raises-1-billion-to-build-fault-tolerant-quantum-computers-announces-collaboration-with-nvidia/"
+        },
+        {
+          "label": "IBM — Quantum System Two unveiled in Chicago (Nov. 6, 2026, primary)",
+          "url": "https://newsroom.ibm.com/2026-11-06-ibm-unveils-its-most-advanced-quantum-computer-in-chicago,-marking-a-milestone-for-illinoiss-quantum-future"
         }
-      ]
+      ],
+      "updated": "2026-11-09"
     },
     {
       "id": "eco-03",
@@ -691,7 +696,7 @@
           {
             "name": "IBM",
             "where": "Armonk / Poughkeepsie, NY",
-            "role": "Superconducting; QBI final stage; IQMP tenant",
+            "role": "Superconducting; QBI final stage; IQMP tenant; first IQMP system live Nov. 2026",
             "url": "https://newsroom.ibm.com/2025-06-10-IBM-Sets-the-Course-to-Build-Worlds-First-Large-Scale,-Fault-Tolerant-Quantum-Computer-at-New-IBM-Quantum-Data-Center"
           },
           {
@@ -857,6 +862,12 @@
         "rel": "sets",
         "to": "CNSA 2.0 deadlines",
         "note": "New NSS acquisitions compliant from Jan. 1, 2027"
+      },
+      {
+        "from": "IBM",
+        "rel": "anchors",
+        "to": "National Quantum Algorithm Center (IQMP)",
+        "note": "Quantum System Two live Nov. 6, 2026; at UChicago Hyde Park Labs until IQMP opens"
       }
     ],
     "sourceNote": "Every organization and link is drawn from the sources cited in the deep dives above. Locations are headquarters or the relevant site."

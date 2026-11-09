@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-06",
+  "updated": "2026-11-09",
   "note": "Hand-curated updates on cryptology, intelligence, and quantum: cryptography and post-quantum migration, cryptanalysis, signals intelligence, steganography and covert channels, and quantum computing. Public sources only. Each entry separates sourced reporting from assessment and ends with the debate, presenting competing positions as their holders argue them. Entries do not assess the status of any specific U.S. system.",
   "entries": [
     {
@@ -134,12 +134,28 @@
           "label": "NSM-10: NSS agencies adopt symmetric-key protections for quantum-vulnerable key exchanges, where appropriate"
         },
         {
+          "date": "2025-03-04",
+          "label": "CNSSP 15 update released (dated Dec. 2024): CNSA 2.0 becomes national policy for NSS (reported date)"
+        },
+        {
           "date": "2025-12-31",
           "label": "End of the grace period for systems validated under NIAP or CSfC profiles"
         },
         {
+          "date": "2026-06-12",
+          "label": "NSPM-12 re-establishes CNSS and lets it issue binding directives to NSS owners"
+        },
+        {
+          "date": "2026-06-22",
+          "label": "EO 14412: federal high-value systems must use PQC key establishment by end of 2030, signatures by end of 2031"
+        },
+        {
           "date": "2026-10-01",
           "label": "NSA PQC measures under EO 14412; PQC Resource Hub launched"
+        },
+        {
+          "date": "2026-10-27",
+          "label": "NIST IR 8547 final: all RSA and elliptic-curve public-key algorithms deprecated after 2030, disallowed after 2035"
         },
         {
           "date": "2027-01-01",
@@ -186,7 +202,8 @@
         "Any published cryptanalytic result that weakens ML-KEM or ML-DSA. That is the single event that would vindicate the hybrid approach.",
         "Whether NATO or Five Eyes guidance converges on hybrid or pure post-quantum for coalition links.",
         "Further revisions to NSA's CNSA 2.0 FAQ, which NSA has already updated since 2022.",
-        "New documents on NSA's PQC Resource Hub, especially any CSfC capability package supporting CNSA 2.0"
+        "New documents on NSA's PQC Resource Hub, especially any CSfC capability package supporting CNSA 2.0",
+        "Public DoD or Navy statements on how cryptographic upgrades are scheduled into shortened ship maintenance periods."
       ],
       "sources": [
         {
@@ -248,6 +265,26 @@
         {
           "label": "Quantum Computing Report: Alice & Bob multi-hour bit-flip suppression on Helium 2 (Nov. 2026, secondary)",
           "url": "https://quantumcomputingreport.com/alice-bob-demonstrates-multi-hour-physical-bit-flip-suppression-on-single-cat-and-helium-2-processors/"
+        },
+        {
+          "label": "NIST — IR 8547, Transition to Post-Quantum Cryptography Standards (final, Oct. 27, 2026, primary)",
+          "url": "https://csrc.nist.gov/pubs/ir/8547/final"
+        },
+        {
+          "label": "White House — EO 14412, Securing the Nation Against Advanced Cryptographic Attacks (June 22, 2026, primary)",
+          "url": "https://www.whitehouse.gov/presidential-actions/2026/06/securing-the-nation-against-advanced-cryptographic-attacks/"
+        },
+        {
+          "label": "White House — NSPM-12 fact sheet (June 12, 2026, primary)",
+          "url": "https://www.whitehouse.gov/fact-sheets/2026/06/fact-sheet-president-donald-j-trump-defends-americas-warfighters-and-intelligence-officers-against-cyber-threats/"
+        },
+        {
+          "label": "Defense One — Unraveling the Pentagon's quantum problem (Nov. 4, 2026, secondary)",
+          "url": "https://www.defenseone.com/technology/2026/11/unraveling-pentagons-quantum-problem/417029/"
+        },
+        {
+          "label": "PostQuantum.com — NIST IR 8547 final: what changed from the draft (secondary)",
+          "url": "https://postquantum.com/security-pqc/nist-ir-8547-final/"
         }
       ],
       "debate": {
@@ -285,7 +322,7 @@
         "synthesis": "The skeptic and the urgent case can both be right: no machine today is close, and the machine required keeps getting smaller. Planning happens in that gap.",
         "openQuestion": "Is 2035 set by the threat or by capacity? NSM-10's wording is \"mitigating as much of the quantum risk as is feasible by 2035.\" That phrasing concedes the goal is bounded by how fast the government can migrate, not by any forecast of quantum progress. If a cryptographically relevant quantum computer arrives earlier than expected, the binding constraint will not be the algorithms, which already exist. It will be acquisition speed, and the equipment bought before January 2027."
       },
-      "updated": "2026-11-06",
+      "updated": "2026-11-09",
       "updates": [
         {
           "date": "2026-10-01",
@@ -294,6 +331,14 @@
         {
           "date": "2026-10-28",
           "text": "Alice & Bob, a French quantum hardware company, published a preprint estimating that about 22,593 of its 'cat qubits' could break RSA-2048 in 3.14 days, and that under 30,000 could break the elliptic-curve keys used by Bitcoin in about an hour. That is far below Gidney's 2025 estimate of under 1 million qubits. Caveats: the paper is not peer reviewed, and it was written by the company that builds the hardware. Its headline figure assumes qubits that essentially never suffer bit-flip errors (about 100 years); with bit-flip times of about one hour, the estimate roughly doubles to about 45,000 qubits. The company has reported bit-flip times of 44 minutes on a single cat qubit (2025) and 189 to 252 minutes on its 12-qubit Helium 2 processor (November 2026, company-reported). The larger gap is scale: from 12 qubits to tens of thousands, while meeting the paper's other error-rate assumptions. Press headlines claiming encryption 'could fall in 3 days' describe a hypothetical machine, not one that exists. No deadline changes."
+        },
+        {
+          "date": "2026-10-27",
+          "text": "NIST finalized IR 8547, its plan for retiring quantum-vulnerable public-key cryptography. All RSA, ECDSA, EdDSA, Diffie-Hellman and ECDH are deprecated after 2030 and disallowed after 2035 under NIST standards. The change from the 2024 draft: 128-bit algorithms such as P-256, which the draft let run to 2035 without a deprecation step, now follow the same 2030 date as 112-bit ones. This is the civilian counterpart to CNSA 2.0: NSS follow CNSSP 15's earlier 2027/2030/2031 dates, and federal high-value systems follow EO 14412's 2030/2031 dates. No CNSA 2.0 deadline changes."
+        },
+        {
+          "date": "2026-11-04",
+          "text": "At TechNet Indo-Pacific, Capt. Victor Taylor of Pacific Fleet said Navy maintenance windows have shrunk from roughly nine months to a year down to about 45 days (as reported by Defense One). The panel discussed this as a practical constraint on upgrading cryptography in fielded ships ahead of the 2030 and 2031 deadlines. This is a public remark about scheduling, not an assessment of any system's status."
         }
       ]
     },
@@ -733,6 +778,143 @@
         {
           "label": "United24 — Finland's intelligence chief on Baltic cable pattern (Jan. 2026, secondary)",
           "url": "https://united24media.com/latest-news/finland-warns-russia-may-keep-targeting-baltic-sea-cables-in-shadow-campaign-15243"
+        }
+      ]
+    },
+    {
+      "id": "pnt-001",
+      "draft": true,
+      "topic": "Quantum Sensing & Navigation",
+      "actor": "NTSB; U.S. military test ranges",
+      "country": "United States",
+      "type": "Incident & policy",
+      "status": "Under investigation",
+      "date": "2026-11-06",
+      "confidence": "High (facts) · Medium (assessment)",
+      "title": "GPS Went Dark Over New Mexico: A Fatal Crash and the Case for Navigation Without Satellites",
+      "bottomLine": "The NTSB's preliminary report on the May 14 air ambulance crash near Ruidoso records the crew losing GPS during a scheduled military jamming window. It does not find a cause. For this track the case matters because it is a fully public, domestic record of what losing GPS does to ordinary navigation, which is the problem quantum navigation is being funded to solve.",
+      "requires": [
+        "The crash: a Beech C90 (N249CP) operated by Generations Jets as a Part 135 air ambulance crashed about 00:15 local on May 14, 2026, near Lincoln, New Mexico, at about 9,950 ft in the Capitan Mountains. Both pilots and both flight nurses were killed (NTSB WPR26FA186, preliminary).",
+        "About 8 minutes after leaving Roswell, the pilot told Albuquerque Center they had lost GPS and asked for the ILS approach instead. A controller called a supervisor to ask the military to stop jamming. About 00:10, after the crew reported Ruidoso in sight and was cleared for a visual approach, the supervisor told the military it could resume. Impact followed about 5 minutes later.",
+        "Three other aircraft reported losing GPS that night. One had trouble identifying a ground-based navigation beacon and needed extra help from controllers.",
+        "A NOTAM warned that GPS 'MAY NOT BE AVBL' within 366 nautical miles of a point near White Sands Missile Range during the test window.",
+        "The report also records a dark night (0% moon), an out-of-service weather station at the destination, approach charts that are not authorized without a local altimeter setting, and terrain rising to 10,201 ft between the aircraft and the airport. The NTSB has not determined a probable cause or contributing factors.",
+        "On November 6, the GPS Innovation Alliance's Lisa Dyer said military jamming and spoofing tests are expanding outside conflict zones, that some ran without NOTAMs, and urged a larger test range (DefenseScoop). The Pentagon did not comment; the Army said the incident is under investigation.",
+        "The FCC is separately considering letting officials jam and spoof near correctional facilities, to counter contraband drones and phones (DefenseScoop)."
+      ],
+      "keyDates": [
+        {
+          "date": "2024-05-09",
+          "label": "UK flies quantum inertial navigation on a test aircraft (Infleqtion UK, BAE Systems, QinetiQ)"
+        },
+        {
+          "date": "2024-08-12",
+          "label": "C-17 flies with quantum magnetic navigation as its primary navigation method (SandboxAQ, JB Charleston)"
+        },
+        {
+          "date": "2025-03-13",
+          "label": "DIU Transition of Quantum Sensing: 18 companies, more than 10 field tests planned"
+        },
+        {
+          "date": "2025-08-27",
+          "label": "DARPA Robust Quantum Sensors awards to Q-CTRL ($24.4M across two contracts)"
+        },
+        {
+          "date": "2026-05-14",
+          "label": "Air ambulance crash near Ruidoso during a GPS jamming window"
+        },
+        {
+          "date": "2026-06-17",
+          "label": "NTSB preliminary report released (reported date)"
+        },
+        {
+          "date": "2026-11-06",
+          "label": "GPS Innovation Alliance warns about domestic jamming tests"
+        }
+      ],
+      "strategicRead": [
+        {
+          "head": "A rare public record of GPS denial.",
+          "body": "Most reporting on jamming comes from conflict zones and relies on aggregate maps. Here there is a minute-by-minute federal timeline: four aircraft affected, controllers asking a test range to pause, a crew switching to ground-based approaches. It shows the practical effect of GPS denial in plain terms: workload rises and crews fall back on older systems.",
+          "confidence": "High"
+        },
+        {
+          "head": "It does not show cause, and should not be written as if it does.",
+          "body": "The NTSB's preliminary report lists GPS loss alongside other conditions: a moonless night, a visual approach toward mountains, and no local altimeter setting. Jamming had been paused for about five minutes and resumed about five minutes before impact. Whether GPS loss contributed is the question the final report has to answer.",
+          "confidence": "High on the record · no assessment of cause"
+        },
+        {
+          "head": "Why it belongs on a quantum tab.",
+          "body": "Quantum sensors are being funded as a GPS-independent backup: atom-based inertial sensors that drift less, and magnetometers and gravimeters that match readings to maps. DIU and DARPA are paying for field trials now. For civil aviation the near-term answers are procedural (better test coordination and notice) and conventional backups. Quantum navigation is a longer bet, and most performance figures published so far are company-reported.",
+          "confidence": "High on the programs · Medium on the assessment"
+        }
+      ],
+      "indicators": [
+        "The NTSB final report and probable cause.",
+        "Any FAA or DoD change to how GPS interference tests are scheduled, announced, or located.",
+        "The outcome of the FCC proceeding on jamming near correctional facilities.",
+        "Published results from DIU's Transition of Quantum Sensing field tests.",
+        "DARPA RoQS sensors reaching their planned helicopter tests."
+      ],
+      "debate": {
+        "intro": "Two arguments run through this case: what the crash says about domestic testing, and what the real fix for GPS dependence is.",
+        "positions": [
+          {
+            "axis": "Domestic testing",
+            "position": "Tests are outgrowing the ranges",
+            "heldBy": "GPS Innovation Alliance (Lisa Dyer); Rep. Gabe Vasquez (D-N.M.)",
+            "argument": "Jamming affects every receiver in range, not only the intended target. Tests are increasing, some have run without notice, and White Sands effects reach well beyond the range. Testing should move to larger areas, with better coordination.",
+            "confidence": "High that these are their positions"
+          },
+          {
+            "axis": "Domestic testing",
+            "position": "Realistic testing is necessary",
+            "heldBy": "The rationale for expanded testing as reported by DefenseScoop; the Pentagon declined to comment",
+            "argument": "Forces have to train against counter-drone and electronic-warfare conditions they will face, and the FAA and DoD already coordinate windows through NOTAMs. In this case a NOTAM covered the area and controllers could pause the jamming on request.",
+            "confidence": "Medium: no named official has argued this publicly in this case"
+          },
+          {
+            "axis": "The fix",
+            "position": "Fix the procedures",
+            "heldBy": "Implied by the GPS Innovation Alliance's recommendations",
+            "argument": "The fastest gains come from where and when tests run, how they are announced, and keeping crews proficient on ground-based approaches.",
+            "confidence": "Medium"
+          },
+          {
+            "axis": "The fix",
+            "position": "Fix the dependency",
+            "heldBy": "Stated aims of DIU's Transition of Quantum Sensing and DARPA's RoQS; UK National Quantum Strategy",
+            "argument": "GPS will be jammed in any serious conflict regardless of domestic procedures. Platforms need navigation that does not rely on a radio signal at all, and quantum sensors are one of the few candidates that cannot be jammed in principle.",
+            "confidence": "High that this is the programs' rationale · Medium on timelines"
+          }
+        ],
+        "synthesis": "Both fixes are needed and work on different clocks: procedures can change this year, while quantum backups are at field-trial stage.",
+        "openQuestion": "If the military has to jam GPS at home to prepare for war, and civilians share the same signal, who decides where readiness for war ends and peacetime safety takes priority, and on what evidence? And if quantum navigation succeeds, will civil aviation get it too, or will the gap between military and civilian resilience widen?"
+      },
+      "sources": [
+        {
+          "label": "NTSB — Preliminary report WPR26FA186 (primary)",
+          "url": "https://data.ntsb.gov/carol-repgen/api/Aviation/ReportMain/GenerateNewestReport/202990/pdf"
+        },
+        {
+          "label": "DefenseScoop — GPS Innovation Alliance warns of risks from military jamming tests (Nov. 6, 2026)",
+          "url": "https://defensescoop.com/2026/11/06/gps-jamming-risks-to-civilians-from-military-testing"
+        },
+        {
+          "label": "KOB — NTSB: GPS jamming was active when air ambulance crew flew into Capitan Mountains (secondary)",
+          "url": "https://www.kob.com/new-mexico/ntsb-gps-jamming-was-active-when-air-ambulance-crew-flew-into-capitan-mountains/"
+        },
+        {
+          "label": "Stars and Stripes — NTSB medevac crash and GPS jamming (secondary)",
+          "url": "https://www.stripes.com/theaters/us/2026-08-05/ntsb-medevac-crash-gps-jamming-22466131.html"
+        },
+        {
+          "label": "ExecutiveGov — DIU field testing of quantum sensors under TQS (Mar. 2025)",
+          "url": "https://executivegov.com/2025/03/diu-field-testing-quantum-sensors-tqs-program/"
+        },
+        {
+          "label": "GPS World — Q-CTRL and Lockheed to develop quantum navigation for DARPA (Aug. 2025)",
+          "url": "https://www.gpsworld.com/q-ctrl-lockheed-to-develop-quantum-navigation-for-darpa/"
         }
       ]
     }

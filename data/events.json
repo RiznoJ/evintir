@@ -1,39 +1,543 @@
 {
-  "generated_at": "2026-11-11T23:50:18+00:00",
+  "generated_at": "2026-11-12T04:51:59+00:00",
   "note": "Auto-generated from public RSS feeds. Confidence 'Unverified' means no human review yet. Coordinates are region centroids.",
   "sources": [
     {
       "source": "CISA Advisories",
       "ok": true,
       "entries_this_run": 5,
-      "last_success": "2026-11-11T23:50:17+00:00"
+      "last_success": "2026-11-12T04:51:58+00:00"
     },
     {
       "source": "BBC World",
       "ok": true,
       "entries_this_run": 25,
-      "last_success": "2026-11-11T23:50:17+00:00"
+      "last_success": "2026-11-12T04:51:58+00:00"
     },
     {
       "source": "Al Jazeera",
       "ok": true,
       "entries_this_run": 25,
-      "last_success": "2026-11-11T23:50:17+00:00"
+      "last_success": "2026-11-12T04:51:58+00:00"
     },
     {
       "source": "gCaptain (maritime)",
       "ok": true,
       "entries_this_run": 12,
-      "last_success": "2026-11-11T23:50:17+00:00"
+      "last_success": "2026-11-12T04:51:58+00:00"
     },
     {
       "source": "U.S. DoD Releases",
       "ok": true,
       "entries_this_run": 11,
-      "last_success": "2026-11-11T23:50:17+00:00"
+      "last_success": "2026-11-12T04:51:58+00:00"
     }
   ],
   "events": [
+    {
+      "id": "RSS-daf37166e7",
+      "date": "2026-11-12",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Military",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/liveblog/2026/11/12/iran-war-live-tehran-warns-of-wider-retaliation-israel-kills-in-gaza?traffic_source=rss",
+      "summary": "Iran war live: IRGC chief says sanctions won\u2019t stop missile programme",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 7,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Iran"
+      ]
+    },
+    {
+      "id": "RSS-b8bb9c4cda",
+      "date": "2026-11-12",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Military",
+      "event_type": "Public news report",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/ckzd9p7e4eqeo?at_medium=RSS&at_campaign=rss",
+      "summary": "Israeli strike on Nasser Hospital kills at least six, Gaza civil defence agency says",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 6,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Israel"
+      ]
+    },
+    {
+      "id": "RSS-e5bcbb9d6d",
+      "date": "2026-11-12",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/11/12/iran-warns-of-expanded-retaliation-as-israel-reportedly-readies-to-attack?traffic_source=rss",
+      "summary": "Iran warns of expanded retaliation as Israel reportedly readies to attack",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 6,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Israel",
+        "Iran"
+      ]
+    },
+    {
+      "id": "RSS-755f3c5ece",
+      "date": "2026-11-12",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/12/israel-strikes-intensive-care-at-gazas-nasser-hospital?traffic_source=rss",
+      "summary": "Israel strikes intensive care at Gaza\u2019s Nasser Hospital",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 6,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Israel"
+      ]
+    },
+    {
+      "id": "RSS-e4a5945bc1",
+      "date": "2026-11-12",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/cw7vppyr80eeo?at_medium=RSS&at_campaign=rss",
+      "summary": "Democrat Scott Colom seals historic win in Mississippi Senate race",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-0de3b4c908",
+      "date": "2026-11-12",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/videos/c60rkwjj7x7go?at_medium=RSS&at_campaign=rss",
+      "summary": "Survivor pulled from rubble of deadly building collapse in New York",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-06aaf836ff",
+      "date": "2026-11-12",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/ckvg25zmppglo?at_medium=RSS&at_campaign=rss",
+      "summary": "Australian teen missing in bush for six days rescued alive",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Australia"
+      ]
+    },
+    {
+      "id": "RSS-e8d0b12d49",
+      "date": "2026-11-12",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/c3x298n87rn2o?at_medium=RSS&at_campaign=rss",
+      "summary": "Famed ship SS United States sunk off coast of Florida",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "United States"
+      ]
+    },
+    {
+      "id": "RSS-b15f3ebb61",
+      "date": "2026-11-12",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/12/irans-chief-negotiator-tells-al-jazeera-ball-in-us?traffic_source=rss",
+      "summary": "Iran\u2019s chief negotiator tells Al Jazeera \u2018ball in US court\u2019",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Iran"
+      ]
+    },
+    {
+      "id": "RSS-a2869accac",
+      "date": "2026-11-12",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/11/12/amnesty-says-un-south-sudan-officials-failed-to-prevent-village-massacre?traffic_source=rss",
+      "summary": "Amnesty says UN, South Sudan officials failed to prevent village massacre",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-df72687aa8",
+      "date": "2026-11-12",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/11/12/building-collapse-in-brooklyn-kills-two-injures-more-than-a-dozen?traffic_source=rss",
+      "summary": "Building collapse in Brooklyn kills two, injures more than a dozen",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-b481ed01f5",
+      "date": "2026-11-12",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/12/aje-onl-nf_mother-reunites-with-sons-taken-under-pinochet-111126?traffic_source=rss",
+      "summary": "Mother reunites with sons taken under Pinochet regime 40 years ago",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-7dcbf66e1a",
+      "date": "2026-11-12",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/12/indonesian-vp-resigns-over-education-qualification-row?traffic_source=rss",
+      "summary": "Indonesian VP resigns over education qualification row",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Indonesia"
+      ]
+    },
+    {
+      "id": "RSS-db50971318",
+      "date": "2026-11-12",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/12/argentinas-milei-cries-as-he-bids-farewell-to-the-pope?traffic_source=rss",
+      "summary": "Argentina\u2019s Milei cries as he bids farewell to the Pope",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-94d95ff10a",
+      "date": "2026-11-12",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/12/three-storey-building-collapses-in-brooklyn?traffic_source=rss",
+      "summary": "Three-storey building collapses in Brooklyn",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-a866fd1f8d",
+      "date": "2026-11-12",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/11/12/what-could-chinese-intelligence-have-learned-from-nvidia-ceos-affair?traffic_source=rss",
+      "summary": "What could Chinese intelligence have learned from Nvidia CEO\u2019s affair?",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "China"
+      ]
+    },
+    {
+      "id": "RSS-165828d14e",
+      "date": "2026-11-12",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/11/12/former-italian-red-brigades-member-escapes-house-arrest-in-argentina?traffic_source=rss",
+      "summary": "Former Italian Red Brigades member escapes house arrest in Argentina",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-db48ae06ce",
+      "date": "2026-11-12",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/economy/2026/11/12/nvidia-shares-plunge-amid-reports-board-to-discuss-ceo-huangs-future?traffic_source=rss",
+      "summary": "Nvidia shares plunge amid reports board to discuss CEO Huang\u2019s future",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-a6b2f9d280",
+      "date": "2026-11-12",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/11/12/hegseth-entourage-reprimanded-by-guard-at-tomb-of-the-unknown-soldier?traffic_source=rss",
+      "summary": "Hegseth entourage reprimanded by guard at Tomb of the Unknown Soldier",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-eebaa12392",
+      "date": "2026-11-12",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/11/12/why-the-us-mexico-and-guatemala-may-lose-their-measles-free-status?traffic_source=rss",
+      "summary": "Why the US, Mexico and Guatemala may lose their measles-free status",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Mexico"
+      ]
+    },
+    {
+      "id": "RSS-f6a95fffb5",
+      "date": "2026-11-12",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/11/12/cameroon-who-is-really-calling-the-shots?traffic_source=rss",
+      "summary": "Cameroon: Who is really calling the shots?",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-4ca07e8fc9",
+      "date": "2026-11-12",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/12/hegseth-scolded-by-security-at-tomb-of-the-unknown-soldier?traffic_source=rss",
+      "summary": "Hegseth scolded by security at Tomb of the Unknown Soldier",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-3d378b613d",
+      "date": "2026-11-12",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/11/12/us-election-results-could-be-positive-for-lebanon-hezbollah-chief-says?traffic_source=rss",
+      "summary": "US election results could be positive for Lebanon, Hezbollah chief says",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
     {
       "id": "RSS-c7c5ecc656",
       "date": "2026-11-11",
@@ -66,30 +570,7 @@
       "event_type": "Public news report",
       "source_name": "Al Jazeera",
       "source_url": "https://www.aljazeera.com/news/2026/11/11/israeli-strikes-hit-tent-camp-as-five-killed-in-gaza?traffic_source=rss",
-      "summary": "Israeli strikes hit tent camp as five killed in Gaza",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 9,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Israel"
-      ]
-    },
-    {
-      "id": "RSS-bf2ebd214a",
-      "date": "2026-11-11",
-      "region": "Middle East",
-      "location": "Middle East",
-      "lat": 29.0,
-      "lon": 45.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/11/gaza-goalkeeper-killed-in-israeli-attack?traffic_source=rss",
-      "summary": "Gaza goalkeeper killed in Israeli attack",
+      "summary": "Israeli strikes hit medical complex as nine killed across Gaza",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 9,
@@ -188,40 +669,17 @@
       "country_tags": []
     },
     {
-      "id": "RSS-2bb00d0774",
-      "date": "2026-11-11",
-      "region": "Middle East",
-      "location": "Middle East",
-      "lat": 29.0,
-      "lon": 45.0,
-      "category": "Military",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/11/scenes-show-aftermath-of-horrific-israeli-strike-on-gaza-tents?traffic_source=rss",
-      "summary": "Scenes show aftermath of horrific Israeli strike on Gaza tents",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 6,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Israel"
-      ]
-    },
-    {
-      "id": "RSS-ccc647d43f",
+      "id": "RSS-f4191914f5",
       "date": "2026-11-11",
       "region": "Global",
       "location": "Global",
       "lat": 10.0,
       "lon": 0.0,
-      "category": "Geopolitical",
+      "category": "Military",
       "event_type": "Public news report",
       "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/11/three-women-killed-in-la-crash-as-driver-arrested?traffic_source=rss",
-      "summary": "Three women killed in LA crash as driver arrested",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/11/barcelona-erupts-in-violence-after-general-strike?traffic_source=rss",
+      "summary": "Barcelona erupts in violence after general strike",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 6,
@@ -255,27 +713,6 @@
       ]
     },
     {
-      "id": "RSS-e4a5945bc1",
-      "date": "2026-11-11",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/cw7vppyr80eeo?at_medium=RSS&at_campaign=rss",
-      "summary": "Democrat Scott Colom wins Mississippi Senate race in surprise victory for party",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
       "id": "RSS-3a270928c1",
       "date": "2026-11-11",
       "region": "Europe / Russia-Ukraine",
@@ -300,7 +737,7 @@
       ]
     },
     {
-      "id": "RSS-c57d9b9b4f",
+      "id": "RSS-bc93c941a2",
       "date": "2026-11-11",
       "region": "Global",
       "location": "Global",
@@ -309,8 +746,8 @@
       "category": "Geopolitical",
       "event_type": "Public news report",
       "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/cwz0k79pr8z2o?at_medium=RSS&at_campaign=rss",
-      "summary": "Schools in Italy, Scotland and Northern Ireland hit by threats in suspected bomb hoax",
+      "source_url": "https://www.bbc.co.uk/news/articles/c933gn6710lyo?at_medium=RSS&at_campaign=rss",
+      "summary": "Kidnapper, 74, escapes from house arrest in Argentina by abseiling from balcony",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -344,7 +781,7 @@
       ]
     },
     {
-      "id": "RSS-bc93c941a2",
+      "id": "RSS-c57d9b9b4f",
       "date": "2026-11-11",
       "region": "Global",
       "location": "Global",
@@ -353,8 +790,8 @@
       "category": "Geopolitical",
       "event_type": "Public news report",
       "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/c933gn6710lyo?at_medium=RSS&at_campaign=rss",
-      "summary": "Kidnapper, 74, escapes from house arrest in Argentina by abseiling from balcony",
+      "source_url": "https://www.bbc.co.uk/news/articles/cwz0k79pr8z2o?at_medium=RSS&at_campaign=rss",
+      "summary": "Schools in Italy, Scotland and Northern Ireland hit by threats in suspected bomb hoax",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -535,50 +972,6 @@
       "country_tags": []
     },
     {
-      "id": "RSS-7afea9ada6",
-      "date": "2026-11-11",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/c8wy9y37z30vo?at_medium=RSS&at_campaign=rss",
-      "summary": "'It can kill us': Kenyans fear impact of El Ni\u00f1o with floods predicted",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-61c8704b89",
-      "date": "2026-11-11",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/c687z7g4xr97o?at_medium=RSS&at_campaign=rss",
-      "summary": "'They will kill you too': Sonia Gandhi's turbulent journey in Indian politics",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "India"
-      ]
-    },
-    {
       "id": "RSS-19cef2d248",
       "date": "2026-11-11",
       "region": "Global",
@@ -678,354 +1071,6 @@
       "source_name": "Al Jazeera",
       "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/11/thousands-march-to-mark-polands-independence-day?traffic_source=rss",
       "summary": "Thousands march to mark Poland\u2019s Independence Day",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-11b2bccee7",
-      "date": "2026-11-11",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/11/hoax-bomb-threats-target-schools-across-italy-uk-and-ireland?traffic_source=rss",
-      "summary": "Hoax bomb threats target schools across Italy, UK and Ireland",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-ed3e67598e",
-      "date": "2026-11-11",
-      "region": "Middle East",
-      "location": "Middle East",
-      "lat": 29.0,
-      "lon": 45.0,
-      "category": "Energy",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/11/11/oil-production-near-pre-iran-war-levels-opec-says?traffic_source=rss",
-      "summary": "Oil production nears pre-Iran war levels, OPEC says",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Iran"
-      ]
-    },
-    {
-      "id": "RSS-ff69673c51",
-      "date": "2026-11-11",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/11/11/trumps-white-house-calls-democratic-plans-for-congressional-probes-abuse?traffic_source=rss",
-      "summary": "Trump\u2019s White House calls Democratic plans for congressional probes \u2018abuse\u2019",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "United States"
-      ]
-    },
-    {
-      "id": "RSS-d69184e718",
-      "date": "2026-11-11",
-      "region": "Middle East",
-      "location": "Middle East",
-      "lat": 29.0,
-      "lon": 45.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/11/11/f1-champion-lewis-hamilton-calls-on-israel-to-open-rafah-border?traffic_source=rss",
-      "summary": "F1 champion Lewis Hamilton calls on Israel to open Gaza\u2019s Rafah border",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Israel"
-      ]
-    },
-    {
-      "id": "RSS-ca93965e53",
-      "date": "2026-11-11",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/11/first-palestinian-american-elected-in-new-york-talks-to-al-jazeera?traffic_source=rss",
-      "summary": "First Palestinian American elected in New York talks to Al Jazeera",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-c226bc44ec",
-      "date": "2026-11-11",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/11/uzbekistan-the-crossroads-of-central-asian-cultures?traffic_source=rss",
-      "summary": "Uzbekistan: the crossroads of Central Asian cultures",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-5ace36b22d",
-      "date": "2026-11-11",
-      "region": "Middle East",
-      "location": "Middle East",
-      "lat": 29.0,
-      "lon": 45.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/11/how-much-did-pro-israel-groups-spend-against-hasan-piker-at-midterms?traffic_source=rss",
-      "summary": "How much did pro-Israel groups spend against Hasan Piker at midterms?",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Israel"
-      ]
-    },
-    {
-      "id": "RSS-bd0731fb3c",
-      "date": "2026-11-11",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/11/11/which-key-races-remain-undecided-one-week-after-the-us-midterms?traffic_source=rss",
-      "summary": "Which key races remain undecided one week after the US midterms?",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-5913babbd7",
-      "date": "2026-11-11",
-      "region": "Middle East",
-      "location": "Middle East",
-      "lat": 29.0,
-      "lon": 45.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/11/11/one-million-people-in-lebanon-facing-acute-food-insecurity-un-says?traffic_source=rss",
-      "summary": "More than one million people in Lebanon face acute food shortages, UN says",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-0e5f5ac7fb",
-      "date": "2026-11-11",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/inside-story/2026/11/11/will-sheikh-hasina-return-to-bangladesh?traffic_source=rss",
-      "summary": "Will Sheikh Hasina return to Bangladesh?",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-fdebfcc515",
-      "date": "2026-11-11",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/11/11/zohran-mamdanis-influence-grows-as-democrats-eye-2028-strategies?traffic_source=rss",
-      "summary": "Zohran Mamdani\u2019s influence grows as Democrats eye 2028 strategies",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-8b20132e65",
-      "date": "2026-11-11",
-      "region": "Europe / Russia-Ukraine",
-      "location": "Europe / Russia-Ukraine",
-      "lat": 49.0,
-      "lon": 32.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/11/11/ireland-fears-undersea-cables-face-growing-threat-from-malign-actors?traffic_source=rss",
-      "summary": "\u2018Malign actors\u2019: Ireland fears Russia could threaten undersea cables",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Russia"
-      ]
-    },
-    {
-      "id": "RSS-929b57d96c",
-      "date": "2026-11-11",
-      "region": "Europe / Russia-Ukraine",
-      "location": "Europe / Russia-Ukraine",
-      "lat": 49.0,
-      "lon": 32.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/11/11/russias-ambassador-to-the-us-alexander-darchiev-dies-at-66?traffic_source=rss",
-      "summary": "Russia\u2019s ambassador to US, Alexander Darchiev, dies at 66",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Russia"
-      ]
-    },
-    {
-      "id": "RSS-099bf9c6f3",
-      "date": "2026-11-11",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/11/spain-faces-nationwide-protests-over-soaring-housing-costs?traffic_source=rss",
-      "summary": "Spain faces nationwide protests over soaring housing costs",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-430ce728cc",
-      "date": "2026-11-11",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/11/11/portugal-cancels-300-plus-flights-shuts-schools-ahead-of-storm-charles?traffic_source=rss",
-      "summary": "Portugal cancels more than 300 flights, shuts schools due to Storm Charles",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-4bad9f55ca",
-      "date": "2026-11-11",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/11/11/can-democrats-shed-some-new-light-on-the-epstein-files-when-they-take-over?traffic_source=rss",
-      "summary": "Can Democrats shed some new light on the Epstein files when they take over?",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -1342,53 +1387,6 @@
         "auto-ingested"
       ],
       "country_tags": []
-    },
-    {
-      "id": "RSS-ced5427ce3",
-      "date": "2026-11-10",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/cm1j3jdp7w54o?at_medium=RSS&at_campaign=rss",
-      "summary": "Why does Australia want Brits to swap Sydney for the outback?",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Australia"
-      ]
-    },
-    {
-      "id": "RSS-ed73d7ea38",
-      "date": "2026-11-10",
-      "region": "Europe / Russia-Ukraine",
-      "location": "Europe / Russia-Ukraine",
-      "lat": 49.0,
-      "lon": 32.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/cq0memrywvzro?at_medium=RSS&at_campaign=rss",
-      "summary": "Inside devastated front-line city that Russia wants Ukraine to give up",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Russia",
-        "Ukraine"
-      ]
     },
     {
       "id": "RSS-db7f3b6d8d",

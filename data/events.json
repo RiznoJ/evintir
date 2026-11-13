@@ -1,39 +1,346 @@
 {
-  "generated_at": "2026-11-12T22:57:28+00:00",
+  "generated_at": "2026-11-13T04:03:09+00:00",
   "note": "Auto-generated from public RSS feeds. Confidence 'Unverified' means no human review yet. Coordinates are region centroids.",
   "sources": [
     {
       "source": "CISA Advisories",
       "ok": true,
       "entries_this_run": 8,
-      "last_success": "2026-11-12T22:57:23+00:00"
+      "last_success": "2026-11-13T04:03:06+00:00"
     },
     {
       "source": "BBC World",
       "ok": true,
       "entries_this_run": 25,
-      "last_success": "2026-11-12T22:57:23+00:00"
+      "last_success": "2026-11-13T04:03:06+00:00"
     },
     {
       "source": "Al Jazeera",
       "ok": true,
       "entries_this_run": 25,
-      "last_success": "2026-11-12T22:57:23+00:00"
+      "last_success": "2026-11-13T04:03:06+00:00"
     },
     {
       "source": "gCaptain (maritime)",
       "ok": true,
       "entries_this_run": 12,
-      "last_success": "2026-11-12T22:57:23+00:00"
+      "last_success": "2026-11-13T04:03:06+00:00"
     },
     {
       "source": "U.S. DoD Releases",
       "ok": true,
-      "entries_this_run": 12,
-      "last_success": "2026-11-12T22:57:23+00:00"
+      "entries_this_run": 11,
+      "last_success": "2026-11-13T04:03:06+00:00"
     }
   ],
   "events": [
+    {
+      "id": "RSS-c933d29602",
+      "date": "2026-11-13",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Military",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/13/gaza-surgeon-films-aftermath-of-israeli-strike?traffic_source=rss",
+      "summary": "Gaza surgeon films aftermath of Israeli strike",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 6,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Israel"
+      ]
+    },
+    {
+      "id": "RSS-d4a4eb02dd",
+      "date": "2026-11-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Military",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/11/13/finland-detects-strike-on-russian-warship-as-zelenskyy-meets-us-envoys?traffic_source=rss",
+      "summary": "Finland detects strike on Russian warship as Zelenskyy meets US envoys",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 6,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Russia"
+      ]
+    },
+    {
+      "id": "RSS-5d21b1e6d1",
+      "date": "2026-11-13",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/liveblog/2026/11/13/iran-war-live-riyadh-china-discuss-houthis-as-group-claims-aramco-attacks?traffic_source=rss",
+      "summary": "Iran war live: Trump says Gulf allies urged pause in Iran strikes",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 6,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Iran"
+      ]
+    },
+    {
+      "id": "RSS-ea7faee116",
+      "date": "2026-11-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/cmq5vd1wdgz6o?at_medium=RSS&at_campaign=rss",
+      "summary": "Ousted Nvidia CEO Jensen Huang summoned to testify before Congress",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-af7b2cf6eb",
+      "date": "2026-11-13",
+      "region": "Europe / Russia-Ukraine",
+      "location": "Europe / Russia-Ukraine",
+      "lat": 49.0,
+      "lon": 32.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/ckn80j9jv3jxo?at_medium=RSS&at_campaign=rss",
+      "summary": "Zelensky welcomes US bringing Europe into Russia-Ukraine peace talks",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Russia",
+        "Ukraine"
+      ]
+    },
+    {
+      "id": "RSS-3bbd4cd1ec",
+      "date": "2026-11-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Cyber",
+      "event_type": "Public news report",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/cqdj1ellpd70o?at_medium=RSS&at_campaign=rss",
+      "summary": "North Korean hackers used fake video calls in $400m crypto hack, says FBI",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-3d4d47834d",
+      "date": "2026-11-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/ckregjwr7njqo?at_medium=RSS&at_campaign=rss",
+      "summary": "Australian footballers will not be charged after hotel incident, police say",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Australia"
+      ]
+    },
+    {
+      "id": "RSS-81f11b87cf",
+      "date": "2026-11-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/13/mississippi-elects-first-black-senator-in-nearly-150-years?traffic_source=rss",
+      "summary": "Mississippi elects first black senator in nearly 150 years",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-1aac2beac6",
+      "date": "2026-11-13",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/11/13/iran-says-it-struck-us-radar-site-in-bahrain?traffic_source=rss",
+      "summary": "Iran says it targeted US radar site in Bahrain",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Iran"
+      ]
+    },
+    {
+      "id": "RSS-cc0b72bdf6",
+      "date": "2026-11-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/11/13/spanish-court-suspends-far-right-group-over-alleged-hate-crimes?traffic_source=rss",
+      "summary": "Spanish court suspends far-right group over alleged hate crimes",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-feeb6c703e",
+      "date": "2026-11-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/11/13/chris-van-hollen-to-run-for-us-senate-majority-leader?traffic_source=rss",
+      "summary": "Chris Van Hollen launches bid to lead Democrats in US Senate",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-5ac71e580a",
+      "date": "2026-11-13",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/11/13/trump-moots-toppling-cuba-authorities-before-leaving-office?traffic_source=rss",
+      "summary": "Trump moots toppling Cuba authorities before leaving office",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-b1f9bb88b0",
+      "date": "2026-11-13",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/11/13/after-iraq-ex-mps-killing-lebanon-asks-syria-to-extradite-suspects?traffic_source=rss",
+      "summary": "After Iraq ex-MP\u2019s killing, Lebanon asks Syria to extradite suspects",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-95eec5a25c",
+      "date": "2026-11-13",
+      "region": "Europe / Russia-Ukraine",
+      "location": "Europe / Russia-Ukraine",
+      "lat": 49.0,
+      "lon": 32.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/11/13/albanias-pm-says-2027-nato-summit-will-not-be-held-in-tirana?traffic_source=rss",
+      "summary": "Albania\u2019s PM says 2027 NATO summit will not be held in Tirana",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
     {
       "id": "RSS-9301dff8cd",
       "date": "2026-11-12",
@@ -54,6 +361,29 @@
         "auto-ingested"
       ],
       "country_tags": []
+    },
+    {
+      "id": "RSS-d2e11db3e9",
+      "date": "2026-11-12",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/11/12/yemens-houthis-renew-strikes-on-saudi-arabia-as-unsc-extends-sanctions?traffic_source=rss",
+      "summary": "Yemen\u2019s Houthis renew strikes on Saudi Arabia as UNSC extends sanctions",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 7,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Saudi Arabia"
+      ]
     },
     {
       "id": "RSS-b8bb9c4cda",
@@ -98,52 +428,6 @@
         "auto-ingested"
       ],
       "country_tags": []
-    },
-    {
-      "id": "RSS-80aabde9b3",
-      "date": "2026-11-12",
-      "region": "Middle East",
-      "location": "Middle East",
-      "lat": 29.0,
-      "lon": 45.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/12/al-jazeera-reports-from-gaza-hospital-attacked-by-israel?traffic_source=rss",
-      "summary": "Al Jazeera reports from Gaza hospital attacked by Israel",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 6,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Israel"
-      ]
-    },
-    {
-      "id": "RSS-6d7a7fcb47",
-      "date": "2026-11-12",
-      "region": "Middle East",
-      "location": "Middle East",
-      "lat": 29.0,
-      "lon": 45.0,
-      "category": "Military",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/12/jerusalem-daily-gazas-nasser-hospital-hit-by-israeli-air-strike?traffic_source=rss",
-      "summary": "Jerusalem Daily: Gaza\u2019s Nasser Hospital hit by Israeli air strike",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 6,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Israel"
-      ]
     },
     {
       "id": "RSS-753a27791a",
@@ -235,29 +519,6 @@
       ]
     },
     {
-      "id": "RSS-82ef7ede2f",
-      "date": "2026-11-12",
-      "region": "Europe / Russia-Ukraine",
-      "location": "Europe / Russia-Ukraine",
-      "lat": 49.0,
-      "lon": 32.0,
-      "category": "Energy",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/videos/cm93rp3gxn6qo?at_medium=RSS&at_campaign=rss",
-      "summary": "'We've got to run': Inside ruined Ukraine power plant under constant drone threat",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 5,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Ukraine"
-      ]
-    },
-    {
       "id": "RSS-37c449396d",
       "date": "2026-11-12",
       "region": "Global",
@@ -269,27 +530,6 @@
       "source_name": "Al Jazeera",
       "source_url": "https://www.aljazeera.com/video/inside-story/2026/11/12/whats-at-stake-in-the-renewed-tensions-over-the-falkland-islands?traffic_source=rss",
       "summary": "What\u2019s at stake in the renewed tensions over the Falkland Islands?",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 4,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-a88acb77a1",
-      "date": "2026-11-12",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/11/12/uk-mosque-rebukes-comissions-warning-following-palestine-comments?traffic_source=rss",
-      "summary": "UK mosque rebukes comission\u2019s \u2018warning\u2019 following Palestine comments",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 4,
@@ -405,30 +645,6 @@
       "country_tags": []
     },
     {
-      "id": "RSS-c6a88938b5",
-      "date": "2026-11-12",
-      "region": "Europe / Russia-Ukraine",
-      "location": "Europe / Russia-Ukraine",
-      "lat": 49.0,
-      "lon": 32.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/cwrkgmymk55zo?at_medium=RSS&at_campaign=rss",
-      "summary": "US envoys meet Zelensky in Dublin after talks with Putin in Moscow",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Russia",
-        "Ukraine"
-      ]
-    },
-    {
       "id": "RSS-f532866572",
       "date": "2026-11-12",
       "region": "Global",
@@ -450,27 +666,6 @@
       "country_tags": []
     },
     {
-      "id": "RSS-e4a5945bc1",
-      "date": "2026-11-12",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/cw7vppyr80eeo?at_medium=RSS&at_campaign=rss",
-      "summary": "Democrat Scott Colom makes history as Mississippi's first black senator since 19th Century",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
       "id": "RSS-b2a849cb17",
       "date": "2026-11-12",
       "region": "Global",
@@ -482,6 +677,27 @@
       "source_name": "BBC World",
       "source_url": "https://www.bbc.co.uk/news/articles/cmvg2r3dq7xno?at_medium=RSS&at_campaign=rss",
       "summary": "Hegseth awards medal to war memorial guard who reprimanded him and group",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-e4a5945bc1",
+      "date": "2026-11-12",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/cw7vppyr80eeo?at_medium=RSS&at_campaign=rss",
+      "summary": "Democrat Scott Colom makes history as Mississippi's first black senator since 19th Century",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -647,17 +863,17 @@
       ]
     },
     {
-      "id": "RSS-b04f871e66",
+      "id": "RSS-a265b02155",
       "date": "2026-11-12",
       "region": "Global",
       "location": "Global",
       "lat": 10.0,
       "lon": 0.0,
-      "category": "Geopolitical",
+      "category": "Military",
       "event_type": "Public news report",
       "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/cmze750zg0jeo?at_medium=RSS&at_campaign=rss",
-      "summary": "The rise and fall of Jensen Huang - how the tech superstar became mired in scandal",
+      "source_url": "https://www.bbc.co.uk/news/videos/cv5y1309dg3go?at_medium=RSS&at_campaign=rss",
+      "summary": "Military cemetery decorum: The tradition behind Hegseth's Veterans Day reprimand",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -666,6 +882,29 @@
         "auto-ingested"
       ],
       "country_tags": []
+    },
+    {
+      "id": "RSS-df8154f62a",
+      "date": "2026-11-12",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/11/12/russian-court-jails-rights-lawyer-for-12-years-on-treason-charge?traffic_source=rss",
+      "summary": "Russian court jails rights lawyer for 12 years on treason charge",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Russia"
+      ]
     },
     {
       "id": "RSS-eb3564eebf",
@@ -907,204 +1146,6 @@
       "country_tags": [
         "United Kingdom",
         "Iran"
-      ]
-    },
-    {
-      "id": "RSS-26a80163b3",
-      "date": "2026-11-12",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/sports/2026/11/12/senegals-wrestlers-turn-tradition-into-gold-at-dakar-youth-olympics?traffic_source=rss",
-      "summary": "Senegal\u2019s wrestlers turn tradition into gold at Dakar Youth Olympics",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-0975493005",
-      "date": "2026-11-12",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/11/12/james-fergie-chambers-extradition-hearing?traffic_source=rss",
-      "summary": "Pro-Palestine philanthropist faces US extradition hearing in Spain",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-6e9cda982b",
-      "date": "2026-11-12",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/economy/2026/11/12/home-sales-in-the-us-are-at-their-lowest-level-since-2016?traffic_source=rss",
-      "summary": "Home sales in the US are at their lowest level since 2016",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-a321f7b903",
-      "date": "2026-11-12",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/11/12/what-to-know-about-the-logan-circle-shooting-in-washington-dc?traffic_source=rss",
-      "summary": "What to know about the Logan Circle shooting in Washington, DC",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "United States"
-      ]
-    },
-    {
-      "id": "RSS-ef6d0c7853",
-      "date": "2026-11-12",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/12/suspect-turns-gun-on-himself-after-deadly-shooting-in-washington-dc?traffic_source=rss",
-      "summary": "Suspect turns gun on himself after deadly shooting in Washington DC",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "United States"
-      ]
-    },
-    {
-      "id": "RSS-979f5a4f85",
-      "date": "2026-11-12",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/12/nvidia-ceo-jensen-huang-steps-down-more-affair-details-revealed?traffic_source=rss",
-      "summary": "Nvidia CEO Jensen Huang steps down, more affair details revealed",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-4717fd30c3",
-      "date": "2026-11-12",
-      "region": "Middle East",
-      "location": "Middle East",
-      "lat": 29.0,
-      "lon": 45.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/features/2026/11/12/her-hands-are-as-cold-as-ice-gaza-families-struggle-to-keep-warm?traffic_source=rss",
-      "summary": "\u2018Her hands are as cold as ice\u2019: Gaza families struggle to keep warm",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-fb0fde5fbe",
-      "date": "2026-11-12",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/sports/liveblog/2026/11/12/italy-vs-france-live-uefa-nations-league?traffic_source=rss",
-      "summary": "Italy 3-1 France: UEFA Nations League \u2013 as it happened",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "France"
-      ]
-    },
-    {
-      "id": "RSS-fe9c35182c",
-      "date": "2026-11-12",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/11/12/chk-prominent-israeli-settler-denied-entry-into-france?traffic_source=rss",
-      "summary": "Prominent Israeli settler denied entry into France",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "France",
-        "Israel"
       ]
     },
     {
@@ -1408,27 +1449,6 @@
       "country_tags": []
     },
     {
-      "id": "RSS-cfde248311",
-      "date": "2026-11-11",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Military",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/videos/cm894wg251pzo?at_medium=RSS&at_campaign=rss",
-      "summary": "Watch: Vin\u00edcius Jr's surprise message to boy who received prosthetic legs after Sudan drone strike",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 8,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
       "id": "RSS-bc93c941a2",
       "date": "2026-11-11",
       "region": "Global",
@@ -1526,27 +1546,6 @@
       "source_name": "BBC World",
       "source_url": "https://www.bbc.co.uk/news/articles/cwe9kzv0g0v7o?at_medium=RSS&at_campaign=rss",
       "summary": "Kenya discharges last Ebola patient in major milestone towards virus-free status",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-8e7b36ee32",
-      "date": "2026-11-11",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/videos/ck5y132yq1ymo?at_medium=RSS&at_campaign=rss",
-      "summary": "Hegseth and advisers reprimanded by guard at Tomb of the Unknown Soldier",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -1781,27 +1780,6 @@
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-6811e6c0de",
-      "date": "2026-11-05",
-      "region": "United States",
-      "location": "United States",
-      "lat": 38.0,
-      "lon": -97.0,
-      "category": "Military",
-      "event_type": "Public news report",
-      "source_name": "U.S. DoD Releases",
-      "source_url": "https://www.war.gov/News/News-Stories/Article/Article/4642910/air-force-secret-service-strengthen-counter-drone-readiness/",
-      "summary": "Air Force, Secret Service Strengthen Counter-Drone Readiness",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 5,
       "tags": [
         "rss",
         "auto-ingested"

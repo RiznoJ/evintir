@@ -1,41 +1,41 @@
 {
-  "generated_at": "2026-11-15T13:08:44+00:00",
+  "generated_at": "2026-11-15T22:15:59+00:00",
   "note": "Auto-generated from public RSS feeds. Confidence 'Unverified' means no human review yet. Coordinates are region centroids.",
   "sources": [
     {
       "source": "CISA Advisories",
       "ok": true,
       "entries_this_run": 8,
-      "last_success": "2026-11-15T13:08:41+00:00"
+      "last_success": "2026-11-15T22:15:54+00:00"
     },
     {
       "source": "BBC World",
       "ok": true,
-      "entries_this_run": 22,
-      "last_success": "2026-11-15T13:08:41+00:00"
+      "entries_this_run": 20,
+      "last_success": "2026-11-15T22:15:54+00:00"
     },
     {
       "source": "Al Jazeera",
       "ok": true,
       "entries_this_run": 25,
-      "last_success": "2026-11-15T13:08:41+00:00"
+      "last_success": "2026-11-15T22:15:54+00:00"
     },
     {
       "source": "gCaptain (maritime)",
       "ok": true,
       "entries_this_run": 12,
-      "last_success": "2026-11-15T13:08:41+00:00"
+      "last_success": "2026-11-15T22:15:54+00:00"
     },
     {
       "source": "U.S. DoD Releases",
       "ok": true,
       "entries_this_run": 11,
-      "last_success": "2026-11-15T13:08:41+00:00"
+      "last_success": "2026-11-15T22:15:54+00:00"
     }
   ],
   "events": [
     {
-      "id": "RSS-6fc67cf112",
+      "id": "RSS-c7e011fee4",
       "date": "2026-11-15",
       "region": "Middle East",
       "location": "Middle East",
@@ -43,9 +43,9 @@
       "lon": 45.0,
       "category": "Military",
       "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/15/iran-targets-us-military-radar-in-bahrain-in-retaliatory-drone-strikes?traffic_source=rss",
-      "summary": "Iran targets US military radar in Bahrain in \u2018retaliatory\u2019 drone strikes",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/cqn4e2py48kwo?at_medium=RSS&at_campaign=rss",
+      "summary": "Iran targets US military base in Bahrain with drone attack",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 8,
@@ -58,7 +58,30 @@
       ]
     },
     {
-      "id": "RSS-02a379bb7c",
+      "id": "RSS-2a2cc2900e",
+      "date": "2026-11-15",
+      "region": "Europe / Russia-Ukraine",
+      "location": "Europe / Russia-Ukraine",
+      "lat": 49.0,
+      "lon": 32.0,
+      "category": "Military",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/11/15/estonia-to-close-border-crossings-with-russia-after-attack-on-drone-maker?traffic_source=rss",
+      "summary": "Estonia to close border crossings with Russia after attack on drone maker",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 8,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Russia"
+      ]
+    },
+    {
+      "id": "RSS-64178a3da0",
       "date": "2026-11-15",
       "region": "Global",
       "location": "Global",
@@ -66,12 +89,12 @@
       "lon": 0.0,
       "category": "Military",
       "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/features/2026/11/15/drone-strikes-on-power-stations-plunges-sudans-cities-into-darkness?traffic_source=rss",
-      "summary": "Drone attacks on power stations plunge Sudan\u2019s cities into darkness",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/cx5y1pzr9604o?at_medium=RSS&at_campaign=rss",
+      "summary": "Clothing factories shut in Bangladesh as workers strike over pay",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
-      "risk_score": 8,
+      "risk_score": 6,
       "tags": [
         "rss",
         "auto-ingested"
@@ -102,17 +125,17 @@
       ]
     },
     {
-      "id": "RSS-ed001dc001",
+      "id": "RSS-5f695e82cc",
       "date": "2026-11-15",
-      "region": "Middle East",
-      "location": "Middle East",
-      "lat": 29.0,
-      "lon": 45.0,
+      "region": "Europe / Russia-Ukraine",
+      "location": "Europe / Russia-Ukraine",
+      "lat": 49.0,
+      "lon": 32.0,
       "category": "Geopolitical",
       "event_type": "Public news report",
       "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/11/15/bahrain-accuses-iran-of-attacking-its-territory-to-settle-score-with-us?traffic_source=rss",
-      "summary": "Bahrain accuses Iran of attacking its territory to \u2018settle\u2019 score with US",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/15/estonia-to-close-border-crossings-with-russia-after-alleged-arson-attack?traffic_source=rss",
+      "summary": "Estonia to close border crossings with Russia after alleged arson attack",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 6,
@@ -121,11 +144,11 @@
         "auto-ingested"
       ],
       "country_tags": [
-        "Iran"
+        "Russia"
       ]
     },
     {
-      "id": "RSS-0eca7d7612",
+      "id": "RSS-7b78ef33de",
       "date": "2026-11-15",
       "region": "Global",
       "location": "Global",
@@ -134,8 +157,8 @@
       "category": "Geopolitical",
       "event_type": "Public news report",
       "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/11/15/jordan-sentences-three-men-to-death-by-hanging-after-deadly-church-attack?traffic_source=rss",
-      "summary": "Jordan sentences three men to death by hanging after deadly church attack",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/15/jordan-sentences-three-men-to-death-over-deadly-church-attack-in-karak?traffic_source=rss",
+      "summary": "Jordan sentences three men to death over deadly church attack in Karak",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 6,
@@ -146,17 +169,17 @@
       "country_tags": []
     },
     {
-      "id": "RSS-71ec998add",
+      "id": "RSS-b51e7d4c47",
       "date": "2026-11-15",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Military",
       "event_type": "Public news report",
       "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/15/police-confront-protesters-in-clashes-across-france-and-germany?traffic_source=rss",
-      "summary": "Police confront protesters in clashes across France and Germany",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/15/israeli-drone-filmed-flying-low-outside-homes-in-southern-lebanon?traffic_source=rss",
+      "summary": "Israeli drone filmed flying low outside homes in southern Lebanon",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 5,
@@ -165,9 +188,140 @@
         "auto-ingested"
       ],
       "country_tags": [
-        "France",
-        "Germany"
+        "Israel"
       ]
+    },
+    {
+      "id": "RSS-39682056c0",
+      "date": "2026-11-15",
+      "region": "Europe / Russia-Ukraine",
+      "location": "Europe / Russia-Ukraine",
+      "lat": 49.0,
+      "lon": 32.0,
+      "category": "Maritime",
+      "event_type": "Public news report",
+      "source_name": "gCaptain (maritime)",
+      "source_url": "https://gcaptain.com/three-ships-struck-by-drones-in-black-sea-near-romanian-shipping-canal/",
+      "summary": "Three Ships Struck By Drones In Black Sea Near Romanian Shipping Canal",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 5,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-a29c233ccd",
+      "date": "2026-11-15",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/c6m25zg88k45o?at_medium=RSS&at_campaign=rss",
+      "summary": "Zelensky urges US and Musk to lift Starlink restrictions and be on 'right side of history'",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "Ukraine"
+      ]
+    },
+    {
+      "id": "RSS-b74d8070ff",
+      "date": "2026-11-15",
+      "region": "Indo-Pacific",
+      "location": "Indo-Pacific",
+      "lat": 18.0,
+      "lon": 118.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/ckvg2ezvpe08o?at_medium=RSS&at_campaign=rss",
+      "summary": "South Korea's top scorer in tax accountancy exam admits cheating",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "South Korea"
+      ]
+    },
+    {
+      "id": "RSS-1a19a30f84",
+      "date": "2026-11-15",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/videos/c6pw4rl00lrjo?at_medium=RSS&at_campaign=rss",
+      "summary": "Pope Leo rides in helicopter cockpit during Peru trip",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-c6f717fdbe",
+      "date": "2026-11-15",
+      "region": "Indo-Pacific",
+      "location": "Indo-Pacific",
+      "lat": 18.0,
+      "lon": 118.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/cmdx1vpprk9vo?at_medium=RSS&at_campaign=rss",
+      "summary": "Suspected China spy linked to Nvidia's ex-boss left in 2025, Megaspeed says",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": [
+        "China"
+      ]
+    },
+    {
+      "id": "RSS-80dade9f7f",
+      "date": "2026-11-15",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/cm8e0knr7604o?at_medium=RSS&at_campaign=rss",
+      "summary": "Czechs rally against plan to switch funding of public media",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
     },
     {
       "id": "RSS-cedd4c64ea",
@@ -191,28 +345,7 @@
       "country_tags": []
     },
     {
-      "id": "RSS-840edfb811",
-      "date": "2026-11-15",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Military",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/cmrlgn4x2xw8o?at_medium=RSS&at_campaign=rss",
-      "summary": "Fifth Canadian soldier dies from injuries caused by large fire at military base",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-a34f168e06",
+      "id": "RSS-3e8f4b649f",
       "date": "2026-11-15",
       "region": "Global",
       "location": "Global",
@@ -221,8 +354,8 @@
       "category": "Geopolitical",
       "event_type": "Public news report",
       "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/c6wy9lynq4qno?at_medium=RSS&at_campaign=rss",
-      "summary": "Copper wire upgrade behind US flight suspension, transport secretary says",
+      "source_url": "https://www.bbc.co.uk/news/articles/cw1mdlv0k2r4o?at_medium=RSS&at_campaign=rss",
+      "summary": "Thousands of US flights still cancelled or delayed two days after grounding of planes nationwide",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -243,7 +376,7 @@
       "event_type": "Public news report",
       "source_name": "BBC World",
       "source_url": "https://www.bbc.co.uk/news/articles/c6j9mn7l14y0o?at_medium=RSS&at_campaign=rss",
-      "summary": "Judge temporarily blocks Trump from closing Washington DC golf course for renovation",
+      "summary": "Judge blocks Trump closure of 'Trash Island' Washington DC golf course on Sunday",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -256,7 +389,7 @@
       ]
     },
     {
-      "id": "RSS-9f25a7bec4",
+      "id": "RSS-a41fa94318",
       "date": "2026-11-15",
       "region": "Global",
       "location": "Global",
@@ -265,8 +398,8 @@
       "category": "Geopolitical",
       "event_type": "Public news report",
       "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/cr4gnz0lv2vlo?at_medium=RSS&at_campaign=rss",
-      "summary": "Pope Leo speaks of community 'suffering' on visit to remote Andes town",
+      "source_url": "https://www.bbc.co.uk/sport/football/articles/ckregz4g823xo?at_medium=RSS&at_campaign=rss",
+      "summary": "Ronaldinho makes comeback in Ravenna win",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -321,7 +454,7 @@
       "country_tags": []
     },
     {
-      "id": "RSS-4ee0808b7d",
+      "id": "RSS-fb9303c767",
       "date": "2026-11-15",
       "region": "Global",
       "location": "Global",
@@ -329,9 +462,9 @@
       "lon": 0.0,
       "category": "Geopolitical",
       "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/sports/2026/11/15/kayla-%e2%81%a0%e2%81%a0harrison-defeats-amanda-nunes-to-retain-ufc-bantamweight-belt?traffic_source=rss",
-      "summary": "Kayla \u2060\u2060Harrison defeats Amanda Nunes to retain UFC bantamweight belt",
+      "source_name": "BBC World",
+      "source_url": "https://www.bbc.co.uk/news/articles/cqx2wyvyr3zzo?at_medium=RSS&at_campaign=rss",
+      "summary": "How telecoms upgrade work sparked US flight chaos",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -342,7 +475,7 @@
       "country_tags": []
     },
     {
-      "id": "RSS-0c6dc2738c",
+      "id": "RSS-61804627ea",
       "date": "2026-11-15",
       "region": "Global",
       "location": "Global",
@@ -351,8 +484,8 @@
       "category": "Geopolitical",
       "event_type": "Public news report",
       "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/15/aid-agencies-struggle-to-help-more-than-50000-ethiopian-refugees-in-kenya?traffic_source=rss",
-      "summary": "Aid agencies struggle to help more than 50,000 Ethiopian refugees in Kenya",
+      "source_url": "https://www.aljazeera.com/news/2026/11/15/us-treasury-chief-calls-for-outsider-to-lead-embattled-tech-firm-nvidia?traffic_source=rss",
+      "summary": "US Treasury chief calls for outsider to lead embattled tech firm Nvidia",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -363,51 +496,7 @@
       "country_tags": []
     },
     {
-      "id": "RSS-b3440b22b3",
-      "date": "2026-11-15",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/sports/2026/11/15/australia-crush-new-zealand-to-win-fourth-womens-rugby-league-world-cup?traffic_source=rss",
-      "summary": "Australia crush New Zealand to win fourth Women\u2019s Rugby League World Cup",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Australia"
-      ]
-    },
-    {
-      "id": "RSS-884b96312c",
-      "date": "2026-11-15",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Economic",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/economy/2026/11/15/siege-on-hebrons-beit-ula-industrial-zone-threatens-palestinian-economy?traffic_source=rss",
-      "summary": "Siege on Hebron\u2019s Beit Ula industrial zone threatens Palestinian economy",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-dedd224b91",
+      "id": "RSS-fa08c44f55",
       "date": "2026-11-15",
       "region": "Middle East",
       "location": "Middle East",
@@ -416,8 +505,71 @@
       "category": "Geopolitical",
       "event_type": "Public news report",
       "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/11/15/israel-coalition-talks-put-arab-party-leader-under-pressure-over-hamas?traffic_source=rss",
-      "summary": "Israel coalition talks put Arab party leader under pressure over Hamas",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/15/yemens-houthis-unilaterally-release-600-war-detainees?traffic_source=rss",
+      "summary": "Yemen\u2019s Houthis unilaterally release 600 war detainees",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-862ef8de01",
+      "date": "2026-11-15",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/gallery/2026/11/15/photos-pope-leo-visits-perus-amazon-and-andean-regions-during-12-day-tour?traffic_source=rss",
+      "summary": "Photos: Pope Leo visits Peru\u2019s Amazon and Andean regions during 12-day tour",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-6bea95d6aa",
+      "date": "2026-11-15",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/15/palestinians-reclaim-gazas-shores-with-a-swim-for-hope?traffic_source=rss",
+      "summary": "Palestinians reclaim Gaza\u2019s shores with a swim for hope",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-5b6c765989",
+      "date": "2026-11-15",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/inside-story/2026/11/15/who-can-force-israel-to-implement-gaza-ceasefire-deal?traffic_source=rss",
+      "summary": "Who can force Israel to implement Gaza ceasefire deal?",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -430,7 +582,7 @@
       ]
     },
     {
-      "id": "RSS-1a597183d2",
+      "id": "RSS-f3c0fc7df4",
       "date": "2026-11-15",
       "region": "Global",
       "location": "Global",
@@ -439,8 +591,8 @@
       "category": "Geopolitical",
       "event_type": "Public news report",
       "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/sports/2026/11/15/dakar-youth-olympics-2026-senegal-games-come-to-an-end?traffic_source=rss",
-      "summary": "Athletes rewrite the rules as Dakar 2026 Youth Olympics come to an end",
+      "source_url": "https://www.aljazeera.com/news/2026/11/15/africa-cdc-says-ebola-outbreak-in-dr-congo-still-not-under-control?traffic_source=rss",
+      "summary": "Africa CDC says Ebola outbreak in DR Congo \u2018still not under control\u2019",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -451,30 +603,7 @@
       "country_tags": []
     },
     {
-      "id": "RSS-4c1b6726b6",
-      "date": "2026-11-15",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/15/mma-fighters-jailed-after-abu-dhabi-hotel-lobby-brawl?traffic_source=rss",
-      "summary": "MMA fighters jailed after Abu Dhabi hotel lobby brawl",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "United Arab Emirates"
-      ]
-    },
-    {
-      "id": "RSS-a47b9f3baf",
+      "id": "RSS-4457075b0a",
       "date": "2026-11-15",
       "region": "Europe / Russia-Ukraine",
       "location": "Europe / Russia-Ukraine",
@@ -483,8 +612,8 @@
       "category": "Geopolitical",
       "event_type": "Public news report",
       "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/11/15/give-donbas-take-nato-seat-could-new-us-pitch-work-for-ukraine-russia?traffic_source=rss",
-      "summary": "Give Donbas, take NATO seat: Could new US pitch work for Ukraine, Russia?",
+      "source_url": "https://www.aljazeera.com/news/2026/11/15/prince-harry-in-ukraine-meeting-invictus-2027-hopefuls?traffic_source=rss",
+      "summary": "Prince Harry in Ukraine meeting Invictus 2027 hopefuls",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -493,12 +622,11 @@
         "auto-ingested"
       ],
       "country_tags": [
-        "Russia",
         "Ukraine"
       ]
     },
     {
-      "id": "RSS-624346bdfa",
+      "id": "RSS-5e8dc33dfb",
       "date": "2026-11-15",
       "region": "Global",
       "location": "Global",
@@ -507,8 +635,176 @@
       "category": "Geopolitical",
       "event_type": "Public news report",
       "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/sports/2026/11/15/indias-under-19-asia-cup-win-over-pakistan-marred-by-post-match-aggression?traffic_source=rss",
-      "summary": "India\u2019s Under-19 Asia Cup win over Pakistan marred by post-match aggression",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/15/christian-priest-says-us-denied-him-a-visa-for-being-palestinian?traffic_source=rss",
+      "summary": "Christian priest says US denied him a visa for being Palestinian",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-569a6ecf55",
+      "date": "2026-11-15",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/15/nearly-1500-migrants-reach-spains-canary-islands-in-one-day?traffic_source=rss",
+      "summary": "Nearly 1,500 migrants reach Spain\u2019s Canary Islands in one day",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-06f65017dc",
+      "date": "2026-11-15",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/sports/2026/11/15/morocco-becomes-first-arab-nation-in-fifas-top-five-mens-rankings?traffic_source=rss",
+      "summary": "Morocco becomes first Arab nation in FIFA\u2019s top five men\u2019s rankings",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-380758cb22",
+      "date": "2026-11-15",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/11/15/yemeni-government-forces-redeploy-from-bab-al-mandeb-to-defend-aden?traffic_source=rss",
+      "summary": "Yemeni government forces redeploy from Bab al-Mandeb to defend Aden",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-0bd6b76b9a",
+      "date": "2026-11-15",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/15/the-hidden-costs-of-the-us-ai-boom?traffic_source=rss",
+      "summary": "The hidden costs of the US AI boom",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-b49682423a",
+      "date": "2026-11-15",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/talk-to-al-jazeera/2026/11/15/somalia-we-would-not-have-recovered-without-the-international-community?traffic_source=rss",
+      "summary": "Somalia: We would not have recovered without the international community",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-b331deb9e8",
+      "date": "2026-11-15",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/sports/liveblog/2026/11/15/live-spain-vs-england-uefa-nations-league?traffic_source=rss",
+      "summary": "Spain vs England live: UEFA Nations League",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-302649646d",
+      "date": "2026-11-15",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/11/15/thousands-rally-in-czech-republic-against-state-media-funding-changes?traffic_source=rss",
+      "summary": "Thousands rally in Czech Republic against state media funding changes",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-e02355c7a5",
+      "date": "2026-11-15",
+      "region": "Global",
+      "location": "Global",
+      "lat": 10.0,
+      "lon": 0.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/15/british-tourist-smashes-jesus-statue-outside-vilnius-church?traffic_source=rss",
+      "summary": "British tourist smashes Jesus statue outside Vilnius church",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -517,75 +813,11 @@
         "auto-ingested"
       ],
       "country_tags": [
-        "India",
-        "Pakistan"
+        "United Kingdom"
       ]
     },
     {
-      "id": "RSS-dce29ebe8b",
-      "date": "2026-11-15",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/15/spain-football-coach-denies-racism-ahead-of-england-match?traffic_source=rss",
-      "summary": "Spain football coach denies racism ahead of England match",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-92aa9f8eaf",
-      "date": "2026-11-15",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/11/15/polls-open-in-cape-verde-in-race-with-first-female-presidential-candidate?traffic_source=rss",
-      "summary": "Polls open in Cape Verde in race with first female presidential candidate",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-bcbfb7dfd5",
-      "date": "2026-11-15",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/15/protesters-condemn-us-policies-as-asean-summit-begins-in-manila?traffic_source=rss",
-      "summary": "Protesters condemn US policies as ASEAN summit begins in Manila",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-3313d19f4c",
+      "id": "RSS-311e9be033",
       "date": "2026-11-15",
       "region": "Middle East",
       "location": "Middle East",
@@ -594,31 +826,8 @@
       "category": "Geopolitical",
       "event_type": "Public news report",
       "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/11/15/iran-says-it-targets-us-radar-in-bahrain-what-do-we-know?traffic_source=rss",
-      "summary": "Iran says it targets US radar in Bahrain. What do we know?",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Iran"
-      ]
-    },
-    {
-      "id": "RSS-d9c779d3d7",
-      "date": "2026-11-15",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/11/15/what-forced-the-us-to-ground-all-planes-a-router-switch-we-now-know?traffic_source=rss",
-      "summary": "What forced the US to ground all planes? A router switch, we now know",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/15/70-bodies-recovered-from-gaza-rubble-thousands-still-missing?traffic_source=rss",
+      "summary": "70 bodies recovered from Gaza rubble, thousands still missing",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -629,40 +838,17 @@
       "country_tags": []
     },
     {
-      "id": "RSS-cff3a2dd49",
+      "id": "RSS-e6c7e40188",
       "date": "2026-11-15",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Energy",
       "event_type": "Public news report",
       "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/features/2026/11/15/india-pulled-500m-people-out-of-poverty-since-2011-why-doesnt-it-feel-so?traffic_source=rss",
-      "summary": "India pulled 500m people out of poverty. Many of them still barely survive",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "India"
-      ]
-    },
-    {
-      "id": "RSS-f2e03cae65",
-      "date": "2026-11-15",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/15/thousands-in-portugal-protest-against-surging-rental-prices?traffic_source=rss",
-      "summary": "Thousands in Portugal protest against surging rental prices",
+      "source_url": "https://www.aljazeera.com/news/2026/11/15/will-iraqs-oil-smuggllng-crackdown-disarm-militias-without-a-conflict?traffic_source=rss",
+      "summary": "Will Iraq\u2019s oil smuggling crackdown disarm militias without a conflict?",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -673,7 +859,7 @@
       "country_tags": []
     },
     {
-      "id": "RSS-8bdeb42b76",
+      "id": "RSS-915dae1d55",
       "date": "2026-11-15",
       "region": "Global",
       "location": "Global",
@@ -682,8 +868,8 @@
       "category": "Geopolitical",
       "event_type": "Public news report",
       "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/sports/2026/11/15/de-la-fuente-denies-racism-in-spain-despite-yamal-vinicius-avowals?traffic_source=rss",
-      "summary": "De la Fuente denies racism in Spain despite Yamal, Vinicius avowals",
+      "source_url": "https://www.aljazeera.com/opinions/2026/11/15/20-years-of-al-jazeera-english-our-story-is-still-being-written?traffic_source=rss",
+      "summary": "20 years of Al Jazeera English: Our story is still being written",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -694,30 +880,7 @@
       "country_tags": []
     },
     {
-      "id": "RSS-cd64ba12f3",
-      "date": "2026-11-15",
-      "region": "Indo-Pacific",
-      "location": "Indo-Pacific",
-      "lat": 18.0,
-      "lon": 118.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/economy/2026/11/15/pact-on-south-china-sea-code-of-conduct-unlikely-as-asean-leaders-gather?traffic_source=rss",
-      "summary": "Pact on South China Sea code of conduct unlikely, as ASEAN leaders gather",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "China"
-      ]
-    },
-    {
-      "id": "RSS-e88e910f90",
+      "id": "RSS-3b2353c7a4",
       "date": "2026-11-15",
       "region": "Global",
       "location": "Global",
@@ -726,8 +889,29 @@
       "category": "Geopolitical",
       "event_type": "Public news report",
       "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/sports/2026/11/15/japan-stun-brazil-3-2-in-stoppage-time-as-ancelotti-raphinha-sent-off?traffic_source=rss",
-      "summary": "Japan stun Brazil 3-2 in stoppage time as Ancelotti, Raphinha sent off",
+      "source_url": "https://www.aljazeera.com/news/2026/11/15/record-number-of-migrants-arrive-in-spains-canary-islands?traffic_source=rss",
+      "summary": "Record number of migrants arrive in Spain\u2019s Canary Islands",
+      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
+      "confidence": "Unverified",
+      "risk_score": 3,
+      "tags": [
+        "rss",
+        "auto-ingested"
+      ],
+      "country_tags": []
+    },
+    {
+      "id": "RSS-6e8034a1bd",
+      "date": "2026-11-15",
+      "region": "Middle East",
+      "location": "Middle East",
+      "lat": 29.0,
+      "lon": 45.0,
+      "category": "Geopolitical",
+      "event_type": "Public news report",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/video/newsfeed/2026/11/15/jerusalem-daily-mass-funeral-in-gaza-as-netanyahu-clings-to-power?traffic_source=rss",
+      "summary": "Jerusalem Daily: Mass funeral in Gaza as Netanyahu clings to power",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -736,21 +920,21 @@
         "auto-ingested"
       ],
       "country_tags": [
-        "Japan"
+        "Israel"
       ]
     },
     {
-      "id": "RSS-b862561d8b",
+      "id": "RSS-d3522a5a88",
       "date": "2026-11-15",
       "region": "Global",
       "location": "Global",
       "lat": 10.0,
       "lon": 0.0,
-      "category": "Geopolitical",
+      "category": "Maritime",
       "event_type": "Public news report",
-      "source_name": "Al Jazeera",
-      "source_url": "https://www.aljazeera.com/news/2026/11/15/asean-summit-whos-attending-and-whats-at-stake?traffic_source=rss",
-      "summary": "ASEAN summit: Who\u2019s attending and what\u2019s at stake?",
+      "source_name": "gCaptain (maritime)",
+      "source_url": "https://gcaptain.com/american-heritage-captain-crew-and-tug-operators-hailed-as-heroes-after-mississippi-river-capsizing/",
+      "summary": "American Heritage Captain, Crew and Tug Operators Hailed as Heroes After Mississippi River Capsizing",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -772,180 +956,6 @@
       "source_name": "gCaptain (maritime)",
       "source_url": "https://gcaptain.com/south-africas-auto-industry-threatened-by-worsening-port-delays/",
       "summary": "South Africa\u2019s Auto Industry Threatened By Worsening Port Delays",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-cba5f678d1",
-      "date": "2026-11-14",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Maritime",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/cwe89y2r5j20o?at_medium=RSS&at_campaign=rss",
-      "summary": "New Orleans port files $1m lawsuit over 'miracle on the Mississippi' tanker collision",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-1476d670af",
-      "date": "2026-11-14",
-      "region": "Europe / Russia-Ukraine",
-      "location": "Europe / Russia-Ukraine",
-      "lat": 49.0,
-      "lon": 32.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/cwvg2l312ylqo?at_medium=RSS&at_campaign=rss",
-      "summary": "US has floated Ukraine ceding Donbas for Nato membership, Zelensky says",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Ukraine"
-      ]
-    },
-    {
-      "id": "RSS-03eb88a9ba",
-      "date": "2026-11-14",
-      "region": "Indo-Pacific",
-      "location": "Indo-Pacific",
-      "lat": 18.0,
-      "lon": 118.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/cqrlgnx9dx6eo?at_medium=RSS&at_campaign=rss",
-      "summary": "Philippines wins first Eurovision Song Contest Asia",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-359fb45025",
-      "date": "2026-11-14",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/cwn83gxemk35o?at_medium=RSS&at_campaign=rss",
-      "summary": "Italy fines Meta \u20ac805m over accessing users' photos",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-95238972c9",
-      "date": "2026-11-14",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/cmwy05gg75lvo?at_medium=RSS&at_campaign=rss",
-      "summary": "Sotheby's auction of $180m Van Gogh challenged over claims it was 'sold under duress'",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-92720765a4",
-      "date": "2026-11-14",
-      "region": "Indo-Pacific",
-      "location": "Indo-Pacific",
-      "lat": 18.0,
-      "lon": 118.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/ckz74jzpy18do?at_medium=RSS&at_campaign=rss",
-      "summary": "Trump, Putin and Xi plan historic joint meeting in China next week, White House says",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "United States",
-        "Russia",
-        "China"
-      ]
-    },
-    {
-      "id": "RSS-f8a8437145",
-      "date": "2026-11-14",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/ckjwj03w4w0qo?at_medium=RSS&at_campaign=rss",
-      "summary": "Hungarian authorities uncover $20m during probe of Orb\u00e1n-era minister",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-f913251039",
-      "date": "2026-11-14",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/cmz6qjpdy2wqo?at_medium=RSS&at_campaign=rss",
-      "summary": "Nigeria cautions against travel via Ethiopia's main airport due to altitude",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -988,27 +998,6 @@
       "source_name": "BBC World",
       "source_url": "https://www.bbc.co.uk/news/videos/ck4gn4y77m40o?at_medium=RSS&at_campaign=rss",
       "summary": "Watch: Cruise ship overturns after collision with tanker in New Orleans",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
-      "id": "RSS-fb9303c767",
-      "date": "2026-11-14",
-      "region": "Global",
-      "location": "Global",
-      "lat": 10.0,
-      "lon": 0.0,
-      "category": "Geopolitical",
-      "event_type": "Public news report",
-      "source_name": "BBC World",
-      "source_url": "https://www.bbc.co.uk/news/articles/cqx2wyvyr3zzo?at_medium=RSS&at_campaign=rss",
-      "summary": "How telecoms upgrade work sparked US flight chaos",
       "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
       "confidence": "Unverified",
       "risk_score": 3,
@@ -1168,27 +1157,6 @@
       "country_tags": []
     },
     {
-      "id": "RSS-cdb31d7688",
-      "date": "2026-11-13",
-      "region": "United States",
-      "location": "United States",
-      "lat": 38.0,
-      "lon": -97.0,
-      "category": "Maritime",
-      "event_type": "Public news report",
-      "source_name": "gCaptain (maritime)",
-      "source_url": "https://gcaptain.com/singapore-flagged-bulk-carrier-strikes-delaware-river-bridge-coast-guard-investigating/",
-      "summary": "Singapore-Flagged Bulk Carrier Strikes Delaware River Bridge, Coast Guard Investigating",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 6,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": []
-    },
-    {
       "id": "RSS-1671c4ae2d",
       "date": "2026-11-13",
       "region": "Cyber",
@@ -1336,29 +1304,6 @@
         "auto-ingested"
       ],
       "country_tags": []
-    },
-    {
-      "id": "RSS-4efb637eee",
-      "date": "2026-11-13",
-      "region": "Europe / Russia-Ukraine",
-      "location": "Europe / Russia-Ukraine",
-      "lat": 49.0,
-      "lon": 32.0,
-      "category": "Energy",
-      "event_type": "Public news report",
-      "source_name": "gCaptain (maritime)",
-      "source_url": "https://gcaptain.com/russia-oil-revenues-hit-five-month-high-on-crude-rally-iea-says/",
-      "summary": "Russia Oil Revenues Hit Five-Month High on Crude Rally, IEA Says",
-      "why_it_matters": "Auto-ingested from public RSS; pending analyst annotation.",
-      "confidence": "Unverified",
-      "risk_score": 3,
-      "tags": [
-        "rss",
-        "auto-ingested"
-      ],
-      "country_tags": [
-        "Russia"
-      ]
     },
     {
       "id": "RSS-b78383f48a",

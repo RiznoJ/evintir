@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-09",
+  "updated": "2026-11-23",
   "note": "Hand-curated updates on cryptology, intelligence, and quantum: cryptography and post-quantum migration, cryptanalysis, signals intelligence, steganography and covert channels, and quantum computing. Public sources only. Each entry separates sourced reporting from assessment and ends with the debate, presenting competing positions as their holders argue them. Entries do not assess the status of any specific U.S. system.",
   "entries": [
     {
@@ -100,7 +100,20 @@
           "label": "Pugh et al., Airborne demonstration of a QKD receiver payload, Quantum Science and Technology (2017)",
           "url": "https://doi.org/10.1088/2058-9565/aa701f"
         }
-      ]
+      ],
+      "updates": [
+        {
+          "date": "2026-11-17",
+          "text": "NEC and IBM Japan demonstrated hybrid TLS that combines a QKD key (ETSI GS QKD 014 interface) with ML-KEM-768 through HKDF, with ML-DSA-44 for authentication. Validation ran July–September. No performance figures published (company-reported, via The Quantum Insider).",
+          "draft": false
+        },
+        {
+          "date": "2026-11-18",
+          "text": "At SC26, a consortium showed an '8,000 km' Chicago–Amsterdam–Bilbao quantum-safe link. Hype check: QKD (Luxquanta CV-QKD) ran only on links under 1 km at the Chicago show floor and 25 km in Bilbao. The ~1,200 km and ~7,000 km legs, including the ocean crossing, used ML-KEM post-quantum cryptography, with Ciena optical encryption. Self-reported by the consortium.",
+          "draft": false
+        }
+      ],
+      "updated": "2026-11-18"
     },
     {
       "id": "pqc-001",
@@ -322,7 +335,7 @@
         "synthesis": "The skeptic and the urgent case can both be right: no machine today is close, and the machine required keeps getting smaller. Planning happens in that gap.",
         "openQuestion": "Is 2035 set by the threat or by capacity? NSM-10's wording is \"mitigating as much of the quantum risk as is feasible by 2035.\" That phrasing concedes the goal is bounded by how fast the government can migrate, not by any forecast of quantum progress. If a cryptographically relevant quantum computer arrives earlier than expected, the binding constraint will not be the algorithms, which already exist. It will be acquisition speed, and the equipment bought before January 2027."
       },
-      "updated": "2026-11-09",
+      "updated": "2026-11-19",
       "updates": [
         {
           "date": "2026-10-01",
@@ -339,6 +352,31 @@
         {
           "date": "2026-11-04",
           "text": "At TechNet Indo-Pacific, Capt. Victor Taylor of Pacific Fleet said Navy maintenance windows have shrunk from roughly nine months to a year down to about 45 days (as reported by Defense One). The panel discussed this as a practical constraint on upgrading cryptography in fielded ships ahead of the 2030 and 2031 deadlines. This is a public remark about scheduling, not an assessment of any system's status."
+        },
+        {
+          "date": "2026-10-14",
+          "text": "GAO-27-108740 (issued Oct. 6, revised Oct. 14): none of the 24 CFO Act agencies fully met GAO's practices for cryptographic inventory, migration funding, and testing. 23 had tested no post-quantum algorithms, and 18 reported lacking cryptographic expertise. GAO made 89 recommendations, detailed in a sensitive version. No deadline changes.",
+          "draft": false
+        },
+        {
+          "date": "2026-11-04",
+          "text": "NSA, Australia's ASD/ACSC, and CISA published 'Post-quantum questions to ask your vendors,' a five-phase guide from inventory to communication for procurement, renewals, and assurance. It is guidance and changes no deadline.",
+          "draft": false
+        },
+        {
+          "date": "2026-11-13",
+          "text": "Federal buying signals: GSA issued an RFI on commercial PQC products and services for the federal migration (responses due Dec. 7; market research only). GSA's D. Pomeroy said post-quantum algorithms have been loaded onto PIV smart-card chips (CyberScoop; algorithms not named, no GSA primary yet). Commerce's Paul Dabbar said the department plans a PQC demonstration for companies in December (Federal News Network).",
+          "draft": false
+        },
+        {
+          "date": "2026-11-16",
+          "text": "South Korea's NIS released draft cryptographic security standards and a PQC migration guidebook for public agencies (Digital Today). A key-management guideline is expected by end-2026 and final versions in H1 2027. Not yet confirmed on an NIS/NCSC primary page.",
+          "draft": false
+        },
+        {
+          "date": "2026-11-19",
+          "text": "IOSCO report PD833: most securities firms and regulators are still at the inventory stage, and few are testing. It notes that Israel directed banks and licensed payment providers to prepare formal quantum-readiness plans, and it warns against 'quantum washing.' The view that firms should prepare for a cryptographically relevant quantum computer within five years is attributed to some industry participants, not to IOSCO.",
+          "draft": false
         }
       ]
     },
@@ -457,7 +495,30 @@
           "label": "R&D World — can a useful quantum computer exist by 2033?",
           "url": "https://www.rdworldonline.com/darpas-quantum-benchmarking-push-can-a-useful-quantum-computer-exist-by-2033/"
         }
-      ]
+      ],
+      "updates": [
+        {
+          "date": "2026-11-12",
+          "text": "DARPA's W. Mason said the first QBI Stage C engagements are planned for January (Federal News Network). No new performers named.",
+          "draft": false
+        },
+        {
+          "date": "2026-11-13",
+          "text": "Commerce finalized a CHIPS R&D award of up to $100 million to Atom Computing, part of the May 21 letters of intent worth $2.01 billion, with minority equity stakes in seven quantum firms (NIST). Atom Computing, Diraq, and IBM in that group are also QBI Stage C performers. IBM separately said it will offer access to a dual-processor system ('Nighthawk r3') in 2027 (Ars Technica; company-reported).",
+          "draft": false
+        },
+        {
+          "date": "2026-11-16",
+          "text": "NVIDIA, IBM, and Fermilab announced plans for a quantum-classical co-design platform that colocates NVIDIA DGX B200 systems with IBM quantum computers, including Nighthawk. Separately, NVIDIA released a CUDA-Q error-correction decoder (TCBP-JOBS) that it says is up to 13,000x faster than leading algorithms, cutting one design-study workload from 12 weeks to 45 minutes (about 2,700x). Hype check: this is classical GPU computing used to research error-correction designs, not a quantum computer solving a problem, and the figures are company-reported. Headlines calling it a 'quantum computing breakthrough' overstate it.",
+          "draft": false
+        },
+        {
+          "date": "2026-11-18",
+          "text": "Alice & Bob updated its roadmap: 200 logical qubits by 2030 from about 3,600 cat qubits (previous target: 100), and a 2034 'Neon' system of 2,048 logical qubits aimed at RSA-2048 stress-testing. Company-reported, with no logical error rates given; results drawn from France's PROQCIMA program.",
+          "draft": false
+        }
+      ],
+      "updated": "2026-11-18"
     },
     {
       "id": "kc-001",
@@ -565,7 +626,7 @@
           "url": "https://securityaffairs.com/174735/cyber-crime/fbi-north-korea-responsible-bybit-hack.html"
         }
       ],
-      "updated": "2026-11-05",
+      "updated": "2026-11-18",
       "updates": [
         {
           "date": "2026-11-03",
@@ -578,6 +639,26 @@
         {
           "date": "2026-10-31",
           "text": "FBI attributed the theft to North Korea's TraderTraitor, said the assets were mostly converted to Ethereum and would be further laundered, and published addresses for exchanges to block. No technical evidence was released with the notice."
+        },
+        {
+          "date": "2026-11-12",
+          "text": "DOJ (PR 26-1356): of more than $6 billion stolen, over $2.7 billion has been frozen and the department obtained court authorization to seize or restrain more than $1.2 billion. It describes the actors as members of the North Korean military that the FBI calls TraderTraitor. Tracing continues; no charges were announced.",
+          "draft": false
+        },
+        {
+          "date": "2026-11-12",
+          "text": "Same release, separate scheme: 'FaceStealer,' more than $400 million stolen over 18 months. Attackers invite targets to video calls from hijacked accounts, play recorded or deepfaked video of known contacts, fake a technical problem, and push a 'fix' that installs malware. Targets include crypto and Web3 workers and open-source maintainers, which the FBI says suggests supply-chain aims. The Central District of California disrupted the infrastructure, and the FBI seized more than 900 victim webcam videos. Aliases listed include Sapphire Sleet, UNC1069, BlueNoroff, and APT38.",
+          "draft": false
+        },
+        {
+          "date": "2026-11-16",
+          "text": "Google's GTIG described a suspected DPRK cluster (MIDNIGHT NEPTUNE) that reached crypto firms through fake recruiter profiles, then edited Claude Code settings files in internal repositories so the tool downloaded a backdoor. This is the same recruiter-lure entry point as the Binance theft, now using AI developer tooling. See ai-001.",
+          "draft": false
+        },
+        {
+          "date": "2026-11-18",
+          "text": "A Threat Disruption Center launched for the Homeland Security Task Force (30+ federal agencies, 440+ state and local), with TRM Labs on a roughly $95 million one-year non-competed deal (Bloomberg via Claims Journal). Reported FBI figure: about $21 billion in cybercrime losses last year, more than half involving crypto. No DHS or White House primary yet.",
+          "draft": false
         }
       ],
       "debate": {
@@ -611,7 +692,7 @@
     },
     {
       "id": "seab-001",
-      "draft": true,
+      "draft": false,
       "topic": "Undersea Cables & Seabed",
       "actor": "Helsinki District Court",
       "country": "Finland",
@@ -779,11 +860,25 @@
           "label": "United24 — Finland's intelligence chief on Baltic cable pattern (Jan. 2026, secondary)",
           "url": "https://united24media.com/latest-news/finland-warns-russia-may-keep-targeting-baltic-sea-cables-in-shadow-campaign-15243"
         }
+      ],
+      "updates": [
+        {
+          "date": "2026-10-23",
+          "text": "The UK proposed a new offence for deliberate damage to subsea infrastructure: up to 14 years in prison, unlimited fines, and liability that can reach shipowners and operators, replacing an 1885 law. The consultation closes Jan. 14, 2027. This addresses the gap Fitburg exposed, where liability stopped at the crew."
+        },
+        {
+          "date": "2026-11-10",
+          "text": "The Royal Navy announced a £90 million 'Atlantic Net' framework with Ocean Infinity for drones and sensors to protect undersea cables and hunt submarines (Naval News; Sea Power Conference, Oslo). No gov.uk primary found yet."
+        },
+        {
+          "date": "2026-11-18",
+          "text": "Pakistan's PTA reported an SMW5 cable fault about 11 km offshore; traffic was rerouted, and NetBlocks and Cloudflare showed national HTTP traffic down as much as 36%. On Nov. 21 Transworld told customers it aims to finish repairs by Dec. 6 (Dawn). The cause has not been stated, and no one has claimed sabotage. Claims online linking it to the IRGC or Hormuz are unsupported."
+        }
       ]
     },
     {
       "id": "pnt-001",
-      "draft": true,
+      "draft": false,
       "topic": "Quantum Sensing & Navigation",
       "actor": "NTSB; U.S. military test ranges",
       "country": "United States",
@@ -915,6 +1010,572 @@
         {
           "label": "GPS World — Q-CTRL and Lockheed to develop quantum navigation for DARPA (Aug. 2025)",
           "url": "https://www.gpsworld.com/q-ctrl-lockheed-to-develop-quantum-navigation-for-darpa/"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-11-09",
+          "text": "GPS jamming around Schiphol affected at least seven aircraft (Dutch ministry); NRC reported 'dozens.' VRT, citing unnamed data experts, put it at about 80 aircraft over the Netherlands, Belgium, eastern England, and northwest Germany. Analyst J. Wiseman located a source north of Texel near three EU-sanctioned Russian ships in a navy-escorted convoy. There is no official attribution, and Belgium's Skeyes logged no reports."
+        },
+        {
+          "date": "2026-11-12",
+          "text": "Q-CTRL raised a $290 million Series C. Investors include In-Q-Tel, Lockheed Martin Ventures, EDGE Group (UAE), and Australia's National Reconstruction Fund. Q-CTRL already holds DARPA Robust Quantum Sensors awards (see key dates). 'Unjammable' is marketing language, and performance figures are company-reported."
+        },
+        {
+          "date": "2026-11-19",
+          "text": "UN News on a UNIDIR dialogue: UNIDIR cites a 500% rise in GPS spoofing in civil aviation from January to August 2024 and record maritime jamming in early 2026 during the Middle East crisis. A UN Security Council high-level meeting on emerging technology is scheduled for late November. No UN action yet."
+        }
+      ]
+    },
+    {
+      "id": "pre-001",
+      "draft": false,
+      "topic": "Infrastructure Pre-Positioning",
+      "actor": "Iran (IRGC-CEC / Shahid Kaveh, attributed by France)",
+      "country": "France",
+      "type": "Sabotage & attribution",
+      "status": "Attributed; EU response pending",
+      "date": "2026-11-10",
+      "confidence": "High (facts; attribution by France) · Medium (assessment)",
+      "title": "France Names an IRGC Unit for Sabotaging 700 Supermarket Cold Rooms",
+      "bottomLine": "France has publicly attributed an October 11–12 attack to Shahid Kaveh, a unit of the IRGC's electronic and cyber centre. The attack changed defrost settings on refrigeration controllers at about 700 retail sites, spoiling goods and causing at least 15 fires. France calls it the first offensive cyber campaign on its soil carried out purely for sabotage. It is the reverse of pre-positioning: the access was used, not held in reserve.",
+      "requires": [
+        "Night of October 11–12, 2026: defrost settings on refrigeration controllers at about 700 French large-retail sites were changed to high temperatures. Goods were lost, and at least 15 sites had fires (ANSSI). The Foreign Ministry puts losses in the tens of millions of euros.",
+        "The same operation targeted Schneider Electric equipment at several small hydroelectric installations, with moderate effects. Some butcher shops, a slaughterhouse, and cooperative food plants were also reportedly affected (ANSSI).",
+        "Attribution (ANSSI, Nov. 9; Foreign Ministry, Nov. 10): France names the IRGC electronic and cyber centre (IRGC-CEC). It links the October attack to the Shahid Kaveh unit and earlier operations to the Shahid Shoostari unit. The stated evidence is infrastructure characteristics, signature tools, a propaganda outlet tied to Shahid Kaveh relaying the attack, and Persian-language traces in the attack infrastructure. ANSSI does not say how the attackers reached the controllers.",
+        "France ties earlier operations to the same centre: a 2023 defacement of Charlie Hebdo's online shop and theft of its data, and a 2024 intrusion into a company that runs display kiosks. The 2024 attackers tried to show doctored images about Israeli athletes during the Paris Olympics and were caught before the images appeared.",
+        "Response: France summoned Iran's ambassador. The Paris prosecutor opened a judicial investigation and requested international arrest warrants for several Shahid Kaveh members, and France proposed further EU sanctions. The technical report is CERTFR-2026-CTI-009."
+      ],
+      "keyDates": [
+        {
+          "date": "2026-10-12",
+          "label": "Overnight sabotage of about 700 retail refrigeration sites and small hydro equipment"
+        },
+        {
+          "date": "2026-11-09",
+          "label": "ANSSI publishes campaign summary and CERTFR-2026-CTI-009"
+        },
+        {
+          "date": "2026-11-10",
+          "label": "Foreign Ministry public attribution to Shahid Kaveh (IRGC-CEC)"
+        },
+        {
+          "date": "2026-11-16",
+          "label": "EU Foreign Affairs Council: further Iran sanctions under preparation"
+        }
+      ],
+      "strategicRead": [
+        {
+          "head": "Pre-positioning, then use.",
+          "body": "CISA's Volt Typhoon advisories describe access held for a future crisis. This is the other half of that model: in peacetime, on one night and at national scale, the attackers used their access to refrigeration and small-hydro controllers against civilian commerce.",
+          "confidence": "Medium"
+        },
+        {
+          "head": "Low-value targets, high-volume effect.",
+          "body": "No single supermarket cold room matters strategically. Seven hundred at once, plus small hydro sites, shows that widely deployed, lightly defended operational technology can be hit in bulk. Private firms bear the cost, and the state receives the message.",
+          "confidence": "Medium"
+        },
+        {
+          "head": "Naming the unit, not just the state.",
+          "body": "France named a specific unit within a month, listed its evidence categories, and sought arrest warrants. Naming units and individuals is meant to make people carry a cost, not only Iran.",
+          "confidence": "High (what France did) · Medium (intent)"
+        }
+      ],
+      "indicators": [
+        "EU sanctions listings published in the Official Journal",
+        "Arrest warrants issued or circulated internationally for Shahid Kaveh members",
+        "Similar refrigeration or building-automation sabotage in other EU states",
+        "Iranian retaliation or further denial statements",
+        "Any government attribution of U.S. cold-chain incidents (none so far)"
+      ],
+      "debate": {
+        "intro": "The open argument is what any response can achieve against a state that denies the attack.",
+        "positions": [
+          {
+            "axis": "What works against state sabotage",
+            "position": "Name, indict, sanction",
+            "heldBy": "French government (Foreign Ministry statement); EU High Representative Kaja Kallas (Nov. 16)",
+            "argument": "Public attribution, arrest warrants, and EU listings raise the cost for the unit and its members. They signal that sabotage on EU soil will be answered collectively, and they build a record for later measures.",
+            "confidence": "High that this is their position"
+          },
+          {
+            "axis": "What works against state sabotage",
+            "position": "Deny the access",
+            "heldBy": "CISA and partner agencies' cold-chain alert (Nov. 5; no actor named)",
+            "argument": "Officers who never travel are not stopped by indictments. Removing internet exposure and default access from controllers prevents the next attack whoever launches it.",
+            "confidence": "Medium: the U.S. alert does not discuss France or Iran"
+          }
+        ],
+        "synthesis": "The two approaches are complementary. The disagreement is over how much punishment can deter when the defender is a supermarket chain.",
+        "openQuestion": "If a state can spoil a country's food supply for a night and the strongest available answer is an EU sanctions listing, at what point does sabotage of civilian infrastructure become a use of force? One view holds that no cyber effect without casualties crosses that line. Another holds that a deliberate pattern of harm to civilian infrastructure should cross it even without deaths. Where should the line be, and who decides?"
+      },
+      "updates": [
+        {
+          "date": "2026-11-16",
+          "text": "At the EU Foreign Affairs Council, High Representative Kallas said the EU is preparing further sanctions on Iran, citing the attacks on France. France's foreign minister called for listings. Nothing had been adopted as of Nov. 23. Iran denies involvement."
+        },
+        {
+          "date": "2026-11-05",
+          "text": "Separate U.S. context, which no government has linked to Iran: CISA, FBI, HHS, USDA, and DOT jointly urged critical-infrastructure operators to secure industrial refrigeration and cold-chain controllers. No actor named."
+        },
+        {
+          "date": "2026-11-04",
+          "text": "France's blood service (EFS) confirmed that three of its cold rooms were affected through a vendor on Nov. 3–4 (Le Quotidien du Médecin). The incident is unattributed, and France has not linked it to Shahid Kaveh."
+        }
+      ],
+      "sources": [
+        {
+          "label": "ANSSI — Iranian destabilization and sabotage campaigns against French interests (Nov. 9, 2026, primary, French)",
+          "url": "https://cyber.gouv.fr/actualites/campagnes-de-déstabilisation-et-sabotage-menées-à-lencontre-des-intérêts-français-par-la-république-islamique-diran/"
+        },
+        {
+          "label": "French Foreign Ministry — Declaration of attribution (Nov. 10, 2026, primary)",
+          "url": "https://us.diplomatie.gouv.fr/en/declaration-attribution-iran-cyber-attacks-against-france"
+        },
+        {
+          "label": "EEAS — Kallas press conference, Foreign Affairs Council (Nov. 16, 2026)",
+          "url": "https://www.eeas.europa.eu/eeas/foreign-affairs-council-press-conference-high-representative-kaja-kallas-6_en"
+        },
+        {
+          "label": "Middle East Eye — EU preparing further Iran sanctions (Nov. 16, 2026)",
+          "url": "https://www.middleeasteye.net/live-blog/live-blog-update/eu-preparing-further-sanctions-iran"
+        },
+        {
+          "label": "CISA — Joint alert on industrial refrigeration and cold-chain controllers (Nov. 5, 2026, primary)",
+          "url": "https://www.cisa.gov/news-events/news/cisa-fbi-hhs-usda-and-dot-urge-critical-infrastructure-strengthen-industrial-refrigeration-and-cold"
+        },
+        {
+          "label": "Le Quotidien du Médecin — EFS cold rooms hit through a vendor (French)",
+          "url": "https://www.lequotidiendumedecin.fr/sante-societe/des-chambres-froides-de-letablissement-francais-du-sang-victimes-dune-cyberattaque-dun-prestataire"
+        },
+        {
+          "label": "CISA AA24-038A — Volt Typhoon pre-positioning advisory (primary, context)",
+          "url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-038a"
+        }
+      ]
+    },
+    {
+      "id": "tel-001",
+      "draft": false,
+      "topic": "Telecom Intrusion & Lawful Intercept",
+      "actor": "CISA (commissioned); AdaptiveMobile Security and Telecom Defense (authors)",
+      "country": "United States",
+      "type": "Document release",
+      "status": "Released via FOIA (redacted)",
+      "date": "2026-11-19",
+      "confidence": "High (document) · Medium (assessment)",
+      "title": "The SS7 Warning, Four Years Early: CISA's Withheld Telecom Report",
+      "bottomLine": "A June 2022 report prepared for CISA found that U.S. phone-network signaling allows location tracking and interception by anyone who can rent access to it, and called the U.S. the most targeted country in the world. It became public, redacted, only in October 2026 through an EPIC FOIA lawsuit, two years after Salt Typhoon. The structural point: the signaling layer still trusts any network that pays to join it.",
+      "requires": [
+        "The document is the 'U.S. Telecommunications Insecurity Report' (June 2022), prepared for CISA under a DHS Science and Technology contract by AdaptiveMobile Security with Telecom Defense. It is marked preliminary and not a coordinated DHS position. EPIC obtained it in redacted form through a FOIA lawsuit (release dated Oct. 29, 2026; reported by Bloomberg Nov. 19).",
+        "Findings: SS7 was designed around mutual trust, with no firewalling. Signaling messages can reveal a target's network, device identifiers, and real-time location. Many U.S. operators screen domestic SS7 and Diameter traffic less than international traffic, and national roaming multiplies the entry points. A few signaling aggregators carry much of U.S. operators' traffic. Leasing of Global Titles (signaling network addresses) to third parties lacks oversight. 5G non-standalone networks carry the legacy exposure forward.",
+        "Observed activity (March–May 2022): location and routing queries against U.S. subscribers, and more than 9,000 'Global Opcode' violations between May 4 and 11, over 2,000 of them within a single 24-hour period.",
+        "The report says the U.S. 'remains the most targeted country in the world' for signaling exploits. It traced traffic to Global Titles leased through brokers in central and southern Europe and assessed that such brokers likely act as proxies for nation-state actors. Most of its policy recommendations are redacted.",
+        "Bloomberg cites unnamed former officials saying Salt Typhoon used SS7 for reconnaissance only. CTIA, the wireless industry group, says SS7 is not used in 4G or 5G. Neither claim comes from the report."
+      ],
+      "keyDates": [
+        {
+          "date": "2022-06-01",
+          "label": "June 2022: report delivered under CISA contract (month only)"
+        },
+        {
+          "date": "2026-06-18",
+          "label": "Canada's Bill C-22 (Lawful Access Act) passes the House of Commons"
+        },
+        {
+          "date": "2026-10-29",
+          "label": "Redacted report released to EPIC under FOIA"
+        },
+        {
+          "date": "2026-11-19",
+          "label": "Bloomberg reports the release"
+        }
+      ],
+      "strategicRead": [
+        {
+          "head": "The weakness is a business model, not a bug.",
+          "body": "Signaling access is for sale: Global Titles are leased, and aggregators resell connectivity. A state service does not need to hack a carrier to query it; it needs a front company with a lease. That is why the report's fixes are regulatory, such as oversight of leasing and review of ownership, as much as technical.",
+          "confidence": "Medium"
+        },
+        {
+          "head": "Intercept capability is attack surface.",
+          "body": "Salt Typhoon reached lawful-intercept systems. This report shows the signaling layer was already open. Together they suggest that every access path built into a network, legal or legacy, is a target.",
+          "confidence": "Medium"
+        },
+        {
+          "head": "What changed since 2022 cannot be judged from this release.",
+          "body": "The useful question is not why the report was withheld but which of its recommendations were adopted. The redactions cover most of the policy section.",
+          "confidence": "High"
+        }
+      ],
+      "indicators": [
+        "FCC or CISA action on SS7/Diameter filtering or Global Title leasing",
+        "Further or less-redacted releases from the EPIC litigation",
+        "Government corroboration of vendor-reported signaling campaigns (SilentAir, CopperDragon)",
+        "The Canadian Senate committee's report on Bill C-22",
+        "Carrier disclosures of signaling-based intrusions"
+      ],
+      "debate": {
+        "intro": "The argument is over who should close the signaling gap.",
+        "positions": [
+          {
+            "axis": "Who fixes signaling security",
+            "position": "Regulate it",
+            "heldBy": "The report's authors (2022 recommendations, as far as unredacted)",
+            "argument": "Carriers have had more than a decade of public SS7 research and still screen domestic traffic lightly. Oversight of Global Title leasing, continuously updated filtering, and review of ownership and vendors need a regulator behind them.",
+            "confidence": "High on the unredacted recommendations"
+          },
+          {
+            "axis": "Who fixes signaling security",
+            "position": "The industry is already migrating",
+            "heldBy": "CTIA (as reported by Bloomberg)",
+            "argument": "SS7 is a legacy protocol not used in 4G and 5G. Firewalls and the move to newer network cores address the risk without new rules.",
+            "confidence": "Medium: a reported statement; the report says non-standalone 5G still carries legacy exposure"
+          }
+        ],
+        "synthesis": "Both sides agree SS7 is legacy. They disagree on whether legacy means retired or still exposed.",
+        "openQuestion": "If foreign services can rent their way into the U.S. phone network, is signaling security a consumer-protection problem, a counterintelligence problem, or a national-defense problem? The answer decides whether the FCC, CISA, or nobody fixes it."
+      },
+      "updates": [
+        {
+          "date": "2026-11-16",
+          "text": "Canada's Senate national security committee heard Signal, Meta, Tailscale, and Citizen Lab on Bill C-22 (Lawful Access Act). The bill would let ministers order providers to build intercept capability and would allow metadata retention of up to six months. It passed the House on June 18 and is not yet law."
+        },
+        {
+          "date": "2026-11-13",
+          "text": "Enea reported 'SilentAir': a state-level actor (Enea's assessment, high confidence) abusing SS7 and Diameter over IPX through compromised operator equipment to divert calls and SMS, mainly of Taiwanese VIPs, including interception of two-factor codes. Enea rates a China link Low. This is vendor reporting with no government corroboration. Enea's AdaptiveMobile unit co-wrote the 2022 report."
+        },
+        {
+          "date": "2026-11-11",
+          "text": "Check Point reported a China-nexus framework, 'CopperDragon', at three or more Latin American telecoms and called any link to Salt Typhoon 'unclear'. This is vendor reporting only."
+        }
+      ],
+      "sources": [
+        {
+          "label": "EPIC — U.S. Telecommunications Insecurity Report (June 2022; FOIA release Oct. 2026, primary)",
+          "url": "https://epic.org/wp-content/uploads/2026/11/EPIC-24-03-12-DHS-FOIA-20261029-SS7-Report.pdf"
+        },
+        {
+          "label": "Bloomberg — U.S. was warned of telecom risk years before Salt Typhoon (Nov. 19, 2026)",
+          "url": "https://www.bloomberg.com/news/articles/2026-11-19/us-was-warned-of-telecoms-risk-years-before-salt-typhoon-hack"
+        },
+        {
+          "label": "Enea — Tracking Liminal Panda and SilentAir through mobile networks (vendor)",
+          "url": "https://www.enea.com/insights/the-enemy-within-tracking-liminal-panda-and-silentair-through-mobile-networks/"
+        },
+        {
+          "label": "The Hacker News — SilentAir summary",
+          "url": "https://thehackernews.com/2026/11/silentair-hijacks-asian-telecom.html"
+        },
+        {
+          "label": "Check Point Research — CopperDragon (vendor)",
+          "url": "https://research.checkpoint.com/2026/not-all-that-glitters-is-gold-tracking-copperdragons-sparrow-framework-around-the-globe/"
+        },
+        {
+          "label": "Parliament of Canada — Bill C-22 (primary)",
+          "url": "https://www.parl.ca/LegisInfo/en/bill/45-1/C-22"
+        },
+        {
+          "label": "Tech Times — Senate hearing on C-22 (Nov. 16, 2026)",
+          "url": "https://techtimes.com/articles/330786/20261116/canada-bill-c-22-could-force-apps-build-intercept-tools-senate-hear-signal-meta-monday.htm"
+        }
+      ]
+    },
+    {
+      "id": "ver-001",
+      "draft": false,
+      "topic": "The Quantum Threat to Encryption",
+      "actor": "Google DeepMind; Signal",
+      "country": "United States",
+      "type": "Research result",
+      "status": "Published (company-reported)",
+      "date": "2026-11-10",
+      "confidence": "High (what was announced) · Medium (scope not fully specified)",
+      "title": "DeepMind's Agents Verify Signal's Code, Not Just Its Design",
+      "bottomLine": "Google DeepMind says AI agents proved key security properties of the compiled code behind the Signal protocol in about four weeks. Humans wrote and reviewed the specification, and the Lean proof checker verified the proofs. If the result holds up, proving that cryptographic code does what its designers intended just became much cheaper. That matters most for the post-quantum migration, where implementation bugs are a bigger near-term risk than broken math.",
+      "requires": [
+        "Announced Nov. 10, 2026, together with the AlphaProof Code framework and a technical paper. The verification artifacts are open source. DeepMind calls this the first formal verification of a widely deployed protocol's implementation by any method, with or without AI.",
+        "Method: humans and models translated Signal's security goals into formal specifications, and experts reviewed each one. Agents running on Gemini Carbon wrote the proofs in Lean, more than six million lines according to the blog post (another DeepMind summary says three million). About 1% of the code was flagged for human review, and the Lean checker verified the rest.",
+        "Test: the team reintroduced two real, previously fixed bugs into an isolated copy of the code. Both times, the system produced a machine-checked proof that the buggy version was insecure.",
+        "Scope: the blog post gives one example property (messages stay protected before and after a temporary device compromise). It does not list which libsignal components or protocol stages were covered, or state its cryptographic assumptions. Proofs about an implementation normally assume the underlying primitives are secure. Coverage notes that the guarantees apply to the library, not the Signal apps (The Next Web).",
+        "Signal's CTO, Ehren Kret, said the verification gives Signal greater confidence in its code's privacy guarantees."
+      ],
+      "keyDates": [
+        {
+          "date": "2026-11-10",
+          "label": "DeepMind announces AlphaProof Code and the Signal verification"
+        }
+      ],
+      "strategicRead": [
+        {
+          "head": "Correct math, wrong code.",
+          "body": "Most real-world cryptographic failures come from implementations, not broken algorithms. Proving that code matches its specification targets the layer where breaches actually happen.",
+          "confidence": "High"
+        },
+        {
+          "head": "It matters for the migration.",
+          "body": "Every organization moving to ML-KEM and ML-DSA under CNSA 2.0 and NIST IR 8547 is shipping new cryptographic code on a deadline. Cheap, machine-checked proofs of that code would lower the risk that the migration itself introduces flaws.",
+          "confidence": "Medium"
+        },
+        {
+          "head": "The same tool finds holes.",
+          "body": "The bug test showed the system can also prove code insecure. A tool that searches for proofs of insecurity is a vulnerability-research tool, and its value depends on who runs it first.",
+          "confidence": "Medium"
+        }
+      ],
+      "indicators": [
+        "Independent review of the paper and the released proof artifacts",
+        "Extension to other protocols (TLS, MLS) or to post-quantum libraries",
+        "NSA or NIST references to machine-checked proofs in validation or CNSA 2.0 guidance",
+        "Bugs found in deployed cryptographic libraries through this method"
+      ],
+      "debate": {
+        "intro": "The argument is over what 'verified' should be allowed to mean.",
+        "positions": [
+          {
+            "axis": "What the result proves",
+            "position": "A step change in assurance",
+            "heldBy": "Google DeepMind; Signal (CTO statement)",
+            "argument": "The proofs reach compiled code, a trusted kernel checks them, and they caught reintroduced bugs. Work that took expert teams years took weeks.",
+            "confidence": "High that this is their position"
+          },
+          {
+            "axis": "What the result proves",
+            "position": "Verified against a specification, under assumptions",
+            "heldBy": "Standard formal-methods caution; skeptical press coverage",
+            "argument": "A proof is only as good as its specification. Properties left out of the specification, and primitives assumed to be perfect, fall outside the guarantee. 'Signal is proven secure' overstates the result.",
+            "confidence": "High on the principle · Medium on how much it limits this result, since the full scope is in the paper"
+          }
+        ],
+        "synthesis": "Both are true. The result moves the bottleneck from writing proofs to writing the right specification.",
+        "openQuestion": "If AI makes it cheap to prove code secure, it also makes it cheap to prove code insecure. Does verification at machine speed favor defenders, who can verify before shipping, or attackers, who need only one gap in the specification? And once proofs take weeks rather than years, should governments require them for the cryptography in national security systems?"
+      },
+      "sources": [
+        {
+          "label": "Google DeepMind — Formal verification of the Signal protocol (Nov. 10, 2026, primary)",
+          "url": "https://deepmind.google/blog/formal-verification-signal-protocol"
+        },
+        {
+          "label": "Google DeepMind — Introducing AlphaProof Code (Nov. 10, 2026, primary)",
+          "url": "https://deepmind.google/blog/introducing-alphaproof-code/"
+        },
+        {
+          "label": "Google DeepMind — Technical paper (PDF, primary)",
+          "url": "https://deepmind.google/documents/36/Formal_Verification_of_Signal_4.pdf"
+        },
+        {
+          "label": "Google DeepMind — Open-source verification artifacts",
+          "url": "https://google-deepmind.github.io/code-verification"
+        },
+        {
+          "label": "The Next Web — scope of the guarantees",
+          "url": "https://thenextweb.com/news/google-deepmind-alphaproof-code-signal-encryption-formal-verification"
+        }
+      ]
+    },
+    {
+      "id": "ai-001",
+      "draft": false,
+      "topic": "AI-Enabled Cyber Operations",
+      "actor": "Unattributed operator (Russian-language artifacts); PRC-, DPRK-, and Iran-nexus actors (GTIG)",
+      "country": "Global",
+      "type": "Threat report",
+      "status": "Ongoing",
+      "date": "2026-11-16",
+      "confidence": "High (GTIG findings) · Medium (assessment)",
+      "title": "Google: Attackers Now Turn Patches Into Exploits Without a Human",
+      "bottomLine": "Google's Threat Intelligence Group reports the first case it has seen of attackers fully automating the path from a published patch to a working exploit, with no human in the loop. The operator is unattributed. The strategic effect is on time: the gap between a fix being published and being exploited is shrinking toward the pace of machines rather than people.",
+      "requires": [
+        "Source: GTIG AI Threat Tracker, 'Agentic Threat Activity Crosses a Significant Threshold' (Nov. 16, 2026), produced with Mandiant.",
+        "exploit_agent is a multi-agent framework GTIG found on an exposed staging server, connected to multiple frontier and locally hosted language models. It continuously compares popular web-application code before and after patch announcements, identifies likely vulnerabilities, drafts exploits, and executes them. Its post-compromise scripts handled reconnaissance, brute-forcing, and webshells. Telemetry suggests interest in French media, entertainment, and education websites. No actor is attributed; an environment file contained Russian-language comments about API keys for 'auto-exploitation.'",
+        "CAIRN, an open-source multi-agent penetration-testing framework, was observed in intrusions that included targets in the U.S. aerospace sector. The report does not attribute that activity to a country.",
+        "DPRK: a suspected MIDNIGHT NEPTUNE cluster used fake recruiter profiles, whose images carried Google's SynthID watermark, to reach cryptocurrency firms in North America and Europe. After getting in, it edited Claude Code settings files in internal repositories so that starting the tool downloaded the SOMBERMEME backdoor.",
+        "In Q3 2026, PRC-nexus actors used language models for reconnaissance and exploit weaponization, and GTIG has evidence that one PRC-nexus group was building its own automated attack framework, likely for espionage. Iran's CALANQUE ION (formerly APT42) uses models, including Gemini, for reconnaissance and social engineering.",
+        "GTIG counts zero-day exploits rising from a 2025 average of 8 per month to 11 per month in 2026, with 22 in August."
+      ],
+      "keyDates": [
+        {
+          "date": "2026-08-31",
+          "label": "August 2026: 22 zero-days exploited in one month (GTIG count)"
+        },
+        {
+          "date": "2026-11-16",
+          "label": "GTIG AI Threat Tracker published"
+        }
+      ],
+      "strategicRead": [
+        {
+          "head": "Speed, not sophistication.",
+          "body": "exploit_agent went after known, already patched flaws. What changed is how quickly an n-day becomes a working attack. Defenses built around monthly patch cycles assume an attacker working at human pace.",
+          "confidence": "High"
+        },
+        {
+          "head": "Noisy now, quieter later.",
+          "body": "GTIG assesses that current frameworks trade stealth for speed and leave forensic traces, so stealth-focused state services are less likely to rely on them in targeted environments for now. Cybercriminals, who care less about stealth, will keep adopting them (GTIG, high confidence).",
+          "confidence": "High (GTIG's assessment)"
+        },
+        {
+          "head": "The developer toolchain is the new perimeter.",
+          "body": "The DPRK case used an AI coding tool's own configuration to deliver malware, after the same fake-recruiter approach seen in the Binance theft. AI agent tooling inside developer environments is now a way in.",
+          "confidence": "Medium"
+        }
+      ],
+      "indicators": [
+        "A government attribution of an exploit_agent-style framework to a state actor",
+        "CISA guidance shortening remediation deadlines for known exploited vulnerabilities",
+        "Published time-to-exploit measurements after patch releases",
+        "Further abuse of AI coding-agent configuration files",
+        "Vendors moving to automatic patching for internet-facing software"
+      ],
+      "debate": {
+        "intro": "The debate is whether autonomy changes the balance between attack and defense or only the tempo.",
+        "positions": [
+          {
+            "axis": "Who benefits from automation",
+            "position": "Offense gains first",
+            "heldBy": "GTIG (Nov. 16 report)",
+            "argument": "Attackers need one working exploit, while defenders must patch everything. Automation compresses the attacker's side of the race fastest, and the frameworks are open source.",
+            "confidence": "High that this is GTIG's framing"
+          },
+          {
+            "axis": "Who benefits from automation",
+            "position": "Defense can automate too",
+            "heldBy": "Google (Big Sleep, CodeMender); DeepMind's code-verification work",
+            "argument": "The same models can find and fix flaws before release and verify code formally. If defenders automate discovery and patch deployment, the window shrinks for both sides.",
+            "confidence": "Medium: a company's position about its own products"
+          }
+        ],
+        "synthesis": "Both sides are automating. What differs is who must still wait for human approval.",
+        "openQuestion": "If defending at machine speed means letting AI patch production systems without a human sign-off, who accepts the risk of a bad automatic fix? In military networks, where one change can affect a weapon or communications system, is human-speed defense a safety requirement or a vulnerability?"
+      },
+      "sources": [
+        {
+          "label": "Google Cloud (GTIG) — Agentic threat activity crosses a significant threshold (Nov. 16, 2026, primary)",
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold"
+        },
+        {
+          "label": "Google — The era of autonomous attacks has arrived (Nov. 16, 2026, primary)",
+          "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gtig-ai-threat-tracker-q4-2026/"
+        },
+        {
+          "label": "BleepingComputer — named tools and targeting",
+          "url": "https://bleepingcomputer.com/news/security/google-warns-that-fully-automated-ai-attacks-are-coming-soon"
+        },
+        {
+          "label": "The New Stack — how the patch-diffing pipeline works",
+          "url": "https://thenewstack.io/?p=22843793"
+        }
+      ]
+    },
+    {
+      "id": "st-001",
+      "draft": false,
+      "topic": "Defense-Tech Startup Radar",
+      "actor": "Anduril Industries",
+      "country": "United States",
+      "type": "Company profile",
+      "status": "Ongoing",
+      "date": "2026-11-23",
+      "confidence": "High (contracts and releases) · Low–Medium (assessment)",
+      "title": "Anduril in the Cryptologic Stack: Cyber Effects, a Quantum Pilot, and a PQC Hiring Push",
+      "bottomLine": "Anduril is best known for drones and counter-drone systems, but its public record now reaches into this site's subjects: cyber and RF effects running inside its Lattice command-and-control software, a quantum optimization pilot for missile-defense planning, and job postings for post-quantum and CNSA 2.0 certification work. None of this month's AI and quantum headlines involve Anduril directly. The link is that a C2 vendor running cyber effects at the tactical edge inherits every trend in exploit speed, code verification, and cryptographic migration.",
+      "requires": [
+        "DoD link (this track's criterion): on March 13, 2026, the Army awarded Anduril a 10-year enterprise IDIQ contract with a ceiling of up to $20 billion. It consolidates more than 120 separate procurement actions for Anduril's commercial technology, including the Lattice suite. The figure is a ceiling, not obligated funds.",
+        "Cyber and RF effects: on May 18, 2026, Booz Allen and Anduril announced that three Booz Allen products run on Anduril's Menace compute and communications systems, integrated with Lattice: the Sit(x) coordination layer, the Dynamic Effects Tasking System for tasking cyber and RF effects, and Zero Trust controls. The integration was demonstrated at SOF Week 2026.",
+        "Quantum: on Jan. 27, 2026, D-Wave, Davidson Technologies, and Anduril reported a proof of concept applying quantum-classical hybrid optimization to air and missile defense planning. They claimed at least 10x faster time-to-solution and 45–60 additional intercepts in a 500-missile simulation (company-reported, not independently verified). D-Wave's annealing systems cannot run Shor's algorithm. Anduril Labs also lists a quantum software role covering both annealing and gate-model platforms.",
+        "Cryptography: Anduril job postings from September 2026 ask for CNSA 2.0 or post-quantum migration experience alongside vulnerability research and exploit development. Another posting seeks a senior engineer to take Anduril's cryptographic services through U.S. government validation and certification, requiring post-quantum experience."
+      ],
+      "keyDates": [
+        {
+          "date": "2026-01-27",
+          "label": "D-Wave, Davidson, and Anduril missile-defense optimization proof of concept"
+        },
+        {
+          "date": "2026-03-13",
+          "label": "Army enterprise contract, ceiling up to $20 billion"
+        },
+        {
+          "date": "2026-05-18",
+          "label": "Booz Allen cyber, RF effects, and Zero Trust integrated on Menace and Lattice"
+        }
+      ],
+      "strategicRead": [
+        {
+          "head": "Integration is the product.",
+          "body": "The Booz Allen integration puts situational awareness, cyber and RF tasking, and security controls into one deployable system. That shortens the path from finding a target to acting on it, and it concentrates risk: one compromised node now touches all three.",
+          "confidence": "Medium"
+        },
+        {
+          "head": "The PQC deadline reaches vendors.",
+          "body": "Equipment sold into national security systems must support CNSA 2.0 algorithms on CNSSP 15's timeline. Hiring for validation and post-quantum migration is what that requirement looks like inside a contractor.",
+          "confidence": "Medium (inferred from public job postings)"
+        },
+        {
+          "head": "Quantum optimization is a hedge, not a capability.",
+          "body": "Annealing for planning problems is commercially available, but its advantage over the best classical methods is disputed. The defense-relevant performance claim is company-reported.",
+          "confidence": "Medium"
+        },
+        {
+          "head": "Why this month's news reaches Anduril.",
+          "body": "GTIG's automated patch-to-exploit pipeline, DeepMind's code verification, and NVIDIA's faster error-correction research all sit upstream of any vendor fielding networked C2: faster attacks, cheaper assurance, and a moving quantum timeline.",
+          "confidence": "Low (analyst linkage; no source connects them to Anduril)"
+        }
+      ],
+      "indicators": [
+        "Accreditation of Lattice or Menace cyber-effects capabilities for additional networks or services",
+        "The D-Wave pilot moving to a government-funded contract",
+        "Anduril products appearing in NIST CMVP or NSA validation listings with post-quantum algorithms",
+        "Any public security incident or disclosed vulnerability involving Lattice"
+      ],
+      "debate": {
+        "intro": "This track asks the same question of every firm: is it building something the government cannot build itself?",
+        "positions": [
+          {
+            "axis": "Should cyber effects live inside vendor C2 platforms?",
+            "position": "Yes: speed at the edge",
+            "heldBy": "Booz Allen and Anduril (May 18 release)",
+            "argument": "Operators should identify, task, and act on targets in one system instead of switching between tools, and one integrated system is simpler to accredit.",
+            "confidence": "High that this is their position"
+          },
+          {
+            "axis": "Should cyber effects live inside vendor C2 platforms?",
+            "position": "Concentration risk",
+            "heldBy": "General zero-trust and supply-chain security principle; no named critic of this integration",
+            "argument": "Putting effects, C2, and security controls on one vendor's stack makes that stack a single high-value target and deepens dependence on one company's software.",
+            "confidence": "Low: no named holder of this position on this deal"
+          }
+        ],
+        "synthesis": "Speed and concentration come from the same design choice. The question is whether verification and accreditation keep pace with the integration.",
+        "openQuestion": "When a venture-backed company's software both sees the battlefield and tasks cyber effects, does the government still own the decision chain, or does it rent it? And if a vendor's code becomes the C2 layer, who verifies that code, and how?"
+      },
+      "sources": [
+        {
+          "label": "U.S. Army — Enterprise contract for IT commercial solutions (Mar. 13, 2026, primary)",
+          "url": "https://www.army.mil/article/291074/u_s_army_awards_enterprise_contract_for_it_commercial_solutions"
+        },
+        {
+          "label": "Department of War — Contracts for March 13, 2026 (primary)",
+          "url": "https://www.war.gov/News/Contracts/Contract/Article/4434754/contracts-for-march-13-2026/"
+        },
+        {
+          "label": "Business Wire — Booz Allen and Anduril deploy C2, cyber, and Zero Trust on Menace and Lattice (May 18, 2026, primary)",
+          "url": "https://www.businesswire.com/news/home/20260518035255/en/"
+        },
+        {
+          "label": "D-Wave — Anduril, Davidson and D-Wave quantum applications for air and missile defense (Jan. 27, 2026, primary)",
+          "url": "https://www.dwavequantum.com/company/newsroom/press-release/anduril-davidson-and-d-wave-collaborate-to-develop-quantum-applications-for-us-air-and-missile-defense/"
+        },
+        {
+          "label": "Anduril job posting — Quantum Software Engineer, Anduril Labs",
+          "url": "https://job-boards.greenhouse.io/andurilindustries/jobs/5089054007"
+        },
+        {
+          "label": "Anduril job posting — Senior Cyber Software Engineer (CNSA 2.0 / PQC)",
+          "url": "https://jobs.generalcatalyst.com/companies/anduril/jobs/93688990-senior-cyber-software-engineer"
+        },
+        {
+          "label": "Anduril job posting — Senior Certification Engineer (PQC validation), via Teal",
+          "url": "https://www.tealhq.com/job/senior-certification-engineer_7ea1ab8858ede724bd2c0eda6edaa3f74fba1"
         }
       ]
     }

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-09",
+  "updated": "2026-11-23",
   "note": "Defines Cryptologic Watch tracks and maps entry ids in cryptologic.json to tracks. A track's freshness is the most recent date or updated value among its entries. A track's foundations may be a list; items with sections render as explainer cards. Items marked draft show only on localhost.",
   "staleDays": 21,
   "tracks": [
@@ -13,7 +13,7 @@
           "id": "fd-hndl",
           "title": "Harvest-now, decrypt-later",
           "status": "Draft",
-          "draft": true,
+          "draft": false,
           "summary": "Encrypted data stolen today can be read years from now, once a large enough quantum computer exists. That is why the deadline for new encryption is set by how long secrets must stay secret, not by when the machine arrives.",
           "sections": [
             {
@@ -161,7 +161,8 @@
         }
       ],
       "entryIds": [
-        "pqc-001"
+        "pqc-001",
+        "ver-001"
       ],
       "closingQuestion": "What data captured today will still matter in 2040, and who decides?"
     },
@@ -175,7 +176,7 @@
           "id": "fd-how-qc",
           "title": "How a quantum computer works",
           "status": "Draft",
-          "draft": true,
+          "draft": false,
           "summary": "A plain-language guide: what a qubit is, where the speedup actually comes from, why errors dominate the engineering, and the most common myths.",
           "sections": [
             {
@@ -244,7 +245,7 @@
           "id": "fd-qubits-built",
           "title": "How qubits are built, and how we got here",
           "status": "Draft",
-          "draft": true,
+          "draft": false,
           "summary": "What physically counts as a qubit, how the main types are made, the engineering tension they all share, and the century of physics behind them.",
           "sections": [
             {
@@ -329,7 +330,7 @@
           "id": "fd-qkd-pqc",
           "title": "QKD vs. PQC: two answers to the quantum threat",
           "status": "Draft",
-          "draft": true,
+          "draft": false,
           "summary": "One answer uses physics to distribute keys; the other uses new math that runs on today's hardware. China invested heavily in the first. The U.S. government bet on the second.",
           "sections": [
             {
@@ -516,7 +517,7 @@
           "id": "fd-lawful-intercept",
           "title": "Lawful intercept: how wiretap infrastructure works",
           "status": "Draft",
-          "draft": true,
+          "draft": false,
           "summary": "U.S. phone networks are required by law to be wiretap-ready. The same capability that lets police listen with a court order is a target for foreign intelligence services, and Salt Typhoon showed what happens when it is reached.",
           "sections": [
             {
@@ -602,7 +603,9 @@
           "date": "2026-11-06"
         }
       ],
-      "entryIds": [],
+      "entryIds": [
+        "tel-001"
+      ],
       "closingQuestion": "Does Salt Typhoon change the debate over lawful access to encrypted communications?"
     },
     {
@@ -614,7 +617,9 @@
         "title": "Espionage vs. pre-positioning",
         "status": "Planned"
       },
-      "entryIds": [],
+      "entryIds": [
+        "pre-001"
+      ],
       "closingQuestion": "How do you deter an intrusion whose purpose is a crisis that has not happened yet?"
     },
     {
@@ -652,7 +657,9 @@
         "title": "How to read a defense-tech contract announcement",
         "status": "Planned"
       },
-      "entryIds": [],
+      "entryIds": [
+        "st-001"
+      ],
       "closingQuestion": "Which of these firms is building something the government cannot build itself?"
     },
     {
@@ -668,6 +675,21 @@
         "kc-001"
       ],
       "closingQuestion": "If the math holds and the people fail, where should security spending go?"
+    },
+    {
+      "id": "ai-ops",
+      "n": 10,
+      "draft": false,
+      "name": "AI-Enabled Cyber Operations",
+      "angle": "How language-model agents change the speed of finding, exploiting, and defending flaws. Scope limited to published threat-intelligence and government reporting; capability claims are attributed.",
+      "foundations": {
+        "title": "How AI changes the patch window",
+        "status": "Planned"
+      },
+      "entryIds": [
+        "ai-001"
+      ],
+      "closingQuestion": "When both attack and defense run at machine speed, where does a human still have to be in the loop, and what does that cost?"
     }
   ]
 }

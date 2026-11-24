@@ -264,6 +264,60 @@
       "full": "Ministry of State Security (China)",
       "def": "China's main civilian intelligence and security agency.",
       "example": "Treasury tied a Salt Typhoon-linked company to the MSS."
+    },
+    {
+      "term": "SS7",
+      "full": "Signaling System No. 7",
+      "def": "The 1970s-era protocol phone networks use to route calls and texts between carriers. It trusts any connected network by design.",
+      "example": "An SS7 query can reveal which cell tower a phone is near."
+    },
+    {
+      "term": "Diameter",
+      "full": "Diameter signaling protocol",
+      "def": "SS7's successor for 4G networks. It handles roaming and authentication, and has inherited some of SS7's trust problems.",
+      "example": "SilentAir reportedly abused both SS7 and Diameter."
+    },
+    {
+      "term": "Global Title",
+      "full": "Global Title (GT)",
+      "def": "An address that identifies a node on the signaling network. Carriers can lease them to third parties.",
+      "example": "The 2022 CISA report traced attacks to leased Global Titles."
+    },
+    {
+      "term": "IPX",
+      "full": "IP Packet Exchange",
+      "def": "The private network carriers use to exchange roaming and signaling traffic with each other.",
+      "example": "Compromised operator equipment on IPX can reach many carriers at once."
+    },
+    {
+      "term": "n-day",
+      "full": "Known, already-patched vulnerability",
+      "def": "A flaw that has been publicly disclosed and fixed, but is still exploitable on systems not yet updated.",
+      "example": "exploit_agent turned n-day patches into working exploits."
+    },
+    {
+      "term": "formal verification",
+      "full": "Formal verification",
+      "def": "Using mathematical proof, checked by software, to show that code always meets a written specification.",
+      "example": "DeepMind formally verified Signal's encryption library."
+    },
+    {
+      "term": "Lean",
+      "full": "Lean theorem prover",
+      "def": "A programming language and proof checker that accepts a proof only if every step is mathematically valid.",
+      "example": "DeepMind's agents wrote millions of lines of Lean."
+    },
+    {
+      "term": "IRGC",
+      "full": "Islamic Revolutionary Guard Corps",
+      "def": "Iran's military and security force, separate from its regular army, with its own cyber units.",
+      "example": "France attributed the October sabotage to an IRGC cyber unit."
+    },
+    {
+      "term": "IDIQ",
+      "full": "Indefinite Delivery, Indefinite Quantity contract",
+      "def": "A government contract that sets a ceiling and terms; money is spent only when orders are placed.",
+      "example": "Anduril's $20 billion Army contract is a ceiling, not a payment."
     }
   ]
 }

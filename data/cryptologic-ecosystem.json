@@ -1,12 +1,12 @@
 {
-  "updated": "2026-11-09",
+  "updated": "2026-11-23",
   "note": "Deep dives and the ecosystem map for Cryptologic Watch. Items marked draft show only on localhost.",
   "deepDives": [
     {
       "id": "eco-01",
       "series": "The Quantum Ecosystem",
       "n": 1,
-      "draft": true,
+      "draft": false,
       "date": "2026-11-06",
       "title": "The Supply Chain: A Quantum Computer Is Mostly Not the Quantum Part",
       "bottomLine": "The qubit chip is small. Most of the machine is cooling, wiring, lasers, and control electronics, and a few of those parts come from a handful of suppliers or one scarce isotope. Export controls now treat those parts as strategic, and there is evidence the controls are pushing China to build its own.",
@@ -45,6 +45,10 @@
           "head": "The policy response",
           "body": "The Senate's National Quantum Initiative reauthorization bill (S. 3597) would require mapping quantum supply chains, identifying single points of failure, and recommending fixes. It cleared committee in April 2026 and has not passed the full Senate.",
           "confidence": "High on the bill text · Medium on status"
+        },
+        {
+          "head": "November 2026 developments",
+          "body": "BIS extended its suspension of the Affiliates Rule to Jan. 10, 2027 (FR Doc. 2026-22793, Nov. 9), tied to the U.S.–China trade truce; that date is the next decision point for export-control coverage of subsidiaries. DOE's Office of Science issued an RFI on cryogenic and quantum-HPC integration testbeds (responses due Dec. 17), a sign that the cooling layer is now treated as research infrastructure. SEALSQ, a Swiss company, signed a non-binding letter of intent to acquire Australia's QuintessenceLabs, which makes quantum random-number generators, QKD, and key-management products. Terms are undisclosed, closing is targeted for H1 2027, and foreign-investment approvals are required."
         }
       ],
       "openQuestion": "If the scarcest input to American quantum computers comes from the nuclear weapons complex, and the control electronics come largely from allies, is quantum supply-chain security a national project or an alliance one? And does restricting exports to China buy time, or does it fund China's independence?",
@@ -96,14 +100,27 @@
         {
           "label": "Senate Commerce — NQI reauthorization passes committee (Apr. 2026, primary)",
           "url": "https://www.commerce.senate.gov/press/dem/release/led-by-cantwell-and-young-national-quantum-initiative-reauthorization-act-unanimously-passes-commerce-committee-on-world-quantum-day/"
+        },
+        {
+          "label": "Nixon Peabody — BIS suspends Affiliates Rule until Jan. 10, 2027",
+          "url": "https://www.nixonpeabody.com/insights/alerts/2026/11/06/bis-formally-suspends-the-affiliates-rule-until-january-10-2027"
+        },
+        {
+          "label": "SAM.gov — DOE ASCR cryogenic/quantum-HPC testbed RFI",
+          "url": "https://sam.gov/workspace/contract/opp/5d74304ff75846808d167850608650dc/view"
+        },
+        {
+          "label": "GlobeNewswire — SEALSQ LOI to acquire QuintessenceLabs (Nov. 18, 2026)",
+          "url": "https://globenewswire.com/news-release/2026/11/18/3405454/0/en/sealsq-signs-a-loi-to-acquire-quintessencelabs-with-the-objective-of-creating-a-world-leader-in-the-vertical-quantum-security-stack.html"
         }
-      ]
+      ],
+      "updated": "2026-11-23"
     },
     {
       "id": "eco-02",
       "series": "The Quantum Ecosystem",
       "n": 2,
-      "draft": true,
+      "draft": false,
       "date": "2026-11-06",
       "title": "The Illinois Hub: How Chicago Became a Quantum Proving Ground",
       "bottomLine": "Illinois has assembled the pieces of a national quantum hub in one region: a university research network led by UIUC, two Department of Energy centers, a state-funded industrial park on Chicago's South Side, and a DARPA program to test whether the machines work. The national security link is direct: the proving ground exists to verify claims for the Defense Department.",
@@ -137,6 +154,10 @@
           "head": "Why it matters for national security",
           "body": "Three things converge here: defense-funded basic research (the Air Force grant), government verification of company claims (the proving ground), and the workforce pipeline (the new minor and the national labs). The Israel link is also concrete: Quantum Machines, which runs Israel's national quantum computing center, is a tenant. Assessment: the region's significance is less any single machine than the fact that the U.S. government is building a place to check whether the machines are real.",
           "confidence": "High on the facts · Medium on the assessment"
+        },
+        {
+          "head": "November 2026 developments",
+          "body": "The Bloch Quantum Tech Hub named its governance board on Nov. 11, chaired by David Awschalom, with institutions including IQMP, Argonne, Fermilab, IBM, IonQ, and Infleqtion. FBI Chicago holds a non-voting seat as threat advisor, an unusual public sign that counterintelligence is built into the hub's governance. On Nov. 16, IBM, NVIDIA, and Fermilab announced plans for a co-design platform for modular quantum computers, following an IBM, AMD, and Oak Ridge error-correction co-design platform announced Nov. 6."
         }
       ],
       "openQuestion": "A state government is spending hundreds of millions to host companies whose core technology is not yet proven. If the proving ground's job is to tell DARPA which claims are true, what happens to the park if the answer for its anchor tenant is no? Is concentrating a national capability in one region a strength, or a single point of failure?",
@@ -200,15 +221,23 @@
         {
           "label": "IBM — Quantum System Two unveiled in Chicago (Nov. 6, 2026, primary)",
           "url": "https://newsroom.ibm.com/2026-11-06-ibm-unveils-its-most-advanced-quantum-computer-in-chicago,-marking-a-milestone-for-illinoiss-quantum-future"
+        },
+        {
+          "label": "Chicago Quantum Exchange — Bloch hub governance board (Nov. 11, 2026)",
+          "url": "https://chicagoquantum.org/news/bloch-quantum-tech-hubs-names-governance-institutions"
+        },
+        {
+          "label": "NVIDIA — collaboration with IBM and Fermilab (Nov. 16, 2026, primary)",
+          "url": "https://nvidianews.nvidia.com/news/nvidia-announces-collaboration-with-ibm-and-fermi-national-accelerator-laboratory-to-launch-quantum-classical-codesign-platform-plus-error-correction-breakthrough-to-advance-practical-quantum-computing"
         }
       ],
-      "updated": "2026-11-09"
+      "updated": "2026-11-23"
     },
     {
       "id": "eco-03",
       "series": "The Quantum Ecosystem",
       "n": 3,
-      "draft": true,
+      "draft": false,
       "date": "2026-11-06",
       "title": "Who Pays: The Money and Law Behind U.S. Quantum",
       "bottomLine": "Reported federal quantum research spending has held at roughly $1 billion a year, and the law that coordinates it is waiting on reauthorization. One private funding round, PsiQuantum's $1 billion in September 2025, was roughly equal to the government's entire reported annual figure.",
@@ -242,6 +271,10 @@
           "head": "Assessment",
           "body": "The government's role is shifting from main funder to referee. Private money now rivals public research budgets, so the federal levers that matter most may be verification (DARPA), procurement deadlines (CNSA 2.0), and export controls, rather than grant totals.",
           "confidence": "Medium"
+        },
+        {
+          "head": "November 2026 developments",
+          "body": "The Commission on U.S. Quantum Primacy (SCSP) published a preliminary report without dollar figures; its final report is due in spring 2027. On Nov. 13, Commerce's CHIPS R&D Office finalized an award of up to $100 million to Atom Computing, part of $2.01 billion in May letters of intent that come with minority government equity stakes in seven quantum firms (IBM $1 billion; GlobalFoundries $375 million for about 1%; Diraq up to $38 million; others $100 million). Quantinuum's award was finalized Sept. 8. Taking equity in exchange for funding is a new model for U.S. quantum funding."
         }
       ],
       "openQuestion": "When private investors fund quantum hardware at the scale of the federal research budget, what does the government actually control? Is buying verification and setting deadlines enough influence, or does a strategic technology need public ownership of more of the stack?",
@@ -289,14 +322,27 @@
         {
           "label": "Laboratory for Physical Sciences (primary)",
           "url": "https://lps.umd.edu"
+        },
+        {
+          "label": "SCSP — Defining the American Quantum Era (preliminary report)",
+          "url": "https://www.scsp.ai/defining-the-american-quantum-era/"
+        },
+        {
+          "label": "NIST — Commerce finalizes CHIPS R&D award to Atom Computing (Nov. 13, 2026, primary)",
+          "url": "https://www.nist.gov/news-events/news/2026/11/department-commerce-announces-finalization-chips-rd-award-atom-computing"
+        },
+        {
+          "label": "The Quantum Insider — how the Commerce awards and equity terms work",
+          "url": "https://thequantuminsider.com/2026/11/20/how-the-department-of-commerces-quantum-awards-work-and-what-companies-give-in-return"
         }
-      ]
+      ],
+      "updated": "2026-11-23"
     },
     {
       "id": "eco-04",
       "series": "The Quantum Ecosystem",
       "n": 4,
-      "draft": true,
+      "draft": false,
       "date": "2026-11-06",
       "title": "Four Bets: How the U.S., China, Europe, and Israel Approach Quantum",
       "bottomLine": "The major players are not running the same race. The U.S. is betting on verification, new encryption standards, and export controls; China on scale and quantum communication networks; Europe on shared infrastructure; Israel on a specialist niche in the control layer that the whole industry depends on.",
@@ -325,6 +371,10 @@
           "head": "Assessment",
           "body": "Each approach reflects national strengths. The U.S. relies on its regulatory and procurement power, China on state-directed scale, Europe on coordination among members, and Israel on a defense-linked startup sector. The U.S.–Israel overlap is concrete: an Israeli firm whose systems run Israel's national center is also a tenant of the Illinois quantum park.",
           "confidence": "Medium"
+        },
+        {
+          "head": "November 2026 developments",
+          "body": "China: Brazil's science ministry reported that parts for two quantum computers built by CETC (about R$83 million) arrived in João Pessoa on Nov. 16, with assembly from Nov. 24, tests in January 2027, and Chinese specialists training Brazilian staff. CETC is on the DoD's Section 1260H list of Chinese military companies. Modality and qubit count are unknown, and the main report relied on machine translation. Europe: a leaked draft EU Quantum Act would favor European suppliers and set computing and security targets (low confidence until the Commission publishes text). Israel: IOSCO reports that Israel has directed banks and licensed payment providers to prepare formal quantum-readiness plans. South Korea: NIS published draft PQC migration guidance for public agencies."
         }
       ],
       "openQuestion": "Is quantum a race with one winner, or a set of separate contests (computing, communications, sensing) that different countries can win at the same time? If China leads in quantum networks while the U.S. leads in verified computing, which lead matters more for intelligence, and who would know first?",
@@ -388,14 +438,31 @@
         {
           "label": "Quantum Machines — opens the Israeli Quantum Computing Center (June 2024)",
           "url": "https://prnewswire.com/news-releases/quantum-machines-opens-the-israeli-quantum-computing-center-302181680.html"
+        },
+        {
+          "label": "The Quantum Insider — Brazil receives parts for two CETC quantum computers (Nov. 18, 2026)",
+          "url": "https://thequantuminsider.com/2026/11/18/brazil-receives-parts-for-two-quantum-computers-in-partnership-with-china/"
+        },
+        {
+          "label": "DoD — Section 1260H list (primary)",
+          "url": "https://media.defense.gov/2024/Jan/31/2003384819/-1/-1/0/1260H-LIST.PDF"
+        },
+        {
+          "label": "The Quantum Insider — draft EU Quantum Act (unofficial draft)",
+          "url": "https://thequantuminsider.com/2026/11/10/draft-eu-quantum-act-would-favor-european-suppliers-set-computing-and-security-targets"
+        },
+        {
+          "label": "IOSCO — PD833 (primary)",
+          "url": "https://www.iosco.org/library/pubdocs/pdf/IOSCOPD833.pdf"
         }
-      ]
+      ],
+      "updated": "2026-11-23"
     },
     {
       "id": "eco-05",
       "series": "The Quantum Ecosystem",
       "n": 5,
-      "draft": true,
+      "draft": false,
       "date": "2026-11-06",
       "title": "Applications: What Is Fielded, What Is in Trials, What Is Hype",
       "bottomLine": "Quantum technology already runs inside GPS satellites, and quantum navigation is in military field trials because GPS jamming is now routine. Code-breaking remains theory. Quantum radar and 'transparent oceans' are where public claims most outrun the evidence.",
@@ -520,7 +587,7 @@
       "id": "off-01",
       "series": "Offense & Counterintelligence",
       "n": 1,
-      "draft": true,
+      "draft": false,
       "date": "2026-11-06",
       "title": "Harvest-Now, Decrypt-Later as an Offensive Strategy",
       "bottomLine": "Seen from the attacker's side, harvest-now, decrypt-later is an old intelligence strategy: collect what you cannot read yet, and wait. Venona proved patience can pay for decades. One side's collection program is the other side's counterintelligence problem, which is why the same event, such as Salt Typhoon, belongs on both ledgers.",
@@ -548,6 +615,10 @@
         {
           "head": "Why this matters for a Cryptologic Warfare Officer",
           "body": "The Navy describes the Cryptologic Warfare community's mission as applying signals intelligence, electronic warfare, cyberspace operations, and information operations, and lists 'attacking, defending and exploiting networks' among its work. Understanding offense and counterintelligence as one subject is the job, not a side interest."
+        },
+        {
+          "head": "November 2026: counterintelligence and offense in the news",
+          "body": "Counterintelligence: the FBI's QIST Counterintelligence Protection Team publicly flagged insider, cyber, and supply-chain threats to quantum firms, and FBI Chicago now sits on the Bloch hub board. A Russian national, Igor D'iu, was indicted in the Northern District of California (announced Nov. 18) for allegedly acting as an agent of a foreign government and surveilling employees of a Silicon Valley company that arms Ukraine. The FBI affidavit says the activity bears the hallmarks of Russian intelligence but names no service. Collection: Romania's SRI said on Nov. 11 that it contained a Russia-linked intrusion aimed at intercepting NATO and EU email; ESET ties the tooling to Turla, and Russia denies involvement. Google described a ColdRiver ('Cold Relic') campaign that took over admin accounts and phished Microsoft tokens by impersonating contacts over encrypted messengers. Allied posture: the UK National Cyber Force opened its headquarters in Samlesbury, Lancashire on Nov. 16, staffed by GCHQ, MOD, SIS, and Dstl personnel, with £5 billion committed through 2030. Automation: GTIG reports the first fully automated patch-to-exploit pipeline seen in use (see ai-001)."
         }
       ],
       "openQuestion": "If every state assumes its rivals are already storing its encrypted traffic, does that assumption change behavior today, for example by making leaders more cautious about what they transmit? Or does it mostly change budgets? And if one side quietly gained the ability to read old traffic, would the first sign be a public breakthrough, or a change in how that side behaves?",
@@ -595,12 +666,33 @@
         {
           "label": "Navy.com — Cryptologic Warfare careers (primary)",
           "url": "https://www.navy.com/careers/cryptologic-warfare"
+        },
+        {
+          "label": "Federal News Network — FBI QIST counterintelligence team; DARPA and Commerce remarks",
+          "url": "https://federalnewsnetwork.com/technology-main/2026/11/quantum-computing-hits-put-up-or-shut-up-moment/"
+        },
+        {
+          "label": "AP via AJC — Russian national accused of spying on defense-tech employees (Nov. 18, 2026)",
+          "url": "https://www.ajc.com/news/2026/11/russian-national-accused-of-spying-on-employees-of-silicon-valley-defense-and-technology-company/"
+        },
+        {
+          "label": "SRI — press release (Nov. 11, 2026, primary, Romanian)",
+          "url": "https://sri.ro/articole/comunicat-de-presa-11-11-2026.html"
+        },
+        {
+          "label": "Google Cloud — Cold Relic: impersonation and compromise (Nov. 18, 2026)",
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/cold-relic-a-case-study-in-impersonation-and-compromise"
+        },
+        {
+          "label": "The Record — UK National Cyber Force headquarters opens",
+          "url": "https://therecord.media/uk-national-cyber-force-headquarters-opens"
         }
-      ]
+      ],
+      "updated": "2026-11-23"
     }
   ],
   "map": {
-    "draft": true,
+    "draft": false,
     "groups": [
       {
         "name": "Universities",
@@ -681,6 +773,24 @@
             "where": "Mountain View, CA",
             "role": "Field-tests quantum navigation sensors",
             "url": "https://www.diu.mil/latest/advancing-quantum-sensing-for-the-dod-from-lab-to-orbit-within-months"
+          },
+          {
+            "name": "Commerce CHIPS R&D Office",
+            "where": "Washington, DC",
+            "role": "Equity-linked funding for quantum firms ($2.01B in 2026 letters of intent)",
+            "url": "https://www.nist.gov/news-events/news/2026/11/department-commerce-announces-finalization-chips-rd-award-atom-computing"
+          },
+          {
+            "name": "FBI QIST Counterintelligence Protection Team",
+            "where": "Washington, DC; FBI Chicago on Bloch hub board",
+            "role": "Counterintelligence outreach to quantum firms",
+            "url": "https://federalnewsnetwork.com/technology-main/2026/11/quantum-computing-hits-put-up-or-shut-up-moment/"
+          },
+          {
+            "name": "UK National Cyber Force",
+            "where": "Samlesbury, Lancashire, UK",
+            "role": "Allied offensive cyber HQ (GCHQ, MOD, SIS, Dstl)",
+            "url": "https://therecord.media/uk-national-cyber-force-headquarters-opens"
           }
         ]
       },
@@ -722,6 +832,18 @@
             "where": "Boulder, CO",
             "role": "Neutral atoms and clocks; IQMP tenant",
             "url": "https://ir.infleqtion.com/news-events/press-releases/detail/100/infleqtion-and-royal-navy-demonstrate-worlds-first-quantum-optical-clock-on-underwater-autonomous-submarine-to-advance-gps-free-navigation"
+          },
+          {
+            "name": "CETC (DoD 1260H list)",
+            "where": "China; systems shipped to João Pessoa, Brazil",
+            "role": "Built two quantum computers for Brazil (2026)",
+            "url": "https://thequantuminsider.com/2026/11/18/brazil-receives-parts-for-two-quantum-computers-in-partnership-with-china/"
+          },
+          {
+            "name": "Q-CTRL",
+            "where": "Sydney, Australia; U.S. offices",
+            "role": "Quantum navigation and control software; DARPA RoQS awardee",
+            "url": "https://q-ctrl.com/blog/q-ctrl-secures-us-290-million-series-c-funding-led-by-salesforce-ventures-to-accelerate-the-convergence-of-quantum-and-ai"
           }
         ]
       },
@@ -763,6 +885,12 @@
             "where": "Seattle, WA",
             "role": "Plans to supply lunar helium-3 (not yet extracted)",
             "url": "https://www.interlune.space/press-release/u-s-department-of-energy-buys-helium-3-from-u-s-space-resources-company-interlune-in-historic-agreement"
+          },
+          {
+            "name": "QuintessenceLabs (SEALSQ LOI)",
+            "where": "Canberra, Australia",
+            "role": "Quantum random-number generators, QKD, key management",
+            "url": "https://globenewswire.com/news-release/2026/11/18/3405454/0/en/sealsq-signs-a-loi-to-acquire-quintessencelabs-with-the-objective-of-creating-a-world-leader-in-the-vertical-quantum-security-stack.html"
           }
         ]
       },
@@ -798,6 +926,12 @@
             "where": "European Union",
             "role": "Planned EU quantum communication network",
             "url": "https://digital-strategy.ec.europa.eu/en/policies/quantum"
+          },
+          {
+            "name": "In-Q-Tel",
+            "where": "Arlington, VA",
+            "role": "CIA-founded investor; backs Q-CTRL",
+            "url": "https://q-ctrl.com/blog/q-ctrl-secures-us-290-million-series-c-funding-led-by-salesforce-ventures-to-accelerate-the-convergence-of-quantum-and-ai"
           }
         ]
       }

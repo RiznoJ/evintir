@@ -3,6 +3,28 @@
 Maintained per CLAUDE.md operating notes. Overwrite stale entries, don't append forever.
 
 ## Works now that didn't before
+- **Cryptologic Watch backlog catch-up (2026-11-23)**: every open morning-brief
+  item from Nov 11–23, plus 4 stories Evin brought (Google GTIG autonomous
+  exploitation, NVIDIA QEC decoder, DeepMind Signal verification, Anduril),
+  added as **drafts** (localhost only).
+  - 5 new draft entries: pre-001 (France/IRGC Shahid Kaveh sabotage, track 5),
+    tel-001 (CISA 2022 SS7 report via EPIC FOIA, track 4), ver-001 (DeepMind
+    verifies libsignal, track 1), ai-001 (GTIG exploit_agent, new track 10),
+    st-001 (Anduril profile, track 8).
+  - 21 dated updates on existing entries (pqc-001 5, qc-001 4, qn-001 2,
+    kc-001 4 incl. FaceStealer, seab-001 3, pnt-001 3). Updates on published
+    entries carry `"draft": true` and are hidden live.
+  - Deep dives eco-01..04 and off-01: new "November 2026" section each.
+    Map: +7 nodes. Glossary: +9 terms (SS7, Diameter, Global Title, IPX,
+    n-day, formal verification, Lean, IRGC, IDIQ).
+  - New track 10 "AI-Enabled Cyber Operations" (`"draft": true`).
+  - `cryptologic.html`: `updates` and `tracks` now respect `draft`
+    (two one-line filters). Verified: headless render on localhost shows
+    18 drafts; simulated live host shows only the 4 published entries.
+  - To publish an update on a published entry: remove its `"draft": true`
+    and bump the entry's `updated` date.
+  - Not done: the 6 suggested evergreen explainers (Tracks 5–8); Track 7
+    still has no entry.
 - **Cryptologic Watch deep layer (2026-11-06)**: Purpose box at the top of
   `cryptologic.html`; three new page sections below the entries: Foundations
   explainers, Deep dives (two series: The Quantum Ecosystem, Offense &

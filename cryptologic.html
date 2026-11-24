@@ -368,7 +368,7 @@
       <div class="glance" id="cwGlance"></div>
       <div class="eyebrow">Latest · the one-line takeaway from each piece, newest first</div>
       <div class="latest" id="cwLatest"></div>
-      <div class="eyebrow">Tracks · the nine areas this page follows</div>
+      <div class="eyebrow">Tracks · the ten areas this page follows</div>
       <div class="coverage" id="cwCoverage"></div>
       <div class="tracks" id="cwTracks"></div>
     </section>
@@ -740,7 +740,7 @@
             <h2>${esc(e.title)}</h2>
             <div class="bottomline"><b>BOTTOM LINE</b>${esc(e.bottomLine)}</div>
           </div>
-          ${(e.updates || []).length ? `<div class="updates"><div class="upd-label">Updates</div>${[...e.updates].sort((a, b) => b.date.localeCompare(a.date)).map(u => `<div class="upd"><span class="ud">${esc(fmt(u.date))}</span><span>${esc(u.text)}</span></div>`).join("")}</div>` : ""}
+          ${(e.updates || []).filter(visible).length ? `<div class="updates"><div class="upd-label">Updates</div>${(e.updates || []).filter(visible).sort((a, b) => b.date.localeCompare(a.date)).map(u => `<div class="upd"><span class="ud">${esc(fmt(u.date))}</span><span>${esc(u.text)}</span></div>`).join("")}</div>` : ""}
           ${sec("Strategic read", (e.strategicRead || []).length + " points", (e.strategicRead || []).map(r => `<div class="read"><h3>${esc(r.head)}</h3><p>${esc(r.body)}</p><div class="conf">Confidence: ${esc(r.confidence)}</div></div>`).join(""))}
           ${e.debate ? sec("The debate", (e.debate.positions || []).length + " positions · open question", renderDebate(e.debate)) : ""}
           ${sec("Key dates", nextDate ? "Next: " + fmt(nextDate) : "", `<table class="dates">${rows}</table>`)}
@@ -839,6 +839,7 @@
         ECO = eco;
         if (tr && Array.isArray(tr.tracks)) {
           TRACKS = tr;
+          TRACKS.tracks = tr.tracks.filter(visible); // draft tracks show only on localhost
           DATA.entries = [...DATA.entries, ...(tr.draftEntries || [])];
           tr.tracks.forEach(t => (t.entryIds || []).forEach(id => { trackOf[id] = t; }));
         }
